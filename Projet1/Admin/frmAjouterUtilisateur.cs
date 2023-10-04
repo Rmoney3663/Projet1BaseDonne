@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Projet1.Admin
 {
-    public partial class GererUtilisateur : Form
+    public partial class frmAjouterUtilisateur : Form
     {
-        public GererUtilisateur()
+        public frmAjouterUtilisateur()
         {
             InitializeComponent();
         }
@@ -25,13 +25,13 @@ namespace Projet1.Admin
 
         }
 
-        private void GererUtilisateur_Load(object sender, EventArgs e)
+        private void frmAjouterUtilisateur_Load(object sender, EventArgs e)
         {
+            // TODO: cette ligne de code charge les données dans la table 'b56Projet1Equipe7DataSet.typeUtilisateur'. Vous pouvez la déplacer ou la supprimer selon les besoins.
+            this.typeUtilisateurTableAdapter.Fill(this.b56Projet1Equipe7DataSet.typeUtilisateur);
             // TODO: cette ligne de code charge les données dans la table 'b56Projet1Equipe7DataSet.utilisateur'. Vous pouvez la déplacer ou la supprimer selon les besoins.
             this.utilisateurTableAdapter.Fill(this.b56Projet1Equipe7DataSet.utilisateur);
 
         }
-
-      
     }
 }

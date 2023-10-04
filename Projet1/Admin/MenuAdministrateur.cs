@@ -12,6 +12,15 @@ namespace Projet1.Admin
 {
     public partial class MenuAdministrateur : Form
     {
+        GererUtilisateur gererUtilisateur = new GererUtilisateur();
+        GererClient gererClient = new GererClient();
+        GererAssistants gererAssistants = new GererAssistants();
+        GererSoins gererSoins = new GererSoins();
+        Planifier planifier = new Planifier();
+        GererChambre gererChambre = new GererChambre();
+        Reserver reserver = new Reserver();
+        Rapport rapport = new Rapport();
+
         public MenuAdministrateur()
         {
             InitializeComponent();
@@ -29,6 +38,62 @@ namespace Projet1.Admin
             this.Close();
             //connexionForm.ShowDialog();
             //this.Show();
+        }
+
+        private void gérerLesUtilisateursToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            gererUtilisateur.ShowDialog();
+            this.Show();
+        }
+
+        private void gérerLesClientsEtLeursInvitésToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            gererClient.ShowDialog();
+            this.Show();
+        }
+
+        private void gérerLesAssistantsEtLesSoinsQuilsOffrentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            gererAssistants.ShowDialog();
+            this.Show();
+        }
+
+        private void gérerLesSoinsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            gererSoins.ShowDialog();
+            this.Show();
+        }
+
+        private void planifierDesSoinsPourLesClientsEtLeursInvitésToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            planifier.ShowDialog();
+            this.Show();
+        }
+
+        private void gérerLesChambresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            gererChambre.ShowDialog();
+            this.Show();
+        }
+
+        private void réserverDesChambrespourLesClientsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            reserver.ShowDialog();
+            this.Show();
+        }
+
+        private void visualiserDesRapportsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            rapport.ShowDialog();
+            this.Show();
         }
     }
 }

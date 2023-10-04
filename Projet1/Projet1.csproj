@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\frmAjouterUtilisateur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\frmAjouterUtilisateur.Designer.cs">
+      <DependentUpon>frmAjouterUtilisateur.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admin\GererAssistants.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,6 +143,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Admin\frmAjouterUtilisateur.resx">
+      <DependentUpon>frmAjouterUtilisateur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\GererUtilisateur.resx">
+      <DependentUpon>GererUtilisateur.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Connexion.resx">
       <DependentUpon>Connexion.cs</DependentUpon>
     </EmbeddedResource>
