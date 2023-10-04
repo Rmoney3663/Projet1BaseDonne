@@ -123,6 +123,12 @@
     <Compile Include="Prepose\Gerer.Designer.cs">
       <DependentUpon>Gerer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Prepose\GestionClientsInvites\frmAjoutClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Prepose\GestionClientsInvites\frmAjoutClient.Designer.cs">
+      <DependentUpon>frmAjoutClient.cs</DependentUpon>
+    </Compile>
     <Compile Include="Prepose\MenuPrepose.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,6 +163,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Prepose\Gerer.resx">
       <DependentUpon>Gerer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Prepose\GestionClientsInvites\frmAjoutClient.resx">
+      <DependentUpon>frmAjoutClient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Prepose\MenuPrepose.resx">
       <DependentUpon>MenuPrepose.cs</DependentUpon>

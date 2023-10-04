@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.Label noClientLabel;
             System.Windows.Forms.Label nomLabel;
             System.Windows.Forms.Label prenomLabel;
             System.Windows.Forms.Label villeLabel;
@@ -41,18 +40,17 @@
             this.clientBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.clientTableAdapter = new Projet1.B56Projet1Equipe7DataSetTableAdapters.clientTableAdapter();
             this.tableAdapterManager = new Projet1.B56Projet1Equipe7DataSetTableAdapters.TableAdapterManager();
-            this.noClientTextBox = new System.Windows.Forms.TextBox();
-            this.nomTextBox = new System.Windows.Forms.TextBox();
-            this.prenomTextBox = new System.Windows.Forms.TextBox();
-            this.villeTextBox = new System.Windows.Forms.TextBox();
-            this.paysTextBox = new System.Windows.Forms.TextBox();
-            this.adresseTextBox = new System.Windows.Forms.TextBox();
-            this.codePostalTextBox = new System.Windows.Forms.TextBox();
-            this.dateInscriptionDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.tbNom = new System.Windows.Forms.TextBox();
+            this.tbPrenom = new System.Windows.Forms.TextBox();
+            this.tbVille = new System.Windows.Forms.TextBox();
+            this.tbPays = new System.Windows.Forms.TextBox();
+            this.tbAdresse = new System.Windows.Forms.TextBox();
+            this.tbCodePostal = new System.Windows.Forms.TextBox();
+            this.dpInscription = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.btnAjouter = new System.Windows.Forms.Button();
             this.btnAnnuler = new System.Windows.Forms.Button();
-            noClientLabel = new System.Windows.Forms.Label();
+            this.errMessage = new System.Windows.Forms.ErrorProvider(this.components);
             nomLabel = new System.Windows.Forms.Label();
             prenomLabel = new System.Windows.Forms.Label();
             villeLabel = new System.Windows.Forms.Label();
@@ -62,6 +60,7 @@
             dateInscriptionLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.b56Projet1Equipe7DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errMessage)).BeginInit();
             this.SuspendLayout();
             // 
             // b56Projet1Equipe7DataSet
@@ -95,158 +94,140 @@
             this.tableAdapterManager.UpdateOrder = Projet1.B56Projet1Equipe7DataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.utilisateurTableAdapter = null;
             // 
-            // noClientLabel
-            // 
-            noClientLabel.AutoSize = true;
-            noClientLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            noClientLabel.Location = new System.Drawing.Point(38, 97);
-            noClientLabel.Name = "noClientLabel";
-            noClientLabel.Size = new System.Drawing.Size(80, 18);
-            noClientLabel.TabIndex = 1;
-            noClientLabel.Text = "no Client:";
-            // 
-            // noClientTextBox
-            // 
-            this.noClientTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientBindingSource, "noClient", true));
-            this.noClientTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.noClientTextBox.Location = new System.Drawing.Point(189, 94);
-            this.noClientTextBox.Name = "noClientTextBox";
-            this.noClientTextBox.Size = new System.Drawing.Size(227, 24);
-            this.noClientTextBox.TabIndex = 2;
-            // 
             // nomLabel
             // 
             nomLabel.AutoSize = true;
             nomLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            nomLabel.Location = new System.Drawing.Point(38, 125);
+            nomLabel.Location = new System.Drawing.Point(44, 97);
             nomLabel.Name = "nomLabel";
             nomLabel.Size = new System.Drawing.Size(46, 18);
             nomLabel.TabIndex = 3;
             nomLabel.Text = "nom:";
             // 
-            // nomTextBox
+            // tbNom
             // 
-            this.nomTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientBindingSource, "nom", true));
-            this.nomTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nomTextBox.Location = new System.Drawing.Point(189, 122);
-            this.nomTextBox.Name = "nomTextBox";
-            this.nomTextBox.Size = new System.Drawing.Size(227, 24);
-            this.nomTextBox.TabIndex = 4;
+            this.tbNom.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientBindingSource, "nom", true));
+            this.tbNom.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbNom.Location = new System.Drawing.Point(195, 94);
+            this.tbNom.Name = "tbNom";
+            this.tbNom.Size = new System.Drawing.Size(227, 24);
+            this.tbNom.TabIndex = 4;
             // 
             // prenomLabel
             // 
             prenomLabel.AutoSize = true;
             prenomLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            prenomLabel.Location = new System.Drawing.Point(38, 153);
+            prenomLabel.Location = new System.Drawing.Point(44, 125);
             prenomLabel.Name = "prenomLabel";
             prenomLabel.Size = new System.Drawing.Size(70, 18);
             prenomLabel.TabIndex = 5;
             prenomLabel.Text = "prenom:";
             // 
-            // prenomTextBox
+            // tbPrenom
             // 
-            this.prenomTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientBindingSource, "prenom", true));
-            this.prenomTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.prenomTextBox.Location = new System.Drawing.Point(189, 150);
-            this.prenomTextBox.Name = "prenomTextBox";
-            this.prenomTextBox.Size = new System.Drawing.Size(227, 24);
-            this.prenomTextBox.TabIndex = 6;
+            this.tbPrenom.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientBindingSource, "prenom", true));
+            this.tbPrenom.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbPrenom.Location = new System.Drawing.Point(195, 122);
+            this.tbPrenom.Name = "tbPrenom";
+            this.tbPrenom.Size = new System.Drawing.Size(227, 24);
+            this.tbPrenom.TabIndex = 6;
             // 
             // villeLabel
             // 
             villeLabel.AutoSize = true;
             villeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            villeLabel.Location = new System.Drawing.Point(38, 181);
+            villeLabel.Location = new System.Drawing.Point(44, 153);
             villeLabel.Name = "villeLabel";
             villeLabel.Size = new System.Drawing.Size(42, 18);
             villeLabel.TabIndex = 7;
             villeLabel.Text = "ville:";
             // 
-            // villeTextBox
+            // tbVille
             // 
-            this.villeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientBindingSource, "ville", true));
-            this.villeTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.villeTextBox.Location = new System.Drawing.Point(189, 178);
-            this.villeTextBox.Name = "villeTextBox";
-            this.villeTextBox.Size = new System.Drawing.Size(227, 24);
-            this.villeTextBox.TabIndex = 8;
+            this.tbVille.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientBindingSource, "ville", true));
+            this.tbVille.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbVille.Location = new System.Drawing.Point(195, 150);
+            this.tbVille.Name = "tbVille";
+            this.tbVille.Size = new System.Drawing.Size(227, 24);
+            this.tbVille.TabIndex = 8;
             // 
             // paysLabel
             // 
             paysLabel.AutoSize = true;
             paysLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            paysLabel.Location = new System.Drawing.Point(38, 209);
+            paysLabel.Location = new System.Drawing.Point(44, 181);
             paysLabel.Name = "paysLabel";
             paysLabel.Size = new System.Drawing.Size(48, 18);
             paysLabel.TabIndex = 9;
             paysLabel.Text = "pays:";
             // 
-            // paysTextBox
+            // tbPays
             // 
-            this.paysTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientBindingSource, "pays", true));
-            this.paysTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.paysTextBox.Location = new System.Drawing.Point(189, 206);
-            this.paysTextBox.Name = "paysTextBox";
-            this.paysTextBox.Size = new System.Drawing.Size(227, 24);
-            this.paysTextBox.TabIndex = 10;
+            this.tbPays.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientBindingSource, "pays", true));
+            this.tbPays.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbPays.Location = new System.Drawing.Point(195, 178);
+            this.tbPays.Name = "tbPays";
+            this.tbPays.Size = new System.Drawing.Size(227, 24);
+            this.tbPays.TabIndex = 10;
             // 
             // adresseLabel
             // 
             adresseLabel.AutoSize = true;
             adresseLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            adresseLabel.Location = new System.Drawing.Point(38, 237);
+            adresseLabel.Location = new System.Drawing.Point(44, 209);
             adresseLabel.Name = "adresseLabel";
             adresseLabel.Size = new System.Drawing.Size(73, 18);
             adresseLabel.TabIndex = 11;
             adresseLabel.Text = "adresse:";
             // 
-            // adresseTextBox
+            // tbAdresse
             // 
-            this.adresseTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientBindingSource, "adresse", true));
-            this.adresseTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.adresseTextBox.Location = new System.Drawing.Point(189, 234);
-            this.adresseTextBox.Name = "adresseTextBox";
-            this.adresseTextBox.Size = new System.Drawing.Size(227, 24);
-            this.adresseTextBox.TabIndex = 12;
+            this.tbAdresse.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientBindingSource, "adresse", true));
+            this.tbAdresse.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbAdresse.Location = new System.Drawing.Point(195, 206);
+            this.tbAdresse.Name = "tbAdresse";
+            this.tbAdresse.Size = new System.Drawing.Size(227, 24);
+            this.tbAdresse.TabIndex = 12;
             // 
             // codePostalLabel
             // 
             codePostalLabel.AutoSize = true;
             codePostalLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            codePostalLabel.Location = new System.Drawing.Point(38, 265);
+            codePostalLabel.Location = new System.Drawing.Point(44, 237);
             codePostalLabel.Name = "codePostalLabel";
             codePostalLabel.Size = new System.Drawing.Size(103, 18);
             codePostalLabel.TabIndex = 13;
             codePostalLabel.Text = "code Postal:";
             // 
-            // codePostalTextBox
+            // tbCodePostal
             // 
-            this.codePostalTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientBindingSource, "codePostal", true));
-            this.codePostalTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.codePostalTextBox.Location = new System.Drawing.Point(189, 262);
-            this.codePostalTextBox.Name = "codePostalTextBox";
-            this.codePostalTextBox.Size = new System.Drawing.Size(227, 24);
-            this.codePostalTextBox.TabIndex = 14;
+            this.tbCodePostal.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientBindingSource, "codePostal", true));
+            this.tbCodePostal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbCodePostal.Location = new System.Drawing.Point(195, 234);
+            this.tbCodePostal.Name = "tbCodePostal";
+            this.tbCodePostal.Size = new System.Drawing.Size(227, 24);
+            this.tbCodePostal.TabIndex = 14;
             // 
             // dateInscriptionLabel
             // 
             dateInscriptionLabel.AutoSize = true;
             dateInscriptionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dateInscriptionLabel.Location = new System.Drawing.Point(38, 294);
+            dateInscriptionLabel.Location = new System.Drawing.Point(44, 266);
             dateInscriptionLabel.Name = "dateInscriptionLabel";
             dateInscriptionLabel.Size = new System.Drawing.Size(128, 18);
             dateInscriptionLabel.TabIndex = 15;
             dateInscriptionLabel.Text = "date Inscription:";
             // 
-            // dateInscriptionDateTimePicker
+            // dpInscription
             // 
-            this.dateInscriptionDateTimePicker.Checked = false;
-            this.dateInscriptionDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.clientBindingSource, "dateInscription", true));
-            this.dateInscriptionDateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateInscriptionDateTimePicker.Location = new System.Drawing.Point(189, 290);
-            this.dateInscriptionDateTimePicker.Name = "dateInscriptionDateTimePicker";
-            this.dateInscriptionDateTimePicker.Size = new System.Drawing.Size(227, 24);
-            this.dateInscriptionDateTimePicker.TabIndex = 16;
+            this.dpInscription.Checked = false;
+            this.dpInscription.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.clientBindingSource, "dateInscription", true));
+            this.dpInscription.Enabled = false;
+            this.dpInscription.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dpInscription.Location = new System.Drawing.Point(195, 262);
+            this.dpInscription.Name = "dpInscription";
+            this.dpInscription.Size = new System.Drawing.Size(227, 24);
+            this.dpInscription.TabIndex = 16;
             // 
             // label1
             // 
@@ -264,7 +245,7 @@
             this.btnAjouter.BackColor = System.Drawing.Color.PaleGreen;
             this.btnAjouter.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAjouter.ForeColor = System.Drawing.Color.Black;
-            this.btnAjouter.Location = new System.Drawing.Point(62, 337);
+            this.btnAjouter.Location = new System.Drawing.Point(68, 309);
             this.btnAjouter.Name = "btnAjouter";
             this.btnAjouter.Size = new System.Drawing.Size(135, 39);
             this.btnAjouter.TabIndex = 18;
@@ -277,7 +258,7 @@
             this.btnAnnuler.BackColor = System.Drawing.Color.LightCoral;
             this.btnAnnuler.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAnnuler.ForeColor = System.Drawing.Color.Black;
-            this.btnAnnuler.Location = new System.Drawing.Point(245, 337);
+            this.btnAnnuler.Location = new System.Drawing.Point(251, 309);
             this.btnAnnuler.Name = "btnAnnuler";
             this.btnAnnuler.Size = new System.Drawing.Size(135, 39);
             this.btnAnnuler.TabIndex = 19;
@@ -285,35 +266,38 @@
             this.btnAnnuler.UseVisualStyleBackColor = false;
             this.btnAnnuler.Click += new System.EventHandler(this.btnAnnuler_Click);
             // 
+            // errMessage
+            // 
+            this.errMessage.ContainerControl = this;
+            // 
             // frmAjoutClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(472, 400);
+            this.ClientSize = new System.Drawing.Size(472, 373);
             this.Controls.Add(this.btnAnnuler);
             this.Controls.Add(this.btnAjouter);
             this.Controls.Add(this.label1);
-            this.Controls.Add(noClientLabel);
-            this.Controls.Add(this.noClientTextBox);
             this.Controls.Add(nomLabel);
-            this.Controls.Add(this.nomTextBox);
+            this.Controls.Add(this.tbNom);
             this.Controls.Add(prenomLabel);
-            this.Controls.Add(this.prenomTextBox);
+            this.Controls.Add(this.tbPrenom);
             this.Controls.Add(villeLabel);
-            this.Controls.Add(this.villeTextBox);
+            this.Controls.Add(this.tbVille);
             this.Controls.Add(paysLabel);
-            this.Controls.Add(this.paysTextBox);
+            this.Controls.Add(this.tbPays);
             this.Controls.Add(adresseLabel);
-            this.Controls.Add(this.adresseTextBox);
+            this.Controls.Add(this.tbAdresse);
             this.Controls.Add(codePostalLabel);
-            this.Controls.Add(this.codePostalTextBox);
+            this.Controls.Add(this.tbCodePostal);
             this.Controls.Add(dateInscriptionLabel);
-            this.Controls.Add(this.dateInscriptionDateTimePicker);
+            this.Controls.Add(this.dpInscription);
             this.Name = "frmAjoutClient";
             this.Text = "Ajouter un nouveau client";
             this.Load += new System.EventHandler(this.frmAjoutClient_Load);
             ((System.ComponentModel.ISupportInitialize)(this.b56Projet1Equipe7DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errMessage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -325,16 +309,16 @@
         private System.Windows.Forms.BindingSource clientBindingSource;
         private B56Projet1Equipe7DataSetTableAdapters.clientTableAdapter clientTableAdapter;
         private B56Projet1Equipe7DataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.TextBox noClientTextBox;
-        private System.Windows.Forms.TextBox nomTextBox;
-        private System.Windows.Forms.TextBox prenomTextBox;
-        private System.Windows.Forms.TextBox villeTextBox;
-        private System.Windows.Forms.TextBox paysTextBox;
-        private System.Windows.Forms.TextBox adresseTextBox;
-        private System.Windows.Forms.TextBox codePostalTextBox;
-        private System.Windows.Forms.DateTimePicker dateInscriptionDateTimePicker;
+        private System.Windows.Forms.TextBox tbNom;
+        private System.Windows.Forms.TextBox tbPrenom;
+        private System.Windows.Forms.TextBox tbVille;
+        private System.Windows.Forms.TextBox tbPays;
+        private System.Windows.Forms.TextBox tbAdresse;
+        private System.Windows.Forms.TextBox tbCodePostal;
+        private System.Windows.Forms.DateTimePicker dpInscription;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnAjouter;
         private System.Windows.Forms.Button btnAnnuler;
+        private System.Windows.Forms.ErrorProvider errMessage;
     }
 }

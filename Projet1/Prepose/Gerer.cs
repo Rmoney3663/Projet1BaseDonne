@@ -38,24 +38,29 @@ namespace Projet1.Prepose
         {
             B56Projet1Equipe7DataSet.clientRow unClient = b56Projet1Equipe7DataSet.client.NewclientRow();
 
-            decimal noContratMax =
-            b56Projet1Equipe7DataSet.client.Rows.Cast<B56Projet1Equipe7DataSet.clientRow>().Max(r => r.noClient);
+            decimal noContratMax = 0;
 
-            unClient.noClient = noContratMax + 1;
+            if (b56Projet1Equipe7DataSet.client.Count() != 0)
+            {
+                noContratMax =
+                b56Projet1Equipe7DataSet.client.Rows.Cast<B56Projet1Equipe7DataSet.clientRow>().Max(r => r.noClient);
+            }
 
-            unClient.dateInscription = DateTime.Now.Date;
+            unClient.noClient = noContratMax + 10;
+
+            unClient.dateInscription = DateTime.MinValue;
 
             GestionClientsInvites.frmAjoutClient frmAjout = new GestionClientsInvites.frmAjoutClient();
 
             frmAjout.unClient = unClient;
             frmAjout.ShowDialog();
 
-            if (unClient.conMontant != -1)
+            if (unClient.dateInscription != DateTime.MinValue)
             {
-                bDB56ChagnonDataSet.contrat.AddcontratRow(unClient);
+                b56Projet1Equipe7DataSet.client.AddclientRow(unClient);
 
-                contratBindingSource.MoveLast();
-                MessageBox.Show("Le contrat " + unClient.conNo.ToString() + " a été ajouté.", "Ajout d'un contrat", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                clientBindingSource.MoveLast();
+                MessageBox.Show("Le client " + unClient.noClient.ToString() + " a été ajouté.", "Ajout d'un client", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
