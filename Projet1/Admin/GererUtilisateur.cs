@@ -34,7 +34,9 @@ namespace Projet1.Admin
 
         private void btnAjouter_Click(object sender, EventArgs e)
         {
-
+            frmAjouterUtilisateur frmAjouterUtilisateur = new frmAjouterUtilisateur();
+            frmAjouterUtilisateur.unContrat = unContrat;
+            frmAjouterUtilisateur.ShowDialog();
         }
     }
 }
