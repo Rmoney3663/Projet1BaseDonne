@@ -94,6 +94,11 @@
     <Compile Include="Admin\Reserver.Designer.cs">
       <DependentUpon>Reserver.cs</DependentUpon>
     </Compile>
+    <Compile Include="B56Projet1Equipe7DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>B56Projet1Equipe7DataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Connexion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,6 +164,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="B56Projet1Equipe7DataSet.xsc">
+      <DependentUpon>B56Projet1Equipe7DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="B56Projet1Equipe7DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>B56Projet1Equipe7DataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="B56Projet1Equipe7DataSet.xss">
+      <DependentUpon>B56Projet1Equipe7DataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

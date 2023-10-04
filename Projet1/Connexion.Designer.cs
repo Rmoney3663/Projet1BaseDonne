@@ -34,6 +34,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btConnexion = new System.Windows.Forms.Button();
+            this.resultat = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -96,12 +97,22 @@
             this.btConnexion.UseVisualStyleBackColor = true;
             this.btConnexion.Click += new System.EventHandler(this.btConnexion_Click);
             // 
+            // resultat
+            // 
+            this.resultat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.resultat.Location = new System.Drawing.Point(76, 264);
+            this.resultat.Name = "resultat";
+            this.resultat.Size = new System.Drawing.Size(214, 32);
+            this.resultat.TabIndex = 6;
+            this.resultat.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Connexion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Info;
             this.ClientSize = new System.Drawing.Size(354, 305);
+            this.Controls.Add(this.resultat);
             this.Controls.Add(this.btConnexion);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -124,6 +135,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btConnexion;
+        private System.Windows.Forms.Label resultat;
     }
 }
 
