@@ -65,18 +65,21 @@
             this.gérerLesClientsEtLeursInvitésToolStripMenuItem.Name = "gérerLesClientsEtLeursInvitésToolStripMenuItem";
             this.gérerLesClientsEtLeursInvitésToolStripMenuItem.Size = new System.Drawing.Size(328, 22);
             this.gérerLesClientsEtLeursInvitésToolStripMenuItem.Text = "Gérer les clients et leurs invités ";
+            this.gérerLesClientsEtLeursInvitésToolStripMenuItem.Click += new System.EventHandler(this.gérerLesClientsEtLeursInvitésToolStripMenuItem_Click);
             // 
             // planifierDesSoinsPourLesClientsEtLeursInvitésToolStripMenuItem
             // 
             this.planifierDesSoinsPourLesClientsEtLeursInvitésToolStripMenuItem.Name = "planifierDesSoinsPourLesClientsEtLeursInvitésToolStripMenuItem";
             this.planifierDesSoinsPourLesClientsEtLeursInvitésToolStripMenuItem.Size = new System.Drawing.Size(328, 22);
             this.planifierDesSoinsPourLesClientsEtLeursInvitésToolStripMenuItem.Text = "Planifier des soins pour les clients et leurs invités";
+            this.planifierDesSoinsPourLesClientsEtLeursInvitésToolStripMenuItem.Click += new System.EventHandler(this.planifierDesSoinsPourLesClientsEtLeursInvitésToolStripMenuItem_Click);
             // 
             // réserverDesChambresToolStripMenuItem
             // 
             this.réserverDesChambresToolStripMenuItem.Name = "réserverDesChambresToolStripMenuItem";
             this.réserverDesChambresToolStripMenuItem.Size = new System.Drawing.Size(328, 22);
             this.réserverDesChambresToolStripMenuItem.Text = "Réserver des chambres";
+            this.réserverDesChambresToolStripMenuItem.Click += new System.EventHandler(this.réserverDesChambresToolStripMenuItem_Click);
             // 
             // seDéconnecterToolStripMenuItem
             // 

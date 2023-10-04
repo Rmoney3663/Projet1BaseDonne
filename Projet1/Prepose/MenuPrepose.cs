@@ -12,6 +12,9 @@ namespace Projet1.Prepose
 {
     public partial class MenuPrepose : Form
     {
+        Planifier planifier = new Planifier();
+        Reserver reserver = new Reserver();
+        Gerer gerer = new Gerer();
 
         public MenuPrepose()
         {
@@ -25,10 +28,31 @@ namespace Projet1.Prepose
 
         private void seDéconnecterToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Connexion connexionForm = new Connexion();
+           /* Connexion connexionForm = new Connexion();
+            this.Hide();*/
+            this.Close();
+            /*connexionForm.ShowDialog();
+            this.Show();*/
+        }
+
+        private void gérerLesClientsEtLeursInvitésToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             this.Hide();
-            //this.Close();
-            connexionForm.ShowDialog();
+            gerer.ShowDialog();
+            this.Show();
+        }
+
+        private void planifierDesSoinsPourLesClientsEtLeursInvitésToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            planifier.ShowDialog();
+            this.Show();
+        }
+
+        private void réserverDesChambresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            reserver.ShowDialog();
             this.Show();
         }
     }

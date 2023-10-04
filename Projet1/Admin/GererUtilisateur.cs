@@ -32,6 +32,9 @@ namespace Projet1.Admin
 
         }
 
-      
+        private void btnAjouter_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
