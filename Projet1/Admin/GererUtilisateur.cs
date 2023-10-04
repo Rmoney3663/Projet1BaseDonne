@@ -34,8 +34,9 @@ namespace Projet1.Admin
 
         private void btnAjouter_Click(object sender, EventArgs e)
         {
+            B56Projet1Equipe7DataSet.utilisateurRow unUser = b56Projet1Equipe7DataSet.utilisateur.NewutilisateurRow();
             frmAjouterUtilisateur frmAjouterUtilisateur = new frmAjouterUtilisateur();
-            frmAjouterUtilisateur.unContrat = unContrat;
+            frmAjouterUtilisateur.unUser = unUser;
             frmAjouterUtilisateur.ShowDialog();
         }
     }

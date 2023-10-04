@@ -90,6 +90,7 @@
             this.btnAjouter.TabIndex = 9;
             this.btnAjouter.Text = "Ajouter";
             this.btnAjouter.UseVisualStyleBackColor = true;
+            
             // 
             // btnFermer
             // 

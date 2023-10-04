@@ -12,6 +12,7 @@ namespace Projet1.Admin
 {
     public partial class frmAjouterUtilisateur : Form
     {
+        public B56Projet1Equipe7DataSet.utilisateurRow unUser;
         public frmAjouterUtilisateur()
         {
             InitializeComponent();
@@ -33,5 +34,6 @@ namespace Projet1.Admin
             this.utilisateurTableAdapter.Fill(this.b56Projet1Equipe7DataSet.utilisateur);
 
         }
+
     }
 }
