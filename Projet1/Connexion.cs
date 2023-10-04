@@ -24,6 +24,7 @@ namespace Projet1
         {
             InitializeComponent();
             maConnexion.Open();
+            tbPassword.PasswordChar = '*';
         }
 
         private void btConnexion_Click(object sender, EventArgs e)
@@ -52,6 +53,7 @@ namespace Projet1
                     admin.ShowDialog();
                     tbNomUtilisateur.Text = "";
                     tbPassword.Text = "";
+                    resultat.Text = "";
                     this.Show();
                 }
                 if (noTypeUtilisateur == 2)
