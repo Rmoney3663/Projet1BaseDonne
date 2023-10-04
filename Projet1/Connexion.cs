@@ -12,11 +12,18 @@ namespace Projet1
 {
     public partial class Connexion : Form
     {
+        Prepose.MenuPrepose prepose = new Prepose.MenuPrepose();
+
         public Connexion()
         {
             InitializeComponent();
         }
 
-       
+        private void btConnexion_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            prepose.ShowDialog();
+            this.Close();
+        }
     }
 }

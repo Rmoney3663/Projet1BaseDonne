@@ -94,6 +94,7 @@
             this.btConnexion.TabIndex = 5;
             this.btConnexion.Text = "connexion";
             this.btConnexion.UseVisualStyleBackColor = true;
+            this.btConnexion.Click += new System.EventHandler(this.btConnexion_Click);
             // 
             // Connexion
             // 

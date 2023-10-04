@@ -1,4 +1,4 @@
-﻿namespace Projet1
+﻿namespace Projet1.Admin
 {
     partial class MenuAdministrateur
     {
@@ -123,12 +123,14 @@
             this.seDéconnecterToolStripMenuItem.Name = "seDéconnecterToolStripMenuItem";
             this.seDéconnecterToolStripMenuItem.Size = new System.Drawing.Size(328, 22);
             this.seDéconnecterToolStripMenuItem.Text = "Se déconnecter";
+            this.seDéconnecterToolStripMenuItem.Click += new System.EventHandler(this.seDéconnecterToolStripMenuItem_Click);
             // 
             // quitterLapplicationToolStripMenuItem
             // 
             this.quitterLapplicationToolStripMenuItem.Name = "quitterLapplicationToolStripMenuItem";
             this.quitterLapplicationToolStripMenuItem.Size = new System.Drawing.Size(328, 22);
             this.quitterLapplicationToolStripMenuItem.Text = "Quitter l’application";
+            this.quitterLapplicationToolStripMenuItem.Click += new System.EventHandler(this.quitterLapplicationToolStripMenuItem_Click);
             // 
             // MenuAdministrateur
             // 
