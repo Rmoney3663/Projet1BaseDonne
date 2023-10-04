@@ -54,7 +54,7 @@
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.dgInvites = new System.Windows.Forms.DataGridView();
-            this.noClientTextBox = new System.Windows.Forms.TextBox();
+            this.tbNoClient = new System.Windows.Forms.TextBox();
             this.nomTextBox = new System.Windows.Forms.TextBox();
             this.prenomTextBox = new System.Windows.Forms.TextBox();
             this.villeTextBox = new System.Windows.Forms.TextBox();
@@ -321,14 +321,14 @@
             this.dgInvites.Size = new System.Drawing.Size(422, 172);
             this.dgInvites.TabIndex = 2;
             // 
-            // noClientTextBox
+            // tbNoClient
             // 
-            this.noClientTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientBindingSource, "noClient", true));
-            this.noClientTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.noClientTextBox.Location = new System.Drawing.Point(179, 112);
-            this.noClientTextBox.Name = "noClientTextBox";
-            this.noClientTextBox.Size = new System.Drawing.Size(222, 24);
-            this.noClientTextBox.TabIndex = 3;
+            this.tbNoClient.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientBindingSource, "noClient", true));
+            this.tbNoClient.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbNoClient.Location = new System.Drawing.Point(179, 112);
+            this.tbNoClient.Name = "tbNoClient";
+            this.tbNoClient.Size = new System.Drawing.Size(222, 24);
+            this.tbNoClient.TabIndex = 3;
             // 
             // nomTextBox
             // 
@@ -551,7 +551,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(noClientLabel);
-            this.Controls.Add(this.noClientTextBox);
+            this.Controls.Add(this.tbNoClient);
             this.Controls.Add(nomLabel);
             this.Controls.Add(this.nomTextBox);
             this.Controls.Add(prenomLabel);
@@ -606,7 +606,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
-        private System.Windows.Forms.TextBox noClientTextBox;
+        private System.Windows.Forms.TextBox tbNoClient;
         private System.Windows.Forms.TextBox nomTextBox;
         private System.Windows.Forms.TextBox prenomTextBox;
         private System.Windows.Forms.TextBox villeTextBox;

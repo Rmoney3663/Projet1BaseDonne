@@ -58,7 +58,7 @@ namespace Projet1.Prepose
                 b56Projet1Equipe7DataSet.client.AddclientRow(unClient);
 
                 clientBindingSource.MoveLast();
-                MessageBox.Show("Le client " + unClient.noClient.ToString() + " a été ajouté.", "Ajout d'un client", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Le client " + (noContratMax + 10).ToString() + " a été ajouté.", "Ajout d'un client", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 this.Validate();
                 this.clientBindingSource.EndEdit();
@@ -79,7 +79,35 @@ namespace Projet1.Prepose
 
         private void btnAjoutInvite_Click(object sender, EventArgs e)
         {
+            B56Projet1Equipe7DataSet.inviteRow unInvite = b56Projet1Equipe7DataSet.invite.NewinviteRow();
 
+            if (b56Projet1Equipe7DataSet.client.Count() != 0 && tbNoClient.Text != "")
+            {
+
+                unInvite.noClient = Decimal.Parse(tbNoClient.Text);
+
+                GestionClientsInvites.frmAjoutInvite frmAjout = new GestionClientsInvites.frmAjoutInvite();
+
+                frmAjout.unClient = unClient;
+                frmAjout.ShowDialog();
+
+                if (unClient.dateInscription != DateTime.MinValue)
+                {
+                    b56Projet1Equipe7DataSet.client.AddclientRow(unClient);
+
+                    clientBindingSource.MoveLast();
+                    MessageBox.Show("Le client " + (noContratMax + 10).ToString() + " a été ajouté.", "Ajout d'un client", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    this.Validate();
+                    this.clientBindingSource.EndEdit();
+                    this.clientTableAdapter.Update(this.b56Projet1Equipe7DataSet.client);
+                }
+            }
+
+            else
+            {
+
+            }
         }
 
         private void btnModifierInvite_Click(object sender, EventArgs e)
