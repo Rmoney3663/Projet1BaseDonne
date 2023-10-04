@@ -16,5 +16,22 @@ namespace Projet1.Prepose
         {
             InitializeComponent();
         }
+
+        private void clientBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.clientBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.b56Projet1Equipe7DataSet);
+
+        }
+
+        private void Gerer_Load(object sender, EventArgs e)
+        {
+            // TODO: cette ligne de code charge les données dans la table 'b56Projet1Equipe7DataSet.invite'. Vous pouvez la déplacer ou la supprimer selon les besoins.
+            this.inviteTableAdapter.Fill(this.b56Projet1Equipe7DataSet.invite);
+            // TODO: cette ligne de code charge les données dans la table 'b56Projet1Equipe7DataSet.client'. Vous pouvez la déplacer ou la supprimer selon les besoins.
+            this.clientTableAdapter.Fill(this.b56Projet1Equipe7DataSet.client);
+
+        }
     }
 }
