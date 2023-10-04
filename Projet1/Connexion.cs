@@ -50,13 +50,15 @@ namespace Projet1
                 {
                     this.Hide();
                     admin.ShowDialog();
-                    this.Close();
+                    tbNomUtilisateur.Text = "";
+                    tbPassword.Text = "";
+                    this.Show();
                 }
                 if (noTypeUtilisateur == 2)
                 {
                     this.Hide();
                     prepose.ShowDialog();
-                    this.Close();
+                    this.Show();
                 }
 
             }

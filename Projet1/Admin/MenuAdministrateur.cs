@@ -24,10 +24,11 @@ namespace Projet1.Admin
 
         private void seDéconnecterToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Connexion connexionForm = new Connexion();
-            this.Hide();
-            connexionForm.ShowDialog();
-            this.Show();
+           // Connexion connexionForm = new Connexion();
+           // this.Hide();
+            this.Close();
+            //connexionForm.ShowDialog();
+            //this.Show();
         }
     }
 }

@@ -27,6 +27,7 @@ namespace Projet1.Prepose
         {
             Connexion connexionForm = new Connexion();
             this.Hide();
+            //this.Close();
             connexionForm.ShowDialog();
             this.Show();
         }
