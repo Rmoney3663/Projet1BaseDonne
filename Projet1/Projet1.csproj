@@ -52,16 +52,16 @@
     <Compile Include="Connexion.Designer.cs">
       <DependentUpon>Connexion.cs</DependentUpon>
     </Compile>
-    <Compile Include="MenuAdministrateur.cs">
+    <Compile Include="Admin\MenuAdministrateur.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MenuAdministrateur.Designer.cs">
+    <Compile Include="Admin\MenuAdministrateur.Designer.cs">
       <DependentUpon>MenuAdministrateur.cs</DependentUpon>
     </Compile>
-    <Compile Include="MenuPrepose.cs">
+    <Compile Include="Prepose\MenuPrepose.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MenuPrepose.Designer.cs">
+    <Compile Include="Prepose\MenuPrepose.Designer.cs">
       <DependentUpon>MenuPrepose.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -69,10 +69,10 @@
     <EmbeddedResource Include="Connexion.resx">
       <DependentUpon>Connexion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MenuAdministrateur.resx">
+    <EmbeddedResource Include="Admin\MenuAdministrateur.resx">
       <DependentUpon>MenuAdministrateur.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MenuPrepose.resx">
+    <EmbeddedResource Include="Prepose\MenuPrepose.resx">
       <DependentUpon>MenuPrepose.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
