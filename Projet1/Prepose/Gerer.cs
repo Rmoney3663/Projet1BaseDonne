@@ -46,8 +46,6 @@ namespace Projet1.Prepose
                 b56Projet1Equipe7DataSet.client.Rows.Cast<B56Projet1Equipe7DataSet.clientRow>().Max(r => r.noClient);
             }
 
-            unClient.noClient = noContratMax + 10;
-
             unClient.dateInscription = DateTime.MinValue;
 
             GestionClientsInvites.frmAjoutClient frmAjout = new GestionClientsInvites.frmAjoutClient();
@@ -61,7 +59,12 @@ namespace Projet1.Prepose
 
                 clientBindingSource.MoveLast();
                 MessageBox.Show("Le client " + unClient.noClient.ToString() + " a été ajouté.", "Ajout d'un client", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                this.Validate();
+                this.clientBindingSource.EndEdit();
+                this.clientTableAdapter.Update(this.b56Projet1Equipe7DataSet.client);
             }
+
         }
 
         private void btnModifierClient_Click(object sender, EventArgs e)
@@ -88,5 +91,11 @@ namespace Projet1.Prepose
         {
 
         }
+
+        private void btnFermer_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
     }
 }
