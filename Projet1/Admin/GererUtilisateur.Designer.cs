@@ -91,6 +91,8 @@
             this.utilisateurDataGridView.DataSource = this.utilisateurBindingSource;
             this.utilisateurDataGridView.Location = new System.Drawing.Point(16, 54);
             this.utilisateurDataGridView.Name = "utilisateurDataGridView";
+            this.utilisateurDataGridView.ReadOnly = true;
+            this.utilisateurDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.utilisateurDataGridView.Size = new System.Drawing.Size(443, 220);
             this.utilisateurDataGridView.TabIndex = 1;
             // 

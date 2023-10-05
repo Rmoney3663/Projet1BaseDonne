@@ -11,7 +11,9 @@ using System.Windows.Forms;
 namespace Projet1.Admin
 {
     public partial class GererUtilisateur : Form
-    {         
+    {
+        public int LoginUser { get; set; }
+
         public GererUtilisateur()
         {
             InitializeComponent();
@@ -44,7 +46,7 @@ namespace Projet1.Admin
             unUser.password = "";
             unUser.nomUtilisateur = "";
             frmAjouterUtilisateur frmAjouterUtilisateur = new frmAjouterUtilisateur();
-            frmAjouterUtilisateur.unUser = unUser;
+            frmAjouterUtilisateur.unUser = unUser;            
             frmAjouterUtilisateur.ShowDialog();
 
             bool userNameExists = DoesUserNameExist(unUser.nomUtilisateur);
@@ -97,23 +99,31 @@ namespace Projet1.Admin
                 decimal userId = decimal.Parse(user);
                 decimal userType = decimal.Parse(type);
 
+                
                 B56Projet1Equipe7DataSet.utilisateurRow existingUser = b56Projet1Equipe7DataSet.utilisateur.FindBynoUtilisateur(userId);
 
                 if (existingUser != null)
                 {
                     frmModifierUtilisateur frmModifierUtilisateur = new frmModifierUtilisateur();
                     frmModifierUtilisateur.unUser = existingUser; 
+                    frmModifierUtilisateur.LoginUser = LoginUser;
                     frmModifierUtilisateur.ShowDialog();
 
                     if (existingUser.password != "" && existingUser.nomUtilisateur != "" && existingUser.password != null && existingUser.nomUtilisateur != null)
                     {
                         MessageBox.Show("L'utilisateur " + existingUser.nomUtilisateur.ToString() + " a été modifié. ",
-                            "Modification d'un utilisateur", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                        "Modification d'un utilisateur", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         this.Validate();
                         this.utilisateurBindingSource.EndEdit();
                         this.utilisateurTableAdapter.Update(existingUser);
                     }
+                    else
+                    {
+                        MessageBox.Show("Les données de l'utilisateur ne sont pas valides et la modification est impossible.",
+                                        "Modification d'un utilisateur impossible", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+
                 }
             }
             else

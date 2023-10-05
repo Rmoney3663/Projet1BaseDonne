@@ -13,6 +13,12 @@ namespace Projet1.Admin
     public partial class frmModifierUtilisateur : Form
     {
         public B56Projet1Equipe7DataSet.utilisateurRow unUser;
+        public string pass { get; set; }
+        public string user { get; set; }
+        public decimal type { get; set; }
+
+        public int LoginUser { get; set; }
+
         public frmModifierUtilisateur()
         {
             InitializeComponent();
@@ -21,8 +27,9 @@ namespace Projet1.Admin
 
         private void btnFermer_Click(object sender, EventArgs e)
         {
-            unUser.password = "";
-            unUser.nomUtilisateur = "";
+            unUser.password = pass;
+            unUser.nomUtilisateur = user;
+            unUser.noTypeUtilisateur = type;
             this.Close();
         }
 
@@ -43,15 +50,18 @@ namespace Projet1.Admin
                 unUser.password = txtPassword.Text;
                 unUser.nomUtilisateur = txtUser.Text;
                 unUser.noTypeUtilisateur = Convert.ToDecimal(cbTypeUser.SelectedValue.ToString());
+                this.Validate();
+                this.typeUtilisateurBindingSource.EndEdit();
+                this.tableAdapterManager.UpdateAll(this.b56Projet1Equipe7DataSet);
                 this.Close();
             }
         }
 
         private void typeUtilisateurBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
-            this.Validate();
-            this.typeUtilisateurBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.b56Projet1Equipe7DataSet);
+            //this.Validate();
+            //this.typeUtilisateurBindingSource.EndEdit();
+            //this.tableAdapterManager.UpdateAll(this.b56Projet1Equipe7DataSet);
 
         }
 
@@ -76,8 +86,21 @@ namespace Projet1.Admin
                 {
                     cbTypeUser.SelectedIndex = i;
                     break;
-                }
+                }               
+               
             }
+
+            if (Convert.ToDecimal(LoginUser) == unUser.noUtilisateur)
+            {
+                cbTypeUser.Enabled = false;
+            }
+            else
+            {
+                cbTypeUser.Enabled = true;
+            }
+            pass = unUser.password;
+            type = unUser.noTypeUtilisateur;
+            user = unUser.nomUtilisateur;
 
         }
     }

@@ -13,6 +13,9 @@ namespace Projet1.Admin
     public partial class frmAjouterUtilisateur : Form
     {
         public B56Projet1Equipe7DataSet.utilisateurRow unUser;
+
+        public int Modified { get; internal set; }
+
         public frmAjouterUtilisateur()
         {
             InitializeComponent();
