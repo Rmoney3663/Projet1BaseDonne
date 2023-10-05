@@ -91,19 +91,30 @@ namespace Projet1.Admin
             {
                 DataGridViewRow selectedRow = utilisateurDataGridView.SelectedRows[0];
 
-                B56Projet1Equipe7DataSet.utilisateurRow unUser = b56Projet1Equipe7DataSet.utilisateur.NewutilisateurRow();     
-
                 string user = selectedRow.Cells["noUtilisateur"].Value.ToString();
                 string type = selectedRow.Cells["noTypeUtilisateur"].Value.ToString();
 
-                unUser.noUtilisateur = decimal.Parse(user);
-                unUser.noTypeUtilisateur = decimal.Parse(type);
-                unUser.password = selectedRow.Cells["password"].Value.ToString();
-                unUser.nomUtilisateur = selectedRow.Cells["nomUtilisateur"].Value.ToString();
-                frmModifierUtilisateur frmModifierUtilisateur = new frmModifierUtilisateur();
-                frmModifierUtilisateur.unUser = unUser;
-                frmModifierUtilisateur.ShowDialog();
+                decimal userId = decimal.Parse(user);
+                decimal userType = decimal.Parse(type);
 
+                B56Projet1Equipe7DataSet.utilisateurRow existingUser = b56Projet1Equipe7DataSet.utilisateur.FindBynoUtilisateur(userId);
+
+                if (existingUser != null)
+                {
+                    frmModifierUtilisateur frmModifierUtilisateur = new frmModifierUtilisateur();
+                    frmModifierUtilisateur.unUser = existingUser; 
+                    frmModifierUtilisateur.ShowDialog();
+
+                    if (existingUser.password != "" && existingUser.nomUtilisateur != "" && existingUser.password != null && existingUser.nomUtilisateur != null)
+                    {
+                        MessageBox.Show("L'utilisateur " + existingUser.nomUtilisateur.ToString() + " a été modifié. ",
+                            "Modification d'un utilisateur", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        this.Validate();
+                        this.utilisateurBindingSource.EndEdit();
+                        this.utilisateurTableAdapter.Update(existingUser);
+                    }
+                }
             }
             else
             {

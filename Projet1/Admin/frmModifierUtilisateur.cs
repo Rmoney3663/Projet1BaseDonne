@@ -28,7 +28,23 @@ namespace Projet1.Admin
 
         private void btnModifier_Click(object sender, EventArgs e)
         {
+            if (txtUser.Text.Trim() == "")
+            {
+                errMessage.SetError(txtUser, "Le nom d'utilisateur ne peut pas être vide");
+            }
 
+            if (txtPassword.Text.Trim() == "")
+            {
+                errMessage.SetError(txtPassword, "Le mot de passe ne peut pas être vide");
+            }
+
+            if (txtPassword.Text.Trim() != "" && txtUser.Text.Trim() != "")
+            {
+                unUser.password = txtPassword.Text;
+                unUser.nomUtilisateur = txtUser.Text;
+                unUser.noTypeUtilisateur = Convert.ToDecimal(cbTypeUser.SelectedValue.ToString());
+                this.Close();
+            }
         }
 
         private void typeUtilisateurBindingNavigatorSaveItem_Click(object sender, EventArgs e)

@@ -48,12 +48,12 @@ namespace Projet1.Admin
         {
             if (txtUser.Text.Trim() == "")
             {
-                errMessage.SetError(txtUser, " le montant ne peut pas être vide");
+                errMessage.SetError(txtUser, "Le nom d'utilisateur ne peut pas être vide");
             }
 
             if (txtPassword.Text.Trim() == "")
             {
-                errMessage.SetError(txtPassword, " le montant ne peut pas être vide");
+                errMessage.SetError(txtPassword, "Le mot de passe ne peut pas être vide");
             }
 
             if (txtPassword.Text.Trim() != "" && txtUser.Text.Trim() != "")
