@@ -34,15 +34,15 @@
             this.utilisateurTableAdapter = new Projet1.B56Projet1Equipe7DataSetTableAdapters.utilisateurTableAdapter();
             this.tableAdapterManager = new Projet1.B56Projet1Equipe7DataSetTableAdapters.TableAdapterManager();
             this.utilisateurDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.btnAjouter = new System.Windows.Forms.Button();
             this.btnModifier = new System.Windows.Forms.Button();
             this.btnSupprimer = new System.Windows.Forms.Button();
             this.btnFermer = new System.Windows.Forms.Button();
+            this.noUtilisateur = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nomUtilisateur = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.password = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.noTypeUtilisateur = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.b56Projet1Equipe7DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.utilisateurBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.utilisateurDataGridView)).BeginInit();
@@ -84,39 +84,15 @@
             this.utilisateurDataGridView.AutoGenerateColumns = false;
             this.utilisateurDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.utilisateurDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4});
+            this.noUtilisateur,
+            this.nomUtilisateur,
+            this.password,
+            this.noTypeUtilisateur});
             this.utilisateurDataGridView.DataSource = this.utilisateurBindingSource;
             this.utilisateurDataGridView.Location = new System.Drawing.Point(16, 54);
             this.utilisateurDataGridView.Name = "utilisateurDataGridView";
             this.utilisateurDataGridView.Size = new System.Drawing.Size(443, 220);
             this.utilisateurDataGridView.TabIndex = 1;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "noUtilisateur";
-            this.dataGridViewTextBoxColumn1.HeaderText = "noUtilisateur";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "nomUtilisateur";
-            this.dataGridViewTextBoxColumn2.HeaderText = "nomUtilisateur";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "password";
-            this.dataGridViewTextBoxColumn3.HeaderText = "password";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "noTypeUtilisateur";
-            this.dataGridViewTextBoxColumn4.HeaderText = "noTypeUtilisateur";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             // 
             // label1
             // 
@@ -171,6 +147,30 @@
             this.btnFermer.UseVisualStyleBackColor = true;
             this.btnFermer.Click += new System.EventHandler(this.btnFermer_Click);
             // 
+            // noUtilisateur
+            // 
+            this.noUtilisateur.DataPropertyName = "noUtilisateur";
+            this.noUtilisateur.HeaderText = "noUtilisateur";
+            this.noUtilisateur.Name = "noUtilisateur";
+            // 
+            // nomUtilisateur
+            // 
+            this.nomUtilisateur.DataPropertyName = "nomUtilisateur";
+            this.nomUtilisateur.HeaderText = "nomUtilisateur";
+            this.nomUtilisateur.Name = "nomUtilisateur";
+            // 
+            // password
+            // 
+            this.password.DataPropertyName = "password";
+            this.password.HeaderText = "password";
+            this.password.Name = "password";
+            // 
+            // noTypeUtilisateur
+            // 
+            this.noTypeUtilisateur.DataPropertyName = "noTypeUtilisateur";
+            this.noTypeUtilisateur.HeaderText = "noTypeUtilisateur";
+            this.noTypeUtilisateur.Name = "noTypeUtilisateur";
+            // 
             // GererUtilisateur
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -200,14 +200,14 @@
         private B56Projet1Equipe7DataSetTableAdapters.utilisateurTableAdapter utilisateurTableAdapter;
         private B56Projet1Equipe7DataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.DataGridView utilisateurDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnAjouter;
         private System.Windows.Forms.Button btnModifier;
         private System.Windows.Forms.Button btnSupprimer;
         private System.Windows.Forms.Button btnFermer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn noUtilisateur;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nomUtilisateur;
+        private System.Windows.Forms.DataGridViewTextBoxColumn password;
+        private System.Windows.Forms.DataGridViewTextBoxColumn noTypeUtilisateur;
     }
 }

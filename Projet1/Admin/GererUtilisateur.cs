@@ -91,19 +91,18 @@ namespace Projet1.Admin
             {
                 DataGridViewRow selectedRow = utilisateurDataGridView.SelectedRows[0];
 
-                int noUtilisateur = (int)selectedRow.Cells["noUtilisateur"].Value;
-                string nomUtilisateur = selectedRow.Cells["nomUtilisateur"].Value.ToString();
-                int noTypeUtilisateur = (int)selectedRow.Cells["noTypeUtilisateur"].Value;
-
                 B56Projet1Equipe7DataSet.utilisateurRow unUser = b56Projet1Equipe7DataSet.utilisateur.NewutilisateurRow();     
 
-                unUser.noUtilisateur = (int)selectedRow.Cells["noUtilisateur"].Value;
-                unUser.noTypeUtilisateur = (int)selectedRow.Cells["noTypeUtilisateur"].Value;
+                string user = selectedRow.Cells["noUtilisateur"].Value.ToString();
+                string type = selectedRow.Cells["noTypeUtilisateur"].Value.ToString();
+
+                unUser.noUtilisateur = decimal.Parse(user);
+                unUser.noTypeUtilisateur = decimal.Parse(type);
                 unUser.password = selectedRow.Cells["password"].Value.ToString();
                 unUser.nomUtilisateur = selectedRow.Cells["nomUtilisateur"].Value.ToString();
-                frmAjouterUtilisateur frmAjouterUtilisateur = new frmAjouterUtilisateur();
-                frmAjouterUtilisateur.unUser = unUser;
-                frmAjouterUtilisateur.ShowDialog();
+                frmModifierUtilisateur frmModifierUtilisateur = new frmModifierUtilisateur();
+                frmModifierUtilisateur.unUser = unUser;
+                frmModifierUtilisateur.ShowDialog();
 
             }
             else
