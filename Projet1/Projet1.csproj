@@ -52,6 +52,12 @@
     <Compile Include="Admin\frmAjouterUtilisateur.Designer.cs">
       <DependentUpon>frmAjouterUtilisateur.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admin\frmModifierUtilisateur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\frmModifierUtilisateur.Designer.cs">
+      <DependentUpon>frmModifierUtilisateur.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admin\GererAssistants.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,6 +157,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Admin\frmAjouterUtilisateur.resx">
       <DependentUpon>frmAjouterUtilisateur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\frmModifierUtilisateur.resx">
+      <DependentUpon>frmModifierUtilisateur.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\GererUtilisateur.resx">
       <DependentUpon>GererUtilisateur.cs</DependentUpon>
