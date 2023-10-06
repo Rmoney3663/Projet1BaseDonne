@@ -176,6 +176,9 @@
     <EmbeddedResource Include="Admin\frmSupprimerUtilisateur.resx">
       <DependentUpon>frmSupprimerUtilisateur.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Admin\GererAssistants.resx">
+      <DependentUpon>GererAssistants.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Admin\GererUtilisateur.resx">
       <DependentUpon>GererUtilisateur.cs</DependentUpon>
     </EmbeddedResource>
