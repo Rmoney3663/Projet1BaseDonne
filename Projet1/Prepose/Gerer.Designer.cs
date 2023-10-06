@@ -54,6 +54,10 @@
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.dgInvites = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.inviteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tbNoClient = new System.Windows.Forms.TextBox();
             this.nomTextBox = new System.Windows.Forms.TextBox();
             this.prenomTextBox = new System.Windows.Forms.TextBox();
@@ -70,10 +74,6 @@
             this.btnSupprimerInvite = new System.Windows.Forms.Button();
             this.btnModifierInvite = new System.Windows.Forms.Button();
             this.btnAjoutInvite = new System.Windows.Forms.Button();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.inviteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnFermer = new System.Windows.Forms.Button();
             noClientLabel = new System.Windows.Forms.Label();
             nomLabel = new System.Windows.Forms.Label();
@@ -321,12 +321,42 @@
             this.dgInvites.Size = new System.Drawing.Size(422, 172);
             this.dgInvites.TabIndex = 2;
             // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "noInvite";
+            this.dataGridViewTextBoxColumn9.HeaderText = "noInvite";
+            this.dataGridViewTextBoxColumn9.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "nomPrenom";
+            this.dataGridViewTextBoxColumn10.HeaderText = "nomPrenom";
+            this.dataGridViewTextBoxColumn10.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "noClient";
+            this.dataGridViewTextBoxColumn11.HeaderText = "noClient";
+            this.dataGridViewTextBoxColumn11.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.ReadOnly = true;
+            // 
+            // inviteBindingSource
+            // 
+            this.inviteBindingSource.DataMember = "fk_noClientInvite";
+            this.inviteBindingSource.DataSource = this.clientBindingSource;
+            // 
             // tbNoClient
             // 
             this.tbNoClient.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientBindingSource, "noClient", true));
             this.tbNoClient.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbNoClient.Location = new System.Drawing.Point(179, 112);
             this.tbNoClient.Name = "tbNoClient";
+            this.tbNoClient.ReadOnly = true;
             this.tbNoClient.Size = new System.Drawing.Size(222, 24);
             this.tbNoClient.TabIndex = 3;
             // 
@@ -336,6 +366,7 @@
             this.nomTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nomTextBox.Location = new System.Drawing.Point(179, 140);
             this.nomTextBox.Name = "nomTextBox";
+            this.nomTextBox.ReadOnly = true;
             this.nomTextBox.Size = new System.Drawing.Size(222, 24);
             this.nomTextBox.TabIndex = 5;
             // 
@@ -345,6 +376,7 @@
             this.prenomTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.prenomTextBox.Location = new System.Drawing.Point(179, 168);
             this.prenomTextBox.Name = "prenomTextBox";
+            this.prenomTextBox.ReadOnly = true;
             this.prenomTextBox.Size = new System.Drawing.Size(222, 24);
             this.prenomTextBox.TabIndex = 7;
             // 
@@ -354,6 +386,7 @@
             this.villeTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.villeTextBox.Location = new System.Drawing.Point(179, 196);
             this.villeTextBox.Name = "villeTextBox";
+            this.villeTextBox.ReadOnly = true;
             this.villeTextBox.Size = new System.Drawing.Size(222, 24);
             this.villeTextBox.TabIndex = 9;
             // 
@@ -363,6 +396,7 @@
             this.paysTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.paysTextBox.Location = new System.Drawing.Point(179, 224);
             this.paysTextBox.Name = "paysTextBox";
+            this.paysTextBox.ReadOnly = true;
             this.paysTextBox.Size = new System.Drawing.Size(222, 24);
             this.paysTextBox.TabIndex = 11;
             // 
@@ -372,6 +406,7 @@
             this.adresseTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.adresseTextBox.Location = new System.Drawing.Point(179, 252);
             this.adresseTextBox.Name = "adresseTextBox";
+            this.adresseTextBox.ReadOnly = true;
             this.adresseTextBox.Size = new System.Drawing.Size(222, 24);
             this.adresseTextBox.TabIndex = 13;
             // 
@@ -381,12 +416,14 @@
             this.codePostalTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.codePostalTextBox.Location = new System.Drawing.Point(179, 280);
             this.codePostalTextBox.Name = "codePostalTextBox";
+            this.codePostalTextBox.ReadOnly = true;
             this.codePostalTextBox.Size = new System.Drawing.Size(222, 24);
             this.codePostalTextBox.TabIndex = 15;
             // 
             // dateInscriptionDateTimePicker
             // 
             this.dateInscriptionDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.clientBindingSource, "dateInscription", true));
+            this.dateInscriptionDateTimePicker.Enabled = false;
             this.dateInscriptionDateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateInscriptionDateTimePicker.Location = new System.Drawing.Point(179, 308);
             this.dateInscriptionDateTimePicker.Name = "dateInscriptionDateTimePicker";
@@ -492,35 +529,6 @@
             this.btnAjoutInvite.Text = "Ajouter un invité";
             this.btnAjoutInvite.UseVisualStyleBackColor = false;
             this.btnAjoutInvite.Click += new System.EventHandler(this.btnAjoutInvite_Click);
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "noInvite";
-            this.dataGridViewTextBoxColumn9.HeaderText = "noInvite";
-            this.dataGridViewTextBoxColumn9.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "nomPrenom";
-            this.dataGridViewTextBoxColumn10.HeaderText = "nomPrenom";
-            this.dataGridViewTextBoxColumn10.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "noClient";
-            this.dataGridViewTextBoxColumn11.HeaderText = "noClient";
-            this.dataGridViewTextBoxColumn11.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.ReadOnly = true;
-            // 
-            // inviteBindingSource
-            // 
-            this.inviteBindingSource.DataMember = "fk_noClientInvite";
-            this.inviteBindingSource.DataSource = this.clientBindingSource;
             // 
             // btnFermer
             // 
