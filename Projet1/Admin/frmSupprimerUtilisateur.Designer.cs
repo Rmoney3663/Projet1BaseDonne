@@ -1,6 +1,6 @@
 ﻿namespace Projet1.Admin
 {
-    partial class frmModifierUtilisateur
+    partial class frmSupprimerUtilisateur
     {
         /// <summary>
         /// Required designer variable.
@@ -31,86 +31,95 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label nomUtilisateurLabel;
             System.Windows.Forms.Label passwordLabel;
+            this.txtUser = new System.Windows.Forms.TextBox();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnFermer = new System.Windows.Forms.Button();
-            this.btnModifier = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
+            this.btnSupprimer = new System.Windows.Forms.Button();
             this.b56Projet1Equipe7DataSet = new Projet1.B56Projet1Equipe7DataSet();
             this.typeUtilisateurBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.typeUtilisateurTableAdapter = new Projet1.B56Projet1Equipe7DataSetTableAdapters.typeUtilisateurTableAdapter();
             this.tableAdapterManager = new Projet1.B56Projet1Equipe7DataSetTableAdapters.TableAdapterManager();
-            this.utilisateurTableAdapter = new Projet1.B56Projet1Equipe7DataSetTableAdapters.utilisateurTableAdapter();
             this.cbTypeUser = new System.Windows.Forms.ComboBox();
-            this.utilisateurBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.txtPassword = new System.Windows.Forms.TextBox();
-            this.txtUser = new System.Windows.Forms.TextBox();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.errMessage = new System.Windows.Forms.ErrorProvider(this.components);
             nomUtilisateurLabel = new System.Windows.Forms.Label();
             passwordLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.b56Projet1Equipe7DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.typeUtilisateurBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.utilisateurBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errMessage)).BeginInit();
             this.SuspendLayout();
             // 
             // nomUtilisateurLabel
             // 
             nomUtilisateurLabel.AutoSize = true;
-            nomUtilisateurLabel.Location = new System.Drawing.Point(55, 63);
+            nomUtilisateurLabel.Location = new System.Drawing.Point(68, 52);
             nomUtilisateurLabel.Name = "nomUtilisateurLabel";
             nomUtilisateurLabel.Size = new System.Drawing.Size(79, 13);
-            nomUtilisateurLabel.TabIndex = 19;
+            nomUtilisateurLabel.TabIndex = 32;
             nomUtilisateurLabel.Text = "nom Utilisateur:";
             // 
             // passwordLabel
             // 
             passwordLabel.AutoSize = true;
-            passwordLabel.Location = new System.Drawing.Point(55, 101);
+            passwordLabel.Location = new System.Drawing.Point(68, 90);
             passwordLabel.Name = "passwordLabel";
             passwordLabel.Size = new System.Drawing.Size(55, 13);
-            passwordLabel.TabIndex = 21;
+            passwordLabel.TabIndex = 33;
             passwordLabel.Text = "password:";
             // 
-            // label1
+            // txtUser
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(55, 140);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 13);
-            this.label1.TabIndex = 24;
-            this.label1.Text = "type d\'utilisateur";
+            this.txtUser.Enabled = false;
+            this.txtUser.Location = new System.Drawing.Point(156, 49);
+            this.txtUser.Name = "txtUser";
+            this.txtUser.Size = new System.Drawing.Size(150, 20);
+            this.txtUser.TabIndex = 38;
             // 
-            // btnFermer
+            // txtPassword
             // 
-            this.btnFermer.Location = new System.Drawing.Point(58, 181);
-            this.btnFermer.Name = "btnFermer";
-            this.btnFermer.Size = new System.Drawing.Size(111, 23);
-            this.btnFermer.TabIndex = 18;
-            this.btnFermer.Text = "Annuler";
-            this.btnFermer.UseVisualStyleBackColor = true;
-            this.btnFermer.Click += new System.EventHandler(this.btnFermer_Click);
-            // 
-            // btnModifier
-            // 
-            this.btnModifier.Location = new System.Drawing.Point(186, 181);
-            this.btnModifier.Name = "btnModifier";
-            this.btnModifier.Size = new System.Drawing.Size(107, 23);
-            this.btnModifier.TabIndex = 17;
-            this.btnModifier.Text = "Modifier";
-            this.btnModifier.UseVisualStyleBackColor = true;
-            this.btnModifier.Click += new System.EventHandler(this.btnModifier_Click);
+            this.txtPassword.Enabled = false;
+            this.txtPassword.Location = new System.Drawing.Point(156, 87);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(150, 20);
+            this.txtPassword.TabIndex = 37;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(92, 20);
+            this.label3.Location = new System.Drawing.Point(105, 9);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(182, 24);
-            this.label3.TabIndex = 26;
-            this.label3.Text = "Modifier Utilisateur";
+            this.label3.Size = new System.Drawing.Size(204, 24);
+            this.label3.TabIndex = 35;
+            this.label3.Text = "Supprimer Utilisateur";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(68, 129);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(82, 13);
+            this.label1.TabIndex = 34;
+            this.label1.Text = "type d\'utilisateur";
+            // 
+            // btnFermer
+            // 
+            this.btnFermer.Location = new System.Drawing.Point(71, 170);
+            this.btnFermer.Name = "btnFermer";
+            this.btnFermer.Size = new System.Drawing.Size(111, 23);
+            this.btnFermer.TabIndex = 31;
+            this.btnFermer.Text = "Annuler";
+            this.btnFermer.UseVisualStyleBackColor = true;
+            this.btnFermer.Click += new System.EventHandler(this.btnFermer_Click);
+            // 
+            // btnSupprimer
+            // 
+            this.btnSupprimer.Location = new System.Drawing.Point(199, 170);
+            this.btnSupprimer.Name = "btnSupprimer";
+            this.btnSupprimer.Size = new System.Drawing.Size(107, 23);
+            this.btnSupprimer.TabIndex = 30;
+            this.btnSupprimer.Text = "Supprimer";
+            this.btnSupprimer.UseVisualStyleBackColor = true;
+            this.btnSupprimer.Click += new System.EventHandler(this.btnSupprimer_Click);
             // 
             // b56Projet1Equipe7DataSet
             // 
@@ -141,74 +150,39 @@
             this.tableAdapterManager.typeSoinTableAdapter = null;
             this.tableAdapterManager.typeUtilisateurTableAdapter = this.typeUtilisateurTableAdapter;
             this.tableAdapterManager.UpdateOrder = Projet1.B56Projet1Equipe7DataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            this.tableAdapterManager.utilisateurTableAdapter = this.utilisateurTableAdapter;
-            // 
-            // utilisateurTableAdapter
-            // 
-            this.utilisateurTableAdapter.ClearBeforeFill = true;
+            this.tableAdapterManager.utilisateurTableAdapter = null;
             // 
             // cbTypeUser
             // 
             this.cbTypeUser.DataSource = this.typeUtilisateurBindingSource;
             this.cbTypeUser.DisplayMember = "identification";
+            this.cbTypeUser.Enabled = false;
             this.cbTypeUser.FormattingEnabled = true;
-            this.cbTypeUser.Location = new System.Drawing.Point(143, 137);
+            this.cbTypeUser.Location = new System.Drawing.Point(156, 126);
             this.cbTypeUser.Name = "cbTypeUser";
             this.cbTypeUser.Size = new System.Drawing.Size(150, 21);
-            this.cbTypeUser.TabIndex = 27;
+            this.cbTypeUser.TabIndex = 39;
             this.cbTypeUser.ValueMember = "noTypeUtilisateur";
             // 
-            // utilisateurBindingSource
-            // 
-            this.utilisateurBindingSource.DataMember = "utilisateur";
-            this.utilisateurBindingSource.DataSource = this.b56Projet1Equipe7DataSet;
-            // 
-            // txtPassword
-            // 
-            this.txtPassword.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.utilisateurBindingSource, "password", true));
-            this.txtPassword.Location = new System.Drawing.Point(143, 98);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(150, 20);
-            this.txtPassword.TabIndex = 28;
-            // 
-            // txtUser
-            // 
-            this.txtUser.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.utilisateurBindingSource, "nomUtilisateur", true));
-            this.txtUser.Location = new System.Drawing.Point(143, 60);
-            this.txtUser.Name = "txtUser";
-            this.txtUser.Size = new System.Drawing.Size(150, 20);
-            this.txtUser.TabIndex = 29;
-            // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
-            // 
-            // errMessage
-            // 
-            this.errMessage.ContainerControl = this;
-            // 
-            // frmModifierUtilisateur
+            // frmSupprimerUtilisateur
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(375, 258);
+            this.ClientSize = new System.Drawing.Size(417, 252);
+            this.Controls.Add(this.cbTypeUser);
             this.Controls.Add(this.txtUser);
             this.Controls.Add(this.txtPassword);
-            this.Controls.Add(this.cbTypeUser);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Controls.Add(nomUtilisateurLabel);
             this.Controls.Add(passwordLabel);
             this.Controls.Add(this.btnFermer);
-            this.Controls.Add(this.btnModifier);
-            this.Name = "frmModifierUtilisateur";
-            this.Text = "frmModifierUtilisateur";
-            this.Load += new System.EventHandler(this.frmModifierUtilisateur_Load);
+            this.Controls.Add(this.btnSupprimer);
+            this.Name = "frmSupprimerUtilisateur";
+            this.Text = "frmSupprimerUtilisateur";
+            this.Load += new System.EventHandler(this.frmSupprimerUtilisateur_Load);
             ((System.ComponentModel.ISupportInitialize)(this.b56Projet1Equipe7DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.typeUtilisateurBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.utilisateurBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errMessage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -216,20 +190,16 @@
 
         #endregion
 
+        private System.Windows.Forms.TextBox txtUser;
+        private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnFermer;
-        private System.Windows.Forms.Button btnModifier;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnSupprimer;
         private B56Projet1Equipe7DataSet b56Projet1Equipe7DataSet;
         private System.Windows.Forms.BindingSource typeUtilisateurBindingSource;
         private B56Projet1Equipe7DataSetTableAdapters.typeUtilisateurTableAdapter typeUtilisateurTableAdapter;
         private B56Projet1Equipe7DataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private B56Projet1Equipe7DataSetTableAdapters.utilisateurTableAdapter utilisateurTableAdapter;
         private System.Windows.Forms.ComboBox cbTypeUser;
-        private System.Windows.Forms.BindingSource utilisateurBindingSource;
-        private System.Windows.Forms.TextBox txtPassword;
-        private System.Windows.Forms.TextBox txtUser;
-        private System.Windows.Forms.ErrorProvider errorProvider1;
-        private System.Windows.Forms.ErrorProvider errMessage;
     }
 }

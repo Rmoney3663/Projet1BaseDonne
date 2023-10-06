@@ -34,15 +34,15 @@
             this.utilisateurTableAdapter = new Projet1.B56Projet1Equipe7DataSetTableAdapters.utilisateurTableAdapter();
             this.tableAdapterManager = new Projet1.B56Projet1Equipe7DataSetTableAdapters.TableAdapterManager();
             this.utilisateurDataGridView = new System.Windows.Forms.DataGridView();
+            this.noUtilisateur = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nomUtilisateur = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.password = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.noTypeUtilisateur = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.btnAjouter = new System.Windows.Forms.Button();
             this.btnModifier = new System.Windows.Forms.Button();
             this.btnSupprimer = new System.Windows.Forms.Button();
             this.btnFermer = new System.Windows.Forms.Button();
-            this.noUtilisateur = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nomUtilisateur = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.password = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.noTypeUtilisateur = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.b56Projet1Equipe7DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.utilisateurBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.utilisateurDataGridView)).BeginInit();
@@ -96,6 +96,34 @@
             this.utilisateurDataGridView.Size = new System.Drawing.Size(443, 220);
             this.utilisateurDataGridView.TabIndex = 1;
             // 
+            // noUtilisateur
+            // 
+            this.noUtilisateur.DataPropertyName = "noUtilisateur";
+            this.noUtilisateur.HeaderText = "noUtilisateur";
+            this.noUtilisateur.Name = "noUtilisateur";
+            this.noUtilisateur.ReadOnly = true;
+            // 
+            // nomUtilisateur
+            // 
+            this.nomUtilisateur.DataPropertyName = "nomUtilisateur";
+            this.nomUtilisateur.HeaderText = "nomUtilisateur";
+            this.nomUtilisateur.Name = "nomUtilisateur";
+            this.nomUtilisateur.ReadOnly = true;
+            // 
+            // password
+            // 
+            this.password.DataPropertyName = "password";
+            this.password.HeaderText = "password";
+            this.password.Name = "password";
+            this.password.ReadOnly = true;
+            // 
+            // noTypeUtilisateur
+            // 
+            this.noTypeUtilisateur.DataPropertyName = "noTypeUtilisateur";
+            this.noTypeUtilisateur.HeaderText = "noTypeUtilisateur";
+            this.noTypeUtilisateur.Name = "noTypeUtilisateur";
+            this.noTypeUtilisateur.ReadOnly = true;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -137,6 +165,7 @@
             this.btnSupprimer.TabIndex = 5;
             this.btnSupprimer.Text = "Supprimer";
             this.btnSupprimer.UseVisualStyleBackColor = true;
+            this.btnSupprimer.Click += new System.EventHandler(this.btnSupprimer_Click);
             // 
             // btnFermer
             // 
@@ -148,30 +177,6 @@
             this.btnFermer.Text = "Fermer";
             this.btnFermer.UseVisualStyleBackColor = true;
             this.btnFermer.Click += new System.EventHandler(this.btnFermer_Click);
-            // 
-            // noUtilisateur
-            // 
-            this.noUtilisateur.DataPropertyName = "noUtilisateur";
-            this.noUtilisateur.HeaderText = "noUtilisateur";
-            this.noUtilisateur.Name = "noUtilisateur";
-            // 
-            // nomUtilisateur
-            // 
-            this.nomUtilisateur.DataPropertyName = "nomUtilisateur";
-            this.nomUtilisateur.HeaderText = "nomUtilisateur";
-            this.nomUtilisateur.Name = "nomUtilisateur";
-            // 
-            // password
-            // 
-            this.password.DataPropertyName = "password";
-            this.password.HeaderText = "password";
-            this.password.Name = "password";
-            // 
-            // noTypeUtilisateur
-            // 
-            this.noTypeUtilisateur.DataPropertyName = "noTypeUtilisateur";
-            this.noTypeUtilisateur.HeaderText = "noTypeUtilisateur";
-            this.noTypeUtilisateur.Name = "noTypeUtilisateur";
             // 
             // GererUtilisateur
             // 

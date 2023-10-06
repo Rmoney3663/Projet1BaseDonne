@@ -62,7 +62,7 @@ namespace Projet1.Admin
             {
                 b56Projet1Equipe7DataSet.utilisateur.AddutilisateurRow(unUser);
                 //utilisateurBindingSource.MoveLast();
-                MessageBox.Show(" le utilisateur " + unUser.nomUtilisateur.ToString() + " a été ajouté. ",
+                MessageBox.Show(" L'utilisateur " + unUser.nomUtilisateur.ToString() + " a été ajouté. ",
                    "Ajout d'un utilisateur", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Validate();
                 this.utilisateurBindingSource.EndEdit();
@@ -131,5 +131,62 @@ namespace Projet1.Admin
                 MessageBox.Show("No rows are selected.");
             }
         }
+
+        private void btnSupprimer_Click(object sender, EventArgs e)
+        {
+            if (utilisateurDataGridView.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = utilisateurDataGridView.SelectedRows[0];
+
+                string user = selectedRow.Cells["noUtilisateur"].Value.ToString();
+                string type = selectedRow.Cells["noTypeUtilisateur"].Value.ToString();
+
+                decimal userId = decimal.Parse(user);
+                decimal userType = decimal.Parse(type);
+
+                B56Projet1Equipe7DataSet.utilisateurRow deleteUser = b56Projet1Equipe7DataSet.utilisateur.FindBynoUtilisateur(userId);
+               
+                if (deleteUser.noUtilisateur != LoginUser && deleteUser.noUtilisateur != 1)
+                {                    
+                    if (deleteUser != null)
+                    {
+                        frmSupprimerUtilisateur frmSupprimerUtilisateur = new frmSupprimerUtilisateur();
+                        frmSupprimerUtilisateur.unUser = deleteUser;
+                        frmSupprimerUtilisateur.LoginUser = LoginUser;
+                       
+                        frmSupprimerUtilisateur.ShowDialog();
+                        
+                        if (deleteUser.noTypeUtilisateur == 3)
+                        {
+                            deleteUser.noTypeUtilisateur = userType;
+                            /*this.Validate();
+                            this.utilisateurBindingSource.EndEdit();*/
+                            this.utilisateurTableAdapter.Delete(deleteUser.noUtilisateur, deleteUser.nomUtilisateur, deleteUser.password, userType);
+                            MessageBox.Show("L'utilisateur " + deleteUser.nomUtilisateur.ToString() + " a été supprimé. ",
+                                            "Suppression d'un utilisateur", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            b56Projet1Equipe7DataSet.utilisateur.RemoveutilisateurRow(deleteUser);
+                            
+                            
+
+                          
+                        }
+
+                        
+                    }
+                }
+                else
+                {
+                    // Deletion not allowed
+                    MessageBox.Show("Un utilisateur ne peut pas supprimer son propre compte ou l'administrateur initial!",
+                                    "Suppression d'un utilisateur impossible", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            else
+            {
+                MessageBox.Show("No rows are selected.");
+            }
+        }
+
     }
 }
