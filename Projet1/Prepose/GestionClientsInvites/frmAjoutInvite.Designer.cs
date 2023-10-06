@@ -38,13 +38,35 @@
             this.inviteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.inviteTableAdapter = new Projet1.B56Projet1Equipe7DataSetTableAdapters.inviteTableAdapter();
             this.tableAdapterManager = new Projet1.B56Projet1Equipe7DataSetTableAdapters.TableAdapterManager();
-            this.nomPrenomTextBox = new System.Windows.Forms.TextBox();
-            this.noClientTextBox = new System.Windows.Forms.TextBox();
+            this.tbNom = new System.Windows.Forms.TextBox();
+            this.tbNoClient = new System.Windows.Forms.TextBox();
+            this.errMessage = new System.Windows.Forms.ErrorProvider(this.components);
             nomPrenomLabel = new System.Windows.Forms.Label();
             noClientLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.b56Projet1Equipe7DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inviteBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errMessage)).BeginInit();
             this.SuspendLayout();
+            // 
+            // nomPrenomLabel
+            // 
+            nomPrenomLabel.AutoSize = true;
+            nomPrenomLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
+            nomPrenomLabel.Location = new System.Drawing.Point(16, 71);
+            nomPrenomLabel.Name = "nomPrenomLabel";
+            nomPrenomLabel.Size = new System.Drawing.Size(130, 18);
+            nomPrenomLabel.TabIndex = 24;
+            nomPrenomLabel.Text = "Nom et prénom:";
+            // 
+            // noClientLabel
+            // 
+            noClientLabel.AutoSize = true;
+            noClientLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
+            noClientLabel.Location = new System.Drawing.Point(16, 99);
+            noClientLabel.Name = "noClientLabel";
+            noClientLabel.Size = new System.Drawing.Size(118, 18);
+            noClientLabel.TabIndex = 26;
+            noClientLabel.Text = "Numéro client:";
             // 
             // label1
             // 
@@ -114,44 +136,28 @@
             this.tableAdapterManager.UpdateOrder = Projet1.B56Projet1Equipe7DataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.utilisateurTableAdapter = null;
             // 
-            // nomPrenomLabel
+            // tbNom
             // 
-            nomPrenomLabel.AutoSize = true;
-            nomPrenomLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            nomPrenomLabel.Location = new System.Drawing.Point(16, 71);
-            nomPrenomLabel.Name = "nomPrenomLabel";
-            nomPrenomLabel.Size = new System.Drawing.Size(130, 18);
-            nomPrenomLabel.TabIndex = 24;
-            nomPrenomLabel.Text = "Nom et prénom:";
+            this.tbNom.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.inviteBindingSource, "nomPrenom", true));
+            this.tbNom.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbNom.Location = new System.Drawing.Point(168, 65);
+            this.tbNom.Name = "tbNom";
+            this.tbNom.Size = new System.Drawing.Size(193, 24);
+            this.tbNom.TabIndex = 25;
             // 
-            // nomPrenomTextBox
+            // tbNoClient
             // 
-            this.nomPrenomTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.inviteBindingSource, "nomPrenom", true));
-            this.nomPrenomTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nomPrenomTextBox.Location = new System.Drawing.Point(168, 65);
-            this.nomPrenomTextBox.Name = "nomPrenomTextBox";
-            this.nomPrenomTextBox.Size = new System.Drawing.Size(193, 24);
-            this.nomPrenomTextBox.TabIndex = 25;
+            this.tbNoClient.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.inviteBindingSource, "noClient", true));
+            this.tbNoClient.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbNoClient.Location = new System.Drawing.Point(168, 93);
+            this.tbNoClient.Name = "tbNoClient";
+            this.tbNoClient.ReadOnly = true;
+            this.tbNoClient.Size = new System.Drawing.Size(193, 24);
+            this.tbNoClient.TabIndex = 27;
             // 
-            // noClientLabel
+            // errMessage
             // 
-            noClientLabel.AutoSize = true;
-            noClientLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            noClientLabel.Location = new System.Drawing.Point(16, 99);
-            noClientLabel.Name = "noClientLabel";
-            noClientLabel.Size = new System.Drawing.Size(118, 18);
-            noClientLabel.TabIndex = 26;
-            noClientLabel.Text = "Numéro client:";
-            // 
-            // noClientTextBox
-            // 
-            this.noClientTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.inviteBindingSource, "noClient", true));
-            this.noClientTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.noClientTextBox.Location = new System.Drawing.Point(168, 93);
-            this.noClientTextBox.Name = "noClientTextBox";
-            this.noClientTextBox.ReadOnly = true;
-            this.noClientTextBox.Size = new System.Drawing.Size(193, 24);
-            this.noClientTextBox.TabIndex = 27;
+            this.errMessage.ContainerControl = this;
             // 
             // frmAjoutInvite
             // 
@@ -159,9 +165,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(384, 201);
             this.Controls.Add(nomPrenomLabel);
-            this.Controls.Add(this.nomPrenomTextBox);
+            this.Controls.Add(this.tbNom);
             this.Controls.Add(noClientLabel);
-            this.Controls.Add(this.noClientTextBox);
+            this.Controls.Add(this.tbNoClient);
             this.Controls.Add(this.btnAnnuler);
             this.Controls.Add(this.btnAjouter);
             this.Controls.Add(this.label1);
@@ -170,6 +176,7 @@
             this.Load += new System.EventHandler(this.frmAjoutInvite_Load);
             ((System.ComponentModel.ISupportInitialize)(this.b56Projet1Equipe7DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inviteBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errMessage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -184,7 +191,8 @@
         private System.Windows.Forms.BindingSource inviteBindingSource;
         private B56Projet1Equipe7DataSetTableAdapters.inviteTableAdapter inviteTableAdapter;
         private B56Projet1Equipe7DataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.TextBox nomPrenomTextBox;
-        private System.Windows.Forms.TextBox noClientTextBox;
+        private System.Windows.Forms.TextBox tbNom;
+        private System.Windows.Forms.TextBox tbNoClient;
+        private System.Windows.Forms.ErrorProvider errMessage;
     }
 }

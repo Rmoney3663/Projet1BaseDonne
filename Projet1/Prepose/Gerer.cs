@@ -46,6 +46,8 @@ namespace Projet1.Prepose
                 b56Projet1Equipe7DataSet.client.Rows.Cast<B56Projet1Equipe7DataSet.clientRow>().Max(r => r.noClient);
             }
 
+            unClient.noClient = noContratMax + 10;
+
             unClient.dateInscription = DateTime.MinValue;
 
             GestionClientsInvites.frmAjoutClient frmAjout = new GestionClientsInvites.frmAjoutClient();
@@ -58,7 +60,7 @@ namespace Projet1.Prepose
                 b56Projet1Equipe7DataSet.client.AddclientRow(unClient);
 
                 clientBindingSource.MoveLast();
-                MessageBox.Show("Le client " + (noContratMax + 10).ToString() + " a été ajouté.", "Ajout d'un client", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Le client " + (unClient.noClient).ToString() + " a été ajouté.", "Ajout d'un client", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 this.Validate();
                 this.clientBindingSource.EndEdit();
@@ -85,29 +87,42 @@ namespace Projet1.Prepose
             {
 
                 unInvite.noClient = Decimal.Parse(tbNoClient.Text);
-                /*
+                
                 GestionClientsInvites.frmAjoutInvite frmAjout = new GestionClientsInvites.frmAjoutInvite();
 
-                frmAjout.unClient = unClient;
-                frmAjout.ShowDialog();
+                decimal noInvite = unInvite.noClient + 1;
+                foreach (B56Projet1Equipe7DataSet.inviteRow uneLigne in b56Projet1Equipe7DataSet.invite.Rows)
+                    if (uneLigne.noInvite == noInvite && uneLigne.noClient == unInvite.noClient) noInvite ++;
 
-                if (unClient.dateInscription != DateTime.MinValue)
+                if (noInvite < unInvite.noClient + 10)
                 {
-                    b56Projet1Equipe7DataSet.client.AddclientRow(unClient);
+                    unInvite.noInvite = noInvite;
 
-                    clientBindingSource.MoveLast();
-                    MessageBox.Show("Le client " + (noContratMax + 10).ToString() + " a été ajouté.", "Ajout d'un client", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    frmAjout.unInvite = unInvite;
+                    frmAjout.ShowDialog();
 
-                    this.Validate();
-                    this.clientBindingSource.EndEdit();
-                    this.clientTableAdapter.Update(this.b56Projet1Equipe7DataSet.client);
+                    if (unInvite.nomPrenom != "")
+                    {
+                        b56Projet1Equipe7DataSet.invite.AddinviteRow(unInvite);
+
+                        clientBindingSource.MoveLast();
+                        MessageBox.Show("L'invité " + (unInvite.noInvite).ToString() + " a été ajouté.", "Ajout d'un invité", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        this.Validate();
+                        this.inviteBindingSource.EndEdit();
+                        this.inviteTableAdapter.Update(this.b56Projet1Equipe7DataSet.invite);
+                    }
                 }
-                */
+
+                else
+                {
+                    MessageBox.Show("Ce client possède déjà le nombre d'invités maximal","Maximum atteint");
+                }
             }
 
             else
             {
-
+                MessageBox.Show("Veuillez sélectionner un client afin de lui attribuer un nouvel invité", "Aucune sélection");
             }
         }
 
