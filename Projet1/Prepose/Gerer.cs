@@ -85,7 +85,7 @@ namespace Projet1.Prepose
             {
 
                 unInvite.noClient = Decimal.Parse(tbNoClient.Text);
-
+                /*
                 GestionClientsInvites.frmAjoutInvite frmAjout = new GestionClientsInvites.frmAjoutInvite();
 
                 frmAjout.unClient = unClient;
@@ -102,6 +102,7 @@ namespace Projet1.Prepose
                     this.clientBindingSource.EndEdit();
                     this.clientTableAdapter.Update(this.b56Projet1Equipe7DataSet.client);
                 }
+                */
             }
 
             else

@@ -12,6 +12,8 @@ namespace Projet1.Admin
 {
     public partial class MenuAdministrateur : Form
     {
+        public int LoginUser { get; set; }
+
         GererUtilisateur gererUtilisateur = new GererUtilisateur();
         GererClient gererClient = new GererClient();
         GererAssistants gererAssistants = new GererAssistants();
@@ -42,7 +44,8 @@ namespace Projet1.Admin
 
         private void gérerLesUtilisateursToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Hide(); 
+            gererUtilisateur.LoginUser = LoginUser;
             gererUtilisateur.ShowDialog();
             this.Show();
         }
