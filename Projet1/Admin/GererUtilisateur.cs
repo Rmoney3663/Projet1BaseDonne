@@ -167,17 +167,12 @@ namespace Projet1.Admin
 
                             b56Projet1Equipe7DataSet.utilisateur.RemoveutilisateurRow(deleteUser);
                             
-                            
-
-                          
                         }
-
                         
                     }
                 }
                 else
                 {
-                    // Deletion not allowed
                     MessageBox.Show("Un utilisateur ne peut pas supprimer son propre compte ou l'administrateur initial!",
                                     "Suppression d'un utilisateur impossible", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
