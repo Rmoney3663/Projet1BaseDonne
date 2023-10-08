@@ -27,6 +27,12 @@ namespace Projet1.Prepose.GestionClientsInvites
             this.clientTableAdapter.Fill(this.b56Projet1Equipe7DataSet.client);
             dpInscription.Value = DateTime.Now;
             tbNoClient.Text = unClient.noClient.ToString();
+            tbNom.Text = "";
+            tbPrenom.Text = "";
+            tbVille.Text = "";
+            tbPays.Text = "";
+            tbAdresse.Text = "";
+            tbCodePostal.Text = "";
         }
 
         private void btnAjouter_Click(object sender, EventArgs e)

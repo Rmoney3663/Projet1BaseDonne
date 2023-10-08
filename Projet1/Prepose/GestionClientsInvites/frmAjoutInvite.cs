@@ -26,6 +26,7 @@ namespace Projet1.Prepose.GestionClientsInvites
             this.inviteTableAdapter.Fill(this.b56Projet1Equipe7DataSet.invite);
             tbNoClient.Text = unInvite.noClient.ToString();
             tbNoInvite.Text = unInvite.noInvite.ToString();
+            tbNom.Text = "";
         }
 
         private void btnAjouter_Click(object sender, EventArgs e)

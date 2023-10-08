@@ -70,10 +70,9 @@
             // 
             nomLabel.AutoSize = true;
             nomLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            nomLabel.Location = new System.Drawing.Point(33, 86);
-            nomLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            nomLabel.Location = new System.Drawing.Point(44, 106);
             nomLabel.Name = "nomLabel";
-            nomLabel.Size = new System.Drawing.Size(41, 15);
+            nomLabel.Size = new System.Drawing.Size(49, 18);
             nomLabel.TabIndex = 3;
             nomLabel.Text = "Nom:";
             // 
@@ -81,10 +80,9 @@
             // 
             prenomLabel.AutoSize = true;
             prenomLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            prenomLabel.Location = new System.Drawing.Point(33, 109);
-            prenomLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            prenomLabel.Location = new System.Drawing.Point(44, 134);
             prenomLabel.Name = "prenomLabel";
-            prenomLabel.Size = new System.Drawing.Size(61, 15);
+            prenomLabel.Size = new System.Drawing.Size(72, 18);
             prenomLabel.TabIndex = 5;
             prenomLabel.Text = "Prénom:";
             // 
@@ -92,10 +90,9 @@
             // 
             villeLabel.AutoSize = true;
             villeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            villeLabel.Location = new System.Drawing.Point(33, 131);
-            villeLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            villeLabel.Location = new System.Drawing.Point(44, 161);
             villeLabel.Name = "villeLabel";
-            villeLabel.Size = new System.Drawing.Size(39, 15);
+            villeLabel.Size = new System.Drawing.Size(44, 18);
             villeLabel.TabIndex = 7;
             villeLabel.Text = "Ville:";
             // 
@@ -103,10 +100,9 @@
             // 
             paysLabel.AutoSize = true;
             paysLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            paysLabel.Location = new System.Drawing.Point(33, 154);
-            paysLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            paysLabel.Location = new System.Drawing.Point(44, 190);
             paysLabel.Name = "paysLabel";
-            paysLabel.Size = new System.Drawing.Size(41, 15);
+            paysLabel.Size = new System.Drawing.Size(50, 18);
             paysLabel.TabIndex = 9;
             paysLabel.Text = "Pays:";
             // 
@@ -114,10 +110,9 @@
             // 
             adresseLabel.AutoSize = true;
             adresseLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            adresseLabel.Location = new System.Drawing.Point(33, 178);
-            adresseLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            adresseLabel.Location = new System.Drawing.Point(44, 219);
             adresseLabel.Name = "adresseLabel";
-            adresseLabel.Size = new System.Drawing.Size(62, 15);
+            adresseLabel.Size = new System.Drawing.Size(74, 18);
             adresseLabel.TabIndex = 11;
             adresseLabel.Text = "Adresse:";
             // 
@@ -125,10 +120,9 @@
             // 
             codePostalLabel.AutoSize = true;
             codePostalLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            codePostalLabel.Location = new System.Drawing.Point(33, 201);
-            codePostalLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            codePostalLabel.Location = new System.Drawing.Point(44, 247);
             codePostalLabel.Name = "codePostalLabel";
-            codePostalLabel.Size = new System.Drawing.Size(87, 15);
+            codePostalLabel.Size = new System.Drawing.Size(104, 18);
             codePostalLabel.TabIndex = 13;
             codePostalLabel.Text = "Code postal:";
             // 
@@ -136,12 +130,21 @@
             // 
             dateInscriptionLabel.AutoSize = true;
             dateInscriptionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dateInscriptionLabel.Location = new System.Drawing.Point(33, 224);
-            dateInscriptionLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            dateInscriptionLabel.Location = new System.Drawing.Point(44, 276);
             dateInscriptionLabel.Name = "dateInscriptionLabel";
-            dateInscriptionLabel.Size = new System.Drawing.Size(112, 15);
+            dateInscriptionLabel.Size = new System.Drawing.Size(131, 18);
             dateInscriptionLabel.TabIndex = 15;
             dateInscriptionLabel.Text = "Date Inscription:";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label2.Location = new System.Drawing.Point(44, 78);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(118, 18);
+            label2.TabIndex = 39;
+            label2.Text = "Numéro client:";
             // 
             // b56Projet1Equipe7DataSet
             // 
@@ -178,60 +181,66 @@
             // 
             this.tbNom.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientBindingSource, "nom", true));
             this.tbNom.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbNom.Location = new System.Drawing.Point(160, 83);
-            this.tbNom.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbNom.Location = new System.Drawing.Point(213, 102);
+            this.tbNom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbNom.MaxLength = 50;
             this.tbNom.Name = "tbNom";
-            this.tbNom.Size = new System.Drawing.Size(171, 21);
+            this.tbNom.Size = new System.Drawing.Size(227, 24);
             this.tbNom.TabIndex = 4;
             // 
             // tbPrenom
             // 
             this.tbPrenom.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientBindingSource, "prenom", true));
             this.tbPrenom.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbPrenom.Location = new System.Drawing.Point(160, 106);
-            this.tbPrenom.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbPrenom.Location = new System.Drawing.Point(213, 130);
+            this.tbPrenom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbPrenom.MaxLength = 50;
             this.tbPrenom.Name = "tbPrenom";
-            this.tbPrenom.Size = new System.Drawing.Size(171, 21);
+            this.tbPrenom.Size = new System.Drawing.Size(227, 24);
             this.tbPrenom.TabIndex = 6;
             // 
             // tbVille
             // 
             this.tbVille.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientBindingSource, "ville", true));
             this.tbVille.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbVille.Location = new System.Drawing.Point(160, 129);
-            this.tbVille.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbVille.Location = new System.Drawing.Point(213, 159);
+            this.tbVille.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbVille.MaxLength = 50;
             this.tbVille.Name = "tbVille";
-            this.tbVille.Size = new System.Drawing.Size(171, 21);
+            this.tbVille.Size = new System.Drawing.Size(227, 24);
             this.tbVille.TabIndex = 8;
             // 
             // tbPays
             // 
             this.tbPays.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientBindingSource, "pays", true));
             this.tbPays.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbPays.Location = new System.Drawing.Point(160, 152);
-            this.tbPays.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbPays.Location = new System.Drawing.Point(213, 187);
+            this.tbPays.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbPays.MaxLength = 50;
             this.tbPays.Name = "tbPays";
-            this.tbPays.Size = new System.Drawing.Size(171, 21);
+            this.tbPays.Size = new System.Drawing.Size(227, 24);
             this.tbPays.TabIndex = 10;
             // 
             // tbAdresse
             // 
             this.tbAdresse.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientBindingSource, "adresse", true));
             this.tbAdresse.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbAdresse.Location = new System.Drawing.Point(160, 175);
-            this.tbAdresse.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbAdresse.Location = new System.Drawing.Point(213, 215);
+            this.tbAdresse.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbAdresse.MaxLength = 50;
             this.tbAdresse.Name = "tbAdresse";
-            this.tbAdresse.Size = new System.Drawing.Size(171, 21);
+            this.tbAdresse.Size = new System.Drawing.Size(227, 24);
             this.tbAdresse.TabIndex = 12;
             // 
             // tbCodePostal
             // 
             this.tbCodePostal.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientBindingSource, "codePostal", true));
             this.tbCodePostal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbCodePostal.Location = new System.Drawing.Point(160, 198);
-            this.tbCodePostal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbCodePostal.Location = new System.Drawing.Point(213, 244);
+            this.tbCodePostal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbCodePostal.MaxLength = 50;
             this.tbCodePostal.Name = "tbCodePostal";
-            this.tbCodePostal.Size = new System.Drawing.Size(171, 21);
+            this.tbCodePostal.Size = new System.Drawing.Size(227, 24);
             this.tbCodePostal.TabIndex = 14;
             // 
             // dpInscription
@@ -240,10 +249,10 @@
             this.dpInscription.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.clientBindingSource, "dateInscription", true));
             this.dpInscription.Enabled = false;
             this.dpInscription.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dpInscription.Location = new System.Drawing.Point(160, 221);
-            this.dpInscription.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dpInscription.Location = new System.Drawing.Point(213, 272);
+            this.dpInscription.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dpInscription.Name = "dpInscription";
-            this.dpInscription.Size = new System.Drawing.Size(171, 21);
+            this.dpInscription.Size = new System.Drawing.Size(227, 24);
             this.dpInscription.TabIndex = 16;
             // 
             // label1
@@ -251,10 +260,9 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Blue;
-            this.label1.Location = new System.Drawing.Point(103, 20);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(137, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(150, 24);
+            this.label1.Size = new System.Drawing.Size(186, 29);
             this.label1.TabIndex = 17;
             this.label1.Text = "Nouveau client";
             // 
@@ -263,10 +271,10 @@
             this.btnAjouter.BackColor = System.Drawing.Color.PaleGreen;
             this.btnAjouter.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAjouter.ForeColor = System.Drawing.Color.Black;
-            this.btnAjouter.Location = new System.Drawing.Point(62, 259);
-            this.btnAjouter.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAjouter.Location = new System.Drawing.Point(83, 319);
+            this.btnAjouter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAjouter.Name = "btnAjouter";
-            this.btnAjouter.Size = new System.Drawing.Size(101, 32);
+            this.btnAjouter.Size = new System.Drawing.Size(135, 39);
             this.btnAjouter.TabIndex = 18;
             this.btnAjouter.Text = "Ajouter";
             this.btnAjouter.UseVisualStyleBackColor = false;
@@ -277,10 +285,10 @@
             this.btnAnnuler.BackColor = System.Drawing.Color.LightCoral;
             this.btnAnnuler.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAnnuler.ForeColor = System.Drawing.Color.Black;
-            this.btnAnnuler.Location = new System.Drawing.Point(199, 259);
-            this.btnAnnuler.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAnnuler.Location = new System.Drawing.Point(265, 319);
+            this.btnAnnuler.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAnnuler.Name = "btnAnnuler";
-            this.btnAnnuler.Size = new System.Drawing.Size(101, 32);
+            this.btnAnnuler.Size = new System.Drawing.Size(135, 39);
             this.btnAnnuler.TabIndex = 19;
             this.btnAnnuler.Text = "Annuler";
             this.btnAnnuler.UseVisualStyleBackColor = false;
@@ -290,32 +298,21 @@
             // 
             this.errMessage.ContainerControl = this;
             // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label2.Location = new System.Drawing.Point(33, 63);
-            label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(101, 15);
-            label2.TabIndex = 39;
-            label2.Text = "Numéro client:";
-            // 
             // tbNoClient
             // 
             this.tbNoClient.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbNoClient.Location = new System.Drawing.Point(160, 60);
-            this.tbNoClient.Margin = new System.Windows.Forms.Padding(2);
+            this.tbNoClient.Location = new System.Drawing.Point(213, 74);
+            this.tbNoClient.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbNoClient.Name = "tbNoClient";
             this.tbNoClient.ReadOnly = true;
-            this.tbNoClient.Size = new System.Drawing.Size(171, 21);
+            this.tbNoClient.Size = new System.Drawing.Size(227, 24);
             this.tbNoClient.TabIndex = 40;
             // 
             // frmAjoutClient
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(362, 311);
+            this.ClientSize = new System.Drawing.Size(483, 383);
             this.Controls.Add(label2);
             this.Controls.Add(this.tbNoClient);
             this.Controls.Add(this.btnAnnuler);
@@ -335,7 +332,7 @@
             this.Controls.Add(this.tbCodePostal);
             this.Controls.Add(dateInscriptionLabel);
             this.Controls.Add(this.dpInscription);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmAjoutClient";
             this.Text = "Ajout d\'un nouveau client";
             this.Load += new System.EventHandler(this.frmAjoutClient_Load);

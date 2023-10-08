@@ -49,62 +49,60 @@
             // 
             label2.AutoSize = true;
             label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            label2.Location = new System.Drawing.Point(23, 68);
-            label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            label2.Location = new System.Drawing.Point(31, 84);
             label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(100, 15);
+            label2.Size = new System.Drawing.Size(117, 18);
             label2.TabIndex = 37;
             label2.Text = "Numéro invité:";
-            // 
-            // tbNoInvite
-            // 
-            this.tbNoInvite.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbNoInvite.Location = new System.Drawing.Point(137, 64);
-            this.tbNoInvite.Margin = new System.Windows.Forms.Padding(2);
-            this.tbNoInvite.Name = "tbNoInvite";
-            this.tbNoInvite.ReadOnly = true;
-            this.tbNoInvite.Size = new System.Drawing.Size(146, 21);
-            this.tbNoInvite.TabIndex = 38;
             // 
             // nomPrenomLabel
             // 
             nomPrenomLabel.AutoSize = true;
             nomPrenomLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            nomPrenomLabel.Location = new System.Drawing.Point(23, 91);
-            nomPrenomLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            nomPrenomLabel.Location = new System.Drawing.Point(31, 112);
             nomPrenomLabel.Name = "nomPrenomLabel";
-            nomPrenomLabel.Size = new System.Drawing.Size(110, 15);
+            nomPrenomLabel.Size = new System.Drawing.Size(130, 18);
             nomPrenomLabel.TabIndex = 33;
             nomPrenomLabel.Text = "Nom et prénom:";
-            // 
-            // tbNom
-            // 
-            this.tbNom.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbNom.Location = new System.Drawing.Point(137, 87);
-            this.tbNom.Margin = new System.Windows.Forms.Padding(2);
-            this.tbNom.Name = "tbNom";
-            this.tbNom.Size = new System.Drawing.Size(146, 21);
-            this.tbNom.TabIndex = 34;
             // 
             // noClientLabel
             // 
             noClientLabel.AutoSize = true;
             noClientLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            noClientLabel.Location = new System.Drawing.Point(23, 114);
-            noClientLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            noClientLabel.Location = new System.Drawing.Point(31, 140);
             noClientLabel.Name = "noClientLabel";
-            noClientLabel.Size = new System.Drawing.Size(101, 15);
+            noClientLabel.Size = new System.Drawing.Size(118, 18);
             noClientLabel.TabIndex = 35;
             noClientLabel.Text = "Numéro client:";
+            // 
+            // tbNoInvite
+            // 
+            this.tbNoInvite.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbNoInvite.Location = new System.Drawing.Point(183, 79);
+            this.tbNoInvite.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbNoInvite.Name = "tbNoInvite";
+            this.tbNoInvite.ReadOnly = true;
+            this.tbNoInvite.Size = new System.Drawing.Size(193, 24);
+            this.tbNoInvite.TabIndex = 38;
+            // 
+            // tbNom
+            // 
+            this.tbNom.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbNom.Location = new System.Drawing.Point(183, 107);
+            this.tbNom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbNom.MaxLength = 50;
+            this.tbNom.Name = "tbNom";
+            this.tbNom.Size = new System.Drawing.Size(193, 24);
+            this.tbNom.TabIndex = 34;
             // 
             // tbNoClient
             // 
             this.tbNoClient.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbNoClient.Location = new System.Drawing.Point(137, 110);
-            this.tbNoClient.Margin = new System.Windows.Forms.Padding(2);
+            this.tbNoClient.Location = new System.Drawing.Point(183, 135);
+            this.tbNoClient.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbNoClient.Name = "tbNoClient";
             this.tbNoClient.ReadOnly = true;
-            this.tbNoClient.Size = new System.Drawing.Size(146, 21);
+            this.tbNoClient.Size = new System.Drawing.Size(193, 24);
             this.tbNoClient.TabIndex = 36;
             // 
             // btnAnnuler
@@ -112,10 +110,10 @@
             this.btnAnnuler.BackColor = System.Drawing.Color.LightCoral;
             this.btnAnnuler.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAnnuler.ForeColor = System.Drawing.Color.Black;
-            this.btnAnnuler.Location = new System.Drawing.Point(167, 149);
-            this.btnAnnuler.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAnnuler.Location = new System.Drawing.Point(223, 183);
+            this.btnAnnuler.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAnnuler.Name = "btnAnnuler";
-            this.btnAnnuler.Size = new System.Drawing.Size(101, 32);
+            this.btnAnnuler.Size = new System.Drawing.Size(135, 39);
             this.btnAnnuler.TabIndex = 32;
             this.btnAnnuler.Text = "Annuler";
             this.btnAnnuler.UseVisualStyleBackColor = false;
@@ -126,10 +124,10 @@
             this.btnModifier.BackColor = System.Drawing.Color.PaleGreen;
             this.btnModifier.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModifier.ForeColor = System.Drawing.Color.Black;
-            this.btnModifier.Location = new System.Drawing.Point(39, 149);
-            this.btnModifier.Margin = new System.Windows.Forms.Padding(2);
+            this.btnModifier.Location = new System.Drawing.Point(52, 183);
+            this.btnModifier.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnModifier.Name = "btnModifier";
-            this.btnModifier.Size = new System.Drawing.Size(101, 32);
+            this.btnModifier.Size = new System.Drawing.Size(135, 39);
             this.btnModifier.TabIndex = 31;
             this.btnModifier.Text = "Modifier";
             this.btnModifier.UseVisualStyleBackColor = false;
@@ -140,10 +138,9 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Blue;
-            this.label1.Location = new System.Drawing.Point(85, 19);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(113, 23);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(140, 24);
+            this.label1.Size = new System.Drawing.Size(178, 29);
             this.label1.TabIndex = 30;
             this.label1.Text = "Modifier invité";
             // 
@@ -153,9 +150,9 @@
             // 
             // frmModifierInvite
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(311, 203);
+            this.ClientSize = new System.Drawing.Size(415, 250);
             this.Controls.Add(label2);
             this.Controls.Add(this.tbNoInvite);
             this.Controls.Add(nomPrenomLabel);
@@ -165,6 +162,7 @@
             this.Controls.Add(this.btnAnnuler);
             this.Controls.Add(this.btnModifier);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmModifierInvite";
             this.Text = "Modification de l\'invité";
             this.Load += new System.EventHandler(this.frmModifierInvite_Load);

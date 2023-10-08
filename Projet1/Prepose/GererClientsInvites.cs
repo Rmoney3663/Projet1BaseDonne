@@ -73,22 +73,30 @@ namespace Projet1.Prepose
 
         private void btnModifierClient_Click(object sender, EventArgs e)
         {
-            B56Projet1Equipe7DataSet.clientRow unClient = b56Projet1Equipe7DataSet.client.FindBynoClient(decimal.Parse(tbNoClient.Text));
-
-            GestionClientsInvites.frmModifierClient frmModifier = new GestionClientsInvites.frmModifierClient();
-
-            frmModifier.unClient = unClient;
-            frmModifier.boolMod = false;
-
-            frmModifier.ShowDialog();
-
-            if (frmModifier.boolMod == true)
+            if (tbNoClient.Text.ToString() != "")
             {
-                MessageBox.Show("Le client " + (unClient.noClient).ToString() + " a été modifié.", "Modification d'un client", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                B56Projet1Equipe7DataSet.clientRow unClient = b56Projet1Equipe7DataSet.client.FindBynoClient(decimal.Parse(tbNoClient.Text));
 
-                this.Validate();
-                this.clientBindingSource.EndEdit();
-                this.clientTableAdapter.Update(this.b56Projet1Equipe7DataSet.client);
+                GestionClientsInvites.frmModifierClient frmModifier = new GestionClientsInvites.frmModifierClient();
+
+                frmModifier.unClient = unClient;
+                frmModifier.boolMod = false;
+
+                frmModifier.ShowDialog();
+
+                if (frmModifier.boolMod == true)
+                {
+                    MessageBox.Show("Le client " + (unClient.noClient).ToString() + " a été modifié.", "Modification d'un client", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    this.Validate();
+                    this.clientBindingSource.EndEdit();
+                    this.clientTableAdapter.Update(this.b56Projet1Equipe7DataSet.client);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vous devez être sur la page d'un client pour le modifier.",
+                    "Modifier un client invalide", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -146,10 +154,11 @@ namespace Projet1.Prepose
                         }
                     }
                 }
-
-
-
-
+            }
+            else
+            {
+                MessageBox.Show("Vous devez être sur la page d'un client pour le supprimer.", "Supprimer un client invalide",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -164,11 +173,19 @@ namespace Projet1.Prepose
                 
                 GestionClientsInvites.frmAjoutInvite frmAjout = new GestionClientsInvites.frmAjoutInvite();
 
-                decimal noInvite = unInvite.noClient + 1;
-                foreach (B56Projet1Equipe7DataSet.inviteRow uneLigne in b56Projet1Equipe7DataSet.invite.Rows)
-                    if (uneLigne.noInvite == noInvite && uneLigne.noClient == unInvite.noClient) noInvite ++;
+                decimal noInvite = 0;
 
-                if (noInvite < unInvite.noClient + 10)
+                for (int i = (int)unInvite.noClient + 1; i < unInvite.noClient + 10; i++)
+                {
+                    B56Projet1Equipe7DataSet.inviteRow inviteRandom = b56Projet1Equipe7DataSet.invite.FindBynoInvite(i);
+                    if (inviteRandom == null)
+                    {
+                        noInvite = i;
+                        break;
+                    }
+                }
+
+                if (noInvite != 0)
                 {
                     unInvite.noInvite = noInvite;
 
@@ -233,6 +250,44 @@ namespace Projet1.Prepose
 
         private void btnSupprimerInvite_Click(object sender, EventArgs e)
         {
+            if (dgInvites.SelectedRows.Count == 1 && dgInvites.SelectedRows[0].IsNewRow == false)
+            {
+
+                // Vérification s'il a planifié des soins
+
+                decimal noInvite = (decimal)dgInvites.SelectedRows[0].Cells[0].Value;
+                B56Projet1Equipe7DataSet.inviteRow unInvite = b56Projet1Equipe7DataSet.invite.FindBynoInvite(noInvite);
+
+                bool booPossedeSoin = false;
+                foreach (B56Projet1Equipe7DataSet.planifSoinRow uneLigne in b56Projet1Equipe7DataSet.planifSoin.Rows)
+                {
+                    if (uneLigne.noPersonne == noInvite)
+                    {
+                        MessageBox.Show("Cet invité ne peut pas être supprimé, car il a planifier un soin.",
+                            "Supprimer invité avec planification de soin", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        booPossedeSoin = true;
+                        break;
+                    }
+                }
+
+                if (booPossedeSoin == false)
+                {
+                    DialogResult reponse = MessageBox.Show("Êtes-vous certain de vouloir supprimer l'invité numéro " + noInvite + "?",
+                        "Supprimer un invité", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                    if (reponse == DialogResult.Yes)
+                    {
+                        inviteBindingSource.RemoveCurrent();
+                        this.Validate();
+                        this.inviteBindingSource.EndEdit();
+                        this.inviteTableAdapter.Update(this.b56Projet1Equipe7DataSet.invite);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Veuillez sélectionner l'invité que vous souhaitez supprimer dans la liste (un seul à la fois).", "Sélection d'un invité", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnFermer_Click(object sender, EventArgs e)
