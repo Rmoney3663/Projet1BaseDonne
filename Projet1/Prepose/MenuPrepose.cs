@@ -14,7 +14,7 @@ namespace Projet1.Prepose
     {
         Planifier planifier = new Planifier();
         Reserver reserver = new Reserver();
-        Gerer gerer = new Gerer();
+        GererClientsInvites gerer = new GererClientsInvites();
 
         public MenuPrepose()
         {

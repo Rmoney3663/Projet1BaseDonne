@@ -4,31 +4,23 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Projet1.Prepose.GestionClientsInvites
 {
-    public partial class frmAjoutInvite : Form
+    public partial class frmModifierInvite : Form
     {
         public B56Projet1Equipe7DataSet.inviteRow unInvite;
+        public bool boolMod;
 
-        public frmAjoutInvite()
+        public frmModifierInvite()
         {
             InitializeComponent();
         }
 
-        private void frmAjoutInvite_Load(object sender, EventArgs e)
-        {
-            // TODO: cette ligne de code charge les données dans la table 'b56Projet1Equipe7DataSet.invite'. Vous pouvez la déplacer ou la supprimer selon les besoins.
-            this.inviteTableAdapter.Fill(this.b56Projet1Equipe7DataSet.invite);
-            tbNoClient.Text = unInvite.noClient.ToString();
-            tbNoInvite.Text = unInvite.noInvite.ToString();
-        }
-
-        private void btnAjouter_Click(object sender, EventArgs e)
+        private void btnModifier_Click(object sender, EventArgs e)
         {
             if (tbNom.Text.Trim() == "")
                 errMessage.SetError(tbNom, "La zone de texte pour le nom ne peut pas être vide");
@@ -38,13 +30,22 @@ namespace Projet1.Prepose.GestionClientsInvites
             if (errMessage.GetError(tbNom) == "")
             {
                 unInvite.nomPrenom = tbNom.Text;
+                boolMod = true;
                 this.Close();
             }
         }
 
         private void btnAnnuler_Click(object sender, EventArgs e)
         {
+            boolMod = false;
             this.Close();
+        }
+
+        private void frmModifierInvite_Load(object sender, EventArgs e)
+        {
+            tbNoClient.Text = unInvite.noClient.ToString();
+            tbNom.Text = unInvite.nomPrenom;
+            tbNoInvite.Text = unInvite.noInvite.ToString();
         }
     }
 }
