@@ -17,14 +17,6 @@ namespace Projet1.Prepose
             InitializeComponent();
         }
 
-        private void clientBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.clientBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.b56Projet1Equipe7DataSet);
-
-        }
-
         private void Gerer_Load(object sender, EventArgs e)
         {
             // TODO: cette ligne de code charge les données dans la table 'b56Projet1Equipe7DataSet.reservationChambre'. Vous pouvez la déplacer ou la supprimer selon les besoins.
@@ -34,6 +26,9 @@ namespace Projet1.Prepose
             // TODO: cette ligne de code charge les données dans la table 'b56Projet1Equipe7DataSet.client'. Vous pouvez la déplacer ou la supprimer selon les besoins.
             this.clientTableAdapter.Fill(this.b56Projet1Equipe7DataSet.client);
 
+            lbTotale.Text = clientBindingSource.Count.ToString();
+            int position = clientBindingSource.Position + 1;
+            lbPosition.Text = position.ToString();
         }
 
         private void btnAjoutClient_Click(object sender, EventArgs e)
@@ -196,7 +191,6 @@ namespace Projet1.Prepose
                     {
                         b56Projet1Equipe7DataSet.invite.AddinviteRow(unInvite);
 
-                        clientBindingSource.MoveLast();
                         MessageBox.Show("L'invité " + (unInvite.noInvite).ToString() + " a été ajouté.", "Ajout d'un invité", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         this.Validate();
@@ -295,5 +289,32 @@ namespace Projet1.Prepose
             this.Close();
         }
 
+        private void btnFirst_Click(object sender, EventArgs e)
+        {
+            clientBindingSource.MoveFirst();
+            int position = clientBindingSource.Position + 1;
+            lbPosition.Text = position.ToString();
+        }
+
+        private void btnPrevious_Click(object sender, EventArgs e)
+        {
+            clientBindingSource.MovePrevious();
+            int position = clientBindingSource.Position + 1;
+            lbPosition.Text = position.ToString();
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            clientBindingSource.MoveNext();
+            int position = clientBindingSource.Position + 1;
+            lbPosition.Text = position.ToString();
+        }
+
+        private void btnLast_Click(object sender, EventArgs e)
+        {
+            clientBindingSource.MoveLast();
+            int position = clientBindingSource.Position + 1;
+            lbPosition.Text = position.ToString();
+        }
     }
 }
