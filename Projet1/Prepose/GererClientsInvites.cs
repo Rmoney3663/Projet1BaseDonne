@@ -27,6 +27,8 @@ namespace Projet1.Prepose
 
         private void Gerer_Load(object sender, EventArgs e)
         {
+            // TODO: cette ligne de code charge les données dans la table 'b56Projet1Equipe7DataSet.reservationChambre'. Vous pouvez la déplacer ou la supprimer selon les besoins.
+            this.reservationChambreTableAdapter.Fill(this.b56Projet1Equipe7DataSet.reservationChambre);
             // TODO: cette ligne de code charge les données dans la table 'b56Projet1Equipe7DataSet.invite'. Vous pouvez la déplacer ou la supprimer selon les besoins.
             this.inviteTableAdapter.Fill(this.b56Projet1Equipe7DataSet.invite);
             // TODO: cette ligne de code charge les données dans la table 'b56Projet1Equipe7DataSet.client'. Vous pouvez la déplacer ou la supprimer selon les besoins.
@@ -92,7 +94,63 @@ namespace Projet1.Prepose
 
         private void btnSupprimerClient_Click(object sender, EventArgs e)
         {
+            if (tbNoClient.Text.Trim() != "")
+            {
+                // Vérification s'il possède un ou des invités
 
+                B56Projet1Equipe7DataSet.clientRow client = b56Projet1Equipe7DataSet.client.FindBynoClient(Decimal.Parse(tbNoClient.Text));
+                decimal noClient = client.noClient;
+
+                if (dgInvites.RowCount != 1)
+                {
+                    MessageBox.Show("Ce client ne peut pas être supprimé, car il possède un ou des invités.",
+                        "Supprimer un client avec invité(s)", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    // Vérification s'il possède une chambre
+
+                    if (dgReservationChambre.RowCount != 1)
+                    {
+                        MessageBox.Show("Ce client ne peut pas être supprimé, car il possède une réservation de chambre à son nom.",
+                            "Supprimer un client avec réservation", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        // Vérification s'il a planifié des soins
+
+                        bool booPossedeSoin = false;
+                        foreach (B56Projet1Equipe7DataSet.planifSoinRow uneLigne in b56Projet1Equipe7DataSet.planifSoin.Rows)
+                        {
+                            if (uneLigne.noPersonne == noClient)
+                            {
+                                MessageBox.Show("Ce client ne peut pas être supprimé, car il a planifier un soin.",
+                                    "Supprimer client avec planification de soin", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                booPossedeSoin = true;
+                                break;
+                            }
+                        }
+
+                        if (booPossedeSoin == false)
+                        {
+                            DialogResult reponse = MessageBox.Show("Êtes-vous certain de vouloir supprimer le client numéro " + noClient + "?",
+                                "Supprimer un client",MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                            if (reponse == DialogResult.Yes)
+                            {
+                                clientBindingSource.RemoveCurrent();
+                                this.Validate();
+                                this.clientBindingSource.EndEdit();
+                                this.clientTableAdapter.Update(this.b56Projet1Equipe7DataSet.client);
+                            }
+                        }
+                    }
+                }
+
+
+
+
+            }
         }
 
         private void btnAjoutInvite_Click(object sender, EventArgs e)
