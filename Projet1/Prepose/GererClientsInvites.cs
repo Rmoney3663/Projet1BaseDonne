@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Projet1.Prepose
 {
-    public partial class Gerer : Form
+    public partial class GererClientsInvites : Form
     {
-        public Gerer()
+        public GererClientsInvites()
         {
             InitializeComponent();
         }
@@ -71,7 +71,23 @@ namespace Projet1.Prepose
 
         private void btnModifierClient_Click(object sender, EventArgs e)
         {
+            B56Projet1Equipe7DataSet.clientRow unClient = b56Projet1Equipe7DataSet.client.FindBynoClient(decimal.Parse(tbNoClient.Text));
 
+            GestionClientsInvites.frmModifierClient frmModifier = new GestionClientsInvites.frmModifierClient();
+
+            frmModifier.unClient = unClient;
+            frmModifier.boolMod = false;
+
+            frmModifier.ShowDialog();
+
+            if (frmModifier.boolMod == true)
+            {
+                MessageBox.Show("Le client " + (unClient.noClient).ToString() + " a été modifié.", "Modification d'un client", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                this.Validate();
+                this.clientBindingSource.EndEdit();
+                this.clientTableAdapter.Update(this.b56Projet1Equipe7DataSet.client);
+            }
         }
 
         private void btnSupprimerClient_Click(object sender, EventArgs e)
@@ -85,7 +101,7 @@ namespace Projet1.Prepose
 
             if (b56Projet1Equipe7DataSet.client.Count() != 0 && tbNoClient.Text != "")
             {
-
+                unInvite.nomPrenom = "";
                 unInvite.noClient = Decimal.Parse(tbNoClient.Text);
                 
                 GestionClientsInvites.frmAjoutInvite frmAjout = new GestionClientsInvites.frmAjoutInvite();
@@ -116,24 +132,49 @@ namespace Projet1.Prepose
 
                 else
                 {
-                    MessageBox.Show("Ce client possède déjà le nombre d'invités maximal","Maximum atteint");
+                    MessageBox.Show("Ce client possède déjà le nombre d'invités maximal","Maximum atteint", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
 
             else
             {
-                MessageBox.Show("Veuillez sélectionner un client afin de lui attribuer un nouvel invité", "Aucune sélection");
+                MessageBox.Show("Veuillez sélectionner un client afin de lui attribuer un nouvel invité", "Aucune sélection", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void btnModifierInvite_Click(object sender, EventArgs e)
         {
+            if (dgInvites.SelectedRows.Count == 1 && dgInvites.SelectedRows[0].IsNewRow == false)
+            {
 
+                decimal noInvite = (decimal)dgInvites.SelectedRows[0].Cells[0].Value;
+
+                B56Projet1Equipe7DataSet.inviteRow unInvite = b56Projet1Equipe7DataSet.invite.FindBynoInvite(noInvite);
+
+                GestionClientsInvites.frmModifierInvite frmModifier = new GestionClientsInvites.frmModifierInvite();
+
+                frmModifier.unInvite = unInvite;
+                frmModifier.boolMod = false;
+
+                frmModifier.ShowDialog();
+
+                if (frmModifier.boolMod == true)
+                {
+                    MessageBox.Show("L'invité " + (unInvite.noInvite).ToString() + " a été modifié.", "Modification d'un invité", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    this.Validate();
+                    this.inviteBindingSource.EndEdit();
+                    this.inviteTableAdapter.Update(this.b56Projet1Equipe7DataSet.invite);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Veuillez sélectionner l'invité que vous souhaitez modifier dans la liste (un seul à la fois).", "Sélection d'un invité", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnSupprimerInvite_Click(object sender, EventArgs e)
         {
-
         }
 
         private void btnFermer_Click(object sender, EventArgs e)

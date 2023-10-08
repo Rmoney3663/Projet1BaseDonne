@@ -70,12 +70,6 @@
     <Compile Include="Admin\GererChambre.Designer.cs">
       <DependentUpon>GererChambre.cs</DependentUpon>
     </Compile>
-    <Compile Include="Admin\GererClient.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Admin\GererClient.Designer.cs">
-      <DependentUpon>GererClient.cs</DependentUpon>
-    </Compile>
     <Compile Include="Admin\GererSoins.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,11 +117,11 @@
     <Compile Include="Admin\MenuAdministrateur.Designer.cs">
       <DependentUpon>MenuAdministrateur.cs</DependentUpon>
     </Compile>
-    <Compile Include="Prepose\Gerer.cs">
+    <Compile Include="Prepose\GererClientsInvites.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Prepose\Gerer.Designer.cs">
-      <DependentUpon>Gerer.cs</DependentUpon>
+    <Compile Include="Prepose\GererClientsInvites.Designer.cs">
+      <DependentUpon>GererClientsInvites.cs</DependentUpon>
     </Compile>
     <Compile Include="Prepose\GestionClientsInvites\frmAjoutClient.cs">
       <SubType>Form</SubType>
@@ -140,6 +134,18 @@
     </Compile>
     <Compile Include="Prepose\GestionClientsInvites\frmAjoutInvite.Designer.cs">
       <DependentUpon>frmAjoutInvite.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Prepose\GestionClientsInvites\frmModifierClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Prepose\GestionClientsInvites\frmModifierClient.Designer.cs">
+      <DependentUpon>frmModifierClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Prepose\GestionClientsInvites\frmModifierInvite.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Prepose\GestionClientsInvites\frmModifierInvite.Designer.cs">
+      <DependentUpon>frmModifierInvite.cs</DependentUpon>
     </Compile>
     <Compile Include="Prepose\MenuPrepose.cs">
       <SubType>Form</SubType>
@@ -176,14 +182,20 @@
     <EmbeddedResource Include="Admin\MenuAdministrateur.resx">
       <DependentUpon>MenuAdministrateur.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Prepose\Gerer.resx">
-      <DependentUpon>Gerer.cs</DependentUpon>
+    <EmbeddedResource Include="Prepose\GererClientsInvites.resx">
+      <DependentUpon>GererClientsInvites.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Prepose\GestionClientsInvites\frmAjoutClient.resx">
       <DependentUpon>frmAjoutClient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Prepose\GestionClientsInvites\frmAjoutInvite.resx">
       <DependentUpon>frmAjoutInvite.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Prepose\GestionClientsInvites\frmModifierClient.resx">
+      <DependentUpon>frmModifierClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Prepose\GestionClientsInvites\frmModifierInvite.resx">
+      <DependentUpon>frmModifierInvite.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Prepose\MenuPrepose.resx">
       <DependentUpon>MenuPrepose.cs</DependentUpon>

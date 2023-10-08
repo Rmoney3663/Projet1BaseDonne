@@ -15,7 +15,7 @@ namespace Projet1.Admin
         public int LoginUser { get; set; }
 
         GererUtilisateur gererUtilisateur = new GererUtilisateur();
-        GererClient gererClient = new GererClient();
+        Prepose.GererClientsInvites gererClient = new Prepose.GererClientsInvites();
         GererAssistants gererAssistants = new GererAssistants();
         GererSoins gererSoins = new GererSoins();
         Planifier planifier = new Planifier();
