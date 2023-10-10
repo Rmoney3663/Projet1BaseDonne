@@ -238,7 +238,7 @@ namespace Projet1.Prepose
             }
             else
             {
-                MessageBox.Show("Veuillez sélectionner l'invité que vous souhaitez modifier dans la liste (un seul à la fois).", "Sélection d'un invité", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Veuillez sélectionner l'invité que vous souhaitez modifier dans la liste.", "Sélection d'un invité", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -280,7 +280,7 @@ namespace Projet1.Prepose
             }
             else
             {
-                MessageBox.Show("Veuillez sélectionner l'invité que vous souhaitez supprimer dans la liste (un seul à la fois).", "Sélection d'un invité", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Veuillez sélectionner l'invité que vous souhaitez supprimer dans la liste.", "Sélection d'un invité", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

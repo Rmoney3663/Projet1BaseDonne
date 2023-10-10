@@ -271,7 +271,7 @@
             this.Controls.Add(this.tbPrix);
             this.Controls.Add(this.label1);
             this.Name = "frmAjouterSoin";
-            this.Text = "frmAjouterSoin";
+            this.Text = "Ajouter un soin";
             this.Load += new System.EventHandler(this.frmAjouterSoin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.b56Projet1Equipe7DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.soinBindingSource)).EndInit();

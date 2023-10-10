@@ -22,14 +22,6 @@ namespace Projet1.Admin.GestionSoins
             InitializeComponent();
         }
 
-        private void soinBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.soinBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.b56Projet1Equipe7DataSet);
-
-        }
-
         private void frmAjouterSoin_Load(object sender, EventArgs e)
         {
             // TODO: cette ligne de code charge les données dans la table 'b56Projet1Equipe7DataSet.typeSoin'. Vous pouvez la déplacer ou la supprimer selon les besoins.
@@ -47,7 +39,7 @@ namespace Projet1.Admin.GestionSoins
         private void btnAjouter_Click(object sender, EventArgs e)
         {
             char point = Convert.ToChar(CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator);
-            var exprDonnee = new Regex("^[0-9]{1,}(" + point + "[0-9]{2})?$");
+            var exprDonnee = new Regex("^[0-9]{1,50}(" + point + "[0-9]{2})?$");
 
             if (tbDesc.Text.Trim() == "")
                 errMessage.SetError(tbDesc, "La zone de texte pour la description ne peut pas être vide");

@@ -68,7 +68,32 @@ namespace Projet1.Admin
 
         private void btnModifier_Click(object sender, EventArgs e)
         {
+            if (dgSoins.SelectedRows.Count == 1 && dgSoins.SelectedRows[0].IsNewRow == false)
+            {
+                decimal noSoin = (decimal)dgSoins.SelectedRows[0].Cells[0].Value;
 
+                B56Projet1Equipe7DataSet.soinRow unSoin = b56Projet1Equipe7DataSet.soin.FindBynoSoin(noSoin);
+
+                GestionSoins.frmModifierSoin frmModifier = new GestionSoins.frmModifierSoin();
+
+                frmModifier.unSoin = unSoin;
+                frmModifier.boolMod = false;
+
+                frmModifier.ShowDialog();
+
+                if (frmModifier.boolMod == true)
+                {
+                    MessageBox.Show("Le soin " + (unSoin.noSoin).ToString() + " a été modifié.", "Modification d'un soin", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    this.Validate();
+                    this.soinBindingSource.EndEdit();
+                    this.soinTableAdapter.Update(this.b56Projet1Equipe7DataSet.soin);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Veuillez sélectionner le soin que vous souhaitez modifier dans la liste.", "Sélection d'un soin", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnSupprimer_Click(object sender, EventArgs e)
