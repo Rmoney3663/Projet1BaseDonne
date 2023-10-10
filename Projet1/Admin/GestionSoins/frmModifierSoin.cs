@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Projet1.Admin
+namespace Projet1.Admin.GestionSoins
 {
-    public partial class Planifier : Form
+    public partial class frmModifierSoin : Form
     {
-        public Planifier()
+        public frmModifierSoin()
         {
             InitializeComponent();
         }

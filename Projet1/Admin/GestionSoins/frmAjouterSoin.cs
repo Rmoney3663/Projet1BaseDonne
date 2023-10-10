@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Projet1.Prepose
+namespace Projet1.Admin.GestionSoins
 {
-    public partial class Reserver : Form
+    public partial class frmAjouterSoin : Form
     {
-        public Reserver()
+        public frmAjouterSoin()
         {
             InitializeComponent();
         }

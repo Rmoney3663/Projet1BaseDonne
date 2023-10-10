@@ -165,11 +165,11 @@
     <Compile Include="Prepose\Planifier.Designer.cs">
       <DependentUpon>Planifier.cs</DependentUpon>
     </Compile>
-    <Compile Include="Prepose\Reserver.cs">
+    <Compile Include="Prepose\ReserverChambre.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Prepose\Reserver.Designer.cs">
-      <DependentUpon>Reserver.cs</DependentUpon>
+    <Compile Include="Prepose\ReserverChambre.Designer.cs">
+      <DependentUpon>ReserverChambre.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -184,6 +184,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\GererAssistants.resx">
       <DependentUpon>GererAssistants.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\GererSoins.resx">
+      <DependentUpon>GererSoins.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\GererUtilisateur.resx">
       <DependentUpon>GererUtilisateur.cs</DependentUpon>
@@ -215,8 +218,8 @@
     <EmbeddedResource Include="Prepose\Planifier.resx">
       <DependentUpon>Planifier.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Prepose\Reserver.resx">
-      <DependentUpon>Reserver.cs</DependentUpon>
+    <EmbeddedResource Include="Prepose\ReserverChambre.resx">
+      <DependentUpon>ReserverChambre.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

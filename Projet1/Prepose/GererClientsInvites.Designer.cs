@@ -43,10 +43,6 @@
             this.tableAdapterManager = new Projet1.B56Projet1Equipe7DataSetTableAdapters.TableAdapterManager();
             this.inviteTableAdapter = new Projet1.B56Projet1Equipe7DataSetTableAdapters.inviteTableAdapter();
             this.dgInvites = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.inviteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tbNoClient = new System.Windows.Forms.TextBox();
             this.nomTextBox = new System.Windows.Forms.TextBox();
             this.prenomTextBox = new System.Windows.Forms.TextBox();
@@ -64,14 +60,8 @@
             this.btnModifierInvite = new System.Windows.Forms.Button();
             this.btnAjoutInvite = new System.Windows.Forms.Button();
             this.btnFermer = new System.Windows.Forms.Button();
-            this.reservationChambreBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.reservationChambreTableAdapter = new Projet1.B56Projet1Equipe7DataSetTableAdapters.reservationChambreTableAdapter();
             this.dgReservationChambre = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label3 = new System.Windows.Forms.Label();
             this.lbTotale = new System.Windows.Forms.Label();
             this.lbPosition = new System.Windows.Forms.Label();
@@ -79,6 +69,16 @@
             this.btnNext = new System.Windows.Forms.Button();
             this.btnPrevious = new System.Windows.Forms.Button();
             this.btnFirst = new System.Windows.Forms.Button();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.reservationChambreBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.inviteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             noClientLabel = new System.Windows.Forms.Label();
             nomLabel = new System.Windows.Forms.Label();
             prenomLabel = new System.Windows.Forms.Label();
@@ -90,9 +90,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.b56Projet1Equipe7DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgInvites)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inviteBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.reservationChambreBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgReservationChambre)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reservationChambreBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inviteBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // noClientLabel
@@ -212,6 +212,8 @@
             // 
             // dgInvites
             // 
+            this.dgInvites.AllowUserToAddRows = false;
+            this.dgInvites.AllowUserToDeleteRows = false;
             this.dgInvites.AutoGenerateColumns = false;
             this.dgInvites.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgInvites.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -222,6 +224,7 @@
             this.dgInvites.DataSource = this.inviteBindingSource;
             this.dgInvites.Location = new System.Drawing.Point(452, 202);
             this.dgInvites.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgInvites.MultiSelect = false;
             this.dgInvites.Name = "dgInvites";
             this.dgInvites.ReadOnly = true;
             this.dgInvites.RowHeadersWidth = 51;
@@ -229,35 +232,6 @@
             this.dgInvites.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgInvites.Size = new System.Drawing.Size(421, 172);
             this.dgInvites.TabIndex = 2;
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "noInvite";
-            this.dataGridViewTextBoxColumn9.HeaderText = "noInvite";
-            this.dataGridViewTextBoxColumn9.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "nomPrenom";
-            this.dataGridViewTextBoxColumn10.HeaderText = "nomPrenom";
-            this.dataGridViewTextBoxColumn10.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "noClient";
-            this.dataGridViewTextBoxColumn11.HeaderText = "noClient";
-            this.dataGridViewTextBoxColumn11.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.ReadOnly = true;
-            // 
-            // inviteBindingSource
-            // 
-            this.inviteBindingSource.DataMember = "fk_noClientInvite";
-            this.inviteBindingSource.DataSource = this.clientBindingSource;
             // 
             // tbNoClient
             // 
@@ -467,11 +441,6 @@
             this.btnFermer.UseVisualStyleBackColor = false;
             this.btnFermer.Click += new System.EventHandler(this.btnFermer_Click);
             // 
-            // reservationChambreBindingSource
-            // 
-            this.reservationChambreBindingSource.DataMember = "fk_noClientReservation";
-            this.reservationChambreBindingSource.DataSource = this.clientBindingSource;
-            // 
             // reservationChambreTableAdapter
             // 
             this.reservationChambreTableAdapter.ClearBeforeFill = true;
@@ -494,46 +463,6 @@
             this.dgReservationChambre.Size = new System.Drawing.Size(216, 47);
             this.dgReservationChambre.TabIndex = 28;
             this.dgReservationChambre.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "noClient";
-            this.dataGridViewTextBoxColumn1.HeaderText = "noClient";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "noChambre";
-            this.dataGridViewTextBoxColumn2.HeaderText = "noChambre";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "dateArrivee";
-            this.dataGridViewTextBoxColumn3.HeaderText = "dateArrivee";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "dateDepart";
-            this.dataGridViewTextBoxColumn4.HeaderText = "dateDepart";
-            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "NbPersonnes";
-            this.dataGridViewTextBoxColumn5.HeaderText = "NbPersonnes";
-            this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.Width = 125;
             // 
             // label3
             // 
@@ -616,6 +545,80 @@
             this.btnFirst.UseVisualStyleBackColor = true;
             this.btnFirst.Click += new System.EventHandler(this.btnFirst_Click);
             // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "noClient";
+            this.dataGridViewTextBoxColumn1.HeaderText = "noClient";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "noChambre";
+            this.dataGridViewTextBoxColumn2.HeaderText = "noChambre";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "dateArrivee";
+            this.dataGridViewTextBoxColumn3.HeaderText = "dateArrivee";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "dateDepart";
+            this.dataGridViewTextBoxColumn4.HeaderText = "dateDepart";
+            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "NbPersonnes";
+            this.dataGridViewTextBoxColumn5.HeaderText = "NbPersonnes";
+            this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.Width = 125;
+            // 
+            // reservationChambreBindingSource
+            // 
+            this.reservationChambreBindingSource.DataMember = "fk_noClientReservation";
+            this.reservationChambreBindingSource.DataSource = this.clientBindingSource;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "noInvite";
+            this.dataGridViewTextBoxColumn9.HeaderText = "noInvite";
+            this.dataGridViewTextBoxColumn9.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "nomPrenom";
+            this.dataGridViewTextBoxColumn10.HeaderText = "nomPrenom";
+            this.dataGridViewTextBoxColumn10.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "noClient";
+            this.dataGridViewTextBoxColumn11.HeaderText = "noClient";
+            this.dataGridViewTextBoxColumn11.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.ReadOnly = true;
+            // 
+            // inviteBindingSource
+            // 
+            this.inviteBindingSource.DataMember = "fk_noClientInvite";
+            this.inviteBindingSource.DataSource = this.clientBindingSource;
+            // 
             // GererClientsInvites
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -656,16 +659,17 @@
             this.Controls.Add(dateInscriptionLabel);
             this.Controls.Add(this.dateInscriptionDateTimePicker);
             this.Controls.Add(this.dgInvites);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "GererClientsInvites";
             this.Text = "Gérer les clients et leurs invités ";
             this.Load += new System.EventHandler(this.Gerer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.b56Projet1Equipe7DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgInvites)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inviteBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.reservationChambreBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgReservationChambre)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reservationChambreBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inviteBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
