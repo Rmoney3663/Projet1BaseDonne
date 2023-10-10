@@ -18,9 +18,7 @@ namespace Projet1.Admin
         Prepose.GererClientsInvites gererClient = new Prepose.GererClientsInvites();
         GererAssistants gererAssistants = new GererAssistants();
         GererSoins gererSoins = new GererSoins();
-        Planifier planifier = new Planifier();
         GererChambre gererChambre = new GererChambre();
-        Reserver reserver = new Reserver();
         Rapport rapport = new Rapport();
 
         public MenuAdministrateur()
@@ -74,7 +72,6 @@ namespace Projet1.Admin
         private void planifierDesSoinsPourLesClientsEtLeursInvitésToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
-            planifier.ShowDialog();
             this.Show();
         }
 
@@ -88,7 +85,6 @@ namespace Projet1.Admin
         private void réserverDesChambrespourLesClientsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
-            reserver.ShowDialog();
             this.Show();
         }
 

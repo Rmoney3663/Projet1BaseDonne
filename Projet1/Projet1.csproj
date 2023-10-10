@@ -88,23 +88,11 @@
     <Compile Include="Admin\GererUtilisateur.Designer.cs">
       <DependentUpon>GererUtilisateur.cs</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Planifier.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Admin\Planifier.Designer.cs">
-      <DependentUpon>Planifier.cs</DependentUpon>
-    </Compile>
     <Compile Include="Admin\Rapport.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Admin\Rapport.Designer.cs">
       <DependentUpon>Rapport.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\Reserver.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Admin\Reserver.Designer.cs">
-      <DependentUpon>Reserver.cs</DependentUpon>
     </Compile>
     <Compile Include="B56Projet1Equipe7DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
