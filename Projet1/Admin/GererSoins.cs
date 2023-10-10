@@ -34,7 +34,36 @@ namespace Projet1.Admin
 
         private void btnAjout_Click(object sender, EventArgs e)
         {
+            B56Projet1Equipe7DataSet.soinRow unSoin = b56Projet1Equipe7DataSet.soin.NewsoinRow();
 
+            decimal noSoinMax = 0;
+
+            if (b56Projet1Equipe7DataSet.soin.Count() != 0)
+            {
+                noSoinMax =
+                b56Projet1Equipe7DataSet.soin.Rows.Cast<B56Projet1Equipe7DataSet.soinRow>().Max(r => r.noSoin);
+            }
+
+            unSoin.noSoin = noSoinMax + 1;
+            unSoin.duree = "60";
+            unSoin.description = "";
+
+            GestionSoins.frmAjouterSoin frmAjout = new GestionSoins.frmAjouterSoin();
+
+            frmAjout.unSoin = unSoin;
+            frmAjout.ShowDialog();
+
+            if (unSoin.description != "")
+            {
+                b56Projet1Equipe7DataSet.soin.AddsoinRow(unSoin);
+
+                soinBindingSource.MoveLast();
+                MessageBox.Show("Le soin " + (unSoin.noSoin).ToString() + " a été ajouté.", "Ajout d'un soin", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                this.Validate();
+                this.soinBindingSource.EndEdit();
+                this.soinTableAdapter.Update(this.b56Projet1Equipe7DataSet.soin);
+            }
         }
 
         private void btnModifier_Click(object sender, EventArgs e)
@@ -45,6 +74,11 @@ namespace Projet1.Admin
         private void btnSupprimer_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnFermer_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
