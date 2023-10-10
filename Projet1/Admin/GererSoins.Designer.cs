@@ -208,7 +208,7 @@
             this.Controls.Add(this.dgSoins);
             this.MaximizeBox = false;
             this.Name = "GererSoins";
-            this.Text = "Gestion des soins";
+            this.Text = "Gérer les soins";
             this.Load += new System.EventHandler(this.GererSoins_Load);
             ((System.ComponentModel.ISupportInitialize)(this.b56Projet1Equipe7DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.soinBindingSource)).EndInit();

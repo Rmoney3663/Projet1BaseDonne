@@ -88,6 +88,18 @@
     <Compile Include="Admin\GererUtilisateur.Designer.cs">
       <DependentUpon>GererUtilisateur.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admin\GestionSoins\frmAjouterSoin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\GestionSoins\frmAjouterSoin.Designer.cs">
+      <DependentUpon>frmAjouterSoin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\GestionSoins\frmModifierSoin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\GestionSoins\frmModifierSoin.Designer.cs">
+      <DependentUpon>frmModifierSoin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Rapport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -178,6 +190,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\GererUtilisateur.resx">
       <DependentUpon>GererUtilisateur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\GestionSoins\frmAjouterSoin.resx">
+      <DependentUpon>frmAjouterSoin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\GestionSoins\frmModifierSoin.resx">
+      <DependentUpon>frmModifierSoin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Connexion.resx">
       <DependentUpon>Connexion.cs</DependentUpon>
