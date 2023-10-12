@@ -316,6 +316,7 @@
             this.btnAjouterSoins.TabIndex = 17;
             this.btnAjouterSoins.Text = "Ajout Soins";
             this.btnAjouterSoins.UseVisualStyleBackColor = true;
+            this.btnAjouterSoins.Click += new System.EventHandler(this.btnAjouterSoins_Click);
             // 
             // btnSupprimerSoins
             // 
@@ -326,6 +327,7 @@
             this.btnSupprimerSoins.TabIndex = 18;
             this.btnSupprimerSoins.Text = "Supprimer Soins";
             this.btnSupprimerSoins.UseVisualStyleBackColor = true;
+            this.btnSupprimerSoins.Click += new System.EventHandler(this.btnSupprimerSoins_Click);
             // 
             // btnFirst
             // 

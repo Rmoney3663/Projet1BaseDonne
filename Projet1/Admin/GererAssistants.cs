@@ -70,5 +70,32 @@ namespace Projet1.Admin
             lbPosition.Text = position.ToString();
         }
 
+        private void btnAjouterSoins_Click(object sender, EventArgs e)
+        {
+            B56Projet1Equipe7DataSet.assistantSoinRow unSoin = b56Projet1Equipe7DataSet.assistantSoin.NewassistantSoinRow();
+            string input = noAssistantTextBox.Text;
+            unSoin.noAssistant = decimal.Parse(input);
+
+            GestionAssistants.frmAjouterSoin frmAjoutSoin = new GestionAssistants.frmAjouterSoin();
+
+            frmAjoutSoin.unSoin = unSoin;
+            frmAjoutSoin.ShowDialog();
+
+            if (unSoin.noSoin != 0 && unSoin.noSoin != -1)
+            {
+                b56Projet1Equipe7DataSet.assistantSoin.AddassistantSoinRow(unSoin);
+                MessageBox.Show(" Le soin " + unSoin.noSoin.ToString() + " a été ajouté. ",
+                   "Ajout d'un soin", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Validate();
+                this.assistantSoinBindingSource.EndEdit();
+                this.assistantSoinTableAdapter.Update(this.b56Projet1Equipe7DataSet.assistantSoin);
+
+            }
+        }
+
+        private void btnSupprimerSoins_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

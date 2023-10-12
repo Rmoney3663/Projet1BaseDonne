@@ -88,6 +88,18 @@
     <Compile Include="Admin\GererUtilisateur.Designer.cs">
       <DependentUpon>GererUtilisateur.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admin\GestionAssistants\frmAjouterSoin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\GestionAssistants\frmAjouterSoin.Designer.cs">
+      <DependentUpon>frmAjouterSoin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\GestionAssistants\frmSupprimerSoin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\GestionAssistants\frmSupprimerSoin.Designer.cs">
+      <DependentUpon>frmSupprimerSoin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admin\GestionSoins\frmAjouterSoin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -191,6 +203,9 @@
     <EmbeddedResource Include="Admin\GererUtilisateur.resx">
       <DependentUpon>GererUtilisateur.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Admin\GestionAssistants\frmAjouterSoin.resx">
+      <DependentUpon>frmAjouterSoin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Admin\GestionSoins\frmAjouterSoin.resx">
       <DependentUpon>frmAjouterSoin.cs</DependentUpon>
     </EmbeddedResource>
@@ -260,5 +275,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
