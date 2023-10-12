@@ -159,6 +159,39 @@ namespace Projet1.Admin
                 MessageBox.Show("No rows are selected.");
             }
         }
-        
+
+        private void btnFermer_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnAjout_Click(object sender, EventArgs e)
+        {
+            B56Projet1Equipe7DataSet.assistantRow unUser = b56Projet1Equipe7DataSet.assistant.NewassistantRow();
+            decimal noContratMax = 0;
+            foreach (B56Projet1Equipe7DataSet.assistantRow uneLigne in b56Projet1Equipe7DataSet.assistant.Rows)
+                if (uneLigne.noAssistant > noContratMax) noContratMax = uneLigne.noAssistant;
+
+            unUser.noAssistant = noContratMax + 1;
+            unUser.prenom = "";
+            unUser.nom = "";
+            unUser.specialites = "";
+            unUser.remarques = "";
+            frmAjouterAssistant frmAjouterAssistant = new frmAjouterAssistant();
+            frmAjouterAssistant.unUser = unUser;
+            frmAjouterAssistant.ShowDialog();
+          
+            if (unUser.prenom != "" && unUser.nom != "" && unUser.specialites != "" && unUser.specialites != null && unUser.nom != null && unUser.prenom != null )
+            {
+                b56Projet1Equipe7DataSet.assistant.AddassistantRow(unUser);
+                //utilisateurBindingSource.MoveLast();
+                MessageBox.Show(" L'utilisateur " + unUser.prenom.ToString() + " " + unUser.nom.ToString() + " a été ajouté. ",
+                   "Ajout d'un utilisateur", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Validate();
+                this.assistantBindingSource.EndEdit();
+                this.assistantTableAdapter.Update(this.b56Projet1Equipe7DataSet.assistant);
+                lbTotale.Text = assistantBindingSource.Count.ToString();
+            }
+        }
     }
 }

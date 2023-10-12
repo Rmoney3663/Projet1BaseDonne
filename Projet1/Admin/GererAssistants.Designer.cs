@@ -43,11 +43,7 @@
             this.planifSoinTableAdapter = new Projet1.B56Projet1Equipe7DataSetTableAdapters.planifSoinTableAdapter();
             this.label1 = new System.Windows.Forms.Label();
             this.assistantBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.planifSoinBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.assistantSoinBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.assistantSoinDataGridView = new System.Windows.Forms.DataGridView();
-            this.noAssistant = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.noSoin = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.noAssistantTextBox = new System.Windows.Forms.TextBox();
             this.prenomTextBox = new System.Windows.Forms.TextBox();
             this.nomTextBox = new System.Windows.Forms.TextBox();
@@ -66,6 +62,11 @@
             this.lbPosition = new System.Windows.Forms.Label();
             this.lbTotale = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnFermer = new System.Windows.Forms.Button();
+            this.noAssistant = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.noSoin = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.assistantSoinBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.planifSoinBindingSource = new System.Windows.Forms.BindingSource(this.components);
             noAssistantLabel = new System.Windows.Forms.Label();
             prenomLabel = new System.Windows.Forms.Label();
             nomLabel = new System.Windows.Forms.Label();
@@ -74,9 +75,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.b56Projet1Equipe7DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.soinBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.assistantBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.planifSoinBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.assistantSoinBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.assistantSoinDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.assistantSoinBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.planifSoinBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // noAssistantLabel
@@ -182,16 +183,6 @@
             this.assistantBindingSource.DataMember = "assistant";
             this.assistantBindingSource.DataSource = this.b56Projet1Equipe7DataSet;
             // 
-            // planifSoinBindingSource
-            // 
-            this.planifSoinBindingSource.DataMember = "fk_noAssistantPlanifSoin";
-            this.planifSoinBindingSource.DataSource = this.assistantBindingSource;
-            // 
-            // assistantSoinBindingSource
-            // 
-            this.assistantSoinBindingSource.DataMember = "fk_noAssistantAssistantSoin";
-            this.assistantSoinBindingSource.DataSource = this.assistantBindingSource;
-            // 
             // assistantSoinDataGridView
             // 
             this.assistantSoinDataGridView.AutoGenerateColumns = false;
@@ -205,22 +196,6 @@
             this.assistantSoinDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.assistantSoinDataGridView.Size = new System.Drawing.Size(243, 164);
             this.assistantSoinDataGridView.TabIndex = 2;
-            // 
-            // noAssistant
-            // 
-            this.noAssistant.DataPropertyName = "noAssistant";
-            this.noAssistant.HeaderText = "noAssistant";
-            this.noAssistant.Name = "noAssistant";
-            this.noAssistant.ReadOnly = true;
-            this.noAssistant.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // noSoin
-            // 
-            this.noSoin.DataPropertyName = "noSoin";
-            this.noSoin.HeaderText = "noSoin";
-            this.noSoin.Name = "noSoin";
-            this.noSoin.ReadOnly = true;
-            this.noSoin.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // noAssistantTextBox
             // 
@@ -286,6 +261,7 @@
             this.btnAjout.TabIndex = 14;
             this.btnAjout.Text = "Ajout Assistant";
             this.btnAjout.UseVisualStyleBackColor = true;
+            this.btnAjout.Click += new System.EventHandler(this.btnAjout_Click);
             // 
             // btnModifier
             // 
@@ -369,7 +345,7 @@
             this.btnLast.Name = "btnLast";
             this.btnLast.Size = new System.Drawing.Size(128, 27);
             this.btnLast.TabIndex = 22;
-            this.btnLast.Text = "Dernière Prochaine";
+            this.btnLast.Text = "Dernière Assistant";
             this.btnLast.UseVisualStyleBackColor = true;
             this.btnLast.Click += new System.EventHandler(this.btnLast_Click);
             // 
@@ -403,11 +379,52 @@
             this.label3.Text = ":";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btnFermer
+            // 
+            this.btnFermer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnFermer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFermer.ForeColor = System.Drawing.Color.Black;
+            this.btnFermer.Location = new System.Drawing.Point(641, 7);
+            this.btnFermer.Margin = new System.Windows.Forms.Padding(2);
+            this.btnFermer.Name = "btnFermer";
+            this.btnFermer.Size = new System.Drawing.Size(93, 33);
+            this.btnFermer.TabIndex = 30;
+            this.btnFermer.Text = "Fermer";
+            this.btnFermer.UseVisualStyleBackColor = false;
+            this.btnFermer.Click += new System.EventHandler(this.btnFermer_Click);
+            // 
+            // noAssistant
+            // 
+            this.noAssistant.DataPropertyName = "noAssistant";
+            this.noAssistant.HeaderText = "noAssistant";
+            this.noAssistant.Name = "noAssistant";
+            this.noAssistant.ReadOnly = true;
+            this.noAssistant.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // noSoin
+            // 
+            this.noSoin.DataPropertyName = "noSoin";
+            this.noSoin.HeaderText = "noSoin";
+            this.noSoin.Name = "noSoin";
+            this.noSoin.ReadOnly = true;
+            this.noSoin.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // assistantSoinBindingSource
+            // 
+            this.assistantSoinBindingSource.DataMember = "fk_noAssistantAssistantSoin";
+            this.assistantSoinBindingSource.DataSource = this.assistantBindingSource;
+            // 
+            // planifSoinBindingSource
+            // 
+            this.planifSoinBindingSource.DataMember = "fk_noAssistantPlanifSoin";
+            this.planifSoinBindingSource.DataSource = this.assistantBindingSource;
+            // 
             // GererAssistants
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(653, 350);
+            this.ClientSize = new System.Drawing.Size(746, 367);
+            this.Controls.Add(this.btnFermer);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lbTotale);
             this.Controls.Add(this.lbPosition);
@@ -439,9 +456,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.b56Projet1Equipe7DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.soinBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.assistantBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.planifSoinBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.assistantSoinBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.assistantSoinDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.assistantSoinBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.planifSoinBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -481,5 +498,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn noSoin;
         private System.Windows.Forms.Label lbTotale;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnFermer;
     }
 }
