@@ -206,6 +206,9 @@
     <EmbeddedResource Include="Admin\GestionAssistants\frmAjouterSoin.resx">
       <DependentUpon>frmAjouterSoin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Admin\GestionAssistants\frmSupprimerSoin.resx">
+      <DependentUpon>frmSupprimerSoin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Admin\GestionSoins\frmAjouterSoin.resx">
       <DependentUpon>frmAjouterSoin.cs</DependentUpon>
     </EmbeddedResource>

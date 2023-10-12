@@ -110,38 +110,6 @@ namespace Projet1.Admin.GestionAssistants
             }
         }
 
-       /* private decimal GetNoSoinForDescription(string description)
-        {
-            decimal noSoin = 0;
-            string connectionString = "Data Source=tcp:424sql.cgodin.qc.ca,5433;Initial Catalog=B56Projet1Equipe7;Persist Security Info=True;User ID=B56Equipe7;Password=Password1";
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                try
-                {
-                    connection.Open();
-
-                    string query = "SELECT noSoin FROM soin WHERE description = @description";
-
-                    using (SqlCommand command = new SqlCommand(query, connection))
-                    {
-                        command.Parameters.AddWithValue("@description", description);
-
-                        object result = command.ExecuteScalar();
-
-                        if (result != null)
-                        {
-                            noSoin = Convert.ToDecimal(result);
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    // Handle or log the exception here.
-                    MessageBox.Show("Error: " + ex.Message);
-                }
-            }
-
-            return noSoin;
-        }*/
+       
     }
 }

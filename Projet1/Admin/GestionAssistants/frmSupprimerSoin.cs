@@ -9,12 +9,55 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Projet1.Admin.GestionAssistants
-{
+{    
     public partial class frmSupprimerSoin : Form
     {
+        public B56Projet1Equipe7DataSet.assistantSoinRow deleteSoin;
         public frmSupprimerSoin()
         {
             InitializeComponent();
+            
+        }
+
+        private void soinBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.soinBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.b56Projet1Equipe7DataSet);
+
+        }
+
+        private void frmSupprimerSoin_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'b56Projet1Equipe7DataSet.soin' table. You can move, or remove it, as needed.
+            this.soinTableAdapter.Fill(this.b56Projet1Equipe7DataSet.soin);
+
+            decimal soinValue = deleteSoin.noSoin;
+
+            for (int i = 0; i < descriptionComboBox.Items.Count; i++)
+            {
+                DataRowView item = (DataRowView)descriptionComboBox.Items[i];
+
+                decimal comboBoxValue = (decimal)item["noSoin"]; // Assuming "noSoin" is the field containing "noSoin" values.
+
+                if (comboBoxValue == soinValue)
+                {
+                    descriptionComboBox.SelectedIndex = i;
+                    break;
+                }
+            }
+
+        }
+
+        private void btnSupprimer_Click(object sender, EventArgs e)
+        {
+            deleteSoin.noSoin = -1;
+            this.Close();
+        }
+
+        private void btnFermer_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

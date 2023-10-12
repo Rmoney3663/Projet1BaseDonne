@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Projet1.Admin.GestionAssistants;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -95,7 +97,68 @@ namespace Projet1.Admin
 
         private void btnSupprimerSoins_Click(object sender, EventArgs e)
         {
+            if (assistantSoinDataGridView.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = assistantSoinDataGridView.SelectedRows[0];
 
+                string strsoin = selectedRow.Cells["noSoin"].Value.ToString();
+                string strinput = noAssistantTextBox.Text;
+               
+
+                decimal soin = decimal.Parse(strsoin);
+                decimal assistant = decimal.Parse(strinput);
+
+                B56Projet1Equipe7DataSet.assistantSoinRow deleteSoin = b56Projet1Equipe7DataSet.assistantSoin.FindBynoAssistantnoSoin(assistant, soin);
+
+                string connectionString = "Data Source=tcp:424sql.cgodin.qc.ca,5433;Initial Catalog=B56Projet1Equipe7;Persist Security Info=True;User ID=B56Equipe7;Password=Password1";
+                decimal noSoinToDelete = deleteSoin.noSoin;
+                int planifSoinCount = 0;
+
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    string query = "SELECT COUNT(*) FROM planifSoin WHERE noSoin = @noSoin";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@noSoin", noSoinToDelete);
+
+                        // Execute the query and get the count
+                        planifSoinCount = (int)command.ExecuteScalar();
+                    }
+                }
+
+                if (planifSoinCount > 0)
+                {
+                    MessageBox.Show("Ce soin est utilisé dans la planification et ne peut pas être supprimé.", "Suppression impossible", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    if (deleteSoin != null)
+                    {
+                        GestionAssistants.frmSupprimerSoin frmSupprimerSoin = new GestionAssistants.frmSupprimerSoin();
+                        frmSupprimerSoin.deleteSoin = deleteSoin;
+
+                        frmSupprimerSoin.ShowDialog();
+
+                        if (deleteSoin.noSoin == -1)
+                        {
+                            deleteSoin.noSoin = soin;
+                            this.assistantSoinTableAdapter.Delete(deleteSoin.noAssistant, deleteSoin.noSoin);
+                            MessageBox.Show("Le soin " + deleteSoin.noSoin.ToString() + " a été enlevé de cet assistant. ",
+                                            "Suppression d'un utilisateur", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            b56Projet1Equipe7DataSet.assistantSoin.RemoveassistantSoinRow(deleteSoin);
+                        }
+                    }
+                    }                   
+                }
+            else
+            {
+                MessageBox.Show("No rows are selected.");
+            }
         }
+        
     }
 }
