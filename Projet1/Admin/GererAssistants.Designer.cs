@@ -83,7 +83,7 @@
             // noAssistantLabel
             // 
             noAssistantLabel.AutoSize = true;
-            noAssistantLabel.Location = new System.Drawing.Point(13, 96);
+            noAssistantLabel.Location = new System.Drawing.Point(79, 97);
             noAssistantLabel.Name = "noAssistantLabel";
             noAssistantLabel.Size = new System.Drawing.Size(67, 13);
             noAssistantLabel.TabIndex = 3;
@@ -92,7 +92,7 @@
             // prenomLabel
             // 
             prenomLabel.AutoSize = true;
-            prenomLabel.Location = new System.Drawing.Point(13, 122);
+            prenomLabel.Location = new System.Drawing.Point(79, 123);
             prenomLabel.Name = "prenomLabel";
             prenomLabel.Size = new System.Drawing.Size(45, 13);
             prenomLabel.TabIndex = 5;
@@ -101,7 +101,7 @@
             // nomLabel
             // 
             nomLabel.AutoSize = true;
-            nomLabel.Location = new System.Drawing.Point(13, 148);
+            nomLabel.Location = new System.Drawing.Point(79, 149);
             nomLabel.Name = "nomLabel";
             nomLabel.Size = new System.Drawing.Size(30, 13);
             nomLabel.TabIndex = 7;
@@ -110,7 +110,7 @@
             // specialitesLabel
             // 
             specialitesLabel.AutoSize = true;
-            specialitesLabel.Location = new System.Drawing.Point(13, 174);
+            specialitesLabel.Location = new System.Drawing.Point(79, 175);
             specialitesLabel.Name = "specialitesLabel";
             specialitesLabel.Size = new System.Drawing.Size(59, 13);
             specialitesLabel.TabIndex = 9;
@@ -119,7 +119,7 @@
             // remarquesLabel
             // 
             remarquesLabel.AutoSize = true;
-            remarquesLabel.Location = new System.Drawing.Point(13, 200);
+            remarquesLabel.Location = new System.Drawing.Point(79, 201);
             remarquesLabel.Name = "remarquesLabel";
             remarquesLabel.Size = new System.Drawing.Size(59, 13);
             remarquesLabel.TabIndex = 11;
@@ -172,7 +172,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(370, 60);
+            this.label1.Location = new System.Drawing.Point(436, 61);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(148, 24);
             this.label1.TabIndex = 2;
@@ -191,7 +191,7 @@
             this.noAssistant,
             this.noSoin});
             this.assistantSoinDataGridView.DataSource = this.assistantSoinBindingSource;
-            this.assistantSoinDataGridView.Location = new System.Drawing.Point(335, 87);
+            this.assistantSoinDataGridView.Location = new System.Drawing.Point(401, 88);
             this.assistantSoinDataGridView.Name = "assistantSoinDataGridView";
             this.assistantSoinDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.assistantSoinDataGridView.Size = new System.Drawing.Size(243, 164);
@@ -200,7 +200,7 @@
             // noAssistantTextBox
             // 
             this.noAssistantTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.assistantBindingSource, "noAssistant", true));
-            this.noAssistantTextBox.Location = new System.Drawing.Point(86, 93);
+            this.noAssistantTextBox.Location = new System.Drawing.Point(152, 94);
             this.noAssistantTextBox.Name = "noAssistantTextBox";
             this.noAssistantTextBox.ReadOnly = true;
             this.noAssistantTextBox.Size = new System.Drawing.Size(100, 20);
@@ -209,7 +209,7 @@
             // prenomTextBox
             // 
             this.prenomTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.assistantBindingSource, "prenom", true));
-            this.prenomTextBox.Location = new System.Drawing.Point(86, 119);
+            this.prenomTextBox.Location = new System.Drawing.Point(152, 120);
             this.prenomTextBox.Name = "prenomTextBox";
             this.prenomTextBox.ReadOnly = true;
             this.prenomTextBox.Size = new System.Drawing.Size(100, 20);
@@ -218,7 +218,7 @@
             // nomTextBox
             // 
             this.nomTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.assistantBindingSource, "nom", true));
-            this.nomTextBox.Location = new System.Drawing.Point(86, 145);
+            this.nomTextBox.Location = new System.Drawing.Point(152, 146);
             this.nomTextBox.Name = "nomTextBox";
             this.nomTextBox.ReadOnly = true;
             this.nomTextBox.Size = new System.Drawing.Size(100, 20);
@@ -227,7 +227,7 @@
             // specialitesTextBox
             // 
             this.specialitesTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.assistantBindingSource, "specialites", true));
-            this.specialitesTextBox.Location = new System.Drawing.Point(86, 171);
+            this.specialitesTextBox.Location = new System.Drawing.Point(152, 172);
             this.specialitesTextBox.Name = "specialitesTextBox";
             this.specialitesTextBox.ReadOnly = true;
             this.specialitesTextBox.Size = new System.Drawing.Size(100, 20);
@@ -236,7 +236,7 @@
             // remarquesTextBox
             // 
             this.remarquesTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.assistantBindingSource, "remarques", true));
-            this.remarquesTextBox.Location = new System.Drawing.Point(86, 197);
+            this.remarquesTextBox.Location = new System.Drawing.Point(152, 198);
             this.remarquesTextBox.Name = "remarquesTextBox";
             this.remarquesTextBox.ReadOnly = true;
             this.remarquesTextBox.Size = new System.Drawing.Size(100, 20);
@@ -246,7 +246,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 60);
+            this.label2.Location = new System.Drawing.Point(78, 61);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(164, 24);
             this.label2.TabIndex = 13;
@@ -255,7 +255,7 @@
             // btnAjout
             // 
             this.btnAjout.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAjout.Location = new System.Drawing.Point(16, 223);
+            this.btnAjout.Location = new System.Drawing.Point(82, 224);
             this.btnAjout.Name = "btnAjout";
             this.btnAjout.Size = new System.Drawing.Size(176, 28);
             this.btnAjout.TabIndex = 14;
@@ -266,17 +266,18 @@
             // btnModifier
             // 
             this.btnModifier.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModifier.Location = new System.Drawing.Point(16, 257);
+            this.btnModifier.Location = new System.Drawing.Point(82, 258);
             this.btnModifier.Name = "btnModifier";
             this.btnModifier.Size = new System.Drawing.Size(176, 28);
             this.btnModifier.TabIndex = 15;
             this.btnModifier.Text = "Modifier Assistant";
             this.btnModifier.UseVisualStyleBackColor = true;
+            this.btnModifier.Click += new System.EventHandler(this.btnModifier_Click);
             // 
             // btnSupprimer
             // 
             this.btnSupprimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSupprimer.Location = new System.Drawing.Point(16, 291);
+            this.btnSupprimer.Location = new System.Drawing.Point(82, 292);
             this.btnSupprimer.Name = "btnSupprimer";
             this.btnSupprimer.Size = new System.Drawing.Size(176, 28);
             this.btnSupprimer.TabIndex = 16;
@@ -286,7 +287,7 @@
             // btnAjouterSoins
             // 
             this.btnAjouterSoins.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAjouterSoins.Location = new System.Drawing.Point(351, 257);
+            this.btnAjouterSoins.Location = new System.Drawing.Point(417, 258);
             this.btnAjouterSoins.Name = "btnAjouterSoins";
             this.btnAjouterSoins.Size = new System.Drawing.Size(176, 28);
             this.btnAjouterSoins.TabIndex = 17;
@@ -297,7 +298,7 @@
             // btnSupprimerSoins
             // 
             this.btnSupprimerSoins.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSupprimerSoins.Location = new System.Drawing.Point(351, 291);
+            this.btnSupprimerSoins.Location = new System.Drawing.Point(417, 292);
             this.btnSupprimerSoins.Name = "btnSupprimerSoins";
             this.btnSupprimerSoins.Size = new System.Drawing.Size(176, 28);
             this.btnSupprimerSoins.TabIndex = 18;

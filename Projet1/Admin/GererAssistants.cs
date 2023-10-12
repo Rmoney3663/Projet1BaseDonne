@@ -193,5 +193,35 @@ namespace Projet1.Admin
                 lbTotale.Text = assistantBindingSource.Count.ToString();
             }
         }
+
+        private void btnModifier_Click(object sender, EventArgs e)
+        {
+            string no = noAssistantTextBox.Text;
+            decimal noid = decimal.Parse(no);
+
+            B56Projet1Equipe7DataSet.assistantRow existingUser = b56Projet1Equipe7DataSet.assistant.FindBynoAssistant(noid);
+
+            if (existingUser != null)
+            {
+                frmModifierAssistant frmModifierAssistant = new frmModifierAssistant();
+                frmModifierAssistant.unUser = existingUser;
+                frmModifierAssistant.ShowDialog();
+
+                if (existingUser.prenom != "" && existingUser.nom != "" && existingUser.specialites != "" && existingUser.specialites != null && existingUser.nom != null && existingUser.prenom != null)
+                {
+                    MessageBox.Show("L'utilisateur " + existingUser.prenom.ToString() + " " + existingUser.nom.ToString() + " a été modifié. ",
+                                    "Modification d'un utilisateur", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    this.Validate();
+                    this.assistantBindingSource.EndEdit();
+                    this.assistantTableAdapter.Update(existingUser);
+                }
+                else
+                {
+                    MessageBox.Show("Les données de l'assistant ne sont pas valides et la modification est impossible.",
+                                    "Modification d'un assistant impossible", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+        }
     }
 }
