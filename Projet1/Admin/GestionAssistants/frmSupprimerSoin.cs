@@ -29,7 +29,6 @@ namespace Projet1.Admin.GestionAssistants
 
         private void frmSupprimerSoin_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'b56Projet1Equipe7DataSet.soin' table. You can move, or remove it, as needed.
             this.soinTableAdapter.Fill(this.b56Projet1Equipe7DataSet.soin);
 
             decimal soinValue = deleteSoin.noSoin;
@@ -38,7 +37,7 @@ namespace Projet1.Admin.GestionAssistants
             {
                 DataRowView item = (DataRowView)descriptionComboBox.Items[i];
 
-                decimal comboBoxValue = (decimal)item["noSoin"]; // Assuming "noSoin" is the field containing "noSoin" values.
+                decimal comboBoxValue = (decimal)item["noSoin"]; 
 
                 if (comboBoxValue == soinValue)
                 {
