@@ -17,6 +17,7 @@ namespace Projet1.Admin.GestionAssistants
         public string prenom { get; set; }
         public string specialites { get; set; }
         public string remarques { get; set; }
+        public bool boolMod;
         public frmModifierAssistant()
         {
             InitializeComponent();
@@ -58,6 +59,7 @@ namespace Projet1.Admin.GestionAssistants
 
             if (prenomTextBox.Text.Trim() != "" && nomTextBox.Text.Trim() != "" && specialitesTextBox.Text.Trim() != "")
             {
+                boolMod = true;
                 unUser.prenom = prenomTextBox.Text;
                 unUser.nom = nomTextBox.Text;
                 unUser.specialites = specialitesTextBox.Text;
@@ -68,9 +70,7 @@ namespace Projet1.Admin.GestionAssistants
 
         private void btnFermer_Click(object sender, EventArgs e)
         {
-            unUser.prenom = "";
-            unUser.nom = "";
-            unUser.specialites = "";
+            boolMod = false;
             this.Close();
         }
     }
