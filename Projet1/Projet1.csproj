@@ -215,6 +215,9 @@
     <EmbeddedResource Include="Admin\GererAssistants.resx">
       <DependentUpon>GererAssistants.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Admin\GererChambre.resx">
+      <DependentUpon>GererChambre.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Admin\GererSoins.resx">
       <DependentUpon>GererSoins.cs</DependentUpon>
     </EmbeddedResource>
@@ -305,6 +308,8 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Admin\GestionChambres\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
