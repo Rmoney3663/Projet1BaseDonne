@@ -60,8 +60,7 @@ namespace Projet1.Admin
 
             if (unUser.password != "" && unUser.nomUtilisateur != "" && unUser.password != null && unUser.nomUtilisateur != null && userNameExists == false)
             {
-                b56Projet1Equipe7DataSet.utilisateur.AddutilisateurRow(unUser);
-                //utilisateurBindingSource.MoveLast();
+                b56Projet1Equipe7DataSet.utilisateur.AddutilisateurRow(unUser);                
                 MessageBox.Show(" L'utilisateur " + unUser.nomUtilisateur.ToString() + " a été ajouté. ",
                    "Ajout d'un utilisateur", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Validate();
@@ -159,8 +158,6 @@ namespace Projet1.Admin
                         if (deleteUser.noTypeUtilisateur == 3)
                         {
                             deleteUser.noTypeUtilisateur = userType;
-                            /*this.Validate();
-                            this.utilisateurBindingSource.EndEdit();*/
                             this.utilisateurTableAdapter.Delete(deleteUser.noUtilisateur, deleteUser.nomUtilisateur, deleteUser.password, userType);
                             MessageBox.Show("L'utilisateur " + deleteUser.nomUtilisateur.ToString() + " a été supprimé. ",
                                             "Suppression d'un utilisateur", MessageBoxButtons.OK, MessageBoxIcon.Information);

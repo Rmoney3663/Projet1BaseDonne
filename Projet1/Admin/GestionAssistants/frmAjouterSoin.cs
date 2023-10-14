@@ -22,16 +22,13 @@ namespace Projet1.Admin.GestionAssistants
         {
             InitializeComponent();
 
-            // Ensure the data is up to date
-            //assistantTableAdapter.Fill(b56Projet1Equipe7DataSet.assistant);
-            //assistantSoinTableAdapter.Fill(b56Projet1Equipe7DataSet.assistantSoin);
+           
 
             string connectionString = "Data Source=tcp:424sql.cgodin.qc.ca,5433;Initial Catalog=B56Projet1Equipe7;Persist Security Info=True;User ID=B56Equipe7;Password=Password1";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
-                // Fetch available soin options for the assistant based on assistantID
                 string query = "SELECT s.noSoin AS SoinNoSoin, s.description " +
                                "FROM soin s " +
                                "WHERE s.noSoin NOT IN (SELECT noSoin FROM assistantSoin WHERE noAssistant = @AssistantID)";

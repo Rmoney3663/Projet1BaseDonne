@@ -125,7 +125,7 @@ namespace Projet1.Admin
                         command.Parameters.AddWithValue("@noSoin", noSoinToDelete);
                         command.Parameters.AddWithValue("@noAssistant", assistant);
 
-                        // Execute the query and get the count
+                        
                         planifSoinCount = (int)command.ExecuteScalar();
                     }
                 }
@@ -185,7 +185,7 @@ namespace Projet1.Admin
             if (unUser.prenom != "" && unUser.nom != "" && unUser.specialites != "" && unUser.specialites != null && unUser.nom != null && unUser.prenom != null )
             {
                 b56Projet1Equipe7DataSet.assistant.AddassistantRow(unUser);
-                //utilisateurBindingSource.MoveLast();
+                
                 MessageBox.Show(" L'utilisateur " + unUser.prenom.ToString() + " " + unUser.nom.ToString() + " a été ajouté. ",
                    "Ajout d'un utilisateur", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Validate();
@@ -244,8 +244,7 @@ namespace Projet1.Admin
                 if (frmSupprimerAssistant.boolMod == true)
                 {
                     decimal assistantToDelete = unUser.noAssistant;
-
-                    // Check if the assistant is part of any planifications
+                   
                     bool hasPlanifications = CheckPlanifications(assistantToDelete);
 
                     if (hasPlanifications)
@@ -261,7 +260,6 @@ namespace Projet1.Admin
                         {
                             connection.Open();
 
-                            // Remove references from assistantSoin
                             foreach (decimal soinToDelete in offeredSoins)
                             {
                                 string removeReferencesQuery = "DELETE FROM assistantSoin WHERE noSoin = @soinToDelete";
@@ -271,19 +269,7 @@ namespace Projet1.Admin
                                     removeReferencesCommand.ExecuteNonQuery();
                                 }
                             }
-                            /*
-                            // Delete soins
-                            foreach (decimal soinToDelete in offeredSoins)
-                            {
-                                string deleteSoinQuery = "DELETE FROM soin WHERE noSoin = @soinToDelete";
-                                using (SqlCommand deleteSoinCommand = new SqlCommand(deleteSoinQuery, connection))
-                                {
-                                    deleteSoinCommand.Parameters.AddWithValue("@soinToDelete", soinToDelete);
-                                    deleteSoinCommand.ExecuteNonQuery();
-                                }
-                            }
-                            */
-                            // Delete the assistant
+                           
                             string deleteAssistantQuery = "DELETE FROM assistant WHERE noAssistant = @assistantToDelete";
                             using (SqlCommand deleteAssistantCommand = new SqlCommand(deleteAssistantQuery, connection))
                             {
@@ -293,12 +279,7 @@ namespace Projet1.Admin
                         }         
                         MessageBox.Show("L'assistant " + unUser.prenom.ToString() + " " + unUser.nom.ToString() + " a été supprimé. ",
                                         "Suppression d'un assistant", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        /*
-                        this.soinTableAdapter.Fill(this.b56Projet1Equipe7DataSet.soin);
-                        assistantSoinDataGridView.DataSource = assistantSoinBindingSource;
-                        b56Projet1Equipe7DataSet.assistant.RemoveassistantRow(unUser);
-                        assistantTableAdapter.Update(b56Projet1Equipe7DataSet.assistant);
-                        */
+                       
                         assistantTableAdapter.Fill(b56Projet1Equipe7DataSet.assistant);
 
                         assistantSoinDataGridView.DataSource = assistantSoinBindingSource;

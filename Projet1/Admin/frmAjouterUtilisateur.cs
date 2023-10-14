@@ -34,8 +34,7 @@ namespace Projet1.Admin
         {
             // TODO: cette ligne de code charge les données dans la table 'b56Projet1Equipe7DataSet.typeUtilisateur'. Vous pouvez la déplacer ou la supprimer selon les besoins.
             this.typeUtilisateurTableAdapter.Fill(this.b56Projet1Equipe7DataSet.typeUtilisateur);
-            // TODO: cette ligne de code charge les données dans la table 'b56Projet1Equipe7DataSet.utilisateur'. Vous pouvez la déplacer ou la supprimer selon les besoins.
-           // this.utilisateurTableAdapter.Fill(this.b56Projet1Equipe7DataSet.utilisateur);
+            
 
         }
 

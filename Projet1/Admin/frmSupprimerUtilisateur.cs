@@ -32,13 +32,6 @@ namespace Projet1.Admin
             this.Close();
         }
 
-        private void typeUtilisateurBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            /*this.Validate();
-            this.typeUtilisateurBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.b56Projet1Equipe7DataSet);*/
-
-        }
 
         private void frmSupprimerUtilisateur_Load(object sender, EventArgs e)
         {
