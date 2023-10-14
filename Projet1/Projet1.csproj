@@ -106,6 +106,12 @@
     <Compile Include="Admin\GestionAssistants\frmModifierAssistant.Designer.cs">
       <DependentUpon>frmModifierAssistant.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admin\GestionAssistants\frmSupprimerAssistant.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\GestionAssistants\frmSupprimerAssistant.Designer.cs">
+      <DependentUpon>frmSupprimerAssistant.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admin\GestionAssistants\frmSupprimerSoin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -223,6 +229,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\GestionAssistants\frmModifierAssistant.resx">
       <DependentUpon>frmModifierAssistant.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\GestionAssistants\frmSupprimerAssistant.resx">
+      <DependentUpon>frmSupprimerAssistant.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\GestionAssistants\frmSupprimerSoin.resx">
       <DependentUpon>frmSupprimerSoin.cs</DependentUpon>

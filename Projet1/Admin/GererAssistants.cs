@@ -224,5 +224,140 @@ namespace Projet1.Admin
                 }
             }
         }
+
+        private void btnSupprimer_Click(object sender, EventArgs e)
+        {
+            string no = noAssistantTextBox.Text;
+            decimal noid = decimal.Parse(no);
+
+            B56Projet1Equipe7DataSet.assistantRow unUser = b56Projet1Equipe7DataSet.assistant.FindBynoAssistant(noid);
+            string connectionString = "Data Source=tcp:424sql.cgodin.qc.ca,5433;Initial Catalog=B56Projet1Equipe7;Persist Security Info=True;User ID=B56Equipe7;Password=Password1";
+
+            if (unUser != null)
+            {
+                frmSupprimerAssistant frmSupprimerAssistant = new frmSupprimerAssistant();
+                frmSupprimerAssistant.boolMod = false;
+                frmSupprimerAssistant.unUser = unUser;
+                frmSupprimerAssistant.ShowDialog();
+
+                if (frmSupprimerAssistant.boolMod == true)
+                {
+                    decimal assistantToDelete = unUser.noAssistant;
+
+                    // Check if the assistant is part of any planifications
+                    bool hasPlanifications = CheckPlanifications(assistantToDelete);
+
+                    if (hasPlanifications)
+                    {
+                        MessageBox.Show("Impossible de supprimer cet assistant. Des planifications lui sont assignées.",
+                                        "Suppression impossible", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else
+                    {
+                        List<decimal> offeredSoins = GetOfferedSoins(assistantToDelete);
+
+                        using (SqlConnection connection = new SqlConnection(connectionString))
+                        {
+                            connection.Open();
+
+                            // Remove references from assistantSoin
+                            foreach (decimal soinToDelete in offeredSoins)
+                            {
+                                string removeReferencesQuery = "DELETE FROM assistantSoin WHERE noSoin = @soinToDelete";
+                                using (SqlCommand removeReferencesCommand = new SqlCommand(removeReferencesQuery, connection))
+                                {
+                                    removeReferencesCommand.Parameters.AddWithValue("@soinToDelete", soinToDelete);
+                                    removeReferencesCommand.ExecuteNonQuery();
+                                }
+                            }
+
+                            // Delete soins
+                            foreach (decimal soinToDelete in offeredSoins)
+                            {
+                                string deleteSoinQuery = "DELETE FROM soin WHERE noSoin = @soinToDelete";
+                                using (SqlCommand deleteSoinCommand = new SqlCommand(deleteSoinQuery, connection))
+                                {
+                                    deleteSoinCommand.Parameters.AddWithValue("@soinToDelete", soinToDelete);
+                                    deleteSoinCommand.ExecuteNonQuery();
+                                }
+                            }
+
+                            // Delete the assistant
+                            string deleteAssistantQuery = "DELETE FROM assistant WHERE noAssistant = @assistantToDelete";
+                            using (SqlCommand deleteAssistantCommand = new SqlCommand(deleteAssistantQuery, connection))
+                            {
+                                deleteAssistantCommand.Parameters.AddWithValue("@assistantToDelete", assistantToDelete);
+                                deleteAssistantCommand.ExecuteNonQuery();
+                            }
+                        }         
+                        MessageBox.Show("L'assistant " + unUser.prenom.ToString() + " " + unUser.nom.ToString() + " a été supprimé. ",
+                                        "Suppression d'un assistant", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        /*
+                        this.soinTableAdapter.Fill(this.b56Projet1Equipe7DataSet.soin);
+                        assistantSoinDataGridView.DataSource = assistantSoinBindingSource;
+                        b56Projet1Equipe7DataSet.assistant.RemoveassistantRow(unUser);
+                        assistantTableAdapter.Update(b56Projet1Equipe7DataSet.assistant);
+                        */
+                        assistantTableAdapter.Fill(b56Projet1Equipe7DataSet.assistant);
+
+                        assistantSoinDataGridView.DataSource = assistantSoinBindingSource;
+                        lbTotale.Text = assistantBindingSource.Count.ToString();
+                        assistantBindingSource.MoveFirst();
+                        int position = assistantBindingSource.Position + 1;
+                        lbPosition.Text = position.ToString();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Vous avez annulé la suppression de l'assistant " + unUser.prenom.ToString() + " " + unUser.nom.ToString(),
+                                  "Suppression d'un assistant annulée", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+        }
+
+
+        List<decimal> GetOfferedSoins(decimal assistantToDelete)
+        {
+            List<decimal> offeredSoins = new List<decimal>();
+            string connectionString = "Data Source=tcp:424sql.cgodin.qc.ca,5433;Initial Catalog=B56Projet1Equipe7;Persist Security Info=True;User ID=B56Equipe7;Password=Password1";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string query = "SELECT noSoin FROM assistantSoin WHERE noAssistant = @assistantToDelete";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@assistantToDelete", assistantToDelete);
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            offeredSoins.Add(reader.GetDecimal(0));
+                        }
+                    }
+                }
+            }
+
+            return offeredSoins;
+        }
+
+        bool CheckPlanifications(decimal assistantToDelete)
+        {
+            string connectionString = "Data Source=tcp:424sql.cgodin.qc.ca,5433;Initial Catalog=B56Projet1Equipe7;Persist Security Info=True;User ID=B56Equipe7;Password=Password1";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string query = "SELECT COUNT(*) FROM planifSoin WHERE noAssistant = @assistantToDelete";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@assistantToDelete", assistantToDelete);
+                    int planificationsCount = (int)command.ExecuteScalar();
+                    return planificationsCount > 0;
+                }
+            }
+        }
+
     }
 }

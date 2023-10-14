@@ -200,6 +200,7 @@
             // noAssistantTextBox
             // 
             this.noAssistantTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.assistantBindingSource, "noAssistant", true));
+            this.noAssistantTextBox.Enabled = false;
             this.noAssistantTextBox.Location = new System.Drawing.Point(152, 94);
             this.noAssistantTextBox.Name = "noAssistantTextBox";
             this.noAssistantTextBox.ReadOnly = true;
@@ -209,6 +210,7 @@
             // prenomTextBox
             // 
             this.prenomTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.assistantBindingSource, "prenom", true));
+            this.prenomTextBox.Enabled = false;
             this.prenomTextBox.Location = new System.Drawing.Point(152, 120);
             this.prenomTextBox.Name = "prenomTextBox";
             this.prenomTextBox.ReadOnly = true;
@@ -218,6 +220,7 @@
             // nomTextBox
             // 
             this.nomTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.assistantBindingSource, "nom", true));
+            this.nomTextBox.Enabled = false;
             this.nomTextBox.Location = new System.Drawing.Point(152, 146);
             this.nomTextBox.Name = "nomTextBox";
             this.nomTextBox.ReadOnly = true;
@@ -227,6 +230,7 @@
             // specialitesTextBox
             // 
             this.specialitesTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.assistantBindingSource, "specialites", true));
+            this.specialitesTextBox.Enabled = false;
             this.specialitesTextBox.Location = new System.Drawing.Point(152, 172);
             this.specialitesTextBox.Name = "specialitesTextBox";
             this.specialitesTextBox.ReadOnly = true;
@@ -236,6 +240,7 @@
             // remarquesTextBox
             // 
             this.remarquesTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.assistantBindingSource, "remarques", true));
+            this.remarquesTextBox.Enabled = false;
             this.remarquesTextBox.Location = new System.Drawing.Point(152, 198);
             this.remarquesTextBox.Name = "remarquesTextBox";
             this.remarquesTextBox.ReadOnly = true;
@@ -283,6 +288,7 @@
             this.btnSupprimer.TabIndex = 16;
             this.btnSupprimer.Text = "Supprimer Assistant";
             this.btnSupprimer.UseVisualStyleBackColor = true;
+            this.btnSupprimer.Click += new System.EventHandler(this.btnSupprimer_Click);
             // 
             // btnAjouterSoins
             // 
