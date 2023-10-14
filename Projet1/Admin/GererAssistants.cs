@@ -77,9 +77,9 @@ namespace Projet1.Admin
             B56Projet1Equipe7DataSet.assistantSoinRow unSoin = b56Projet1Equipe7DataSet.assistantSoin.NewassistantSoinRow();
             string input = noAssistantTextBox.Text;
             unSoin.noAssistant = decimal.Parse(input);
-
-            GestionAssistants.frmAjouterSoin frmAjoutSoin = new GestionAssistants.frmAjouterSoin();
-
+            string no = noAssistantTextBox.Text;
+            decimal noid = decimal.Parse(no);
+            GestionAssistants.frmAjouterSoin frmAjoutSoin = new GestionAssistants.frmAjouterSoin(noid);
             frmAjoutSoin.unSoin = unSoin;
             frmAjoutSoin.ShowDialog();
 
@@ -118,11 +118,12 @@ namespace Projet1.Admin
                 {
                     connection.Open();
 
-                    string query = "SELECT COUNT(*) FROM planifSoin WHERE noSoin = @noSoin";
+                    string query = "SELECT COUNT(*) FROM planifSoin WHERE noSoin = @noSoin and noAssistant = @noAssistant";
 
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@noSoin", noSoinToDelete);
+                        command.Parameters.AddWithValue("@noAssistant", assistant);
 
                         // Execute the query and get the count
                         planifSoinCount = (int)command.ExecuteScalar();
@@ -270,7 +271,7 @@ namespace Projet1.Admin
                                     removeReferencesCommand.ExecuteNonQuery();
                                 }
                             }
-
+                            /*
                             // Delete soins
                             foreach (decimal soinToDelete in offeredSoins)
                             {
@@ -281,7 +282,7 @@ namespace Projet1.Admin
                                     deleteSoinCommand.ExecuteNonQuery();
                                 }
                             }
-
+                            */
                             // Delete the assistant
                             string deleteAssistantQuery = "DELETE FROM assistant WHERE noAssistant = @assistantToDelete";
                             using (SqlCommand deleteAssistantCommand = new SqlCommand(deleteAssistantQuery, connection))

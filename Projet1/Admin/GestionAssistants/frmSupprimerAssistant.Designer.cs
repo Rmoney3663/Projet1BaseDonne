@@ -98,6 +98,7 @@
             // noAssistantTextBox
             // 
             this.noAssistantTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.assistantBindingSource, "noAssistant", true));
+            this.noAssistantTextBox.Enabled = false;
             this.noAssistantTextBox.Location = new System.Drawing.Point(181, 87);
             this.noAssistantTextBox.Name = "noAssistantTextBox";
             this.noAssistantTextBox.Size = new System.Drawing.Size(100, 20);
@@ -115,6 +116,7 @@
             // prenomTextBox
             // 
             this.prenomTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.assistantBindingSource, "prenom", true));
+            this.prenomTextBox.Enabled = false;
             this.prenomTextBox.Location = new System.Drawing.Point(181, 113);
             this.prenomTextBox.Name = "prenomTextBox";
             this.prenomTextBox.Size = new System.Drawing.Size(100, 20);
@@ -132,6 +134,7 @@
             // nomTextBox
             // 
             this.nomTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.assistantBindingSource, "nom", true));
+            this.nomTextBox.Enabled = false;
             this.nomTextBox.Location = new System.Drawing.Point(181, 139);
             this.nomTextBox.Name = "nomTextBox";
             this.nomTextBox.Size = new System.Drawing.Size(100, 20);
@@ -149,6 +152,7 @@
             // specialitesTextBox
             // 
             this.specialitesTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.assistantBindingSource, "specialites", true));
+            this.specialitesTextBox.Enabled = false;
             this.specialitesTextBox.Location = new System.Drawing.Point(181, 165);
             this.specialitesTextBox.Name = "specialitesTextBox";
             this.specialitesTextBox.Size = new System.Drawing.Size(100, 20);
@@ -166,6 +170,7 @@
             // remarquesTextBox
             // 
             this.remarquesTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.assistantBindingSource, "remarques", true));
+            this.remarquesTextBox.Enabled = false;
             this.remarquesTextBox.Location = new System.Drawing.Point(181, 191);
             this.remarquesTextBox.Name = "remarquesTextBox";
             this.remarquesTextBox.Size = new System.Drawing.Size(100, 20);
@@ -173,7 +178,7 @@
             // 
             // btnFermer
             // 
-            this.btnFermer.Location = new System.Drawing.Point(64, 234);
+            this.btnFermer.Location = new System.Drawing.Point(78, 235);
             this.btnFermer.Name = "btnFermer";
             this.btnFermer.Size = new System.Drawing.Size(111, 23);
             this.btnFermer.TabIndex = 33;
@@ -183,7 +188,7 @@
             // 
             // btnSupprimer
             // 
-            this.btnSupprimer.Location = new System.Drawing.Point(192, 234);
+            this.btnSupprimer.Location = new System.Drawing.Point(206, 235);
             this.btnSupprimer.Name = "btnSupprimer";
             this.btnSupprimer.Size = new System.Drawing.Size(107, 23);
             this.btnSupprimer.TabIndex = 32;

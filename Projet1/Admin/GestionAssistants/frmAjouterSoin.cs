@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Projet1.B56Projet1Equipe7DataSetTableAdapters;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,20 +17,29 @@ namespace Projet1.Admin.GestionAssistants
     {
         public B56Projet1Equipe7DataSet.assistantSoinRow unSoin;
         Dictionary<string, decimal> descriptionToNoSoin = new Dictionary<string, decimal>();
-        public frmAjouterSoin()
+
+        public frmAjouterSoin(decimal assistantID)
         {
             InitializeComponent();
 
-            
+            // Ensure the data is up to date
+            //assistantTableAdapter.Fill(b56Projet1Equipe7DataSet.assistant);
+            //assistantSoinTableAdapter.Fill(b56Projet1Equipe7DataSet.assistantSoin);
+
             string connectionString = "Data Source=tcp:424sql.cgodin.qc.ca,5433;Initial Catalog=B56Projet1Equipe7;Persist Security Info=True;User ID=B56Equipe7;Password=Password1";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
-                string query = "SELECT s.noSoin AS SoinNoSoin, s.description FROM soin s LEFT JOIN assistantSoin a ON s.noSoin = a.noSoin WHERE a.noSoin IS NULL";
+                // Fetch available soin options for the assistant based on assistantID
+                string query = "SELECT s.noSoin AS SoinNoSoin, s.description " +
+                               "FROM soin s " +
+                               "WHERE s.noSoin NOT IN (SELECT noSoin FROM assistantSoin WHERE noAssistant = @AssistantID)";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
+                    command.Parameters.AddWithValue("@AssistantID", assistantID);
+
                     using (SqlDataAdapter adapter = new SqlDataAdapter(command))
                     {
                         DataTable dataTable = new DataTable();
@@ -44,9 +54,22 @@ namespace Projet1.Admin.GestionAssistants
 
                         descriptionComboBox.DataSource = dataTable;
                         descriptionComboBox.DisplayMember = "description";
-                        descriptionComboBox.ValueMember = "description";
+                        descriptionComboBox.ValueMember = "SoinNoSoin"; 
+
+
+
                     }
                 }
+            }
+
+            foreach (var key in descriptionToNoSoin.Keys)
+            {
+                Console.WriteLine("Dictionary Key: " + key);
+            }
+
+            foreach (var key in descriptionToNoSoin.Values)
+            {
+                Console.WriteLine("Dictionary Value: " + key);
             }
         }
 
@@ -63,30 +86,16 @@ namespace Projet1.Admin.GestionAssistants
 
         private void frmAjouterSoin_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'b56Projet1Equipe7DataSet.soin' table. You can move, or remove it, as needed.
-
-            //this.soinTableAdapter.Fill(this.b56Projet1Equipe7DataSet.soin);
-            /*
-            string connectionString = "Data Source=tcp:424sql.cgodin.qc.ca,5433;Initial Catalog=B56Projet1Equipe7;Persist Security Info=True;User ID=B56Equipe7;Password=Password1";
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            if (descriptionComboBox.Items.Count == 0)
             {
-                connection.Open();
-
-                string query = "SELECT  description FROM soin s LEFT JOIN assistantSoin a ON s.noSoin = a.noSoin WHERE a.noSoin IS NULL";
-
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
-                    {
-                        DataTable dataTable = new DataTable();
-                        adapter.Fill(dataTable);
-
-                        descriptionComboBox.DataSource = dataTable;
-                        descriptionComboBox.DisplayMember = "description";
-                    }
-                }
-            }*/
+                descriptionComboBox.Enabled = false;
+                MessageBox.Show("Il n'y a aucun soin ou vous avez tous les soin possibles");
+                //this.Close();
+            }
+            else
+            {
+                descriptionComboBox.Enabled = true;
+            }
         }
 
         private void btnFermer_Click(object sender, EventArgs e)
@@ -99,8 +108,7 @@ namespace Projet1.Admin.GestionAssistants
         {
             if (descriptionComboBox.SelectedItem != null)
             {
-                string selectedDescription = descriptionComboBox.SelectedValue.ToString();
-                decimal noSoin = descriptionToNoSoin[selectedDescription];
+                decimal noSoin = (decimal)descriptionComboBox.SelectedValue;
                 unSoin.noSoin = noSoin;
                 this.Close();
             }
@@ -110,6 +118,10 @@ namespace Projet1.Admin.GestionAssistants
             }
         }
 
-       
+
+
+
+
+
     }
 }
