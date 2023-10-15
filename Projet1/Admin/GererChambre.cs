@@ -1,8 +1,10 @@
 ﻿using Projet1.Admin.GestionChambres;
+using Projet1.B56Projet1Equipe7DataSetTableAdapters;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -154,6 +156,67 @@ namespace Projet1.Admin
                                     "Modification d'un chambre Annuler", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 
+            }
+        }
+
+        private void btnSupprimerType_Click(object sender, EventArgs e)
+        {
+            string no = noTypeChambreTextBox.Text;
+            decimal noid = decimal.Parse(no);
+
+            B56Projet1Equipe7DataSet.typeChambreRow unUser = b56Projet1Equipe7DataSet.typeChambre.FindBynoTypeChambre(noid);
+           
+
+            if (unUser != null)
+            {
+                frmSupprimerType frmSupprimerType = new frmSupprimerType();
+                frmSupprimerType.boolMod = false;
+                frmSupprimerType.unUser = unUser;
+                frmSupprimerType.ShowDialog();
+
+                if (frmSupprimerType.boolMod == true)
+                {
+                    decimal typeToDelete = unUser.noTypeChambre;                  
+
+                    if (chambreDataGridView.Rows.Count == 0)
+                    {
+                        MessageBox.Show("Impossible de supprimer ce chambre. Des chambres lui sont assignées.",
+                                        "Suppression impossible", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else
+                    {
+                        this.typeChambreTableAdapter.Delete(unUser.noTypeChambre, unUser.description, unUser.prixHaut, unUser.prixBas, unUser.prixMoyen);
+                        MessageBox.Show("Le chambre " + unUser.description.ToString() + " a été supprimé. ",
+                                        "Suppression d'un chambre", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        b56Projet1Equipe7DataSet.typeChambre.RemovetypeChambreRow(unUser);
+                        chambreDataGridView.DataSource = chambreBindingSource;
+
+                        lbTotale.Text = typeChambreBindingSource.Count.ToString();
+                        typeChambreBindingSource.MoveFirst();
+                        int position = typeChambreBindingSource.Position + 1;
+                        lbPosition.Text = position.ToString();
+
+                        if (position == 0)
+                        {
+                            btnAjouterChambre.Enabled = false;
+                            btnModificationChambre.Enabled = false;
+                            btnSupprimerChambre.Enabled = false;
+
+                        }
+                        else
+                        {
+                            btnAjouterChambre.Enabled = true;
+                            btnModificationChambre.Enabled = true;
+                            btnSupprimerChambre.Enabled = true;
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Vous avez annulé la suppression du chambre " + unUser.description.ToString() ,
+                                  "Suppression d'un chambre annulée", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
         }
     }

@@ -130,6 +130,12 @@
     <Compile Include="Admin\GestionChambres\frmModifierType.Designer.cs">
       <DependentUpon>frmModifierType.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admin\GestionChambres\frmSupprimerType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\GestionChambres\frmSupprimerType.Designer.cs">
+      <DependentUpon>frmSupprimerType.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admin\GestionSoins\frmAjouterSoin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -256,6 +262,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\GestionChambres\frmModifierType.resx">
       <DependentUpon>frmModifierType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\GestionChambres\frmSupprimerType.resx">
+      <DependentUpon>frmSupprimerType.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\GestionSoins\frmAjouterSoin.resx">
       <DependentUpon>frmAjouterSoin.cs</DependentUpon>

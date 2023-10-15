@@ -14,11 +14,6 @@ namespace Projet1.Admin.GestionChambres
     public partial class frmModifierType : Form
     {
         public B56Projet1Equipe7DataSet.typeChambreRow unUser;
-        public string description { get; set; }
-        public string haut { get; set; }
-        public string bas { get; set; }
-        public string moyen { get; set; }
-
         public bool boolMod;
         public frmModifierType()
         {
@@ -41,6 +36,7 @@ namespace Projet1.Admin.GestionChambres
             prixHautTextBox.Text = unUser.prixHaut.ToString();
             prixBasTextBox.Text = unUser.prixBas.ToString();
             prixMoyenTextBox.Text = unUser.prixMoyen.ToString();
+            noTypeChambreTextBox.Text = unUser.noTypeChambre.ToString();
 
         }
 

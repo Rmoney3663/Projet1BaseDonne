@@ -45,6 +45,11 @@
             this.prixBasTextBox = new System.Windows.Forms.TextBox();
             this.prixMoyenTextBox = new System.Windows.Forms.TextBox();
             this.chambreDataGridView = new System.Windows.Forms.DataGridView();
+            this.noChambre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emplacement = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.decorations = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.noTypeChambre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chambreBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnFermer = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.lbTotale = new System.Windows.Forms.Label();
@@ -61,11 +66,6 @@
             this.btnSupprimerType = new System.Windows.Forms.Button();
             this.btnModifierType = new System.Windows.Forms.Button();
             this.btnAjouterType = new System.Windows.Forms.Button();
-            this.noChambre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.emplacement = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.decorations = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.noTypeChambre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chambreBindingSource = new System.Windows.Forms.BindingSource(this.components);
             noTypeChambreLabel = new System.Windows.Forms.Label();
             descriptionLabel = new System.Windows.Forms.Label();
             prixHautLabel = new System.Windows.Forms.Label();
@@ -223,6 +223,35 @@
             this.chambreDataGridView.Size = new System.Drawing.Size(443, 177);
             this.chambreDataGridView.TabIndex = 11;
             // 
+            // noChambre
+            // 
+            this.noChambre.DataPropertyName = "noChambre";
+            this.noChambre.HeaderText = "noChambre";
+            this.noChambre.Name = "noChambre";
+            // 
+            // emplacement
+            // 
+            this.emplacement.DataPropertyName = "emplacement";
+            this.emplacement.HeaderText = "emplacement";
+            this.emplacement.Name = "emplacement";
+            // 
+            // decorations
+            // 
+            this.decorations.DataPropertyName = "decorations";
+            this.decorations.HeaderText = "decorations";
+            this.decorations.Name = "decorations";
+            // 
+            // noTypeChambre
+            // 
+            this.noTypeChambre.DataPropertyName = "noTypeChambre";
+            this.noTypeChambre.HeaderText = "noTypeChambre";
+            this.noTypeChambre.Name = "noTypeChambre";
+            // 
+            // chambreBindingSource
+            // 
+            this.chambreBindingSource.DataMember = "fk_noTypeChambre";
+            this.chambreBindingSource.DataSource = this.typeChambreBindingSource;
+            // 
             // btnFermer
             // 
             this.btnFermer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
@@ -371,6 +400,7 @@
             this.btnSupprimerType.TabIndex = 46;
             this.btnSupprimerType.Text = "Supprimer Type Chambre";
             this.btnSupprimerType.UseVisualStyleBackColor = true;
+            this.btnSupprimerType.Click += new System.EventHandler(this.btnSupprimerType_Click);
             // 
             // btnModifierType
             // 
@@ -393,35 +423,6 @@
             this.btnAjouterType.Text = "Ajout Type Chambre";
             this.btnAjouterType.UseVisualStyleBackColor = true;
             this.btnAjouterType.Click += new System.EventHandler(this.btnAjouterType_Click);
-            // 
-            // noChambre
-            // 
-            this.noChambre.DataPropertyName = "noChambre";
-            this.noChambre.HeaderText = "noChambre";
-            this.noChambre.Name = "noChambre";
-            // 
-            // emplacement
-            // 
-            this.emplacement.DataPropertyName = "emplacement";
-            this.emplacement.HeaderText = "emplacement";
-            this.emplacement.Name = "emplacement";
-            // 
-            // decorations
-            // 
-            this.decorations.DataPropertyName = "decorations";
-            this.decorations.HeaderText = "decorations";
-            this.decorations.Name = "decorations";
-            // 
-            // noTypeChambre
-            // 
-            this.noTypeChambre.DataPropertyName = "noTypeChambre";
-            this.noTypeChambre.HeaderText = "noTypeChambre";
-            this.noTypeChambre.Name = "noTypeChambre";
-            // 
-            // chambreBindingSource
-            // 
-            this.chambreBindingSource.DataMember = "fk_noTypeChambre";
-            this.chambreBindingSource.DataSource = this.typeChambreBindingSource;
             // 
             // GererChambre
             // 
