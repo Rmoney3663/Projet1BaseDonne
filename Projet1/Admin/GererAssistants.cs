@@ -42,6 +42,19 @@ namespace Projet1.Admin
             int position = assistantBindingSource.Position + 1;
             lbPosition.Text = position.ToString();
 
+            if (position == 0)
+            {
+                btnAjouterSoins.Enabled = false;
+                btnSupprimerSoins.Enabled = false;
+               
+
+            }
+            else
+            {
+                btnAjouterSoins.Enabled = true;
+                btnSupprimerSoins.Enabled = true;
+            }
+
         }
 
         private void btnFirst_Click(object sender, EventArgs e)
@@ -151,10 +164,10 @@ namespace Projet1.Admin
                                             "Suppression d'un utilisateur", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                             b56Projet1Equipe7DataSet.assistantSoin.RemoveassistantSoinRow(deleteSoin);
-                        }
+                        }                       
                     }
-                    }                   
-                }
+                }                   
+            }
             else
             {
                 MessageBox.Show("No rows are selected.");
@@ -192,6 +205,19 @@ namespace Projet1.Admin
                 this.assistantBindingSource.EndEdit();
                 this.assistantTableAdapter.Update(this.b56Projet1Equipe7DataSet.assistant);
                 lbTotale.Text = assistantBindingSource.Count.ToString();
+                int position = assistantBindingSource.Position + 1;
+                if (position == 0)
+                {
+                    btnAjouterSoins.Enabled = false;
+                    btnSupprimerSoins.Enabled = false;
+
+
+                }
+                else
+                {
+                    btnAjouterSoins.Enabled = true;
+                    btnSupprimerSoins.Enabled = true;
+                }
             }
         }
 
@@ -276,7 +302,8 @@ namespace Projet1.Admin
                                 deleteAssistantCommand.Parameters.AddWithValue("@assistantToDelete", assistantToDelete);
                                 deleteAssistantCommand.ExecuteNonQuery();
                             }
-                        }         
+                        }    
+                        
                         MessageBox.Show("L'assistant " + unUser.prenom.ToString() + " " + unUser.nom.ToString() + " a été supprimé. ",
                                         "Suppression d'un assistant", MessageBoxButtons.OK, MessageBoxIcon.Information);
                        
@@ -287,6 +314,19 @@ namespace Projet1.Admin
                         assistantBindingSource.MoveFirst();
                         int position = assistantBindingSource.Position + 1;
                         lbPosition.Text = position.ToString();
+
+                        if (position == 0)
+                        {
+                            btnAjouterSoins.Enabled = false;
+                            btnSupprimerSoins.Enabled = false;
+
+
+                        }
+                        else
+                        {
+                            btnAjouterSoins.Enabled = true;
+                            btnSupprimerSoins.Enabled = true;
+                        }
                     }
                 }
                 else

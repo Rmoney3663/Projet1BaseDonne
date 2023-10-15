@@ -118,6 +118,42 @@
     <Compile Include="Admin\GestionAssistants\frmSupprimerSoin.Designer.cs">
       <DependentUpon>frmSupprimerSoin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admin\GestionChambres\frmAjouterChambre.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\GestionChambres\frmAjouterChambre.Designer.cs">
+      <DependentUpon>frmAjouterChambre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\GestionChambres\frmAjouterType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\GestionChambres\frmAjouterType.Designer.cs">
+      <DependentUpon>frmAjouterType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\GestionChambres\frmModifierChambre.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\GestionChambres\frmModifierChambre.Designer.cs">
+      <DependentUpon>frmModifierChambre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\GestionChambres\frmModifierType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\GestionChambres\frmModifierType.Designer.cs">
+      <DependentUpon>frmModifierType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\GestionChambres\frmSupprimerChambre.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\GestionChambres\frmSupprimerChambre.Designer.cs">
+      <DependentUpon>frmSupprimerChambre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\GestionChambres\frmSupprimerType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\GestionChambres\frmSupprimerType.Designer.cs">
+      <DependentUpon>frmSupprimerType.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admin\GestionSoins\frmAjouterSoin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -221,6 +257,9 @@
     <EmbeddedResource Include="Admin\GererAssistants.resx">
       <DependentUpon>GererAssistants.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Admin\GererChambre.resx">
+      <DependentUpon>GererChambre.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Admin\GererSoins.resx">
       <DependentUpon>GererSoins.cs</DependentUpon>
     </EmbeddedResource>
@@ -241,6 +280,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\GestionAssistants\frmSupprimerSoin.resx">
       <DependentUpon>frmSupprimerSoin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\GestionChambres\frmAjouterChambre.resx">
+      <DependentUpon>frmAjouterChambre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\GestionChambres\frmAjouterType.resx">
+      <DependentUpon>frmAjouterType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\GestionChambres\frmModifierChambre.resx">
+      <DependentUpon>frmModifierChambre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\GestionChambres\frmModifierType.resx">
+      <DependentUpon>frmModifierType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\GestionChambres\frmSupprimerChambre.resx">
+      <DependentUpon>frmSupprimerChambre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\GestionChambres\frmSupprimerType.resx">
+      <DependentUpon>frmSupprimerType.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\GestionSoins\frmAjouterSoin.resx">
       <DependentUpon>frmAjouterSoin.cs</DependentUpon>
