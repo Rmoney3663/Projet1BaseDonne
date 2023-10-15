@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Projet1.Admin.GestionChambres;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -34,6 +35,19 @@ namespace Projet1.Admin
             lbTotale.Text = typeChambreBindingSource.Count.ToString();
             int position = typeChambreBindingSource.Position + 1;
             lbPosition.Text = position.ToString();
+            if (position == 0)
+            {
+                btnAjouterChambre.Enabled = false;
+                btnModificationChambre.Enabled = false;
+                btnSupprimerChambre.Enabled = false;
+
+            }else
+            {
+                btnAjouterChambre.Enabled = true;
+                btnModificationChambre.Enabled = true;
+                btnSupprimerChambre.Enabled = true;
+            }
+
         }
 
         private void btnFermer_Click(object sender, EventArgs e)
@@ -69,6 +83,46 @@ namespace Projet1.Admin
             lbPosition.Text = position.ToString();
         }
 
+        private void btnAjouterChambre_Click(object sender, EventArgs e)
+        {
 
+        }
+
+        private void btnAjouterType_Click(object sender, EventArgs e)
+        {
+            B56Projet1Equipe7DataSet.typeChambreRow unUser = b56Projet1Equipe7DataSet.typeChambre.NewtypeChambreRow();
+            decimal noContratMax = 0;
+            foreach (B56Projet1Equipe7DataSet.assistantRow uneLigne in b56Projet1Equipe7DataSet.assistant.Rows)
+                if (uneLigne.noAssistant > noContratMax) noContratMax = uneLigne.noAssistant;
+
+            unUser.noTypeChambre = noContratMax + 1;
+            unUser.description = "";
+            unUser.prixBas = 0;
+            unUser.prixHaut = 0;
+            unUser.prixMoyen = 0;
+            frmAjouterType frmAjouterType = new frmAjouterType();
+            frmAjouterType.unUser = unUser;
+            frmAjouterType.boolMod = false;
+            frmAjouterType.ShowDialog();
+
+            if (frmAjouterType.boolMod == true)
+            {
+                
+                b56Projet1Equipe7DataSet.typeChambre.AddtypeChambreRow(unUser);
+
+                MessageBox.Show(" Le type de chambre " + unUser.description.ToString() + " a été ajouté. ",
+                   "Ajout d'un type de chambre", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Validate();
+                this.typeChambreBindingSource.EndEdit();
+                this.typeChambreTableAdapter.Update(this.b56Projet1Equipe7DataSet.typeChambre);
+                lbTotale.Text = typeChambreBindingSource.Count.ToString();
+
+                btnAjouterChambre.Enabled = true;
+                btnModificationChambre.Enabled = true;
+                btnSupprimerChambre.Enabled = true;
+            }
+
+
+        }
     }
 }

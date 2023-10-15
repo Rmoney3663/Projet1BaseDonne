@@ -38,13 +38,12 @@
             this.typeChambreBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.typeChambreTableAdapter = new Projet1.B56Projet1Equipe7DataSetTableAdapters.typeChambreTableAdapter();
             this.tableAdapterManager = new Projet1.B56Projet1Equipe7DataSetTableAdapters.TableAdapterManager();
+            this.chambreTableAdapter = new Projet1.B56Projet1Equipe7DataSetTableAdapters.chambreTableAdapter();
             this.noTypeChambreTextBox = new System.Windows.Forms.TextBox();
             this.descriptionTextBox = new System.Windows.Forms.TextBox();
             this.prixHautTextBox = new System.Windows.Forms.TextBox();
             this.prixBasTextBox = new System.Windows.Forms.TextBox();
             this.prixMoyenTextBox = new System.Windows.Forms.TextBox();
-            this.chambreBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.chambreTableAdapter = new Projet1.B56Projet1Equipe7DataSetTableAdapters.chambreTableAdapter();
             this.chambreDataGridView = new System.Windows.Forms.DataGridView();
             this.btnFermer = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -56,16 +55,17 @@
             this.btnFirst = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.noChambre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.emplacement = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.decorations = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.noTypeChambre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAjouterChambre = new System.Windows.Forms.Button();
             this.btnModificationChambre = new System.Windows.Forms.Button();
             this.btnSupprimerChambre = new System.Windows.Forms.Button();
             this.btnSupprimerType = new System.Windows.Forms.Button();
             this.btnModifierType = new System.Windows.Forms.Button();
             this.btnAjouterType = new System.Windows.Forms.Button();
+            this.noChambre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emplacement = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.decorations = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.noTypeChambre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chambreBindingSource = new System.Windows.Forms.BindingSource(this.components);
             noTypeChambreLabel = new System.Windows.Forms.Label();
             descriptionLabel = new System.Windows.Forms.Label();
             prixHautLabel = new System.Windows.Forms.Label();
@@ -73,9 +73,54 @@
             prixMoyenLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.b56Projet1Equipe7DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.typeChambreBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chambreBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chambreDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chambreBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // noTypeChambreLabel
+            // 
+            noTypeChambreLabel.AutoSize = true;
+            noTypeChambreLabel.Location = new System.Drawing.Point(13, 106);
+            noTypeChambreLabel.Name = "noTypeChambreLabel";
+            noTypeChambreLabel.Size = new System.Drawing.Size(94, 13);
+            noTypeChambreLabel.TabIndex = 1;
+            noTypeChambreLabel.Text = "no Type Chambre:";
+            // 
+            // descriptionLabel
+            // 
+            descriptionLabel.AutoSize = true;
+            descriptionLabel.Location = new System.Drawing.Point(13, 148);
+            descriptionLabel.Name = "descriptionLabel";
+            descriptionLabel.Size = new System.Drawing.Size(61, 13);
+            descriptionLabel.TabIndex = 3;
+            descriptionLabel.Text = "description:";
+            // 
+            // prixHautLabel
+            // 
+            prixHautLabel.AutoSize = true;
+            prixHautLabel.Location = new System.Drawing.Point(13, 187);
+            prixHautLabel.Name = "prixHautLabel";
+            prixHautLabel.Size = new System.Drawing.Size(52, 13);
+            prixHautLabel.TabIndex = 5;
+            prixHautLabel.Text = "prix Haut:";
+            // 
+            // prixBasLabel
+            // 
+            prixBasLabel.AutoSize = true;
+            prixBasLabel.Location = new System.Drawing.Point(13, 229);
+            prixBasLabel.Name = "prixBasLabel";
+            prixBasLabel.Size = new System.Drawing.Size(47, 13);
+            prixBasLabel.TabIndex = 7;
+            prixBasLabel.Text = "prix Bas:";
+            // 
+            // prixMoyenLabel
+            // 
+            prixMoyenLabel.AutoSize = true;
+            prixMoyenLabel.Location = new System.Drawing.Point(13, 267);
+            prixMoyenLabel.Name = "prixMoyenLabel";
+            prixMoyenLabel.Size = new System.Drawing.Size(61, 13);
+            prixMoyenLabel.TabIndex = 9;
+            prixMoyenLabel.Text = "prix Moyen:";
             // 
             // b56Projet1Equipe7DataSet
             // 
@@ -108,14 +153,9 @@
             this.tableAdapterManager.UpdateOrder = Projet1.B56Projet1Equipe7DataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.utilisateurTableAdapter = null;
             // 
-            // noTypeChambreLabel
+            // chambreTableAdapter
             // 
-            noTypeChambreLabel.AutoSize = true;
-            noTypeChambreLabel.Location = new System.Drawing.Point(13, 106);
-            noTypeChambreLabel.Name = "noTypeChambreLabel";
-            noTypeChambreLabel.Size = new System.Drawing.Size(94, 13);
-            noTypeChambreLabel.TabIndex = 1;
-            noTypeChambreLabel.Text = "no Type Chambre:";
+            this.chambreTableAdapter.ClearBeforeFill = true;
             // 
             // noTypeChambreTextBox
             // 
@@ -127,15 +167,6 @@
             this.noTypeChambreTextBox.Size = new System.Drawing.Size(100, 20);
             this.noTypeChambreTextBox.TabIndex = 2;
             // 
-            // descriptionLabel
-            // 
-            descriptionLabel.AutoSize = true;
-            descriptionLabel.Location = new System.Drawing.Point(13, 148);
-            descriptionLabel.Name = "descriptionLabel";
-            descriptionLabel.Size = new System.Drawing.Size(61, 13);
-            descriptionLabel.TabIndex = 3;
-            descriptionLabel.Text = "description:";
-            // 
             // descriptionTextBox
             // 
             this.descriptionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.typeChambreBindingSource, "description", true));
@@ -145,15 +176,6 @@
             this.descriptionTextBox.ReadOnly = true;
             this.descriptionTextBox.Size = new System.Drawing.Size(100, 20);
             this.descriptionTextBox.TabIndex = 4;
-            // 
-            // prixHautLabel
-            // 
-            prixHautLabel.AutoSize = true;
-            prixHautLabel.Location = new System.Drawing.Point(13, 187);
-            prixHautLabel.Name = "prixHautLabel";
-            prixHautLabel.Size = new System.Drawing.Size(52, 13);
-            prixHautLabel.TabIndex = 5;
-            prixHautLabel.Text = "prix Haut:";
             // 
             // prixHautTextBox
             // 
@@ -165,15 +187,6 @@
             this.prixHautTextBox.Size = new System.Drawing.Size(100, 20);
             this.prixHautTextBox.TabIndex = 6;
             // 
-            // prixBasLabel
-            // 
-            prixBasLabel.AutoSize = true;
-            prixBasLabel.Location = new System.Drawing.Point(13, 229);
-            prixBasLabel.Name = "prixBasLabel";
-            prixBasLabel.Size = new System.Drawing.Size(47, 13);
-            prixBasLabel.TabIndex = 7;
-            prixBasLabel.Text = "prix Bas:";
-            // 
             // prixBasTextBox
             // 
             this.prixBasTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.typeChambreBindingSource, "prixBas", true));
@@ -184,15 +197,6 @@
             this.prixBasTextBox.Size = new System.Drawing.Size(100, 20);
             this.prixBasTextBox.TabIndex = 8;
             // 
-            // prixMoyenLabel
-            // 
-            prixMoyenLabel.AutoSize = true;
-            prixMoyenLabel.Location = new System.Drawing.Point(13, 267);
-            prixMoyenLabel.Name = "prixMoyenLabel";
-            prixMoyenLabel.Size = new System.Drawing.Size(61, 13);
-            prixMoyenLabel.TabIndex = 9;
-            prixMoyenLabel.Text = "prix Moyen:";
-            // 
             // prixMoyenTextBox
             // 
             this.prixMoyenTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.typeChambreBindingSource, "prixMoyen", true));
@@ -202,15 +206,6 @@
             this.prixMoyenTextBox.ReadOnly = true;
             this.prixMoyenTextBox.Size = new System.Drawing.Size(100, 20);
             this.prixMoyenTextBox.TabIndex = 10;
-            // 
-            // chambreBindingSource
-            // 
-            this.chambreBindingSource.DataMember = "fk_noTypeChambre";
-            this.chambreBindingSource.DataSource = this.typeChambreBindingSource;
-            // 
-            // chambreTableAdapter
-            // 
-            this.chambreTableAdapter.ClearBeforeFill = true;
             // 
             // chambreDataGridView
             // 
@@ -336,39 +331,16 @@
             this.label2.TabIndex = 40;
             this.label2.Text = "Liste de Chambre de ce type";
             // 
-            // noChambre
-            // 
-            this.noChambre.DataPropertyName = "noChambre";
-            this.noChambre.HeaderText = "noChambre";
-            this.noChambre.Name = "noChambre";
-            // 
-            // emplacement
-            // 
-            this.emplacement.DataPropertyName = "emplacement";
-            this.emplacement.HeaderText = "emplacement";
-            this.emplacement.Name = "emplacement";
-            // 
-            // decorations
-            // 
-            this.decorations.DataPropertyName = "decorations";
-            this.decorations.HeaderText = "decorations";
-            this.decorations.Name = "decorations";
-            // 
-            // noTypeChambre
-            // 
-            this.noTypeChambre.DataPropertyName = "noTypeChambre";
-            this.noTypeChambre.HeaderText = "noTypeChambre";
-            this.noTypeChambre.Name = "noTypeChambre";
-            // 
             // btnAjouterChambre
             // 
             this.btnAjouterChambre.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAjouterChambre.Location = new System.Drawing.Point(16, 298);
+            this.btnAjouterChambre.Location = new System.Drawing.Point(379, 298);
             this.btnAjouterChambre.Name = "btnAjouterChambre";
             this.btnAjouterChambre.Size = new System.Drawing.Size(200, 28);
             this.btnAjouterChambre.TabIndex = 41;
             this.btnAjouterChambre.Text = "Ajout Chambre";
             this.btnAjouterChambre.UseVisualStyleBackColor = true;
+            this.btnAjouterChambre.Click += new System.EventHandler(this.btnAjouterChambre_Click);
             // 
             // btnModificationChambre
             // 
@@ -413,12 +385,42 @@
             // btnAjouterType
             // 
             this.btnAjouterType.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAjouterType.Location = new System.Drawing.Point(378, 298);
+            this.btnAjouterType.Location = new System.Drawing.Point(16, 298);
             this.btnAjouterType.Name = "btnAjouterType";
             this.btnAjouterType.Size = new System.Drawing.Size(200, 28);
             this.btnAjouterType.TabIndex = 44;
             this.btnAjouterType.Text = "Ajout Type Chambre";
             this.btnAjouterType.UseVisualStyleBackColor = true;
+            this.btnAjouterType.Click += new System.EventHandler(this.btnAjouterType_Click);
+            // 
+            // noChambre
+            // 
+            this.noChambre.DataPropertyName = "noChambre";
+            this.noChambre.HeaderText = "noChambre";
+            this.noChambre.Name = "noChambre";
+            // 
+            // emplacement
+            // 
+            this.emplacement.DataPropertyName = "emplacement";
+            this.emplacement.HeaderText = "emplacement";
+            this.emplacement.Name = "emplacement";
+            // 
+            // decorations
+            // 
+            this.decorations.DataPropertyName = "decorations";
+            this.decorations.HeaderText = "decorations";
+            this.decorations.Name = "decorations";
+            // 
+            // noTypeChambre
+            // 
+            this.noTypeChambre.DataPropertyName = "noTypeChambre";
+            this.noTypeChambre.HeaderText = "noTypeChambre";
+            this.noTypeChambre.Name = "noTypeChambre";
+            // 
+            // chambreBindingSource
+            // 
+            this.chambreBindingSource.DataMember = "fk_noTypeChambre";
+            this.chambreBindingSource.DataSource = this.typeChambreBindingSource;
             // 
             // GererChambre
             // 
@@ -457,8 +459,8 @@
             this.Load += new System.EventHandler(this.GererChambre_Load);
             ((System.ComponentModel.ISupportInitialize)(this.b56Projet1Equipe7DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.typeChambreBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chambreBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chambreDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chambreBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
