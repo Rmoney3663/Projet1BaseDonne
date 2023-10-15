@@ -45,7 +45,6 @@
             this.prixBasTextBox = new System.Windows.Forms.TextBox();
             this.prixMoyenTextBox = new System.Windows.Forms.TextBox();
             this.chambreDataGridView = new System.Windows.Forms.DataGridView();
-            this.chambreBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnFermer = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.lbTotale = new System.Windows.Forms.Label();
@@ -66,6 +65,7 @@
             this.emplacement = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.decorations = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.noTypeChambre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chambreBindingSource = new System.Windows.Forms.BindingSource(this.components);
             noTypeChambreLabel = new System.Windows.Forms.Label();
             descriptionLabel = new System.Windows.Forms.Label();
             prixHautLabel = new System.Windows.Forms.Label();
@@ -223,11 +223,6 @@
             this.chambreDataGridView.Size = new System.Drawing.Size(343, 177);
             this.chambreDataGridView.TabIndex = 11;
             // 
-            // chambreBindingSource
-            // 
-            this.chambreBindingSource.DataMember = "fk_noTypeChambre";
-            this.chambreBindingSource.DataSource = this.typeChambreBindingSource;
-            // 
             // btnFermer
             // 
             this.btnFermer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
@@ -367,6 +362,7 @@
             this.btnSupprimerChambre.TabIndex = 43;
             this.btnSupprimerChambre.Text = "Supprimer Chambre";
             this.btnSupprimerChambre.UseVisualStyleBackColor = true;
+            this.btnSupprimerChambre.Click += new System.EventHandler(this.btnSupprimerChambre_Click);
             // 
             // btnSupprimerType
             // 
@@ -429,6 +425,11 @@
             this.noTypeChambre.Name = "noTypeChambre";
             this.noTypeChambre.ReadOnly = true;
             this.noTypeChambre.Visible = false;
+            // 
+            // chambreBindingSource
+            // 
+            this.chambreBindingSource.DataMember = "fk_noTypeChambre";
+            this.chambreBindingSource.DataSource = this.typeChambreBindingSource;
             // 
             // GererChambre
             // 

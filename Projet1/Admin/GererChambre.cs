@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Projet1.Admin
 {
@@ -296,6 +297,73 @@ namespace Projet1.Admin
                 {
                     MessageBox.Show("No rows are selected.");
                 }
+            }
+        }
+
+        private void btnSupprimerChambre_Click(object sender, EventArgs e)
+        {
+            if (chambreDataGridView.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = chambreDataGridView.SelectedRows[0];
+
+                string strchambre = selectedRow.Cells["noChambre"].Value.ToString();
+                string strtype = noTypeChambreTextBox.Text;
+
+                decimal idChambre = decimal.Parse(strchambre);
+                decimal idType = decimal.Parse(strtype);
+
+                B56Projet1Equipe7DataSet.chambreRow unChambre = b56Projet1Equipe7DataSet.chambre.FindBynoChambre(idChambre);
+
+                string connectionString = "Data Source=tcp:424sql.cgodin.qc.ca,5433;Initial Catalog=B56Projet1Equipe7;Persist Security Info=True;User ID=B56Equipe7;Password=Password1";
+                int chambreReserver = 0;
+
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    string query = "SELECT COUNT(*) FROM reservationChambre WHERE noChambre = @noChambre ";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@noChambre", idChambre);
+
+
+                        chambreReserver = (int)command.ExecuteScalar();
+                    }
+                }
+
+                if (chambreReserver > 0)
+                {
+                    MessageBox.Show("Ce chambre est réservé et ne peut pas être supprimé.", "Suppression impossible", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    if (unChambre != null)
+                    {
+                        frmSupprimerChambre frmSupprimerChambre = new frmSupprimerChambre();
+                        frmSupprimerChambre.unChambre = unChambre;
+                        frmSupprimerChambre.boolMod = false;
+                        frmSupprimerChambre.ShowDialog();
+
+                        if (frmSupprimerChambre.boolMod == true)
+                        {
+                            this.chambreTableAdapter.Delete(unChambre.noChambre, unChambre.emplacement, unChambre.decorations, unChambre.noTypeChambre);
+                            MessageBox.Show(" Le chambre " + unChambre.noChambre.ToString() + " a été supprimé. ",
+                                         "L'effacement d'un chambre", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            b56Projet1Equipe7DataSet.chambre.RemovechambreRow(unChambre);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Vous avez annulé l'effacement du chambre " + unChambre.noChambre.ToString(),
+                                        "L'effacement d'un chambre annulée", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+                }                
+            }
+            else
+            {
+                MessageBox.Show("No rows are selected.");
             }
         }
     }
