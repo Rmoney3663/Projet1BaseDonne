@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Projet1.Prepose.PlanificationSoins;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -42,6 +43,8 @@ namespace Projet1.Prepose
 
         private void btnAjout_Click(object sender, EventArgs e)
         {
+            frmAjouterPlanifSoin frmAjout = new frmAjouterPlanifSoin();
+            frmAjout.ShowDialog();
 
         }
 
