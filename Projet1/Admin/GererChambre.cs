@@ -85,11 +85,7 @@ namespace Projet1.Admin
             lbPosition.Text = position.ToString();
         }
 
-        private void btnAjouterChambre_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        
         private void btnAjouterType_Click(object sender, EventArgs e)
         {
             B56Projet1Equipe7DataSet.typeChambreRow unUser = b56Projet1Equipe7DataSet.typeChambre.NewtypeChambreRow();
@@ -112,8 +108,8 @@ namespace Projet1.Admin
                 
                 b56Projet1Equipe7DataSet.typeChambre.AddtypeChambreRow(unUser);
 
-                MessageBox.Show(" Le type de chambre " + unUser.description.ToString() + " a été ajouté. ",
-                   "Ajout d'un type de chambre", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(" Le type " + unUser.description.ToString() + " a été ajouté. ",
+                   "Ajout d'un type", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Validate();
                 this.typeChambreBindingSource.EndEdit();
                 this.typeChambreTableAdapter.Update(this.b56Projet1Equipe7DataSet.typeChambre);
@@ -143,8 +139,8 @@ namespace Projet1.Admin
 
                 if (frmModifierType.boolMod == true)
                 {
-                    MessageBox.Show("Le chambre " + unUser.noTypeChambre.ToString() + " a été modifié. ",
-                                    "Modification d'un chambre", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Le type " + unUser.noTypeChambre.ToString() + " a été modifié. ",
+                                    "Modification d'un type", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     this.Validate();
                     this.typeChambreBindingSource.EndEdit();
@@ -152,8 +148,8 @@ namespace Projet1.Admin
                 }
                 else
                 {
-                    MessageBox.Show("Vous avez annulez la modification du chambre " + unUser.description.ToString(),
-                                    "Modification d'un chambre Annuler", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Vous avez annulez la modification du type " + unUser.description.ToString(),
+                                    "Modification d'un type Annuler", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 
             }
@@ -180,14 +176,14 @@ namespace Projet1.Admin
 
                     if (chambreDataGridView.Rows.Count == 0)
                     {
-                        MessageBox.Show("Impossible de supprimer ce chambre. Des chambres lui sont assignées.",
+                        MessageBox.Show("Impossible de supprimer ce type. Des chambres lui sont assignées.",
                                         "Suppression impossible", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                     else
                     {
                         this.typeChambreTableAdapter.Delete(unUser.noTypeChambre, unUser.description, unUser.prixHaut, unUser.prixBas, unUser.prixMoyen);
-                        MessageBox.Show("Le chambre " + unUser.description.ToString() + " a été supprimé. ",
-                                        "Suppression d'un chambre", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Le type " + unUser.description.ToString() + " a été supprimé. ",
+                                        "Suppression d'un type ", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         b56Projet1Equipe7DataSet.typeChambre.RemovetypeChambreRow(unUser);
                         chambreDataGridView.DataSource = chambreBindingSource;
@@ -214,10 +210,53 @@ namespace Projet1.Admin
                 }
                 else
                 {
-                    MessageBox.Show("Vous avez annulé la suppression du chambre " + unUser.description.ToString() ,
-                                  "Suppression d'un chambre annulée", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Vous avez annulé la suppression du type " + unUser.description.ToString() ,
+                                  "Suppression d'un type annulée", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
         }
+
+        private void btnAjouterChambre_Click(object sender, EventArgs e)
+        {
+            B56Projet1Equipe7DataSet.chambreRow unChambre = b56Projet1Equipe7DataSet.chambre.NewchambreRow();            
+            string no = noTypeChambreTextBox.Text;
+            decimal noid = decimal.Parse(no);
+            unChambre.noTypeChambre = noid;
+            unChambre.emplacement = "";
+            unChambre.decorations = "";
+            decimal noContratMax = 0;
+            foreach (B56Projet1Equipe7DataSet.chambreRow uneLigne in b56Projet1Equipe7DataSet.chambre.Rows)
+                if (uneLigne.noChambre > noContratMax) noContratMax = uneLigne.noChambre;
+
+            unChambre.noChambre = noContratMax + 1;
+
+            frmAjouterChambre frmAjouterChambre = new frmAjouterChambre();
+            frmAjouterChambre.unChambre = unChambre;
+            frmAjouterChambre.boolMod = false;
+            frmAjouterChambre.ShowDialog();
+
+            if (frmAjouterChambre.boolMod == true)
+            {
+                b56Projet1Equipe7DataSet.chambre.AddchambreRow(unChambre);
+                MessageBox.Show(" Le chambre " + unChambre.noChambre.ToString() + " a été ajouté. ",
+                   "Ajout d'un chambre", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Validate();
+                this.chambreBindingSource.EndEdit();
+                this.chambreTableAdapter.Update(this.b56Projet1Equipe7DataSet.chambre);
+
+            }
+            else
+            {
+                MessageBox.Show("Vous avez annulé l'ajout du chambre " + unChambre.noChambre.ToString(),
+                                   "Ajout d'un chambre annulée", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+
+        }
+
+
+
+
+
     }
 }

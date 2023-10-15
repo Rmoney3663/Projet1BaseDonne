@@ -49,7 +49,7 @@ namespace Projet1.Admin.GestionChambres
             bool good = true;
             if (descriptionTextBox.Text.Trim() == "")
             {
-                errMessage.SetError(descriptionTextBox, "Le description du chambre ne peut pas être vide");
+                errMessage.SetError(descriptionTextBox, "Le description du type de chambre ne peut pas être vide");
                 good = false;
             }
 
@@ -77,7 +77,7 @@ namespace Projet1.Admin.GestionChambres
 
             if (!isUniqueDescription)
             {
-                errMessage.SetError(descriptionTextBox, "La description du chambre doit être unique");
+                errMessage.SetError(descriptionTextBox, "La description du type de chambre doit être unique");
                 good = false;
             }
 

@@ -45,10 +45,6 @@
             this.prixBasTextBox = new System.Windows.Forms.TextBox();
             this.prixMoyenTextBox = new System.Windows.Forms.TextBox();
             this.chambreDataGridView = new System.Windows.Forms.DataGridView();
-            this.noChambre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.emplacement = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.decorations = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.noTypeChambre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chambreBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnFermer = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -66,6 +62,10 @@
             this.btnSupprimerType = new System.Windows.Forms.Button();
             this.btnModifierType = new System.Windows.Forms.Button();
             this.btnAjouterType = new System.Windows.Forms.Button();
+            this.noChambre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emplacement = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.decorations = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.noTypeChambre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             noTypeChambreLabel = new System.Windows.Forms.Label();
             descriptionLabel = new System.Windows.Forms.Label();
             prixHautLabel = new System.Windows.Forms.Label();
@@ -220,32 +220,8 @@
             this.chambreDataGridView.Location = new System.Drawing.Point(280, 103);
             this.chambreDataGridView.Name = "chambreDataGridView";
             this.chambreDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.chambreDataGridView.Size = new System.Drawing.Size(443, 177);
+            this.chambreDataGridView.Size = new System.Drawing.Size(343, 177);
             this.chambreDataGridView.TabIndex = 11;
-            // 
-            // noChambre
-            // 
-            this.noChambre.DataPropertyName = "noChambre";
-            this.noChambre.HeaderText = "noChambre";
-            this.noChambre.Name = "noChambre";
-            // 
-            // emplacement
-            // 
-            this.emplacement.DataPropertyName = "emplacement";
-            this.emplacement.HeaderText = "emplacement";
-            this.emplacement.Name = "emplacement";
-            // 
-            // decorations
-            // 
-            this.decorations.DataPropertyName = "decorations";
-            this.decorations.HeaderText = "decorations";
-            this.decorations.Name = "decorations";
-            // 
-            // noTypeChambre
-            // 
-            this.noTypeChambre.DataPropertyName = "noTypeChambre";
-            this.noTypeChambre.HeaderText = "noTypeChambre";
-            this.noTypeChambre.Name = "noTypeChambre";
             // 
             // chambreBindingSource
             // 
@@ -363,7 +339,7 @@
             // btnAjouterChambre
             // 
             this.btnAjouterChambre.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAjouterChambre.Location = new System.Drawing.Point(379, 298);
+            this.btnAjouterChambre.Location = new System.Drawing.Point(336, 298);
             this.btnAjouterChambre.Name = "btnAjouterChambre";
             this.btnAjouterChambre.Size = new System.Drawing.Size(200, 28);
             this.btnAjouterChambre.TabIndex = 41;
@@ -374,7 +350,7 @@
             // btnModificationChambre
             // 
             this.btnModificationChambre.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModificationChambre.Location = new System.Drawing.Point(379, 332);
+            this.btnModificationChambre.Location = new System.Drawing.Point(336, 332);
             this.btnModificationChambre.Name = "btnModificationChambre";
             this.btnModificationChambre.Size = new System.Drawing.Size(199, 28);
             this.btnModificationChambre.TabIndex = 42;
@@ -384,7 +360,7 @@
             // btnSupprimerChambre
             // 
             this.btnSupprimerChambre.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSupprimerChambre.Location = new System.Drawing.Point(378, 366);
+            this.btnSupprimerChambre.Location = new System.Drawing.Point(335, 366);
             this.btnSupprimerChambre.Name = "btnSupprimerChambre";
             this.btnSupprimerChambre.Size = new System.Drawing.Size(200, 28);
             this.btnSupprimerChambre.TabIndex = 43;
@@ -423,6 +399,35 @@
             this.btnAjouterType.Text = "Ajout Type Chambre";
             this.btnAjouterType.UseVisualStyleBackColor = true;
             this.btnAjouterType.Click += new System.EventHandler(this.btnAjouterType_Click);
+            // 
+            // noChambre
+            // 
+            this.noChambre.DataPropertyName = "noChambre";
+            this.noChambre.HeaderText = "noChambre";
+            this.noChambre.Name = "noChambre";
+            this.noChambre.ReadOnly = true;
+            // 
+            // emplacement
+            // 
+            this.emplacement.DataPropertyName = "emplacement";
+            this.emplacement.HeaderText = "emplacement";
+            this.emplacement.Name = "emplacement";
+            this.emplacement.ReadOnly = true;
+            // 
+            // decorations
+            // 
+            this.decorations.DataPropertyName = "decorations";
+            this.decorations.HeaderText = "decorations";
+            this.decorations.Name = "decorations";
+            this.decorations.ReadOnly = true;
+            // 
+            // noTypeChambre
+            // 
+            this.noTypeChambre.DataPropertyName = "noTypeChambre";
+            this.noTypeChambre.HeaderText = "noTypeChambre";
+            this.noTypeChambre.Name = "noTypeChambre";
+            this.noTypeChambre.ReadOnly = true;
+            this.noTypeChambre.Visible = false;
             // 
             // GererChambre
             // 
@@ -492,15 +497,15 @@
         private System.Windows.Forms.Button btnFirst;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn noChambre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn emplacement;
-        private System.Windows.Forms.DataGridViewTextBoxColumn decorations;
-        private System.Windows.Forms.DataGridViewTextBoxColumn noTypeChambre;
         private System.Windows.Forms.Button btnAjouterChambre;
         private System.Windows.Forms.Button btnModificationChambre;
         private System.Windows.Forms.Button btnSupprimerChambre;
         private System.Windows.Forms.Button btnSupprimerType;
         private System.Windows.Forms.Button btnModifierType;
         private System.Windows.Forms.Button btnAjouterType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn noChambre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn emplacement;
+        private System.Windows.Forms.DataGridViewTextBoxColumn decorations;
+        private System.Windows.Forms.DataGridViewTextBoxColumn noTypeChambre;
     }
 }
