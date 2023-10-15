@@ -124,6 +124,12 @@
     <Compile Include="Admin\GestionChambres\frmAjouterType.Designer.cs">
       <DependentUpon>frmAjouterType.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admin\GestionChambres\frmModifierType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\GestionChambres\frmModifierType.Designer.cs">
+      <DependentUpon>frmModifierType.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admin\GestionSoins\frmAjouterSoin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -247,6 +253,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\GestionChambres\frmAjouterType.resx">
       <DependentUpon>frmAjouterType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\GestionChambres\frmModifierType.resx">
+      <DependentUpon>frmModifierType.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\GestionSoins\frmAjouterSoin.resx">
       <DependentUpon>frmAjouterSoin.cs</DependentUpon>

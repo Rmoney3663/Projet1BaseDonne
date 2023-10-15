@@ -381,6 +381,7 @@
             this.btnModifierType.TabIndex = 45;
             this.btnModifierType.Text = "Modifier Type Chambre";
             this.btnModifierType.UseVisualStyleBackColor = true;
+            this.btnModifierType.Click += new System.EventHandler(this.btnModifierType_Click);
             // 
             // btnAjouterType
             // 

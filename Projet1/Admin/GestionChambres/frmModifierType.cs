@@ -11,11 +11,16 @@ using System.Windows.Forms;
 
 namespace Projet1.Admin.GestionChambres
 {
-    public partial class frmAjouterType : Form
+    public partial class frmModifierType : Form
     {
-        public bool boolMod;
         public B56Projet1Equipe7DataSet.typeChambreRow unUser;
-        public frmAjouterType()
+        public string description { get; set; }
+        public string haut { get; set; }
+        public string bas { get; set; }
+        public string moyen { get; set; }
+
+        public bool boolMod;
+        public frmModifierType()
         {
             InitializeComponent();
         }
@@ -28,14 +33,15 @@ namespace Projet1.Admin.GestionChambres
 
         }
 
-        private void frmAjouterType_Load(object sender, EventArgs e)
+        private void frmModifierType_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'b56Projet1Equipe7DataSet.typeChambre' table. You can move, or remove it, as needed.
             this.typeChambreTableAdapter.Fill(this.b56Projet1Equipe7DataSet.typeChambre);
-            descriptionTextBox.Text = "";
-            prixHautTextBox.Text = "";
-            prixBasTextBox.Text = "";
-            prixMoyenTextBox.Text = "";
+            descriptionTextBox.Text = unUser.description;
+            prixHautTextBox.Text = unUser.prixHaut.ToString();
+            prixBasTextBox.Text = unUser.prixBas.ToString();
+            prixMoyenTextBox.Text = unUser.prixMoyen.ToString();
+
         }
 
         private void btnAnnuler_Click(object sender, EventArgs e)
@@ -44,7 +50,7 @@ namespace Projet1.Admin.GestionChambres
             this.Close();
         }
 
-        private void btnAjouter_Click(object sender, EventArgs e)
+        private void btnModifier_Click(object sender, EventArgs e)
         {
             bool good = true;
             if (descriptionTextBox.Text.Trim() == "")
@@ -64,7 +70,7 @@ namespace Projet1.Admin.GestionChambres
                 errMessage.SetError(prixBasTextBox, "Le bas prix ne peut pas être vide");
                 good = false;
             }
-            
+
             if (prixMoyenTextBox.Text.Trim() == "")
             {
                 errMessage.SetError(prixMoyenTextBox, "Le moyen prix ne peut pas être vide");
@@ -81,18 +87,17 @@ namespace Projet1.Admin.GestionChambres
                 good = false;
             }
 
-            
+
             if (good == true)
-            {                
+            {
                 unUser.description = descriptionTextBox.Text;
                 unUser.prixBas = decimal.Parse(prixBasTextBox.Text);
                 unUser.prixHaut = decimal.Parse(prixHautTextBox.Text);
                 unUser.prixMoyen = decimal.Parse(prixMoyenTextBox.Text);
                 boolMod = true;
                 this.Close();
-                
+
             }
-            
         }
 
         private bool IsDescriptionUnique(string description)
@@ -113,7 +118,6 @@ namespace Projet1.Admin.GestionChambres
                     isUnique = (count == 0);
                 }
             }
-
             return isUnique;
         }
 

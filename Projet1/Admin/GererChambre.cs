@@ -92,8 +92,8 @@ namespace Projet1.Admin
         {
             B56Projet1Equipe7DataSet.typeChambreRow unUser = b56Projet1Equipe7DataSet.typeChambre.NewtypeChambreRow();
             decimal noContratMax = 0;
-            foreach (B56Projet1Equipe7DataSet.assistantRow uneLigne in b56Projet1Equipe7DataSet.assistant.Rows)
-                if (uneLigne.noAssistant > noContratMax) noContratMax = uneLigne.noAssistant;
+            foreach (B56Projet1Equipe7DataSet.typeChambreRow uneLigne in b56Projet1Equipe7DataSet.typeChambre.Rows)
+                if (uneLigne.noTypeChambre > noContratMax) noContratMax = uneLigne.noTypeChambre;
 
             unUser.noTypeChambre = noContratMax + 1;
             unUser.description = "";
@@ -123,6 +123,38 @@ namespace Projet1.Admin
             }
 
 
+        }
+
+        private void btnModifierType_Click(object sender, EventArgs e)
+        {
+            string no = noTypeChambreTextBox.Text;
+            decimal noid = decimal.Parse(no);
+
+            B56Projet1Equipe7DataSet.typeChambreRow unUser = b56Projet1Equipe7DataSet.typeChambre.FindBynoTypeChambre(noid);
+
+            if (unUser != null)
+            {
+                frmModifierType frmModifierType = new frmModifierType();
+                frmModifierType.unUser = unUser;
+                frmModifierType.boolMod = false;
+                frmModifierType.ShowDialog();                
+
+                if (frmModifierType.boolMod == true)
+                {
+                    MessageBox.Show("Le chambre " + unUser.noTypeChambre.ToString() + " a été modifié. ",
+                                    "Modification d'un chambre", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    this.Validate();
+                    this.typeChambreBindingSource.EndEdit();
+                    this.typeChambreTableAdapter.Update(unUser);
+                }
+                else
+                {
+                    MessageBox.Show("Vous avez annulez la modification du chambre " + unUser.description.ToString(),
+                                    "Modification d'un chambre Annuler", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                
+            }
         }
     }
 }
