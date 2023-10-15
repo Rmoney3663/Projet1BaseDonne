@@ -254,9 +254,49 @@ namespace Projet1.Admin
 
         }
 
+        private void btnModificationChambre_Click(object sender, EventArgs e)
+        {
+            if (chambreDataGridView.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = chambreDataGridView.SelectedRows[0];
+
+                string strchambre = selectedRow.Cells["noChambre"].Value.ToString();
+                string strtype = noTypeChambreTextBox.Text;
+
+                decimal idChambre = decimal.Parse(strchambre);
+                decimal idType = decimal.Parse(strtype);
+
+                B56Projet1Equipe7DataSet.chambreRow unChambre = b56Projet1Equipe7DataSet.chambre.FindBynoChambre(idChambre);
+               
+                if (unChambre != null)
+                {
+                    frmModifierChambre frmModifierChambre = new frmModifierChambre();
+                    frmModifierChambre.unChambre = unChambre;
+                    frmModifierChambre.boolMod = false;
+                    frmModifierChambre.ShowDialog();
+
+                    if (frmModifierChambre.boolMod == true)
+                    {
+                        MessageBox.Show(" Le chambre " + unChambre.noChambre.ToString() + " a été modifié. ",
+                                        "Modification d'un chambre", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        this.Validate();
+                        this.chambreBindingSource.EndEdit();
+                        this.chambreTableAdapter.Update(unChambre);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Vous avez annulé la modification du chambre " + unChambre.noChambre.ToString(),
+                                    "Modification d'un chambre annulée", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
 
 
-
-
+                }
+                else
+                {
+                    MessageBox.Show("No rows are selected.");
+                }
+            }
+        }
     }
 }

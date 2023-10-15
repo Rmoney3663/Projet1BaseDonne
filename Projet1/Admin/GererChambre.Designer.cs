@@ -356,6 +356,7 @@
             this.btnModificationChambre.TabIndex = 42;
             this.btnModificationChambre.Text = "Modifier Chambre";
             this.btnModificationChambre.UseVisualStyleBackColor = true;
+            this.btnModificationChambre.Click += new System.EventHandler(this.btnModificationChambre_Click);
             // 
             // btnSupprimerChambre
             // 

@@ -130,6 +130,12 @@
     <Compile Include="Admin\GestionChambres\frmAjouterType.Designer.cs">
       <DependentUpon>frmAjouterType.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admin\GestionChambres\frmModifierChambre.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\GestionChambres\frmModifierChambre.Designer.cs">
+      <DependentUpon>frmModifierChambre.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admin\GestionChambres\frmModifierType.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -268,6 +274,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\GestionChambres\frmAjouterType.resx">
       <DependentUpon>frmAjouterType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\GestionChambres\frmModifierChambre.resx">
+      <DependentUpon>frmModifierChambre.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\GestionChambres\frmModifierType.resx">
       <DependentUpon>frmModifierType.cs</DependentUpon>
