@@ -12,7 +12,7 @@ namespace Projet1.Prepose
 {
     public partial class MenuPrepose : Form
     {
-        Planifier planifier = new Planifier();
+        PlanifierSoins planifier = new PlanifierSoins();
         ReserverChambre reserver = new ReserverChambre();
         GererClientsInvites gerer = new GererClientsInvites();
 

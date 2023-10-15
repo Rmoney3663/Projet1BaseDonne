@@ -189,11 +189,17 @@
     <Compile Include="Prepose\MenuPrepose.Designer.cs">
       <DependentUpon>MenuPrepose.cs</DependentUpon>
     </Compile>
-    <Compile Include="Prepose\Planifier.cs">
+    <Compile Include="Prepose\PlanificationSoins\frmAjouterPlanifSoin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Prepose\Planifier.Designer.cs">
-      <DependentUpon>Planifier.cs</DependentUpon>
+    <Compile Include="Prepose\PlanificationSoins\frmAjouterPlanifSoin.Designer.cs">
+      <DependentUpon>frmAjouterPlanifSoin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Prepose\PlanifierSoins.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Prepose\PlanifierSoins.Designer.cs">
+      <DependentUpon>PlanifierSoins.cs</DependentUpon>
     </Compile>
     <Compile Include="Prepose\ReserverChambre.cs">
       <SubType>Form</SubType>
@@ -266,8 +272,11 @@
     <EmbeddedResource Include="Prepose\MenuPrepose.resx">
       <DependentUpon>MenuPrepose.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Prepose\Planifier.resx">
-      <DependentUpon>Planifier.cs</DependentUpon>
+    <EmbeddedResource Include="Prepose\PlanificationSoins\frmAjouterPlanifSoin.resx">
+      <DependentUpon>frmAjouterPlanifSoin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Prepose\PlanifierSoins.resx">
+      <DependentUpon>PlanifierSoins.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Prepose\ReserverChambre.resx">
       <DependentUpon>ReserverChambre.cs</DependentUpon>
