@@ -36,19 +36,21 @@
             this.b56Projet1Equipe7DataSet = new Projet1.B56Projet1Equipe7DataSet();
             this.cbNoPersonne = new System.Windows.Forms.ComboBox();
             this.cbNoAssistant = new System.Windows.Forms.ComboBox();
-            this.dateHeureDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.dtpSoin = new System.Windows.Forms.DateTimePicker();
             this.cbNoSoin = new System.Windows.Forms.ComboBox();
             this.soinBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.soinTableAdapter = new Projet1.B56Projet1Equipe7DataSetTableAdapters.soinTableAdapter();
             this.btnAnnuler = new System.Windows.Forms.Button();
             this.btnAjouter = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.errMessage = new System.Windows.Forms.ErrorProvider(this.components);
             noPersonneLabel = new System.Windows.Forms.Label();
             noAssistantLabel = new System.Windows.Forms.Label();
             dateHeureLabel = new System.Windows.Forms.Label();
             noSoinLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.b56Projet1Equipe7DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.soinBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errMessage)).BeginInit();
             this.SuspendLayout();
             // 
             // noPersonneLabel
@@ -80,9 +82,9 @@
             dateHeureLabel.Location = new System.Drawing.Point(30, 153);
             dateHeureLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             dateHeureLabel.Name = "dateHeureLabel";
-            dateHeureLabel.Size = new System.Drawing.Size(82, 15);
+            dateHeureLabel.Size = new System.Drawing.Size(149, 15);
             dateHeureLabel.TabIndex = 5;
-            dateHeureLabel.Text = "date Heure:";
+            dateHeureLabel.Text = "Date et heure du soin:";
             // 
             // noSoinLabel
             // 
@@ -122,13 +124,17 @@
             this.cbNoAssistant.TabIndex = 4;
             this.cbNoAssistant.ValueMember = "noAssistant";
             // 
-            // dateHeureDateTimePicker
+            // dtpSoin
             // 
-            this.dateHeureDateTimePicker.Location = new System.Drawing.Point(223, 151);
-            this.dateHeureDateTimePicker.Margin = new System.Windows.Forms.Padding(2);
-            this.dateHeureDateTimePicker.Name = "dateHeureDateTimePicker";
-            this.dateHeureDateTimePicker.Size = new System.Drawing.Size(184, 20);
-            this.dateHeureDateTimePicker.TabIndex = 6;
+            this.dtpSoin.CustomFormat = "dd/MM/yyyy HH:mm";
+            this.dtpSoin.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpSoin.Location = new System.Drawing.Point(223, 151);
+            this.dtpSoin.Margin = new System.Windows.Forms.Padding(2);
+            this.dtpSoin.MinDate = new System.DateTime(2023, 10, 15, 0, 0, 0, 0);
+            this.dtpSoin.Name = "dtpSoin";
+            this.dtpSoin.Size = new System.Drawing.Size(184, 20);
+            this.dtpSoin.TabIndex = 6;
+            this.dtpSoin.Value = new System.DateTime(2023, 10, 15, 16, 38, 57, 0);
             // 
             // cbNoSoin
             // 
@@ -189,6 +195,10 @@
             this.label1.TabIndex = 22;
             this.label1.Text = "Nouvelle planification de soin";
             // 
+            // errMessage
+            // 
+            this.errMessage.ContainerControl = this;
+            // 
             // frmAjouterPlanifSoin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -202,7 +212,7 @@
             this.Controls.Add(noAssistantLabel);
             this.Controls.Add(this.cbNoAssistant);
             this.Controls.Add(dateHeureLabel);
-            this.Controls.Add(this.dateHeureDateTimePicker);
+            this.Controls.Add(this.dtpSoin);
             this.Controls.Add(noSoinLabel);
             this.Controls.Add(this.cbNoSoin);
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -211,6 +221,7 @@
             this.Load += new System.EventHandler(this.frmAjouterPlanifSoin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.b56Projet1Equipe7DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.soinBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errMessage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -221,12 +232,13 @@
         private B56Projet1Equipe7DataSet b56Projet1Equipe7DataSet;
         private System.Windows.Forms.ComboBox cbNoPersonne;
         private System.Windows.Forms.ComboBox cbNoAssistant;
-        private System.Windows.Forms.DateTimePicker dateHeureDateTimePicker;
+        private System.Windows.Forms.DateTimePicker dtpSoin;
         private System.Windows.Forms.ComboBox cbNoSoin;
         private System.Windows.Forms.BindingSource soinBindingSource;
         private B56Projet1Equipe7DataSetTableAdapters.soinTableAdapter soinTableAdapter;
         private System.Windows.Forms.Button btnAnnuler;
         private System.Windows.Forms.Button btnAjouter;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ErrorProvider errMessage;
     }
 }

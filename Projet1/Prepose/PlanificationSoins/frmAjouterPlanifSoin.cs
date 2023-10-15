@@ -22,6 +22,10 @@ namespace Projet1.Prepose.PlanificationSoins
 
         private void frmAjouterPlanifSoin_Load(object sender, EventArgs e)
         {
+            // Set limite dateDimePicker
+            dtpSoin.MinDate = DateTime.Now;
+            dtpSoin.Value = DateTime.Now.AddDays(1);
+
             string connectionString = "Data Source=tcp:424sql.cgodin.qc.ca,5433;Initial Catalog=B56Projet1Equipe7;Persist Security Info=True;User ID=B56Equipe7;Password=Password1";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -66,7 +70,52 @@ namespace Projet1.Prepose.PlanificationSoins
 
         private void btnAjouter_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(cbNoAssistant.SelectedValue.ToString());
+            if (dtpSoin.Value < DateTime.Now)
+            {
+                errMessage.SetError(dtpSoin,"On ne peut pas planifier un soin dans le passé!");
+            }
+            else if (dtpSoin.Value.DayOfWeek == DayOfWeek.Saturday || dtpSoin.Value.DayOfWeek == DayOfWeek.Sunday)
+            {
+                errMessage.SetError(dtpSoin, "On ne peut pas planifier de soin le samedi ou le dimanche");
+            }
+            else if (dtpSoin.Value.Hour < 8 || dtpSoin.Value.Hour > 17 || (dtpSoin.Value.Hour == 17 && (dtpSoin.Value.Minute != 0 || dtpSoin.Value.Second != 0)))
+            {
+                errMessage.SetError(dtpSoin, "Les heures de réservation sont entre 8h et 17h");
+            }
+            else
+            {
+                // Vérifier si l'assistant a déjà un soin à cette heure là
+
+                errMessage.SetError(dtpSoin, "");
+                /*
+                string connectionString = "Data Source=tcp:424sql.cgodin.qc.ca,5433;Initial Catalog=B56Projet1Equipe7;Persist Security Info=True;User ID=B56Equipe7;Password=Password1";
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    string query = "SELECT assistantSoin.noAssistant, CONCAT(assistantSoin.noAssistant, ' ', nom, ', ', prenom) AS nomPrenom FROM assistant " +
+                        "INNER JOIN assistantSoin ON assistant.noAssistant = assistantSoin.noAssistant " +
+                        "WHERE noSoin = @noSoin";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        decimal noSoin = (decimal)cbNoSoin.SelectedValue;
+                        command.Parameters.AddWithValue("@noSoin", noSoin);
+
+                        using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                        {
+                            DataTable dataTable = new DataTable();
+                            adapter.Fill(dataTable);
+
+                            cbNoAssistant.DataSource = dataTable;
+                            cbNoAssistant.DisplayMember = "nomPrenom";
+                            cbNoAssistant.ValueMember = "noAssistant";
+                        }
+                    }
+                    connection.Close();
+                }
+                                */
+            }
         }
 
         private void btnAnnuler_Click(object sender, EventArgs e)
@@ -106,6 +155,7 @@ namespace Projet1.Prepose.PlanificationSoins
                             cbNoAssistant.ValueMember = "noAssistant";
                         }
                     }
+                    connection.Close();
                 }
             }
         }
