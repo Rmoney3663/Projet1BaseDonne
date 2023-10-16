@@ -67,7 +67,30 @@ namespace Projet1.Prepose
 
         private void btnSupprimer_Click(object sender, EventArgs e)
         {
+            if (dgPlanif.SelectedRows.Count == 1 && dgPlanif.SelectedRows[0].IsNewRow == false)
+            {
+                if (b56Projet1Equipe7DataSet.planifSoin[dgPlanif.SelectedRows[0].Index].dateHeure < DateTime.Now)
+                {
+                    MessageBox.Show("Vous ne pouvez pas supprimer une planification de soin si le soin a déjà été donné.", "Supprimer une planification de soin déjà passée", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    DialogResult reponse = MessageBox.Show("Êtes-vous certain de vouloir supprimer cette planification de soin ?",
+                        "Supprimer une planification de soin", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
+                    if (reponse == DialogResult.Yes)
+                    {
+                        planifSoinBindingSource.RemoveCurrent();
+                        this.Validate();
+                        this.planifSoinBindingSource.EndEdit();
+                        this.planifSoinTableAdapter.Update(this.b56Projet1Equipe7DataSet.planifSoin);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Veuillez sélectionner la planification de soin que vous souhaitez supprimer dans la liste.", "Sélection d'une planification de soin", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnFermer_Click(object sender, EventArgs e)

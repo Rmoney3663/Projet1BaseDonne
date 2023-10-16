@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Projet1.Prepose;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,6 +21,7 @@ namespace Projet1.Admin
         GererSoins gererSoins = new GererSoins();
         GererChambre gererChambre = new GererChambre();
         Rapport rapport = new Rapport();
+        PlanifierSoins planifSoin = new PlanifierSoins();
 
         public MenuAdministrateur()
         {
@@ -72,6 +74,7 @@ namespace Projet1.Admin
         private void planifierDesSoinsPourLesClientsEtLeursInvitésToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
+            planifSoin.ShowDialog();
             this.Show();
         }
 
