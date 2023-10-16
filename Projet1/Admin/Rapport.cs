@@ -29,10 +29,23 @@ namespace Projet1.Admin
 
         private void Rapport_Load_1(object sender, EventArgs e)
         {
-            // TODO: cette ligne de code charge les données dans la table 'b56Projet1Equipe7DataSet.assistant'. Vous pouvez la déplacer ou la supprimer selon les besoins.
-            this.assistantTableAdapter.Fill(this.b56Projet1Equipe7DataSet.assistant);
+            // TODO: cette ligne de code charge les données dans la table 'b56Projet1Equipe7DataSet.RapportPersonne'. Vous pouvez la déplacer ou la supprimer selon les besoins.
+            this.rapportPersonneTableAdapter.Fill(this.b56Projet1Equipe7DataSet.RapportPersonne);
+            // TODO: cette ligne de code charge les données dans la table 'b56Projet1Equipe7DataSet.RapportPersonne'. Vous pouvez la déplacer ou la supprimer selon les besoins.
+            this.rapportPersonneTableAdapter.Fill(this.b56Projet1Equipe7DataSet.RapportPersonne);
+            // TODO: cette ligne de code charge les données dans la table 'b56Projet1Equipe7DataSet.AssistantName'. Vous pouvez la déplacer ou la supprimer selon les besoins.
+            this.assistantNameTableAdapter.Fill(this.b56Projet1Equipe7DataSet.AssistantName);
+            
+
+            DateTime selectedDate = dateTimePicker.Value;
+
+            // Format the date as "YYYY-MM-DD"
+            string formattedDate = selectedDate.ToString("yyyy-MM-dd");
+
+            // Now, 'formattedDate' contains the date in the "YYYY-MM-DD" format
 
 
+            this.infoSoinAssistantTableAdapter.Fill(this.b56Projet1Equipe7DataSet.InfoSoinAssistant, formattedDate);
 
 
             // TODO: cette ligne de code charge les données dans la table 'b56Projet1Equipe7DataSet.InfoChambre'. Vous pouvez la déplacer ou la supprimer selon les besoins.
@@ -52,6 +65,13 @@ namespace Projet1.Admin
 
         }
 
+        private void dateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime selectedDate = dateTimePicker.Value;
 
+            // Format the date as "YYYY-MM-DD"
+            string formattedDate = selectedDate.ToString("yyyy-MM-dd");
+            this.infoSoinAssistantTableAdapter.Fill(this.b56Projet1Equipe7DataSet.InfoSoinAssistant, formattedDate);
+        }
     }
 }
