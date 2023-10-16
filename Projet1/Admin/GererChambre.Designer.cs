@@ -45,6 +45,11 @@
             this.prixBasTextBox = new System.Windows.Forms.TextBox();
             this.prixMoyenTextBox = new System.Windows.Forms.TextBox();
             this.chambreDataGridView = new System.Windows.Forms.DataGridView();
+            this.noChambre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emplacement = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.decorations = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.noTypeChambre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chambreBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnFermer = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.lbTotale = new System.Windows.Forms.Label();
@@ -61,11 +66,6 @@
             this.btnSupprimerType = new System.Windows.Forms.Button();
             this.btnModifierType = new System.Windows.Forms.Button();
             this.btnAjouterType = new System.Windows.Forms.Button();
-            this.noChambre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.emplacement = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.decorations = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.noTypeChambre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chambreBindingSource = new System.Windows.Forms.BindingSource(this.components);
             noTypeChambreLabel = new System.Windows.Forms.Label();
             descriptionLabel = new System.Windows.Forms.Label();
             prixHautLabel = new System.Windows.Forms.Label();
@@ -209,7 +209,10 @@
             // 
             // chambreDataGridView
             // 
+            this.chambreDataGridView.AllowUserToResizeColumns = false;
+            this.chambreDataGridView.AllowUserToResizeRows = false;
             this.chambreDataGridView.AutoGenerateColumns = false;
+            this.chambreDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.chambreDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.chambreDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.noChambre,
@@ -222,6 +225,40 @@
             this.chambreDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.chambreDataGridView.Size = new System.Drawing.Size(343, 177);
             this.chambreDataGridView.TabIndex = 11;
+            // 
+            // noChambre
+            // 
+            this.noChambre.DataPropertyName = "noChambre";
+            this.noChambre.HeaderText = "noChambre";
+            this.noChambre.Name = "noChambre";
+            this.noChambre.ReadOnly = true;
+            // 
+            // emplacement
+            // 
+            this.emplacement.DataPropertyName = "emplacement";
+            this.emplacement.HeaderText = "emplacement";
+            this.emplacement.Name = "emplacement";
+            this.emplacement.ReadOnly = true;
+            // 
+            // decorations
+            // 
+            this.decorations.DataPropertyName = "decorations";
+            this.decorations.HeaderText = "decorations";
+            this.decorations.Name = "decorations";
+            this.decorations.ReadOnly = true;
+            // 
+            // noTypeChambre
+            // 
+            this.noTypeChambre.DataPropertyName = "noTypeChambre";
+            this.noTypeChambre.HeaderText = "noTypeChambre";
+            this.noTypeChambre.Name = "noTypeChambre";
+            this.noTypeChambre.ReadOnly = true;
+            this.noTypeChambre.Visible = false;
+            // 
+            // chambreBindingSource
+            // 
+            this.chambreBindingSource.DataMember = "fk_noTypeChambre";
+            this.chambreBindingSource.DataSource = this.typeChambreBindingSource;
             // 
             // btnFermer
             // 
@@ -396,40 +433,6 @@
             this.btnAjouterType.Text = "Ajout Type Chambre";
             this.btnAjouterType.UseVisualStyleBackColor = true;
             this.btnAjouterType.Click += new System.EventHandler(this.btnAjouterType_Click);
-            // 
-            // noChambre
-            // 
-            this.noChambre.DataPropertyName = "noChambre";
-            this.noChambre.HeaderText = "noChambre";
-            this.noChambre.Name = "noChambre";
-            this.noChambre.ReadOnly = true;
-            // 
-            // emplacement
-            // 
-            this.emplacement.DataPropertyName = "emplacement";
-            this.emplacement.HeaderText = "emplacement";
-            this.emplacement.Name = "emplacement";
-            this.emplacement.ReadOnly = true;
-            // 
-            // decorations
-            // 
-            this.decorations.DataPropertyName = "decorations";
-            this.decorations.HeaderText = "decorations";
-            this.decorations.Name = "decorations";
-            this.decorations.ReadOnly = true;
-            // 
-            // noTypeChambre
-            // 
-            this.noTypeChambre.DataPropertyName = "noTypeChambre";
-            this.noTypeChambre.HeaderText = "noTypeChambre";
-            this.noTypeChambre.Name = "noTypeChambre";
-            this.noTypeChambre.ReadOnly = true;
-            this.noTypeChambre.Visible = false;
-            // 
-            // chambreBindingSource
-            // 
-            this.chambreBindingSource.DataMember = "fk_noTypeChambre";
-            this.chambreBindingSource.DataSource = this.typeChambreBindingSource;
             // 
             // GererChambre
             // 

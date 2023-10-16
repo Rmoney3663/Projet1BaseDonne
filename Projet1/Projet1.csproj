@@ -172,6 +172,9 @@
     <Compile Include="Admin\Rapport.Designer.cs">
       <DependentUpon>Rapport.cs</DependentUpon>
     </Compile>
+    <Compile Include="B56Projet1Equipe7DataSet.cs">
+      <DependentUpon>B56Projet1Equipe7DataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="B56Projet1Equipe7DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -304,6 +307,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\GestionSoins\frmModifierSoin.resx">
       <DependentUpon>frmModifierSoin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\Rapport.resx">
+      <DependentUpon>Rapport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Connexion.resx">
       <DependentUpon>Connexion.cs</DependentUpon>

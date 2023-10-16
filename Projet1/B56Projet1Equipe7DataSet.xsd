@@ -770,6 +770,182 @@ SELECT noUtilisateur, nomUtilisateur, password, noTypeUtilisateur FROM utilisate
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="InfoClientInviteTableAdapter" GeneratorDataComponentClassName="InfoClientInviteTableAdapter" Name="InfoClientInvite" UserDataComponentName="InfoClientInviteTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="B56Projet1Equipe7ConnectionString (Settings)" DbObjectName="B56Projet1Equipe7.dbo.client" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT noClient AS Numero, CONCAT(nom, ' ', prenom) AS NomPrenom
+FROM client
+UNION
+SELECT noInvite AS Numero, nomPrenom AS NomPrenom
+FROM invite;</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Numero" DataSetColumn="Numero" />
+              <Mapping SourceColumn="NomPrenom" DataSetColumn="NomPrenom" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="InfoSoinPersonneTableAdapter" GeneratorDataComponentClassName="InfoSoinPersonneTableAdapter" Name="InfoSoinPersonne" UserDataComponentName="InfoSoinPersonneTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="B56Projet1Equipe7ConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT noPersonne, s.description, ps.dateHeure, s.prix, CONCAT(a.prenom, ' ', a.nom) AS AssistantName
+FROM planifSoin ps
+INNER JOIN soin s ON ps.noSoin = s.noSoin
+INNER JOIN assistant a ON ps.noAssistant = a.noAssistant
+</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="description" DataSetColumn="description" />
+              <Mapping SourceColumn="dateHeure" DataSetColumn="dateHeure" />
+              <Mapping SourceColumn="prix" DataSetColumn="prix" />
+              <Mapping SourceColumn="AssistantName" DataSetColumn="AssistantName" />
+              <Mapping SourceColumn="noPersonne" DataSetColumn="noPersonne" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="InfoChambreTableAdapter" GeneratorDataComponentClassName="InfoChambreTableAdapter" Name="InfoChambre" UserDataComponentName="InfoChambreTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="B56Projet1Equipe7ConnectionString (Settings)" DbObjectName="B56Projet1Equipe7.dbo.reservationChambre" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>
+SELECT
+    CONCAT(c.prenom, ' ', c.nom) AS ClientName,
+    rc.dateArrivee AS ArrivalDate,
+    rc.dateDepart AS DepartureDate,
+    rc.NbPersonnes AS Occupants,
+	rc.noChambre as Chambre
+FROM reservationChambre rc
+INNER JOIN client c ON rc.noClient = c.noClient</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ClientName" DataSetColumn="ClientName" />
+              <Mapping SourceColumn="ArrivalDate" DataSetColumn="ArrivalDate" />
+              <Mapping SourceColumn="DepartureDate" DataSetColumn="DepartureDate" />
+              <Mapping SourceColumn="Occupants" DataSetColumn="Occupants" />
+              <Mapping SourceColumn="Chambre" DataSetColumn="Chambre" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="InfoDateAssistantTableAdapter" GeneratorDataComponentClassName="InfoDateAssistantTableAdapter" Name="InfoDateAssistant" UserDataComponentName="InfoDateAssistantTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="B56Projet1Equipe7ConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT ps.noAssistant, s.description, ps.dateHeure, CONCAT(c.prenom, ' ', c.nom) AS PersonName
+FROM planifSoin ps
+INNER JOIN soin s ON ps.noSoin = s.noSoin
+INNER JOIN client c ON ps.noPersonne = c.noClient
+WHERE CAST(ps.dateHeure AS DATE) = @SelectedDate</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="SelectedDate" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="AnsiString" Direction="Input" ParameterName="@SelectedDate" Precision="0" Scale="0" Size="1024" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="noAssistant" DataSetColumn="noAssistant" />
+              <Mapping SourceColumn="description" DataSetColumn="description" />
+              <Mapping SourceColumn="dateHeure" DataSetColumn="dateHeure" />
+              <Mapping SourceColumn="PersonName" DataSetColumn="PersonName" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="AssistantNameTableAdapter" GeneratorDataComponentClassName="AssistantNameTableAdapter" Name="AssistantName" UserDataComponentName="AssistantNameTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="B56Projet1Equipe7ConnectionString (Settings)" DbObjectName="B56Projet1Equipe7.dbo.assistant" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT noAssistant, CONCAT(prenom, ' ', nom) AS AssistantName       
+FROM assistant </CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="noAssistant" DataSetColumn="noAssistant" />
+              <Mapping SourceColumn="AssistantName" DataSetColumn="AssistantName" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="InfoSoinAssistantTableAdapter" GeneratorDataComponentClassName="InfoSoinAssistantTableAdapter" Name="InfoSoinAssistant" UserDataComponentName="InfoSoinAssistantTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="B56Projet1Equipe7ConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT ps.noPersonne, a.noAssistant,  s.noSoin, s.description, CAST(ps.dateHeure AS DATE) AS SoinsDate
+FROM planifSoin ps
+INNER JOIN soin s ON ps.noSoin = s.noSoin
+INNER JOIN assistant a ON ps.noAssistant = a.noAssistant
+WHERE CAST(ps.dateHeure AS DATE) = @date
+</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="date" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="AnsiString" Direction="Input" ParameterName="@date" Precision="0" Scale="0" Size="1024" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="noPersonne" DataSetColumn="noPersonne" />
+              <Mapping SourceColumn="noAssistant" DataSetColumn="noAssistant" />
+              <Mapping SourceColumn="noSoin" DataSetColumn="noSoin" />
+              <Mapping SourceColumn="description" DataSetColumn="description" />
+              <Mapping SourceColumn="SoinsDate" DataSetColumn="SoinsDate" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="RapportPersonneTableAdapter" GeneratorDataComponentClassName="RapportPersonneTableAdapter" Name="RapportPersonne" UserDataComponentName="RapportPersonneTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="B56Projet1Equipe7ConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>
+SELECT ps.noPersonne, a.noAssistant, CAST(ps.dateHeure AS DATE) AS SoinsDate, ps.dateHeure AS DATE,
+       s.description AS SoinDescription,  
+       CASE
+           WHEN c.noClient IS NOT NULL THEN CONCAT(c.prenom, ' ', c.nom)
+           WHEN i.noInvite IS NOT NULL THEN i.nomPrenom
+           ELSE 'Unknown'  
+       END AS PersonName
+FROM planifSoin ps
+INNER JOIN assistant a ON ps.noAssistant = a.noAssistant
+LEFT JOIN client c ON ps.noPersonne = c.noClient
+LEFT JOIN invite i ON ps.noPersonne = i.noInvite
+INNER JOIN soin s ON ps.noSoin = s.noSoin;  </CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="noPersonne" DataSetColumn="noPersonne" />
+              <Mapping SourceColumn="noAssistant" DataSetColumn="noAssistant" />
+              <Mapping SourceColumn="SoinsDate" DataSetColumn="SoinsDate" />
+              <Mapping SourceColumn="PersonName" DataSetColumn="PersonName" />
+              <Mapping SourceColumn="DATE" DataSetColumn="DATE" />
+              <Mapping SourceColumn="SoinDescription" DataSetColumn="SoinDescription" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -778,32 +954,32 @@ SELECT noUtilisateur, nomUtilisateur, password, noTypeUtilisateur FROM utilisate
   <xs:element name="B56Projet1Equipe7DataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="B56Projet1Equipe7DataSet" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="B56Projet1Equipe7DataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="assistant" msprop:Generator_RowClassName="assistantRow" msprop:Generator_RowEvHandlerName="assistantRowChangeEventHandler" msprop:Generator_RowDeletedName="assistantRowDeleted" msprop:Generator_RowDeletingName="assistantRowDeleting" msprop:Generator_RowEvArgName="assistantRowChangeEvent" msprop:Generator_TablePropName="assistant" msprop:Generator_RowChangedName="assistantRowChanged" msprop:Generator_UserTableName="assistant" msprop:Generator_RowChangingName="assistantRowChanging" msprop:Generator_TableClassName="assistantDataTable" msprop:Generator_TableVarName="tableassistant">
+        <xs:element name="assistant" msprop:Generator_RowEvHandlerName="assistantRowChangeEventHandler" msprop:Generator_RowDeletedName="assistantRowDeleted" msprop:Generator_RowDeletingName="assistantRowDeleting" msprop:Generator_RowEvArgName="assistantRowChangeEvent" msprop:Generator_TablePropName="assistant" msprop:Generator_RowChangedName="assistantRowChanged" msprop:Generator_UserTableName="assistant" msprop:Generator_RowChangingName="assistantRowChanging" msprop:Generator_RowClassName="assistantRow" msprop:Generator_TableClassName="assistantDataTable" msprop:Generator_TableVarName="tableassistant">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="noAssistant" msprop:Generator_UserColumnName="noAssistant" msprop:Generator_ColumnPropNameInTable="noAssistantColumn" msprop:Generator_ColumnPropNameInRow="noAssistant" msprop:Generator_ColumnVarNameInTable="columnnoAssistant" type="xs:decimal" />
-              <xs:element name="prenom" msprop:Generator_UserColumnName="prenom" msprop:Generator_ColumnPropNameInTable="prenomColumn" msprop:Generator_ColumnPropNameInRow="prenom" msprop:Generator_ColumnVarNameInTable="columnprenom" minOccurs="0">
+              <xs:element name="noAssistant" msprop:Generator_ColumnPropNameInTable="noAssistantColumn" msprop:Generator_ColumnPropNameInRow="noAssistant" msprop:Generator_UserColumnName="noAssistant" msprop:Generator_ColumnVarNameInTable="columnnoAssistant" type="xs:decimal" />
+              <xs:element name="prenom" msprop:Generator_ColumnPropNameInTable="prenomColumn" msprop:Generator_ColumnPropNameInRow="prenom" msprop:Generator_UserColumnName="prenom" msprop:Generator_ColumnVarNameInTable="columnprenom" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="nom" msprop:Generator_UserColumnName="nom" msprop:Generator_ColumnPropNameInTable="nomColumn" msprop:Generator_ColumnPropNameInRow="nom" msprop:Generator_ColumnVarNameInTable="columnnom" minOccurs="0">
+              <xs:element name="nom" msprop:Generator_ColumnPropNameInTable="nomColumn" msprop:Generator_ColumnPropNameInRow="nom" msprop:Generator_UserColumnName="nom" msprop:Generator_ColumnVarNameInTable="columnnom" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="specialites" msprop:Generator_UserColumnName="specialites" msprop:Generator_ColumnPropNameInTable="specialitesColumn" msprop:Generator_ColumnPropNameInRow="specialites" msprop:Generator_ColumnVarNameInTable="columnspecialites" minOccurs="0">
+              <xs:element name="specialites" msprop:Generator_ColumnPropNameInTable="specialitesColumn" msprop:Generator_ColumnPropNameInRow="specialites" msprop:Generator_UserColumnName="specialites" msprop:Generator_ColumnVarNameInTable="columnspecialites" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="remarques" msprop:Generator_UserColumnName="remarques" msprop:Generator_ColumnPropNameInTable="remarquesColumn" msprop:Generator_ColumnPropNameInRow="remarques" msprop:Generator_ColumnVarNameInTable="columnremarques" minOccurs="0">
+              <xs:element name="remarques" msprop:Generator_ColumnPropNameInTable="remarquesColumn" msprop:Generator_ColumnPropNameInRow="remarques" msprop:Generator_UserColumnName="remarques" msprop:Generator_ColumnVarNameInTable="columnremarques" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
@@ -813,181 +989,167 @@ SELECT noUtilisateur, nomUtilisateur, password, noTypeUtilisateur FROM utilisate
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="assistantSoin" msprop:Generator_RowClassName="assistantSoinRow" msprop:Generator_RowEvHandlerName="assistantSoinRowChangeEventHandler" msprop:Generator_RowDeletedName="assistantSoinRowDeleted" msprop:Generator_RowDeletingName="assistantSoinRowDeleting" msprop:Generator_RowEvArgName="assistantSoinRowChangeEvent" msprop:Generator_TablePropName="assistantSoin" msprop:Generator_RowChangedName="assistantSoinRowChanged" msprop:Generator_UserTableName="assistantSoin" msprop:Generator_RowChangingName="assistantSoinRowChanging" msprop:Generator_TableClassName="assistantSoinDataTable" msprop:Generator_TableVarName="tableassistantSoin">
+        <xs:element name="assistantSoin" msprop:Generator_RowEvHandlerName="assistantSoinRowChangeEventHandler" msprop:Generator_RowDeletedName="assistantSoinRowDeleted" msprop:Generator_RowDeletingName="assistantSoinRowDeleting" msprop:Generator_RowEvArgName="assistantSoinRowChangeEvent" msprop:Generator_TablePropName="assistantSoin" msprop:Generator_RowChangedName="assistantSoinRowChanged" msprop:Generator_UserTableName="assistantSoin" msprop:Generator_RowChangingName="assistantSoinRowChanging" msprop:Generator_RowClassName="assistantSoinRow" msprop:Generator_TableClassName="assistantSoinDataTable" msprop:Generator_TableVarName="tableassistantSoin">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="noAssistant" msprop:Generator_UserColumnName="noAssistant" msprop:Generator_ColumnPropNameInTable="noAssistantColumn" msprop:Generator_ColumnPropNameInRow="noAssistant" msprop:Generator_ColumnVarNameInTable="columnnoAssistant" type="xs:decimal" />
-              <xs:element name="noSoin" msprop:Generator_UserColumnName="noSoin" msprop:Generator_ColumnPropNameInTable="noSoinColumn" msprop:Generator_ColumnPropNameInRow="noSoin" msprop:Generator_ColumnVarNameInTable="columnnoSoin" type="xs:decimal" />
+              <xs:element name="noAssistant" msprop:Generator_ColumnPropNameInTable="noAssistantColumn" msprop:Generator_ColumnPropNameInRow="noAssistant" msprop:Generator_UserColumnName="noAssistant" msprop:Generator_ColumnVarNameInTable="columnnoAssistant" type="xs:decimal" />
+              <xs:element name="noSoin" msprop:Generator_ColumnPropNameInTable="noSoinColumn" msprop:Generator_ColumnPropNameInRow="noSoin" msprop:Generator_UserColumnName="noSoin" msprop:Generator_ColumnVarNameInTable="columnnoSoin" type="xs:decimal" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="chambre" msprop:Generator_RowClassName="chambreRow" msprop:Generator_RowEvHandlerName="chambreRowChangeEventHandler" msprop:Generator_RowDeletedName="chambreRowDeleted" msprop:Generator_RowDeletingName="chambreRowDeleting" msprop:Generator_RowEvArgName="chambreRowChangeEvent" msprop:Generator_TablePropName="chambre" msprop:Generator_RowChangedName="chambreRowChanged" msprop:Generator_UserTableName="chambre" msprop:Generator_RowChangingName="chambreRowChanging" msprop:Generator_TableClassName="chambreDataTable" msprop:Generator_TableVarName="tablechambre">
+        <xs:element name="chambre" msprop:Generator_RowEvHandlerName="chambreRowChangeEventHandler" msprop:Generator_RowDeletedName="chambreRowDeleted" msprop:Generator_RowDeletingName="chambreRowDeleting" msprop:Generator_RowEvArgName="chambreRowChangeEvent" msprop:Generator_TablePropName="chambre" msprop:Generator_RowChangedName="chambreRowChanged" msprop:Generator_UserTableName="chambre" msprop:Generator_RowChangingName="chambreRowChanging" msprop:Generator_RowClassName="chambreRow" msprop:Generator_TableClassName="chambreDataTable" msprop:Generator_TableVarName="tablechambre">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="noChambre" msprop:Generator_UserColumnName="noChambre" msprop:Generator_ColumnPropNameInTable="noChambreColumn" msprop:Generator_ColumnPropNameInRow="noChambre" msprop:Generator_ColumnVarNameInTable="columnnoChambre" type="xs:decimal" />
-              <xs:element name="emplacement" msprop:Generator_UserColumnName="emplacement" msprop:Generator_ColumnPropNameInTable="emplacementColumn" msprop:Generator_ColumnPropNameInRow="emplacement" msprop:Generator_ColumnVarNameInTable="columnemplacement" minOccurs="0">
+              <xs:element name="noChambre" msprop:Generator_ColumnPropNameInTable="noChambreColumn" msprop:Generator_ColumnPropNameInRow="noChambre" msprop:Generator_UserColumnName="noChambre" msprop:Generator_ColumnVarNameInTable="columnnoChambre" type="xs:decimal" />
+              <xs:element name="emplacement" msprop:Generator_ColumnPropNameInTable="emplacementColumn" msprop:Generator_ColumnPropNameInRow="emplacement" msprop:Generator_UserColumnName="emplacement" msprop:Generator_ColumnVarNameInTable="columnemplacement" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="decorations" msprop:Generator_UserColumnName="decorations" msprop:Generator_ColumnPropNameInTable="decorationsColumn" msprop:Generator_ColumnPropNameInRow="decorations" msprop:Generator_ColumnVarNameInTable="columndecorations" minOccurs="0">
+              <xs:element name="decorations" msprop:Generator_ColumnPropNameInTable="decorationsColumn" msprop:Generator_ColumnPropNameInRow="decorations" msprop:Generator_UserColumnName="decorations" msprop:Generator_ColumnVarNameInTable="columndecorations" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="noTypeChambre" msprop:Generator_UserColumnName="noTypeChambre" msprop:Generator_ColumnPropNameInTable="noTypeChambreColumn" msprop:Generator_ColumnPropNameInRow="noTypeChambre" msprop:Generator_ColumnVarNameInTable="columnnoTypeChambre" type="xs:decimal" minOccurs="0" />
+              <xs:element name="noTypeChambre" msprop:Generator_ColumnPropNameInTable="noTypeChambreColumn" msprop:Generator_ColumnPropNameInRow="noTypeChambre" msprop:Generator_UserColumnName="noTypeChambre" msprop:Generator_ColumnVarNameInTable="columnnoTypeChambre" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="client" msprop:Generator_RowClassName="clientRow" msprop:Generator_RowEvHandlerName="clientRowChangeEventHandler" msprop:Generator_RowDeletedName="clientRowDeleted" msprop:Generator_RowDeletingName="clientRowDeleting" msprop:Generator_RowEvArgName="clientRowChangeEvent" msprop:Generator_TablePropName="client" msprop:Generator_RowChangedName="clientRowChanged" msprop:Generator_UserTableName="client" msprop:Generator_RowChangingName="clientRowChanging" msprop:Generator_TableClassName="clientDataTable" msprop:Generator_TableVarName="tableclient">
+        <xs:element name="client" msprop:Generator_RowEvHandlerName="clientRowChangeEventHandler" msprop:Generator_RowDeletedName="clientRowDeleted" msprop:Generator_RowDeletingName="clientRowDeleting" msprop:Generator_RowEvArgName="clientRowChangeEvent" msprop:Generator_TablePropName="client" msprop:Generator_RowChangedName="clientRowChanged" msprop:Generator_UserTableName="client" msprop:Generator_RowChangingName="clientRowChanging" msprop:Generator_RowClassName="clientRow" msprop:Generator_TableClassName="clientDataTable" msprop:Generator_TableVarName="tableclient">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="noClient" msprop:Generator_UserColumnName="noClient" msprop:Generator_ColumnPropNameInTable="noClientColumn" msprop:Generator_ColumnPropNameInRow="noClient" msprop:Generator_ColumnVarNameInTable="columnnoClient" type="xs:decimal" />
-              <xs:element name="nom" msprop:Generator_UserColumnName="nom" msprop:Generator_ColumnPropNameInTable="nomColumn" msprop:Generator_ColumnPropNameInRow="nom" msprop:Generator_ColumnVarNameInTable="columnnom" minOccurs="0">
+              <xs:element name="noClient" msprop:Generator_ColumnPropNameInTable="noClientColumn" msprop:Generator_ColumnPropNameInRow="noClient" msprop:Generator_UserColumnName="noClient" msprop:Generator_ColumnVarNameInTable="columnnoClient" type="xs:decimal" />
+              <xs:element name="nom" msprop:Generator_ColumnPropNameInTable="nomColumn" msprop:Generator_ColumnPropNameInRow="nom" msprop:Generator_UserColumnName="nom" msprop:Generator_ColumnVarNameInTable="columnnom" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="prenom" msprop:Generator_UserColumnName="prenom" msprop:Generator_ColumnPropNameInTable="prenomColumn" msprop:Generator_ColumnPropNameInRow="prenom" msprop:Generator_ColumnVarNameInTable="columnprenom" minOccurs="0">
+              <xs:element name="prenom" msprop:Generator_ColumnPropNameInTable="prenomColumn" msprop:Generator_ColumnPropNameInRow="prenom" msprop:Generator_UserColumnName="prenom" msprop:Generator_ColumnVarNameInTable="columnprenom" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="ville" msprop:Generator_UserColumnName="ville" msprop:Generator_ColumnPropNameInTable="villeColumn" msprop:Generator_ColumnPropNameInRow="ville" msprop:Generator_ColumnVarNameInTable="columnville" minOccurs="0">
+              <xs:element name="ville" msprop:Generator_ColumnPropNameInTable="villeColumn" msprop:Generator_ColumnPropNameInRow="ville" msprop:Generator_UserColumnName="ville" msprop:Generator_ColumnVarNameInTable="columnville" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="pays" msprop:Generator_UserColumnName="pays" msprop:Generator_ColumnPropNameInTable="paysColumn" msprop:Generator_ColumnPropNameInRow="pays" msprop:Generator_ColumnVarNameInTable="columnpays" minOccurs="0">
+              <xs:element name="pays" msprop:Generator_ColumnPropNameInTable="paysColumn" msprop:Generator_ColumnPropNameInRow="pays" msprop:Generator_UserColumnName="pays" msprop:Generator_ColumnVarNameInTable="columnpays" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="adresse" msprop:Generator_UserColumnName="adresse" msprop:Generator_ColumnPropNameInTable="adresseColumn" msprop:Generator_ColumnPropNameInRow="adresse" msprop:Generator_ColumnVarNameInTable="columnadresse" minOccurs="0">
+              <xs:element name="adresse" msprop:Generator_ColumnPropNameInTable="adresseColumn" msprop:Generator_ColumnPropNameInRow="adresse" msprop:Generator_UserColumnName="adresse" msprop:Generator_ColumnVarNameInTable="columnadresse" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="codePostal" msprop:Generator_UserColumnName="codePostal" msprop:Generator_ColumnPropNameInTable="codePostalColumn" msprop:Generator_ColumnPropNameInRow="codePostal" msprop:Generator_ColumnVarNameInTable="columncodePostal" minOccurs="0">
+              <xs:element name="codePostal" msprop:Generator_ColumnPropNameInTable="codePostalColumn" msprop:Generator_ColumnPropNameInRow="codePostal" msprop:Generator_UserColumnName="codePostal" msprop:Generator_ColumnVarNameInTable="columncodePostal" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="dateInscription" msprop:Generator_UserColumnName="dateInscription" msprop:Generator_ColumnPropNameInTable="dateInscriptionColumn" msprop:Generator_ColumnPropNameInRow="dateInscription" msprop:Generator_ColumnVarNameInTable="columndateInscription" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="dateInscription" msprop:Generator_ColumnPropNameInTable="dateInscriptionColumn" msprop:Generator_ColumnPropNameInRow="dateInscription" msprop:Generator_UserColumnName="dateInscription" msprop:Generator_ColumnVarNameInTable="columndateInscription" type="xs:dateTime" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="invite" msprop:Generator_RowClassName="inviteRow" msprop:Generator_RowEvHandlerName="inviteRowChangeEventHandler" msprop:Generator_RowDeletedName="inviteRowDeleted" msprop:Generator_RowDeletingName="inviteRowDeleting" msprop:Generator_RowEvArgName="inviteRowChangeEvent" msprop:Generator_TablePropName="invite" msprop:Generator_RowChangedName="inviteRowChanged" msprop:Generator_UserTableName="invite" msprop:Generator_RowChangingName="inviteRowChanging" msprop:Generator_TableClassName="inviteDataTable" msprop:Generator_TableVarName="tableinvite">
+        <xs:element name="invite" msprop:Generator_RowEvHandlerName="inviteRowChangeEventHandler" msprop:Generator_RowDeletedName="inviteRowDeleted" msprop:Generator_RowDeletingName="inviteRowDeleting" msprop:Generator_RowEvArgName="inviteRowChangeEvent" msprop:Generator_TablePropName="invite" msprop:Generator_RowChangedName="inviteRowChanged" msprop:Generator_UserTableName="invite" msprop:Generator_RowChangingName="inviteRowChanging" msprop:Generator_RowClassName="inviteRow" msprop:Generator_TableClassName="inviteDataTable" msprop:Generator_TableVarName="tableinvite">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="noInvite" msprop:Generator_UserColumnName="noInvite" msprop:Generator_ColumnPropNameInTable="noInviteColumn" msprop:Generator_ColumnPropNameInRow="noInvite" msprop:Generator_ColumnVarNameInTable="columnnoInvite" type="xs:decimal" />
-              <xs:element name="nomPrenom" msprop:Generator_UserColumnName="nomPrenom" msprop:Generator_ColumnPropNameInTable="nomPrenomColumn" msprop:Generator_ColumnPropNameInRow="nomPrenom" msprop:Generator_ColumnVarNameInTable="columnnomPrenom" minOccurs="0">
+              <xs:element name="noInvite" msprop:Generator_ColumnPropNameInTable="noInviteColumn" msprop:Generator_ColumnPropNameInRow="noInvite" msprop:Generator_UserColumnName="noInvite" msprop:Generator_ColumnVarNameInTable="columnnoInvite" type="xs:decimal" />
+              <xs:element name="nomPrenom" msprop:Generator_ColumnPropNameInTable="nomPrenomColumn" msprop:Generator_ColumnPropNameInRow="nomPrenom" msprop:Generator_UserColumnName="nomPrenom" msprop:Generator_ColumnVarNameInTable="columnnomPrenom" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="noClient" msprop:Generator_UserColumnName="noClient" msprop:Generator_ColumnPropNameInTable="noClientColumn" msprop:Generator_ColumnPropNameInRow="noClient" msprop:Generator_ColumnVarNameInTable="columnnoClient" type="xs:decimal" minOccurs="0" />
+              <xs:element name="noClient" msprop:Generator_ColumnPropNameInTable="noClientColumn" msprop:Generator_ColumnPropNameInRow="noClient" msprop:Generator_UserColumnName="noClient" msprop:Generator_ColumnVarNameInTable="columnnoClient" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="planifSoin" msprop:Generator_RowClassName="planifSoinRow" msprop:Generator_RowEvHandlerName="planifSoinRowChangeEventHandler" msprop:Generator_RowDeletedName="planifSoinRowDeleted" msprop:Generator_RowDeletingName="planifSoinRowDeleting" msprop:Generator_RowEvArgName="planifSoinRowChangeEvent" msprop:Generator_TablePropName="planifSoin" msprop:Generator_RowChangedName="planifSoinRowChanged" msprop:Generator_UserTableName="planifSoin" msprop:Generator_RowChangingName="planifSoinRowChanging" msprop:Generator_TableClassName="planifSoinDataTable" msprop:Generator_TableVarName="tableplanifSoin">
+        <xs:element name="planifSoin" msprop:Generator_RowEvHandlerName="planifSoinRowChangeEventHandler" msprop:Generator_RowDeletedName="planifSoinRowDeleted" msprop:Generator_RowDeletingName="planifSoinRowDeleting" msprop:Generator_RowEvArgName="planifSoinRowChangeEvent" msprop:Generator_TablePropName="planifSoin" msprop:Generator_RowChangedName="planifSoinRowChanged" msprop:Generator_UserTableName="planifSoin" msprop:Generator_RowChangingName="planifSoinRowChanging" msprop:Generator_RowClassName="planifSoinRow" msprop:Generator_TableClassName="planifSoinDataTable" msprop:Generator_TableVarName="tableplanifSoin">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="noPersonne" msprop:Generator_UserColumnName="noPersonne" msprop:Generator_ColumnPropNameInTable="noPersonneColumn" msprop:Generator_ColumnPropNameInRow="noPersonne" msprop:Generator_ColumnVarNameInTable="columnnoPersonne" type="xs:decimal" />
-              <xs:element name="noAssistant" msprop:Generator_UserColumnName="noAssistant" msprop:Generator_ColumnPropNameInTable="noAssistantColumn" msprop:Generator_ColumnPropNameInRow="noAssistant" msprop:Generator_ColumnVarNameInTable="columnnoAssistant" type="xs:decimal" />
-              <xs:element name="dateHeure" msprop:Generator_UserColumnName="dateHeure" msprop:Generator_ColumnPropNameInTable="dateHeureColumn" msprop:Generator_ColumnPropNameInRow="dateHeure" msprop:Generator_ColumnVarNameInTable="columndateHeure" type="xs:dateTime" />
-              <xs:element name="noSoin" msprop:Generator_UserColumnName="noSoin" msprop:Generator_ColumnPropNameInTable="noSoinColumn" msprop:Generator_ColumnPropNameInRow="noSoin" msprop:Generator_ColumnVarNameInTable="columnnoSoin" type="xs:decimal" minOccurs="0" />
+              <xs:element name="noPersonne" msprop:Generator_ColumnPropNameInTable="noPersonneColumn" msprop:Generator_ColumnPropNameInRow="noPersonne" msprop:Generator_UserColumnName="noPersonne" msprop:Generator_ColumnVarNameInTable="columnnoPersonne" type="xs:decimal" />
+              <xs:element name="noAssistant" msprop:Generator_ColumnPropNameInTable="noAssistantColumn" msprop:Generator_ColumnPropNameInRow="noAssistant" msprop:Generator_UserColumnName="noAssistant" msprop:Generator_ColumnVarNameInTable="columnnoAssistant" type="xs:decimal" />
+              <xs:element name="dateHeure" msprop:Generator_ColumnPropNameInTable="dateHeureColumn" msprop:Generator_ColumnPropNameInRow="dateHeure" msprop:Generator_UserColumnName="dateHeure" msprop:Generator_ColumnVarNameInTable="columndateHeure" type="xs:dateTime" />
+              <xs:element name="noSoin" msprop:Generator_ColumnPropNameInTable="noSoinColumn" msprop:Generator_ColumnPropNameInRow="noSoin" msprop:Generator_UserColumnName="noSoin" msprop:Generator_ColumnVarNameInTable="columnnoSoin" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="reservationChambre" msprop:Generator_RowClassName="reservationChambreRow" msprop:Generator_RowEvHandlerName="reservationChambreRowChangeEventHandler" msprop:Generator_RowDeletedName="reservationChambreRowDeleted" msprop:Generator_RowDeletingName="reservationChambreRowDeleting" msprop:Generator_RowEvArgName="reservationChambreRowChangeEvent" msprop:Generator_TablePropName="reservationChambre" msprop:Generator_RowChangedName="reservationChambreRowChanged" msprop:Generator_UserTableName="reservationChambre" msprop:Generator_RowChangingName="reservationChambreRowChanging" msprop:Generator_TableClassName="reservationChambreDataTable" msprop:Generator_TableVarName="tablereservationChambre">
+        <xs:element name="reservationChambre" msprop:Generator_RowEvHandlerName="reservationChambreRowChangeEventHandler" msprop:Generator_RowDeletedName="reservationChambreRowDeleted" msprop:Generator_RowDeletingName="reservationChambreRowDeleting" msprop:Generator_RowEvArgName="reservationChambreRowChangeEvent" msprop:Generator_TablePropName="reservationChambre" msprop:Generator_RowChangedName="reservationChambreRowChanged" msprop:Generator_UserTableName="reservationChambre" msprop:Generator_RowChangingName="reservationChambreRowChanging" msprop:Generator_RowClassName="reservationChambreRow" msprop:Generator_TableClassName="reservationChambreDataTable" msprop:Generator_TableVarName="tablereservationChambre">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="noClient" msprop:Generator_UserColumnName="noClient" msprop:Generator_ColumnPropNameInTable="noClientColumn" msprop:Generator_ColumnPropNameInRow="noClient" msprop:Generator_ColumnVarNameInTable="columnnoClient" type="xs:decimal" />
-              <xs:element name="noChambre" msprop:Generator_UserColumnName="noChambre" msprop:Generator_ColumnPropNameInTable="noChambreColumn" msprop:Generator_ColumnPropNameInRow="noChambre" msprop:Generator_ColumnVarNameInTable="columnnoChambre" type="xs:decimal" />
-              <xs:element name="dateArrivee" msprop:Generator_UserColumnName="dateArrivee" msprop:Generator_ColumnPropNameInTable="dateArriveeColumn" msprop:Generator_ColumnPropNameInRow="dateArrivee" msprop:Generator_ColumnVarNameInTable="columndateArrivee" type="xs:dateTime" />
-              <xs:element name="dateDepart" msprop:Generator_UserColumnName="dateDepart" msprop:Generator_ColumnPropNameInTable="dateDepartColumn" msprop:Generator_ColumnPropNameInRow="dateDepart" msprop:Generator_ColumnVarNameInTable="columndateDepart" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="NbPersonnes" msprop:Generator_UserColumnName="NbPersonnes" msprop:Generator_ColumnPropNameInTable="NbPersonnesColumn" msprop:Generator_ColumnPropNameInRow="NbPersonnes" msprop:Generator_ColumnVarNameInTable="columnNbPersonnes" type="xs:decimal" minOccurs="0" />
+              <xs:element name="noClient" msprop:Generator_ColumnPropNameInTable="noClientColumn" msprop:Generator_ColumnPropNameInRow="noClient" msprop:Generator_UserColumnName="noClient" msprop:Generator_ColumnVarNameInTable="columnnoClient" type="xs:decimal" />
+              <xs:element name="noChambre" msprop:Generator_ColumnPropNameInTable="noChambreColumn" msprop:Generator_ColumnPropNameInRow="noChambre" msprop:Generator_UserColumnName="noChambre" msprop:Generator_ColumnVarNameInTable="columnnoChambre" type="xs:decimal" />
+              <xs:element name="dateArrivee" msprop:Generator_ColumnPropNameInTable="dateArriveeColumn" msprop:Generator_ColumnPropNameInRow="dateArrivee" msprop:Generator_UserColumnName="dateArrivee" msprop:Generator_ColumnVarNameInTable="columndateArrivee" type="xs:dateTime" />
+              <xs:element name="dateDepart" msprop:Generator_ColumnPropNameInTable="dateDepartColumn" msprop:Generator_ColumnPropNameInRow="dateDepart" msprop:Generator_UserColumnName="dateDepart" msprop:Generator_ColumnVarNameInTable="columndateDepart" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="NbPersonnes" msprop:Generator_ColumnPropNameInTable="NbPersonnesColumn" msprop:Generator_ColumnPropNameInRow="NbPersonnes" msprop:Generator_UserColumnName="NbPersonnes" msprop:Generator_ColumnVarNameInTable="columnNbPersonnes" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="soin" msprop:Generator_RowClassName="soinRow" msprop:Generator_RowEvHandlerName="soinRowChangeEventHandler" msprop:Generator_RowDeletedName="soinRowDeleted" msprop:Generator_RowDeletingName="soinRowDeleting" msprop:Generator_RowEvArgName="soinRowChangeEvent" msprop:Generator_TablePropName="soin" msprop:Generator_RowChangedName="soinRowChanged" msprop:Generator_UserTableName="soin" msprop:Generator_RowChangingName="soinRowChanging" msprop:Generator_TableClassName="soinDataTable" msprop:Generator_TableVarName="tablesoin">
+        <xs:element name="soin" msprop:Generator_RowEvHandlerName="soinRowChangeEventHandler" msprop:Generator_RowDeletedName="soinRowDeleted" msprop:Generator_RowDeletingName="soinRowDeleting" msprop:Generator_RowEvArgName="soinRowChangeEvent" msprop:Generator_TablePropName="soin" msprop:Generator_RowChangedName="soinRowChanged" msprop:Generator_UserTableName="soin" msprop:Generator_RowChangingName="soinRowChanging" msprop:Generator_RowClassName="soinRow" msprop:Generator_TableClassName="soinDataTable" msprop:Generator_TableVarName="tablesoin">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="noSoin" msprop:Generator_UserColumnName="noSoin" msprop:Generator_ColumnPropNameInTable="noSoinColumn" msprop:Generator_ColumnPropNameInRow="noSoin" msprop:Generator_ColumnVarNameInTable="columnnoSoin" type="xs:decimal" />
-              <xs:element name="description" msprop:Generator_UserColumnName="description" msprop:Generator_ColumnPropNameInTable="descriptionColumn" msprop:Generator_ColumnPropNameInRow="description" msprop:Generator_ColumnVarNameInTable="columndescription" minOccurs="0">
+              <xs:element name="noSoin" msprop:Generator_ColumnPropNameInTable="noSoinColumn" msprop:Generator_ColumnPropNameInRow="noSoin" msprop:Generator_UserColumnName="noSoin" msprop:Generator_ColumnVarNameInTable="columnnoSoin" type="xs:decimal" />
+              <xs:element name="description" msprop:Generator_ColumnPropNameInTable="descriptionColumn" msprop:Generator_ColumnPropNameInRow="description" msprop:Generator_UserColumnName="description" msprop:Generator_ColumnVarNameInTable="columndescription" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="duree" msprop:Generator_UserColumnName="duree" msprop:Generator_ColumnPropNameInTable="dureeColumn" msprop:Generator_ColumnPropNameInRow="duree" msprop:Generator_ColumnVarNameInTable="columnduree" minOccurs="0">
+              <xs:element name="duree" msprop:Generator_ColumnPropNameInTable="dureeColumn" msprop:Generator_ColumnPropNameInRow="duree" msprop:Generator_UserColumnName="duree" msprop:Generator_ColumnVarNameInTable="columnduree" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="noTypeSoin" msprop:Generator_UserColumnName="noTypeSoin" msprop:Generator_ColumnPropNameInTable="noTypeSoinColumn" msprop:Generator_ColumnPropNameInRow="noTypeSoin" msprop:Generator_ColumnVarNameInTable="columnnoTypeSoin" type="xs:decimal" minOccurs="0" />
-              <xs:element name="prix" msprop:Generator_UserColumnName="prix" msprop:Generator_ColumnPropNameInTable="prixColumn" msprop:Generator_ColumnPropNameInRow="prix" msprop:Generator_ColumnVarNameInTable="columnprix" type="xs:decimal" minOccurs="0" />
+              <xs:element name="noTypeSoin" msprop:Generator_ColumnPropNameInTable="noTypeSoinColumn" msprop:Generator_ColumnPropNameInRow="noTypeSoin" msprop:Generator_UserColumnName="noTypeSoin" msprop:Generator_ColumnVarNameInTable="columnnoTypeSoin" type="xs:decimal" minOccurs="0" />
+              <xs:element name="prix" msprop:Generator_ColumnPropNameInTable="prixColumn" msprop:Generator_ColumnPropNameInRow="prix" msprop:Generator_UserColumnName="prix" msprop:Generator_ColumnVarNameInTable="columnprix" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="typeChambre" msprop:Generator_RowClassName="typeChambreRow" msprop:Generator_RowEvHandlerName="typeChambreRowChangeEventHandler" msprop:Generator_RowDeletedName="typeChambreRowDeleted" msprop:Generator_RowDeletingName="typeChambreRowDeleting" msprop:Generator_RowEvArgName="typeChambreRowChangeEvent" msprop:Generator_TablePropName="typeChambre" msprop:Generator_RowChangedName="typeChambreRowChanged" msprop:Generator_UserTableName="typeChambre" msprop:Generator_RowChangingName="typeChambreRowChanging" msprop:Generator_TableClassName="typeChambreDataTable" msprop:Generator_TableVarName="tabletypeChambre">
+        <xs:element name="typeChambre" msprop:Generator_RowEvHandlerName="typeChambreRowChangeEventHandler" msprop:Generator_RowDeletedName="typeChambreRowDeleted" msprop:Generator_RowDeletingName="typeChambreRowDeleting" msprop:Generator_RowEvArgName="typeChambreRowChangeEvent" msprop:Generator_TablePropName="typeChambre" msprop:Generator_RowChangedName="typeChambreRowChanged" msprop:Generator_UserTableName="typeChambre" msprop:Generator_RowChangingName="typeChambreRowChanging" msprop:Generator_RowClassName="typeChambreRow" msprop:Generator_TableClassName="typeChambreDataTable" msprop:Generator_TableVarName="tabletypeChambre">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="noTypeChambre" msprop:Generator_UserColumnName="noTypeChambre" msprop:Generator_ColumnPropNameInTable="noTypeChambreColumn" msprop:Generator_ColumnPropNameInRow="noTypeChambre" msprop:Generator_ColumnVarNameInTable="columnnoTypeChambre" type="xs:decimal" />
-              <xs:element name="description" msprop:Generator_UserColumnName="description" msprop:Generator_ColumnPropNameInTable="descriptionColumn" msprop:Generator_ColumnPropNameInRow="description" msprop:Generator_ColumnVarNameInTable="columndescription" minOccurs="0">
+              <xs:element name="noTypeChambre" msprop:Generator_ColumnPropNameInTable="noTypeChambreColumn" msprop:Generator_ColumnPropNameInRow="noTypeChambre" msprop:Generator_UserColumnName="noTypeChambre" msprop:Generator_ColumnVarNameInTable="columnnoTypeChambre" type="xs:decimal" />
+              <xs:element name="description" msprop:Generator_ColumnPropNameInTable="descriptionColumn" msprop:Generator_ColumnPropNameInRow="description" msprop:Generator_UserColumnName="description" msprop:Generator_ColumnVarNameInTable="columndescription" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="prixHaut" msprop:Generator_UserColumnName="prixHaut" msprop:Generator_ColumnPropNameInTable="prixHautColumn" msprop:Generator_ColumnPropNameInRow="prixHaut" msprop:Generator_ColumnVarNameInTable="columnprixHaut" type="xs:decimal" minOccurs="0" />
-              <xs:element name="prixBas" msprop:Generator_UserColumnName="prixBas" msprop:Generator_ColumnPropNameInTable="prixBasColumn" msprop:Generator_ColumnPropNameInRow="prixBas" msprop:Generator_ColumnVarNameInTable="columnprixBas" type="xs:decimal" minOccurs="0" />
-              <xs:element name="prixMoyen" msprop:Generator_UserColumnName="prixMoyen" msprop:Generator_ColumnPropNameInTable="prixMoyenColumn" msprop:Generator_ColumnPropNameInRow="prixMoyen" msprop:Generator_ColumnVarNameInTable="columnprixMoyen" type="xs:decimal" minOccurs="0" />
+              <xs:element name="prixHaut" msprop:Generator_ColumnPropNameInTable="prixHautColumn" msprop:Generator_ColumnPropNameInRow="prixHaut" msprop:Generator_UserColumnName="prixHaut" msprop:Generator_ColumnVarNameInTable="columnprixHaut" type="xs:decimal" minOccurs="0" />
+              <xs:element name="prixBas" msprop:Generator_ColumnPropNameInTable="prixBasColumn" msprop:Generator_ColumnPropNameInRow="prixBas" msprop:Generator_UserColumnName="prixBas" msprop:Generator_ColumnVarNameInTable="columnprixBas" type="xs:decimal" minOccurs="0" />
+              <xs:element name="prixMoyen" msprop:Generator_ColumnPropNameInTable="prixMoyenColumn" msprop:Generator_ColumnPropNameInRow="prixMoyen" msprop:Generator_UserColumnName="prixMoyen" msprop:Generator_ColumnVarNameInTable="columnprixMoyen" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="typeSoin" msprop:Generator_RowClassName="typeSoinRow" msprop:Generator_RowEvHandlerName="typeSoinRowChangeEventHandler" msprop:Generator_RowDeletedName="typeSoinRowDeleted" msprop:Generator_RowDeletingName="typeSoinRowDeleting" msprop:Generator_RowEvArgName="typeSoinRowChangeEvent" msprop:Generator_TablePropName="typeSoin" msprop:Generator_RowChangedName="typeSoinRowChanged" msprop:Generator_UserTableName="typeSoin" msprop:Generator_RowChangingName="typeSoinRowChanging" msprop:Generator_TableClassName="typeSoinDataTable" msprop:Generator_TableVarName="tabletypeSoin">
+        <xs:element name="typeSoin" msprop:Generator_RowEvHandlerName="typeSoinRowChangeEventHandler" msprop:Generator_RowDeletedName="typeSoinRowDeleted" msprop:Generator_RowDeletingName="typeSoinRowDeleting" msprop:Generator_RowEvArgName="typeSoinRowChangeEvent" msprop:Generator_TablePropName="typeSoin" msprop:Generator_RowChangedName="typeSoinRowChanged" msprop:Generator_UserTableName="typeSoin" msprop:Generator_RowChangingName="typeSoinRowChanging" msprop:Generator_RowClassName="typeSoinRow" msprop:Generator_TableClassName="typeSoinDataTable" msprop:Generator_TableVarName="tabletypeSoin">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="noTypeSoin" msprop:Generator_UserColumnName="noTypeSoin" msprop:Generator_ColumnPropNameInTable="noTypeSoinColumn" msprop:Generator_ColumnPropNameInRow="noTypeSoin" msprop:Generator_ColumnVarNameInTable="columnnoTypeSoin" type="xs:decimal" />
-              <xs:element name="description" msprop:Generator_UserColumnName="description" msprop:Generator_ColumnPropNameInTable="descriptionColumn" msprop:Generator_ColumnPropNameInRow="description" msprop:Generator_ColumnVarNameInTable="columndescription" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="typeUtilisateur" msprop:Generator_RowClassName="typeUtilisateurRow" msprop:Generator_RowEvHandlerName="typeUtilisateurRowChangeEventHandler" msprop:Generator_RowDeletedName="typeUtilisateurRowDeleted" msprop:Generator_RowDeletingName="typeUtilisateurRowDeleting" msprop:Generator_RowEvArgName="typeUtilisateurRowChangeEvent" msprop:Generator_TablePropName="typeUtilisateur" msprop:Generator_RowChangedName="typeUtilisateurRowChanged" msprop:Generator_UserTableName="typeUtilisateur" msprop:Generator_RowChangingName="typeUtilisateurRowChanging" msprop:Generator_TableClassName="typeUtilisateurDataTable" msprop:Generator_TableVarName="tabletypeUtilisateur">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="noTypeUtilisateur" msprop:Generator_UserColumnName="noTypeUtilisateur" msprop:Generator_ColumnPropNameInTable="noTypeUtilisateurColumn" msprop:Generator_ColumnPropNameInRow="noTypeUtilisateur" msprop:Generator_ColumnVarNameInTable="columnnoTypeUtilisateur" type="xs:decimal" />
-              <xs:element name="identification" msprop:Generator_UserColumnName="identification" msprop:Generator_ColumnPropNameInTable="identificationColumn" msprop:Generator_ColumnPropNameInRow="identification" msprop:Generator_ColumnVarNameInTable="columnidentification" minOccurs="0">
+              <xs:element name="noTypeSoin" msprop:Generator_ColumnPropNameInTable="noTypeSoinColumn" msprop:Generator_ColumnPropNameInRow="noTypeSoin" msprop:Generator_UserColumnName="noTypeSoin" msprop:Generator_ColumnVarNameInTable="columnnoTypeSoin" type="xs:decimal" />
+              <xs:element name="description" msprop:Generator_ColumnPropNameInTable="descriptionColumn" msprop:Generator_ColumnPropNameInRow="description" msprop:Generator_UserColumnName="description" msprop:Generator_ColumnVarNameInTable="columndescription" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
@@ -997,25 +1159,170 @@ SELECT noUtilisateur, nomUtilisateur, password, noTypeUtilisateur FROM utilisate
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="utilisateur" msprop:Generator_RowClassName="utilisateurRow" msprop:Generator_RowEvHandlerName="utilisateurRowChangeEventHandler" msprop:Generator_RowDeletedName="utilisateurRowDeleted" msprop:Generator_RowDeletingName="utilisateurRowDeleting" msprop:Generator_RowEvArgName="utilisateurRowChangeEvent" msprop:Generator_TablePropName="utilisateur" msprop:Generator_RowChangedName="utilisateurRowChanged" msprop:Generator_UserTableName="utilisateur" msprop:Generator_RowChangingName="utilisateurRowChanging" msprop:Generator_TableClassName="utilisateurDataTable" msprop:Generator_TableVarName="tableutilisateur">
+        <xs:element name="typeUtilisateur" msprop:Generator_RowEvHandlerName="typeUtilisateurRowChangeEventHandler" msprop:Generator_RowDeletedName="typeUtilisateurRowDeleted" msprop:Generator_RowDeletingName="typeUtilisateurRowDeleting" msprop:Generator_RowEvArgName="typeUtilisateurRowChangeEvent" msprop:Generator_TablePropName="typeUtilisateur" msprop:Generator_RowChangedName="typeUtilisateurRowChanged" msprop:Generator_UserTableName="typeUtilisateur" msprop:Generator_RowChangingName="typeUtilisateurRowChanging" msprop:Generator_RowClassName="typeUtilisateurRow" msprop:Generator_TableClassName="typeUtilisateurDataTable" msprop:Generator_TableVarName="tabletypeUtilisateur">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="noUtilisateur" msprop:Generator_UserColumnName="noUtilisateur" msprop:Generator_ColumnPropNameInTable="noUtilisateurColumn" msprop:Generator_ColumnPropNameInRow="noUtilisateur" msprop:Generator_ColumnVarNameInTable="columnnoUtilisateur" type="xs:decimal" />
-              <xs:element name="nomUtilisateur" msprop:Generator_UserColumnName="nomUtilisateur" msprop:Generator_ColumnPropNameInTable="nomUtilisateurColumn" msprop:Generator_ColumnPropNameInRow="nomUtilisateur" msprop:Generator_ColumnVarNameInTable="columnnomUtilisateur">
+              <xs:element name="noTypeUtilisateur" msprop:Generator_ColumnPropNameInTable="noTypeUtilisateurColumn" msprop:Generator_ColumnPropNameInRow="noTypeUtilisateur" msprop:Generator_UserColumnName="noTypeUtilisateur" msprop:Generator_ColumnVarNameInTable="columnnoTypeUtilisateur" type="xs:decimal" />
+              <xs:element name="identification" msprop:Generator_ColumnPropNameInTable="identificationColumn" msprop:Generator_ColumnPropNameInRow="identification" msprop:Generator_UserColumnName="identification" msprop:Generator_ColumnVarNameInTable="columnidentification" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="password" msprop:Generator_UserColumnName="password" msprop:Generator_ColumnPropNameInTable="passwordColumn" msprop:Generator_ColumnPropNameInRow="password" msprop:Generator_ColumnVarNameInTable="columnpassword" minOccurs="0">
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="utilisateur" msprop:Generator_RowEvHandlerName="utilisateurRowChangeEventHandler" msprop:Generator_RowDeletedName="utilisateurRowDeleted" msprop:Generator_RowDeletingName="utilisateurRowDeleting" msprop:Generator_RowEvArgName="utilisateurRowChangeEvent" msprop:Generator_TablePropName="utilisateur" msprop:Generator_RowChangedName="utilisateurRowChanged" msprop:Generator_UserTableName="utilisateur" msprop:Generator_RowChangingName="utilisateurRowChanging" msprop:Generator_RowClassName="utilisateurRow" msprop:Generator_TableClassName="utilisateurDataTable" msprop:Generator_TableVarName="tableutilisateur">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="noUtilisateur" msprop:Generator_ColumnPropNameInTable="noUtilisateurColumn" msprop:Generator_ColumnPropNameInRow="noUtilisateur" msprop:Generator_UserColumnName="noUtilisateur" msprop:Generator_ColumnVarNameInTable="columnnoUtilisateur" type="xs:decimal" />
+              <xs:element name="nomUtilisateur" msprop:Generator_ColumnPropNameInTable="nomUtilisateurColumn" msprop:Generator_ColumnPropNameInRow="nomUtilisateur" msprop:Generator_UserColumnName="nomUtilisateur" msprop:Generator_ColumnVarNameInTable="columnnomUtilisateur">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="noTypeUtilisateur" msprop:Generator_UserColumnName="noTypeUtilisateur" msprop:Generator_ColumnPropNameInTable="noTypeUtilisateurColumn" msprop:Generator_ColumnPropNameInRow="noTypeUtilisateur" msprop:Generator_ColumnVarNameInTable="columnnoTypeUtilisateur" type="xs:decimal" minOccurs="0" />
+              <xs:element name="password" msprop:Generator_ColumnPropNameInTable="passwordColumn" msprop:Generator_ColumnPropNameInRow="password" msprop:Generator_UserColumnName="password" msprop:Generator_ColumnVarNameInTable="columnpassword" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="noTypeUtilisateur" msprop:Generator_ColumnPropNameInTable="noTypeUtilisateurColumn" msprop:Generator_ColumnPropNameInRow="noTypeUtilisateur" msprop:Generator_UserColumnName="noTypeUtilisateur" msprop:Generator_ColumnVarNameInTable="columnnoTypeUtilisateur" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="InfoClientInvite" msprop:Generator_RowClassName="InfoClientInviteRow" msprop:Generator_RowEvHandlerName="InfoClientInviteRowChangeEventHandler" msprop:Generator_RowDeletedName="InfoClientInviteRowDeleted" msprop:Generator_RowDeletingName="InfoClientInviteRowDeleting" msprop:Generator_RowEvArgName="InfoClientInviteRowChangeEvent" msprop:Generator_TablePropName="InfoClientInvite" msprop:Generator_RowChangedName="InfoClientInviteRowChanged" msprop:Generator_UserTableName="InfoClientInvite" msprop:Generator_RowChangingName="InfoClientInviteRowChanging" msprop:Generator_TableClassName="InfoClientInviteDataTable" msprop:Generator_TableVarName="tableInfoClientInvite">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Numero" msdata:ReadOnly="true" msprop:Generator_UserColumnName="Numero" msprop:Generator_ColumnPropNameInTable="NumeroColumn" msprop:Generator_ColumnPropNameInRow="Numero" msprop:Generator_ColumnVarNameInTable="columnNumero" type="xs:decimal" minOccurs="0" />
+              <xs:element name="NomPrenom" msdata:ReadOnly="true" msprop:Generator_UserColumnName="NomPrenom" msprop:Generator_ColumnPropNameInTable="NomPrenomColumn" msprop:Generator_ColumnPropNameInRow="NomPrenom" msprop:Generator_ColumnVarNameInTable="columnNomPrenom" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="101" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="InfoSoinPersonne" msprop:Generator_RowEvHandlerName="InfoSoinPersonneRowChangeEventHandler" msprop:Generator_RowDeletedName="InfoSoinPersonneRowDeleted" msprop:Generator_RowDeletingName="InfoSoinPersonneRowDeleting" msprop:Generator_RowEvArgName="InfoSoinPersonneRowChangeEvent" msprop:Generator_TablePropName="InfoSoinPersonne" msprop:Generator_RowChangedName="InfoSoinPersonneRowChanged" msprop:Generator_RowChangingName="InfoSoinPersonneRowChanging" msprop:Generator_TableClassName="InfoSoinPersonneDataTable" msprop:Generator_RowClassName="InfoSoinPersonneRow" msprop:Generator_TableVarName="tableInfoSoinPersonne" msprop:Generator_UserTableName="InfoSoinPersonne">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="description" msprop:Generator_ColumnPropNameInRow="description" msprop:Generator_ColumnPropNameInTable="descriptionColumn" msprop:Generator_ColumnVarNameInTable="columndescription" msprop:Generator_UserColumnName="description" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="dateHeure" msprop:Generator_ColumnPropNameInRow="dateHeure" msprop:Generator_ColumnPropNameInTable="dateHeureColumn" msprop:Generator_ColumnVarNameInTable="columndateHeure" msprop:Generator_UserColumnName="dateHeure" type="xs:dateTime" />
+              <xs:element name="prix" msprop:Generator_ColumnPropNameInRow="prix" msprop:Generator_ColumnPropNameInTable="prixColumn" msprop:Generator_ColumnVarNameInTable="columnprix" msprop:Generator_UserColumnName="prix" type="xs:decimal" minOccurs="0" />
+              <xs:element name="AssistantName" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="AssistantName" msprop:Generator_ColumnPropNameInTable="AssistantNameColumn" msprop:Generator_ColumnVarNameInTable="columnAssistantName" msprop:Generator_UserColumnName="AssistantName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="101" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="noPersonne" msprop:Generator_ColumnPropNameInRow="noPersonne" msprop:Generator_ColumnPropNameInTable="noPersonneColumn" msprop:Generator_ColumnVarNameInTable="columnnoPersonne" msprop:Generator_UserColumnName="noPersonne" type="xs:decimal" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="InfoChambre" msprop:Generator_RowEvHandlerName="InfoChambreRowChangeEventHandler" msprop:Generator_RowDeletedName="InfoChambreRowDeleted" msprop:Generator_RowDeletingName="InfoChambreRowDeleting" msprop:Generator_RowEvArgName="InfoChambreRowChangeEvent" msprop:Generator_TablePropName="InfoChambre" msprop:Generator_RowChangedName="InfoChambreRowChanged" msprop:Generator_RowChangingName="InfoChambreRowChanging" msprop:Generator_TableClassName="InfoChambreDataTable" msprop:Generator_RowClassName="InfoChambreRow" msprop:Generator_TableVarName="tableInfoChambre" msprop:Generator_UserTableName="InfoChambre">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ClientName" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="ClientName" msprop:Generator_ColumnPropNameInTable="ClientNameColumn" msprop:Generator_ColumnVarNameInTable="columnClientName" msprop:Generator_UserColumnName="ClientName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="101" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ArrivalDate" msprop:Generator_ColumnPropNameInRow="ArrivalDate" msprop:Generator_ColumnPropNameInTable="ArrivalDateColumn" msprop:Generator_ColumnVarNameInTable="columnArrivalDate" msprop:Generator_UserColumnName="ArrivalDate" type="xs:dateTime" />
+              <xs:element name="DepartureDate" msprop:Generator_ColumnPropNameInRow="DepartureDate" msprop:Generator_ColumnPropNameInTable="DepartureDateColumn" msprop:Generator_ColumnVarNameInTable="columnDepartureDate" msprop:Generator_UserColumnName="DepartureDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Occupants" msprop:Generator_ColumnPropNameInRow="Occupants" msprop:Generator_ColumnPropNameInTable="OccupantsColumn" msprop:Generator_ColumnVarNameInTable="columnOccupants" msprop:Generator_UserColumnName="Occupants" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Chambre" msprop:Generator_ColumnPropNameInRow="Chambre" msprop:Generator_ColumnPropNameInTable="ChambreColumn" msprop:Generator_ColumnVarNameInTable="columnChambre" msprop:Generator_UserColumnName="Chambre" type="xs:decimal" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="InfoDateAssistant" msprop:Generator_RowEvHandlerName="InfoDateAssistantRowChangeEventHandler" msprop:Generator_RowDeletedName="InfoDateAssistantRowDeleted" msprop:Generator_RowDeletingName="InfoDateAssistantRowDeleting" msprop:Generator_RowEvArgName="InfoDateAssistantRowChangeEvent" msprop:Generator_TablePropName="InfoDateAssistant" msprop:Generator_RowChangedName="InfoDateAssistantRowChanged" msprop:Generator_RowChangingName="InfoDateAssistantRowChanging" msprop:Generator_TableClassName="InfoDateAssistantDataTable" msprop:Generator_RowClassName="InfoDateAssistantRow" msprop:Generator_TableVarName="tableInfoDateAssistant" msprop:Generator_UserTableName="InfoDateAssistant">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="noAssistant" msprop:Generator_ColumnPropNameInRow="noAssistant" msprop:Generator_ColumnPropNameInTable="noAssistantColumn" msprop:Generator_ColumnVarNameInTable="columnnoAssistant" msprop:Generator_UserColumnName="noAssistant" type="xs:decimal" />
+              <xs:element name="description" msprop:Generator_ColumnPropNameInRow="description" msprop:Generator_ColumnPropNameInTable="descriptionColumn" msprop:Generator_ColumnVarNameInTable="columndescription" msprop:Generator_UserColumnName="description" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="dateHeure" msprop:Generator_ColumnPropNameInRow="dateHeure" msprop:Generator_ColumnPropNameInTable="dateHeureColumn" msprop:Generator_ColumnVarNameInTable="columndateHeure" msprop:Generator_UserColumnName="dateHeure" type="xs:dateTime" />
+              <xs:element name="PersonName" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="PersonName" msprop:Generator_ColumnPropNameInTable="PersonNameColumn" msprop:Generator_ColumnVarNameInTable="columnPersonName" msprop:Generator_UserColumnName="PersonName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="101" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="AssistantName" msprop:Generator_RowEvHandlerName="AssistantNameRowChangeEventHandler" msprop:Generator_RowDeletedName="AssistantNameRowDeleted" msprop:Generator_RowDeletingName="AssistantNameRowDeleting" msprop:Generator_RowEvArgName="AssistantNameRowChangeEvent" msprop:Generator_TablePropName="AssistantName" msprop:Generator_RowChangedName="AssistantNameRowChanged" msprop:Generator_RowChangingName="AssistantNameRowChanging" msprop:Generator_TableClassName="AssistantNameDataTable" msprop:Generator_RowClassName="AssistantNameRow" msprop:Generator_TableVarName="tableAssistantName" msprop:Generator_UserTableName="AssistantName">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="noAssistant" msprop:Generator_ColumnPropNameInRow="noAssistant" msprop:Generator_ColumnPropNameInTable="noAssistantColumn" msprop:Generator_ColumnVarNameInTable="columnnoAssistant" msprop:Generator_UserColumnName="noAssistant" type="xs:decimal" />
+              <xs:element name="AssistantName" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="AssistantName" msprop:Generator_ColumnPropNameInTable="AssistantNameColumn" msprop:Generator_ColumnVarNameInTable="columnAssistantName" msprop:Generator_UserColumnName="AssistantName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="101" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="InfoSoinAssistant" msprop:Generator_RowEvHandlerName="InfoSoinAssistantRowChangeEventHandler" msprop:Generator_RowDeletedName="InfoSoinAssistantRowDeleted" msprop:Generator_RowDeletingName="InfoSoinAssistantRowDeleting" msprop:Generator_RowEvArgName="InfoSoinAssistantRowChangeEvent" msprop:Generator_TablePropName="InfoSoinAssistant" msprop:Generator_RowChangedName="InfoSoinAssistantRowChanged" msprop:Generator_RowChangingName="InfoSoinAssistantRowChanging" msprop:Generator_TableClassName="InfoSoinAssistantDataTable" msprop:Generator_RowClassName="InfoSoinAssistantRow" msprop:Generator_TableVarName="tableInfoSoinAssistant" msprop:Generator_UserTableName="InfoSoinAssistant">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="noPersonne" msprop:Generator_ColumnPropNameInRow="noPersonne" msprop:Generator_ColumnPropNameInTable="noPersonneColumn" msprop:Generator_ColumnVarNameInTable="columnnoPersonne" msprop:Generator_UserColumnName="noPersonne" type="xs:decimal" />
+              <xs:element name="noAssistant" msprop:Generator_ColumnPropNameInRow="noAssistant" msprop:Generator_ColumnPropNameInTable="noAssistantColumn" msprop:Generator_ColumnVarNameInTable="columnnoAssistant" msprop:Generator_UserColumnName="noAssistant" type="xs:decimal" />
+              <xs:element name="noSoin" msprop:Generator_ColumnPropNameInRow="noSoin" msprop:Generator_ColumnPropNameInTable="noSoinColumn" msprop:Generator_ColumnVarNameInTable="columnnoSoin" msprop:Generator_UserColumnName="noSoin" type="xs:decimal" />
+              <xs:element name="description" msprop:Generator_ColumnPropNameInRow="description" msprop:Generator_ColumnPropNameInTable="descriptionColumn" msprop:Generator_ColumnVarNameInTable="columndescription" msprop:Generator_UserColumnName="description" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SoinsDate" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="SoinsDate" msprop:Generator_ColumnPropNameInTable="SoinsDateColumn" msprop:Generator_ColumnVarNameInTable="columnSoinsDate" msprop:Generator_UserColumnName="SoinsDate" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="RapportPersonne" msprop:Generator_RowEvHandlerName="RapportPersonneRowChangeEventHandler" msprop:Generator_RowDeletedName="RapportPersonneRowDeleted" msprop:Generator_RowDeletingName="RapportPersonneRowDeleting" msprop:Generator_RowEvArgName="RapportPersonneRowChangeEvent" msprop:Generator_TablePropName="RapportPersonne" msprop:Generator_RowChangedName="RapportPersonneRowChanged" msprop:Generator_RowChangingName="RapportPersonneRowChanging" msprop:Generator_TableClassName="RapportPersonneDataTable" msprop:Generator_RowClassName="RapportPersonneRow" msprop:Generator_TableVarName="tableRapportPersonne" msprop:Generator_UserTableName="RapportPersonne">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="noPersonne" msprop:Generator_ColumnPropNameInRow="noPersonne" msprop:Generator_ColumnPropNameInTable="noPersonneColumn" msprop:Generator_ColumnVarNameInTable="columnnoPersonne" msprop:Generator_UserColumnName="noPersonne" type="xs:decimal" />
+              <xs:element name="noAssistant" msprop:Generator_ColumnPropNameInRow="noAssistant" msprop:Generator_ColumnPropNameInTable="noAssistantColumn" msprop:Generator_ColumnVarNameInTable="columnnoAssistant" msprop:Generator_UserColumnName="noAssistant" type="xs:decimal" />
+              <xs:element name="SoinsDate" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="SoinsDate" msprop:Generator_ColumnPropNameInTable="SoinsDateColumn" msprop:Generator_ColumnVarNameInTable="columnSoinsDate" msprop:Generator_UserColumnName="SoinsDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="PersonName" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="PersonName" msprop:Generator_ColumnPropNameInTable="PersonNameColumn" msprop:Generator_ColumnVarNameInTable="columnPersonName" msprop:Generator_UserColumnName="PersonName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="101" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DATE" msprop:Generator_ColumnPropNameInRow="DATE" msprop:Generator_ColumnPropNameInTable="DATEColumn" msprop:Generator_ColumnVarNameInTable="columnDATE" msprop:Generator_UserColumnName="DATE" type="xs:dateTime" />
+              <xs:element name="SoinDescription" msprop:Generator_ColumnPropNameInRow="SoinDescription" msprop:Generator_ColumnPropNameInTable="SoinDescriptionColumn" msprop:Generator_ColumnVarNameInTable="columnSoinDescription" msprop:Generator_UserColumnName="SoinDescription" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -1074,19 +1381,30 @@ SELECT noUtilisateur, nomUtilisateur, password, noTypeUtilisateur FROM utilisate
       <xs:selector xpath=".//mstns:utilisateur" />
       <xs:field xpath="mstns:noUtilisateur" />
     </xs:unique>
+    <xs:unique name="AssistantName_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:AssistantName" />
+      <xs:field xpath="mstns:noAssistant" />
+    </xs:unique>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="fk_noAssistantAssistantSoin" msdata:parent="assistant" msdata:child="assistantSoin" msdata:parentkey="noAssistant" msdata:childkey="noAssistant" msprop:Generator_UserParentTable="assistant" msprop:Generator_UserChildTable="assistantSoin" msprop:Generator_RelationVarName="relationfk_noAssistantAssistantSoin" msprop:Generator_ChildPropName="GetassistantSoinRows" msprop:Generator_UserRelationName="fk_noAssistantAssistantSoin" msprop:Generator_ParentPropName="assistantRow" />
-      <msdata:Relationship name="fk_noSoinAssistantSoin" msdata:parent="soin" msdata:child="assistantSoin" msdata:parentkey="noSoin" msdata:childkey="noSoin" msprop:Generator_UserParentTable="soin" msprop:Generator_UserChildTable="assistantSoin" msprop:Generator_RelationVarName="relationfk_noSoinAssistantSoin" msprop:Generator_ChildPropName="GetassistantSoinRows" msprop:Generator_ParentPropName="soinRow" msprop:Generator_UserRelationName="fk_noSoinAssistantSoin" />
-      <msdata:Relationship name="fk_noTypeChambre" msdata:parent="typeChambre" msdata:child="chambre" msdata:parentkey="noTypeChambre" msdata:childkey="noTypeChambre" msprop:Generator_UserParentTable="typeChambre" msprop:Generator_UserChildTable="chambre" msprop:Generator_RelationVarName="relationfk_noTypeChambre" msprop:Generator_ChildPropName="GetchambreRows" msprop:Generator_ParentPropName="typeChambreRow" msprop:Generator_UserRelationName="fk_noTypeChambre" />
-      <msdata:Relationship name="fk_noClientInvite" msdata:parent="client" msdata:child="invite" msdata:parentkey="noClient" msdata:childkey="noClient" msprop:Generator_UserParentTable="client" msprop:Generator_UserChildTable="invite" msprop:Generator_RelationVarName="relationfk_noClientInvite" msprop:Generator_ChildPropName="GetinviteRows" msprop:Generator_UserRelationName="fk_noClientInvite" msprop:Generator_ParentPropName="clientRow" />
-      <msdata:Relationship name="fk_noAssistantPlanifSoin" msdata:parent="assistant" msdata:child="planifSoin" msdata:parentkey="noAssistant" msdata:childkey="noAssistant" msprop:Generator_UserParentTable="assistant" msprop:Generator_UserChildTable="planifSoin" msprop:Generator_RelationVarName="relationfk_noAssistantPlanifSoin" msprop:Generator_ChildPropName="GetplanifSoinRows" msprop:Generator_UserRelationName="fk_noAssistantPlanifSoin" msprop:Generator_ParentPropName="assistantRow" />
-      <msdata:Relationship name="fk_noSoinPlanifSoin" msdata:parent="soin" msdata:child="planifSoin" msdata:parentkey="noSoin" msdata:childkey="noSoin" msprop:Generator_UserParentTable="soin" msprop:Generator_UserChildTable="planifSoin" msprop:Generator_RelationVarName="relationfk_noSoinPlanifSoin" msprop:Generator_ChildPropName="GetplanifSoinRows" msprop:Generator_ParentPropName="soinRow" msprop:Generator_UserRelationName="fk_noSoinPlanifSoin" />
-      <msdata:Relationship name="fk_noChambre" msdata:parent="chambre" msdata:child="reservationChambre" msdata:parentkey="noChambre" msdata:childkey="noChambre" msprop:Generator_UserParentTable="chambre" msprop:Generator_UserChildTable="reservationChambre" msprop:Generator_RelationVarName="relationfk_noChambre" msprop:Generator_ChildPropName="GetreservationChambreRows" msprop:Generator_UserRelationName="fk_noChambre" msprop:Generator_ParentPropName="chambreRow" />
-      <msdata:Relationship name="fk_noClientReservation" msdata:parent="client" msdata:child="reservationChambre" msdata:parentkey="noClient" msdata:childkey="noClient" msprop:Generator_UserParentTable="client" msprop:Generator_UserChildTable="reservationChambre" msprop:Generator_RelationVarName="relationfk_noClientReservation" msprop:Generator_ChildPropName="GetreservationChambreRows" msprop:Generator_UserRelationName="fk_noClientReservation" msprop:Generator_ParentPropName="clientRow" />
-      <msdata:Relationship name="fk_noTypeSoin" msdata:parent="typeSoin" msdata:child="soin" msdata:parentkey="noTypeSoin" msdata:childkey="noTypeSoin" msprop:Generator_UserParentTable="typeSoin" msprop:Generator_UserChildTable="soin" msprop:Generator_RelationVarName="relationfk_noTypeSoin" msprop:Generator_ChildPropName="GetsoinRows" msprop:Generator_ParentPropName="typeSoinRow" msprop:Generator_UserRelationName="fk_noTypeSoin" />
-      <msdata:Relationship name="fk_noTypeUtilisateur" msdata:parent="typeUtilisateur" msdata:child="utilisateur" msdata:parentkey="noTypeUtilisateur" msdata:childkey="noTypeUtilisateur" msprop:Generator_UserParentTable="typeUtilisateur" msprop:Generator_UserChildTable="utilisateur" msprop:Generator_RelationVarName="relationfk_noTypeUtilisateur" msprop:Generator_ChildPropName="GetutilisateurRows" msprop:Generator_UserRelationName="fk_noTypeUtilisateur" msprop:Generator_ParentPropName="typeUtilisateurRow" />
+      <msdata:Relationship name="fk_noAssistantAssistantSoin" msdata:parent="assistant" msdata:child="assistantSoin" msdata:parentkey="noAssistant" msdata:childkey="noAssistant" msprop:Generator_UserParentTable="assistant" msprop:Generator_UserChildTable="assistantSoin" msprop:Generator_RelationVarName="relationfk_noAssistantAssistantSoin" msprop:Generator_ChildPropName="GetassistantSoinRows" msprop:Generator_ParentPropName="assistantRow" msprop:Generator_UserRelationName="fk_noAssistantAssistantSoin" />
+      <msdata:Relationship name="fk_noSoinAssistantSoin" msdata:parent="soin" msdata:child="assistantSoin" msdata:parentkey="noSoin" msdata:childkey="noSoin" msprop:Generator_UserParentTable="soin" msprop:Generator_UserChildTable="assistantSoin" msprop:Generator_RelationVarName="relationfk_noSoinAssistantSoin" msprop:Generator_ChildPropName="GetassistantSoinRows" msprop:Generator_UserRelationName="fk_noSoinAssistantSoin" msprop:Generator_ParentPropName="soinRow" />
+      <msdata:Relationship name="fk_noTypeChambre" msdata:parent="typeChambre" msdata:child="chambre" msdata:parentkey="noTypeChambre" msdata:childkey="noTypeChambre" msprop:Generator_UserParentTable="typeChambre" msprop:Generator_UserChildTable="chambre" msprop:Generator_RelationVarName="relationfk_noTypeChambre" msprop:Generator_ChildPropName="GetchambreRows" msprop:Generator_UserRelationName="fk_noTypeChambre" msprop:Generator_ParentPropName="typeChambreRow" />
+      <msdata:Relationship name="fk_noClientInvite" msdata:parent="client" msdata:child="invite" msdata:parentkey="noClient" msdata:childkey="noClient" msprop:Generator_UserParentTable="client" msprop:Generator_UserChildTable="invite" msprop:Generator_RelationVarName="relationfk_noClientInvite" msprop:Generator_ChildPropName="GetinviteRows" msprop:Generator_ParentPropName="clientRow" msprop:Generator_UserRelationName="fk_noClientInvite" />
+      <msdata:Relationship name="fk_noAssistantPlanifSoin" msdata:parent="assistant" msdata:child="planifSoin" msdata:parentkey="noAssistant" msdata:childkey="noAssistant" msprop:Generator_UserParentTable="assistant" msprop:Generator_UserChildTable="planifSoin" msprop:Generator_RelationVarName="relationfk_noAssistantPlanifSoin" msprop:Generator_ChildPropName="GetplanifSoinRows" msprop:Generator_ParentPropName="assistantRow" msprop:Generator_UserRelationName="fk_noAssistantPlanifSoin" />
+      <msdata:Relationship name="fk_noSoinPlanifSoin" msdata:parent="soin" msdata:child="planifSoin" msdata:parentkey="noSoin" msdata:childkey="noSoin" msprop:Generator_UserParentTable="soin" msprop:Generator_UserChildTable="planifSoin" msprop:Generator_RelationVarName="relationfk_noSoinPlanifSoin" msprop:Generator_ChildPropName="GetplanifSoinRows" msprop:Generator_UserRelationName="fk_noSoinPlanifSoin" msprop:Generator_ParentPropName="soinRow" />
+      <msdata:Relationship name="fk_noChambre" msdata:parent="chambre" msdata:child="reservationChambre" msdata:parentkey="noChambre" msdata:childkey="noChambre" msprop:Generator_UserParentTable="chambre" msprop:Generator_UserChildTable="reservationChambre" msprop:Generator_RelationVarName="relationfk_noChambre" msprop:Generator_ChildPropName="GetreservationChambreRows" msprop:Generator_ParentPropName="chambreRow" msprop:Generator_UserRelationName="fk_noChambre" />
+      <msdata:Relationship name="fk_noClientReservation" msdata:parent="client" msdata:child="reservationChambre" msdata:parentkey="noClient" msdata:childkey="noClient" msprop:Generator_UserParentTable="client" msprop:Generator_UserChildTable="reservationChambre" msprop:Generator_RelationVarName="relationfk_noClientReservation" msprop:Generator_ChildPropName="GetreservationChambreRows" msprop:Generator_ParentPropName="clientRow" msprop:Generator_UserRelationName="fk_noClientReservation" />
+      <msdata:Relationship name="fk_noTypeSoin" msdata:parent="typeSoin" msdata:child="soin" msdata:parentkey="noTypeSoin" msdata:childkey="noTypeSoin" msprop:Generator_UserParentTable="typeSoin" msprop:Generator_UserChildTable="soin" msprop:Generator_RelationVarName="relationfk_noTypeSoin" msprop:Generator_ChildPropName="GetsoinRows" msprop:Generator_UserRelationName="fk_noTypeSoin" msprop:Generator_ParentPropName="typeSoinRow" />
+      <msdata:Relationship name="fk_noTypeUtilisateur" msdata:parent="typeUtilisateur" msdata:child="utilisateur" msdata:parentkey="noTypeUtilisateur" msdata:childkey="noTypeUtilisateur" msprop:Generator_UserParentTable="typeUtilisateur" msprop:Generator_UserChildTable="utilisateur" msprop:Generator_RelationVarName="relationfk_noTypeUtilisateur" msprop:Generator_ChildPropName="GetutilisateurRows" msprop:Generator_ParentPropName="typeUtilisateurRow" msprop:Generator_UserRelationName="fk_noTypeUtilisateur" />
+      <msdata:Relationship name="InfoClientInvite_InfoSoinPersonne" msdata:parent="InfoClientInvite" msdata:child="InfoSoinPersonne" msdata:parentkey="Numero" msdata:childkey="noPersonne" msprop:Generator_UserParentTable="InfoClientInvite" msprop:Generator_UserChildTable="InfoSoinPersonne" msprop:Generator_RelationVarName="relationInfoClientInvite_InfoSoinPersonne" msprop:Generator_ChildPropName="GetInfoSoinPersonneRows" msprop:Generator_ParentPropName="InfoClientInviteRow" msprop:Generator_UserRelationName="InfoClientInvite_InfoSoinPersonne" />
+      <msdata:Relationship name="chambre_InfoChambre" msdata:parent="chambre" msdata:child="InfoChambre" msdata:parentkey="noChambre" msdata:childkey="Chambre" msprop:Generator_UserParentTable="chambre" msprop:Generator_UserChildTable="InfoChambre" msprop:Generator_RelationVarName="relationchambre_InfoChambre" msprop:Generator_ChildPropName="GetInfoChambreRows" msprop:Generator_ParentPropName="chambreRow" msprop:Generator_UserRelationName="chambre_InfoChambre" />
+      <msdata:Relationship name="assistant_InfoDateAssistant" msdata:parent="assistant" msdata:child="InfoDateAssistant" msdata:parentkey="noAssistant" msdata:childkey="noAssistant" msprop:Generator_UserParentTable="assistant" msprop:Generator_UserChildTable="InfoDateAssistant" msprop:Generator_RelationVarName="relationassistant_InfoDateAssistant" msprop:Generator_ChildPropName="GetInfoDateAssistantRows" msprop:Generator_ParentPropName="assistantRow" msprop:Generator_UserRelationName="assistant_InfoDateAssistant" />
+      <msdata:Relationship name="AssistantName_InfoSoinAssistant" msdata:parent="AssistantName" msdata:child="InfoSoinAssistant" msdata:parentkey="noAssistant" msdata:childkey="noAssistant" msprop:Generator_UserParentTable="AssistantName" msprop:Generator_UserChildTable="InfoSoinAssistant" msprop:Generator_RelationVarName="relationAssistantName_InfoSoinAssistant" msprop:Generator_ChildPropName="GetInfoSoinAssistantRows" msprop:Generator_ParentPropName="AssistantNameRow" msprop:Generator_UserRelationName="AssistantName_InfoSoinAssistant" />
+      <msdata:Relationship name="InfoSoinAssistant_RapportPersonne" msdata:parent="InfoSoinAssistant" msdata:child="RapportPersonne" msdata:parentkey="noPersonne noAssistant description" msdata:childkey="noPersonne noAssistant SoinDescription" msprop:Generator_UserParentTable="InfoSoinAssistant" msprop:Generator_UserChildTable="RapportPersonne" msprop:Generator_RelationVarName="relationInfoSoinAssistant_RapportPersonne" msprop:Generator_ChildPropName="GetRapportPersonneRows" msprop:Generator_ParentPropName="InfoSoinAssistantRowParent" msprop:Generator_UserRelationName="InfoSoinAssistant_RapportPersonne" />
+      <msdata:Relationship name="fk_noAssistantAssistantSoin1" msdata:parent="AssistantName" msdata:child="assistantSoin" msdata:parentkey="noAssistant" msdata:childkey="noAssistant" msprop:Generator_UserParentTable="AssistantName" msprop:Generator_UserChildTable="assistantSoin" msprop:Generator_RelationVarName="relationfk_noAssistantAssistantSoin1" msprop:Generator_UserRelationName="fk_noAssistantAssistantSoin1" msprop:Generator_ChildPropName="GetassistantSoinRows" msprop:Generator_ParentPropName="AssistantNameRow" />
+      <msdata:Relationship name="fk_noAssistantPlanifSoin1" msdata:parent="AssistantName" msdata:child="planifSoin" msdata:parentkey="noAssistant" msdata:childkey="noAssistant" msprop:Generator_UserParentTable="AssistantName" msprop:Generator_UserChildTable="planifSoin" msprop:Generator_RelationVarName="relationfk_noAssistantPlanifSoin1" msprop:Generator_UserRelationName="fk_noAssistantPlanifSoin1" msprop:Generator_ChildPropName="GetplanifSoinRows" msprop:Generator_ParentPropName="AssistantNameRow" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

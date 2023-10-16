@@ -44,6 +44,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.assistantBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.assistantSoinDataGridView = new System.Windows.Forms.DataGridView();
+            this.noAssistant = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.noSoin = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.assistantSoinBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.noAssistantTextBox = new System.Windows.Forms.TextBox();
             this.prenomTextBox = new System.Windows.Forms.TextBox();
             this.nomTextBox = new System.Windows.Forms.TextBox();
@@ -63,9 +66,6 @@
             this.lbTotale = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnFermer = new System.Windows.Forms.Button();
-            this.noAssistant = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.noSoin = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.assistantSoinBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.planifSoinBindingSource = new System.Windows.Forms.BindingSource(this.components);
             noAssistantLabel = new System.Windows.Forms.Label();
             prenomLabel = new System.Windows.Forms.Label();
@@ -185,7 +185,10 @@
             // 
             // assistantSoinDataGridView
             // 
+            this.assistantSoinDataGridView.AllowUserToResizeColumns = false;
+            this.assistantSoinDataGridView.AllowUserToResizeRows = false;
             this.assistantSoinDataGridView.AutoGenerateColumns = false;
+            this.assistantSoinDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.assistantSoinDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.assistantSoinDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.noAssistant,
@@ -196,6 +199,27 @@
             this.assistantSoinDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.assistantSoinDataGridView.Size = new System.Drawing.Size(243, 164);
             this.assistantSoinDataGridView.TabIndex = 2;
+            // 
+            // noAssistant
+            // 
+            this.noAssistant.DataPropertyName = "noAssistant";
+            this.noAssistant.HeaderText = "noAssistant";
+            this.noAssistant.Name = "noAssistant";
+            this.noAssistant.ReadOnly = true;
+            this.noAssistant.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // noSoin
+            // 
+            this.noSoin.DataPropertyName = "noSoin";
+            this.noSoin.HeaderText = "noSoin";
+            this.noSoin.Name = "noSoin";
+            this.noSoin.ReadOnly = true;
+            this.noSoin.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // assistantSoinBindingSource
+            // 
+            this.assistantSoinBindingSource.DataMember = "fk_noAssistantAssistantSoin";
+            this.assistantSoinBindingSource.DataSource = this.assistantBindingSource;
             // 
             // noAssistantTextBox
             // 
@@ -399,27 +423,6 @@
             this.btnFermer.Text = "Fermer";
             this.btnFermer.UseVisualStyleBackColor = false;
             this.btnFermer.Click += new System.EventHandler(this.btnFermer_Click);
-            // 
-            // noAssistant
-            // 
-            this.noAssistant.DataPropertyName = "noAssistant";
-            this.noAssistant.HeaderText = "noAssistant";
-            this.noAssistant.Name = "noAssistant";
-            this.noAssistant.ReadOnly = true;
-            this.noAssistant.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // noSoin
-            // 
-            this.noSoin.DataPropertyName = "noSoin";
-            this.noSoin.HeaderText = "noSoin";
-            this.noSoin.Name = "noSoin";
-            this.noSoin.ReadOnly = true;
-            this.noSoin.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // assistantSoinBindingSource
-            // 
-            this.assistantSoinBindingSource.DataMember = "fk_noAssistantAssistantSoin";
-            this.assistantSoinBindingSource.DataSource = this.assistantBindingSource;
             // 
             // planifSoinBindingSource
             // 
