@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -43,9 +44,25 @@ namespace Projet1.Prepose
 
         private void btnAjout_Click(object sender, EventArgs e)
         {
+            B56Projet1Equipe7DataSet.planifSoinRow unePlanif = b56Projet1Equipe7DataSet.planifSoin.NewplanifSoinRow();
+            unePlanif.dateHeure = DateTime.MinValue;
+
             frmAjouterPlanifSoin frmAjout = new frmAjouterPlanifSoin();
+            frmAjout.unePlanif = unePlanif;
+            
             frmAjout.ShowDialog();
 
+            if (unePlanif.dateHeure != DateTime.MinValue)
+            {
+                b56Projet1Equipe7DataSet.planifSoin.AddplanifSoinRow(unePlanif);
+
+                planifSoinBindingSource.MoveLast();
+                MessageBox.Show("Une nouvelle planification de soin a été ajoutée.", "Ajout d'une planification de soin", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                this.Validate();
+                this.planifSoinBindingSource.EndEdit();
+                this.planifSoinTableAdapter.Update(this.b56Projet1Equipe7DataSet.planifSoin);
+            }
         }
 
         private void btnSupprimer_Click(object sender, EventArgs e)

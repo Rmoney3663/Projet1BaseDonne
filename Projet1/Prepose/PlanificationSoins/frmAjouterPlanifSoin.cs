@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Common;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
@@ -24,7 +25,7 @@ namespace Projet1.Prepose.PlanificationSoins
         {
             // Set limite dateDimePicker
             dtpSoin.MinDate = DateTime.Now;
-            dtpSoin.Value = DateTime.Now.AddDays(1);
+            dtpSoin.Value = DateTime.Today.AddDays(1).AddHours(8);
 
             string connectionString = "Data Source=tcp:424sql.cgodin.qc.ca,5433;Initial Catalog=B56Projet1Equipe7;Persist Security Info=True;User ID=B56Equipe7;Password=Password1";
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -85,36 +86,39 @@ namespace Projet1.Prepose.PlanificationSoins
             else
             {
                 // Vérifier si l'assistant a déjà un soin à cette heure là
-
-                errMessage.SetError(dtpSoin, "");
-                /*
+              
                 string connectionString = "Data Source=tcp:424sql.cgodin.qc.ca,5433;Initial Catalog=B56Projet1Equipe7;Persist Security Info=True;User ID=B56Equipe7;Password=Password1";
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
 
-                    string query = "SELECT assistantSoin.noAssistant, CONCAT(assistantSoin.noAssistant, ' ', nom, ', ', prenom) AS nomPrenom FROM assistant " +
-                        "INNER JOIN assistantSoin ON assistant.noAssistant = assistantSoin.noAssistant " +
-                        "WHERE noSoin = @noSoin";
+                    string query = "SELECT * FROM planifSoin " +
+                        "WHERE noAssistant = @noAssistant AND (dateHeure <= @dateHeure AND DATEADD(HOUR,1,dateHeure) > @dateHeure)" +
+                        "OR (dateHeure >= @dateHeure AND dateHeure < DATEADD(HOUR,1,@dateHeure)) ";
 
-                    using (SqlCommand command = new SqlCommand(query, connection))
+                    SqlCommand maCommande = new SqlCommand(query, connection);
+                    maCommande.Parameters.AddWithValue("@dateHeure", dtpSoin.Value);
+                    maCommande.Parameters.AddWithValue("@noAssistant", cbNoAssistant.SelectedValue);
+
+                    object noClient = maCommande.ExecuteScalar();
+
+                    if (noClient != null)
                     {
-                        decimal noSoin = (decimal)cbNoSoin.SelectedValue;
-                        command.Parameters.AddWithValue("@noSoin", noSoin);
-
-                        using (SqlDataAdapter adapter = new SqlDataAdapter(command))
-                        {
-                            DataTable dataTable = new DataTable();
-                            adapter.Fill(dataTable);
-
-                            cbNoAssistant.DataSource = dataTable;
-                            cbNoAssistant.DisplayMember = "nomPrenom";
-                            cbNoAssistant.ValueMember = "noAssistant";
-                        }
+                        errMessage.SetError(dtpSoin, "Cet assistant ne peut pas donner un soin à deux personnes en même temps!");
                     }
-                    connection.Close();
+                    else
+                    {
+                        errMessage.SetError(dtpSoin, "");
+                        unePlanif.noPersonne = (decimal)cbNoPersonne.SelectedValue;
+                        unePlanif.noSoin = (decimal)cbNoSoin.SelectedValue;
+                        unePlanif.noAssistant = (decimal)cbNoAssistant.SelectedValue;
+                        unePlanif.dateHeure = dtpSoin.Value;
+
+                        this.Close();
+                    }
+                        connection.Close();
                 }
-                                */
+                                
             }
         }
 
