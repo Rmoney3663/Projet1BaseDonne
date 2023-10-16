@@ -772,7 +772,7 @@ SELECT noUtilisateur, nomUtilisateur, password, noTypeUtilisateur FROM utilisate
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="InfoClientInviteTableAdapter" GeneratorDataComponentClassName="InfoClientInviteTableAdapter" Name="InfoClientInvite" UserDataComponentName="InfoClientInviteTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="B56Projet1Equipe7ConnectionString (Settings)" DbObjectName="B56Projet1Equipe7.dbo.client" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="B56Projet1Equipe7ConnectionString (Settings)" DbObjectName="B56Projet1Equipe7.dbo.client" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT noClient AS Numero, CONCAT(nom, ' ', prenom) AS NomPrenom
@@ -788,6 +788,58 @@ FROM invite;</CommandText>
             <Mappings>
               <Mapping SourceColumn="Numero" DataSetColumn="Numero" />
               <Mapping SourceColumn="NomPrenom" DataSetColumn="NomPrenom" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="InfoSoinPersonneTableAdapter" GeneratorDataComponentClassName="InfoSoinPersonneTableAdapter" Name="InfoSoinPersonne" UserDataComponentName="InfoSoinPersonneTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="B56Projet1Equipe7ConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT noPersonne, s.description, ps.dateHeure, s.prix, CONCAT(a.prenom, ' ', a.nom) AS AssistantName
+FROM planifSoin ps
+INNER JOIN soin s ON ps.noSoin = s.noSoin
+INNER JOIN assistant a ON ps.noAssistant = a.noAssistant
+</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="description" DataSetColumn="description" />
+              <Mapping SourceColumn="dateHeure" DataSetColumn="dateHeure" />
+              <Mapping SourceColumn="prix" DataSetColumn="prix" />
+              <Mapping SourceColumn="AssistantName" DataSetColumn="AssistantName" />
+              <Mapping SourceColumn="noPersonne" DataSetColumn="noPersonne" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="InfoChambreTableAdapter" GeneratorDataComponentClassName="InfoChambreTableAdapter" Name="InfoChambre" UserDataComponentName="InfoChambreTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="B56Projet1Equipe7ConnectionString (Settings)" DbObjectName="B56Projet1Equipe7.dbo.reservationChambre" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>
+SELECT
+    CONCAT(c.prenom, ' ', c.nom) AS ClientName,
+    rc.dateArrivee AS ArrivalDate,
+    rc.dateDepart AS DepartureDate,
+    rc.NbPersonnes AS Occupants,
+	rc.noChambre as Chambre
+FROM reservationChambre rc
+INNER JOIN client c ON rc.noClient = c.noClient</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ClientName" DataSetColumn="ClientName" />
+              <Mapping SourceColumn="ArrivalDate" DataSetColumn="ArrivalDate" />
+              <Mapping SourceColumn="DepartureDate" DataSetColumn="DepartureDate" />
+              <Mapping SourceColumn="Occupants" DataSetColumn="Occupants" />
+              <Mapping SourceColumn="Chambre" DataSetColumn="Chambre" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -1040,17 +1092,57 @@ FROM invite;</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="InfoClientInvite" msprop:Generator_RowEvHandlerName="InfoClientInviteRowChangeEventHandler" msprop:Generator_RowDeletedName="InfoClientInviteRowDeleted" msprop:Generator_RowDeletingName="InfoClientInviteRowDeleting" msprop:Generator_RowEvArgName="InfoClientInviteRowChangeEvent" msprop:Generator_TablePropName="InfoClientInvite" msprop:Generator_RowChangedName="InfoClientInviteRowChanged" msprop:Generator_RowChangingName="InfoClientInviteRowChanging" msprop:Generator_TableClassName="InfoClientInviteDataTable" msprop:Generator_RowClassName="InfoClientInviteRow" msprop:Generator_TableVarName="tableInfoClientInvite" msprop:Generator_UserTableName="InfoClientInvite">
+        <xs:element name="InfoClientInvite" msprop:Generator_RowClassName="InfoClientInviteRow" msprop:Generator_RowEvHandlerName="InfoClientInviteRowChangeEventHandler" msprop:Generator_RowDeletedName="InfoClientInviteRowDeleted" msprop:Generator_RowDeletingName="InfoClientInviteRowDeleting" msprop:Generator_RowEvArgName="InfoClientInviteRowChangeEvent" msprop:Generator_TablePropName="InfoClientInvite" msprop:Generator_RowChangedName="InfoClientInviteRowChanged" msprop:Generator_UserTableName="InfoClientInvite" msprop:Generator_RowChangingName="InfoClientInviteRowChanging" msprop:Generator_TableClassName="InfoClientInviteDataTable" msprop:Generator_TableVarName="tableInfoClientInvite">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Numero" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="Numero" msprop:Generator_ColumnPropNameInTable="NumeroColumn" msprop:Generator_ColumnVarNameInTable="columnNumero" msprop:Generator_UserColumnName="Numero" type="xs:decimal" minOccurs="0" />
-              <xs:element name="NomPrenom" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="NomPrenom" msprop:Generator_ColumnPropNameInTable="NomPrenomColumn" msprop:Generator_ColumnVarNameInTable="columnNomPrenom" msprop:Generator_UserColumnName="NomPrenom" minOccurs="0">
+              <xs:element name="Numero" msdata:ReadOnly="true" msprop:Generator_UserColumnName="Numero" msprop:Generator_ColumnPropNameInTable="NumeroColumn" msprop:Generator_ColumnPropNameInRow="Numero" msprop:Generator_ColumnVarNameInTable="columnNumero" type="xs:decimal" minOccurs="0" />
+              <xs:element name="NomPrenom" msdata:ReadOnly="true" msprop:Generator_UserColumnName="NomPrenom" msprop:Generator_ColumnPropNameInTable="NomPrenomColumn" msprop:Generator_ColumnPropNameInRow="NomPrenom" msprop:Generator_ColumnVarNameInTable="columnNomPrenom" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="101" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="InfoSoinPersonne" msprop:Generator_RowEvHandlerName="InfoSoinPersonneRowChangeEventHandler" msprop:Generator_RowDeletedName="InfoSoinPersonneRowDeleted" msprop:Generator_RowDeletingName="InfoSoinPersonneRowDeleting" msprop:Generator_RowEvArgName="InfoSoinPersonneRowChangeEvent" msprop:Generator_TablePropName="InfoSoinPersonne" msprop:Generator_RowChangedName="InfoSoinPersonneRowChanged" msprop:Generator_RowChangingName="InfoSoinPersonneRowChanging" msprop:Generator_TableClassName="InfoSoinPersonneDataTable" msprop:Generator_RowClassName="InfoSoinPersonneRow" msprop:Generator_TableVarName="tableInfoSoinPersonne" msprop:Generator_UserTableName="InfoSoinPersonne">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="description" msprop:Generator_ColumnPropNameInRow="description" msprop:Generator_ColumnPropNameInTable="descriptionColumn" msprop:Generator_ColumnVarNameInTable="columndescription" msprop:Generator_UserColumnName="description" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="dateHeure" msprop:Generator_ColumnPropNameInRow="dateHeure" msprop:Generator_ColumnPropNameInTable="dateHeureColumn" msprop:Generator_ColumnVarNameInTable="columndateHeure" msprop:Generator_UserColumnName="dateHeure" type="xs:dateTime" />
+              <xs:element name="prix" msprop:Generator_ColumnPropNameInRow="prix" msprop:Generator_ColumnPropNameInTable="prixColumn" msprop:Generator_ColumnVarNameInTable="columnprix" msprop:Generator_UserColumnName="prix" type="xs:decimal" minOccurs="0" />
+              <xs:element name="AssistantName" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="AssistantName" msprop:Generator_ColumnPropNameInTable="AssistantNameColumn" msprop:Generator_ColumnVarNameInTable="columnAssistantName" msprop:Generator_UserColumnName="AssistantName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="101" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="noPersonne" msprop:Generator_ColumnPropNameInRow="noPersonne" msprop:Generator_ColumnPropNameInTable="noPersonneColumn" msprop:Generator_ColumnVarNameInTable="columnnoPersonne" msprop:Generator_UserColumnName="noPersonne" type="xs:decimal" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="InfoChambre" msprop:Generator_RowEvHandlerName="InfoChambreRowChangeEventHandler" msprop:Generator_RowDeletedName="InfoChambreRowDeleted" msprop:Generator_RowDeletingName="InfoChambreRowDeleting" msprop:Generator_RowEvArgName="InfoChambreRowChangeEvent" msprop:Generator_TablePropName="InfoChambre" msprop:Generator_RowChangedName="InfoChambreRowChanged" msprop:Generator_RowChangingName="InfoChambreRowChanging" msprop:Generator_TableClassName="InfoChambreDataTable" msprop:Generator_RowClassName="InfoChambreRow" msprop:Generator_TableVarName="tableInfoChambre" msprop:Generator_UserTableName="InfoChambre">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ClientName" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="ClientName" msprop:Generator_ColumnPropNameInTable="ClientNameColumn" msprop:Generator_ColumnVarNameInTable="columnClientName" msprop:Generator_UserColumnName="ClientName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="101" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ArrivalDate" msprop:Generator_ColumnPropNameInRow="ArrivalDate" msprop:Generator_ColumnPropNameInTable="ArrivalDateColumn" msprop:Generator_ColumnVarNameInTable="columnArrivalDate" msprop:Generator_UserColumnName="ArrivalDate" type="xs:dateTime" />
+              <xs:element name="DepartureDate" msprop:Generator_ColumnPropNameInRow="DepartureDate" msprop:Generator_ColumnPropNameInTable="DepartureDateColumn" msprop:Generator_ColumnVarNameInTable="columnDepartureDate" msprop:Generator_UserColumnName="DepartureDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Occupants" msprop:Generator_ColumnPropNameInRow="Occupants" msprop:Generator_ColumnPropNameInTable="OccupantsColumn" msprop:Generator_ColumnVarNameInTable="columnOccupants" msprop:Generator_UserColumnName="Occupants" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Chambre" msprop:Generator_ColumnPropNameInRow="Chambre" msprop:Generator_ColumnPropNameInTable="ChambreColumn" msprop:Generator_ColumnVarNameInTable="columnChambre" msprop:Generator_UserColumnName="Chambre" type="xs:decimal" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -1112,16 +1204,18 @@ FROM invite;</CommandText>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="fk_noAssistantAssistantSoin" msdata:parent="assistant" msdata:child="assistantSoin" msdata:parentkey="noAssistant" msdata:childkey="noAssistant" msprop:Generator_UserParentTable="assistant" msprop:Generator_UserChildTable="assistantSoin" msprop:Generator_RelationVarName="relationfk_noAssistantAssistantSoin" msprop:Generator_ChildPropName="GetassistantSoinRows" msprop:Generator_UserRelationName="fk_noAssistantAssistantSoin" msprop:Generator_ParentPropName="assistantRow" />
-      <msdata:Relationship name="fk_noSoinAssistantSoin" msdata:parent="soin" msdata:child="assistantSoin" msdata:parentkey="noSoin" msdata:childkey="noSoin" msprop:Generator_UserParentTable="soin" msprop:Generator_UserChildTable="assistantSoin" msprop:Generator_RelationVarName="relationfk_noSoinAssistantSoin" msprop:Generator_ChildPropName="GetassistantSoinRows" msprop:Generator_ParentPropName="soinRow" msprop:Generator_UserRelationName="fk_noSoinAssistantSoin" />
-      <msdata:Relationship name="fk_noTypeChambre" msdata:parent="typeChambre" msdata:child="chambre" msdata:parentkey="noTypeChambre" msdata:childkey="noTypeChambre" msprop:Generator_UserParentTable="typeChambre" msprop:Generator_UserChildTable="chambre" msprop:Generator_RelationVarName="relationfk_noTypeChambre" msprop:Generator_ChildPropName="GetchambreRows" msprop:Generator_ParentPropName="typeChambreRow" msprop:Generator_UserRelationName="fk_noTypeChambre" />
-      <msdata:Relationship name="fk_noClientInvite" msdata:parent="client" msdata:child="invite" msdata:parentkey="noClient" msdata:childkey="noClient" msprop:Generator_UserParentTable="client" msprop:Generator_UserChildTable="invite" msprop:Generator_RelationVarName="relationfk_noClientInvite" msprop:Generator_ChildPropName="GetinviteRows" msprop:Generator_UserRelationName="fk_noClientInvite" msprop:Generator_ParentPropName="clientRow" />
-      <msdata:Relationship name="fk_noAssistantPlanifSoin" msdata:parent="assistant" msdata:child="planifSoin" msdata:parentkey="noAssistant" msdata:childkey="noAssistant" msprop:Generator_UserParentTable="assistant" msprop:Generator_UserChildTable="planifSoin" msprop:Generator_RelationVarName="relationfk_noAssistantPlanifSoin" msprop:Generator_ChildPropName="GetplanifSoinRows" msprop:Generator_UserRelationName="fk_noAssistantPlanifSoin" msprop:Generator_ParentPropName="assistantRow" />
-      <msdata:Relationship name="fk_noSoinPlanifSoin" msdata:parent="soin" msdata:child="planifSoin" msdata:parentkey="noSoin" msdata:childkey="noSoin" msprop:Generator_UserParentTable="soin" msprop:Generator_UserChildTable="planifSoin" msprop:Generator_RelationVarName="relationfk_noSoinPlanifSoin" msprop:Generator_ChildPropName="GetplanifSoinRows" msprop:Generator_ParentPropName="soinRow" msprop:Generator_UserRelationName="fk_noSoinPlanifSoin" />
-      <msdata:Relationship name="fk_noChambre" msdata:parent="chambre" msdata:child="reservationChambre" msdata:parentkey="noChambre" msdata:childkey="noChambre" msprop:Generator_UserParentTable="chambre" msprop:Generator_UserChildTable="reservationChambre" msprop:Generator_RelationVarName="relationfk_noChambre" msprop:Generator_ChildPropName="GetreservationChambreRows" msprop:Generator_UserRelationName="fk_noChambre" msprop:Generator_ParentPropName="chambreRow" />
-      <msdata:Relationship name="fk_noClientReservation" msdata:parent="client" msdata:child="reservationChambre" msdata:parentkey="noClient" msdata:childkey="noClient" msprop:Generator_UserParentTable="client" msprop:Generator_UserChildTable="reservationChambre" msprop:Generator_RelationVarName="relationfk_noClientReservation" msprop:Generator_ChildPropName="GetreservationChambreRows" msprop:Generator_UserRelationName="fk_noClientReservation" msprop:Generator_ParentPropName="clientRow" />
-      <msdata:Relationship name="fk_noTypeSoin" msdata:parent="typeSoin" msdata:child="soin" msdata:parentkey="noTypeSoin" msdata:childkey="noTypeSoin" msprop:Generator_UserParentTable="typeSoin" msprop:Generator_UserChildTable="soin" msprop:Generator_RelationVarName="relationfk_noTypeSoin" msprop:Generator_ChildPropName="GetsoinRows" msprop:Generator_ParentPropName="typeSoinRow" msprop:Generator_UserRelationName="fk_noTypeSoin" />
-      <msdata:Relationship name="fk_noTypeUtilisateur" msdata:parent="typeUtilisateur" msdata:child="utilisateur" msdata:parentkey="noTypeUtilisateur" msdata:childkey="noTypeUtilisateur" msprop:Generator_UserParentTable="typeUtilisateur" msprop:Generator_UserChildTable="utilisateur" msprop:Generator_RelationVarName="relationfk_noTypeUtilisateur" msprop:Generator_ChildPropName="GetutilisateurRows" msprop:Generator_UserRelationName="fk_noTypeUtilisateur" msprop:Generator_ParentPropName="typeUtilisateurRow" />
+      <msdata:Relationship name="fk_noAssistantAssistantSoin" msdata:parent="assistant" msdata:child="assistantSoin" msdata:parentkey="noAssistant" msdata:childkey="noAssistant" msprop:Generator_UserParentTable="assistant" msprop:Generator_UserChildTable="assistantSoin" msprop:Generator_RelationVarName="relationfk_noAssistantAssistantSoin" msprop:Generator_ChildPropName="GetassistantSoinRows" msprop:Generator_ParentPropName="assistantRow" msprop:Generator_UserRelationName="fk_noAssistantAssistantSoin" />
+      <msdata:Relationship name="fk_noSoinAssistantSoin" msdata:parent="soin" msdata:child="assistantSoin" msdata:parentkey="noSoin" msdata:childkey="noSoin" msprop:Generator_UserParentTable="soin" msprop:Generator_UserChildTable="assistantSoin" msprop:Generator_RelationVarName="relationfk_noSoinAssistantSoin" msprop:Generator_ChildPropName="GetassistantSoinRows" msprop:Generator_UserRelationName="fk_noSoinAssistantSoin" msprop:Generator_ParentPropName="soinRow" />
+      <msdata:Relationship name="fk_noTypeChambre" msdata:parent="typeChambre" msdata:child="chambre" msdata:parentkey="noTypeChambre" msdata:childkey="noTypeChambre" msprop:Generator_UserParentTable="typeChambre" msprop:Generator_UserChildTable="chambre" msprop:Generator_RelationVarName="relationfk_noTypeChambre" msprop:Generator_ChildPropName="GetchambreRows" msprop:Generator_UserRelationName="fk_noTypeChambre" msprop:Generator_ParentPropName="typeChambreRow" />
+      <msdata:Relationship name="fk_noClientInvite" msdata:parent="client" msdata:child="invite" msdata:parentkey="noClient" msdata:childkey="noClient" msprop:Generator_UserParentTable="client" msprop:Generator_UserChildTable="invite" msprop:Generator_RelationVarName="relationfk_noClientInvite" msprop:Generator_ChildPropName="GetinviteRows" msprop:Generator_ParentPropName="clientRow" msprop:Generator_UserRelationName="fk_noClientInvite" />
+      <msdata:Relationship name="fk_noAssistantPlanifSoin" msdata:parent="assistant" msdata:child="planifSoin" msdata:parentkey="noAssistant" msdata:childkey="noAssistant" msprop:Generator_UserParentTable="assistant" msprop:Generator_UserChildTable="planifSoin" msprop:Generator_RelationVarName="relationfk_noAssistantPlanifSoin" msprop:Generator_ChildPropName="GetplanifSoinRows" msprop:Generator_ParentPropName="assistantRow" msprop:Generator_UserRelationName="fk_noAssistantPlanifSoin" />
+      <msdata:Relationship name="fk_noSoinPlanifSoin" msdata:parent="soin" msdata:child="planifSoin" msdata:parentkey="noSoin" msdata:childkey="noSoin" msprop:Generator_UserParentTable="soin" msprop:Generator_UserChildTable="planifSoin" msprop:Generator_RelationVarName="relationfk_noSoinPlanifSoin" msprop:Generator_ChildPropName="GetplanifSoinRows" msprop:Generator_UserRelationName="fk_noSoinPlanifSoin" msprop:Generator_ParentPropName="soinRow" />
+      <msdata:Relationship name="fk_noChambre" msdata:parent="chambre" msdata:child="reservationChambre" msdata:parentkey="noChambre" msdata:childkey="noChambre" msprop:Generator_UserParentTable="chambre" msprop:Generator_UserChildTable="reservationChambre" msprop:Generator_RelationVarName="relationfk_noChambre" msprop:Generator_ChildPropName="GetreservationChambreRows" msprop:Generator_ParentPropName="chambreRow" msprop:Generator_UserRelationName="fk_noChambre" />
+      <msdata:Relationship name="fk_noClientReservation" msdata:parent="client" msdata:child="reservationChambre" msdata:parentkey="noClient" msdata:childkey="noClient" msprop:Generator_UserParentTable="client" msprop:Generator_UserChildTable="reservationChambre" msprop:Generator_RelationVarName="relationfk_noClientReservation" msprop:Generator_ChildPropName="GetreservationChambreRows" msprop:Generator_ParentPropName="clientRow" msprop:Generator_UserRelationName="fk_noClientReservation" />
+      <msdata:Relationship name="fk_noTypeSoin" msdata:parent="typeSoin" msdata:child="soin" msdata:parentkey="noTypeSoin" msdata:childkey="noTypeSoin" msprop:Generator_UserParentTable="typeSoin" msprop:Generator_UserChildTable="soin" msprop:Generator_RelationVarName="relationfk_noTypeSoin" msprop:Generator_ChildPropName="GetsoinRows" msprop:Generator_UserRelationName="fk_noTypeSoin" msprop:Generator_ParentPropName="typeSoinRow" />
+      <msdata:Relationship name="fk_noTypeUtilisateur" msdata:parent="typeUtilisateur" msdata:child="utilisateur" msdata:parentkey="noTypeUtilisateur" msdata:childkey="noTypeUtilisateur" msprop:Generator_UserParentTable="typeUtilisateur" msprop:Generator_UserChildTable="utilisateur" msprop:Generator_RelationVarName="relationfk_noTypeUtilisateur" msprop:Generator_ChildPropName="GetutilisateurRows" msprop:Generator_ParentPropName="typeUtilisateurRow" msprop:Generator_UserRelationName="fk_noTypeUtilisateur" />
+      <msdata:Relationship name="InfoClientInvite_InfoSoinPersonne" msdata:parent="InfoClientInvite" msdata:child="InfoSoinPersonne" msdata:parentkey="Numero" msdata:childkey="noPersonne" msprop:Generator_UserParentTable="InfoClientInvite" msprop:Generator_UserChildTable="InfoSoinPersonne" msprop:Generator_RelationVarName="relationInfoClientInvite_InfoSoinPersonne" msprop:Generator_ChildPropName="GetInfoSoinPersonneRows" msprop:Generator_ParentPropName="InfoClientInviteRow" msprop:Generator_UserRelationName="InfoClientInvite_InfoSoinPersonne" />
+      <msdata:Relationship name="chambre_InfoChambre" msdata:parent="chambre" msdata:child="InfoChambre" msdata:parentkey="noChambre" msdata:childkey="Chambre" msprop:Generator_UserParentTable="chambre" msprop:Generator_UserChildTable="InfoChambre" msprop:Generator_RelationVarName="relationchambre_InfoChambre" msprop:Generator_ChildPropName="GetInfoChambreRows" msprop:Generator_ParentPropName="chambreRow" msprop:Generator_UserRelationName="chambre_InfoChambre" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>
