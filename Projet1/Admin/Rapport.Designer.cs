@@ -41,6 +41,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.nbSoin = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label6 = new System.Windows.Forms.Label();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -65,6 +67,14 @@
             this.infoSoinPersonneTableAdapter = new Projet1.B56Projet1Equipe7DataSetTableAdapters.InfoSoinPersonneTableAdapter();
             this.chambreTableAdapter = new Projet1.B56Projet1Equipe7DataSetTableAdapters.chambreTableAdapter();
             this.infoChambreTableAdapter = new Projet1.B56Projet1Equipe7DataSetTableAdapters.InfoChambreTableAdapter();
+            this.assistantBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.assistantTableAdapter = new Projet1.B56Projet1Equipe7DataSetTableAdapters.assistantTableAdapter();
+            this.assistantDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.infoClientInviteDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.infoSoinPersonneBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.infoSoinPersonneDataGridView)).BeginInit();
@@ -74,6 +84,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.chambreBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.b56Projet1Equipe7DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.infoClientInviteBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.assistantBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.assistantDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -227,6 +239,23 @@
             this.nbSoin.Size = new System.Drawing.Size(17, 17);
             this.nbSoin.TabIndex = 9;
             this.nbSoin.Text = "0";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(119, 683);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.TabIndex = 10;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(14, 683);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(99, 17);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "Pick a date :";
             // 
             // dataGridViewTextBoxColumn12
             // 
@@ -386,11 +415,76 @@
             // 
             this.infoChambreTableAdapter.ClearBeforeFill = true;
             // 
+            // assistantBindingSource
+            // 
+            this.assistantBindingSource.DataMember = "assistant";
+            this.assistantBindingSource.DataSource = this.b56Projet1Equipe7DataSet;
+            // 
+            // assistantTableAdapter
+            // 
+            this.assistantTableAdapter.ClearBeforeFill = true;
+            // 
+            // assistantDataGridView
+            // 
+            this.assistantDataGridView.AllowUserToAddRows = false;
+            this.assistantDataGridView.AllowUserToResizeColumns = false;
+            this.assistantDataGridView.AllowUserToResizeRows = false;
+            this.assistantDataGridView.AutoGenerateColumns = false;
+            this.assistantDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.assistantDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.assistantDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn17,
+            this.dataGridViewTextBoxColumn18,
+            this.dataGridViewTextBoxColumn19,
+            this.dataGridViewTextBoxColumn20,
+            this.dataGridViewTextBoxColumn21});
+            this.assistantDataGridView.DataSource = this.assistantBindingSource;
+            this.assistantDataGridView.Location = new System.Drawing.Point(19, 709);
+            this.assistantDataGridView.Name = "assistantDataGridView";
+            this.assistantDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.assistantDataGridView.Size = new System.Drawing.Size(300, 220);
+            this.assistantDataGridView.TabIndex = 12;
+            // 
+            // dataGridViewTextBoxColumn17
+            // 
+            this.dataGridViewTextBoxColumn17.DataPropertyName = "noAssistant";
+            this.dataGridViewTextBoxColumn17.HeaderText = "noAssistant";
+            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
+            // 
+            // dataGridViewTextBoxColumn18
+            // 
+            this.dataGridViewTextBoxColumn18.DataPropertyName = "prenom";
+            this.dataGridViewTextBoxColumn18.HeaderText = "prenom";
+            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
+            // 
+            // dataGridViewTextBoxColumn19
+            // 
+            this.dataGridViewTextBoxColumn19.DataPropertyName = "nom";
+            this.dataGridViewTextBoxColumn19.HeaderText = "nom";
+            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
+            // 
+            // dataGridViewTextBoxColumn20
+            // 
+            this.dataGridViewTextBoxColumn20.DataPropertyName = "specialites";
+            this.dataGridViewTextBoxColumn20.HeaderText = "specialites";
+            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
+            this.dataGridViewTextBoxColumn20.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn21
+            // 
+            this.dataGridViewTextBoxColumn21.DataPropertyName = "remarques";
+            this.dataGridViewTextBoxColumn21.HeaderText = "remarques";
+            this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
+            this.dataGridViewTextBoxColumn21.Visible = false;
+            // 
             // Rapport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(936, 866);
+            this.ClientSize = new System.Drawing.Size(936, 985);
+            this.Controls.Add(this.assistantDataGridView);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.nbSoin);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -413,6 +507,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.chambreBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.b56Projet1Equipe7DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.infoClientInviteBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.assistantBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.assistantDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -456,5 +552,15 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label nbSoin;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.BindingSource assistantBindingSource;
+        private B56Projet1Equipe7DataSetTableAdapters.assistantTableAdapter assistantTableAdapter;
+        private System.Windows.Forms.DataGridView assistantDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
     }
 }

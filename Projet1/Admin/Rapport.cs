@@ -29,6 +29,12 @@ namespace Projet1.Admin
 
         private void Rapport_Load_1(object sender, EventArgs e)
         {
+            // TODO: cette ligne de code charge les données dans la table 'b56Projet1Equipe7DataSet.assistant'. Vous pouvez la déplacer ou la supprimer selon les besoins.
+            this.assistantTableAdapter.Fill(this.b56Projet1Equipe7DataSet.assistant);
+
+
+
+
             // TODO: cette ligne de code charge les données dans la table 'b56Projet1Equipe7DataSet.InfoChambre'. Vous pouvez la déplacer ou la supprimer selon les besoins.
             this.infoChambreTableAdapter.Fill(this.b56Projet1Equipe7DataSet.InfoChambre);
             // TODO: cette ligne de code charge les données dans la table 'b56Projet1Equipe7DataSet.chambre'. Vous pouvez la déplacer ou la supprimer selon les besoins.
