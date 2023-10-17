@@ -172,9 +172,6 @@
     <Compile Include="Admin\Rapport.Designer.cs">
       <DependentUpon>Rapport.cs</DependentUpon>
     </Compile>
-    <Compile Include="B56Projet1Equipe7DataSet.cs">
-      <DependentUpon>B56Projet1Equipe7DataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="B56Projet1Equipe7DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -239,6 +236,12 @@
     </Compile>
     <Compile Include="Prepose\PlanifierSoins.Designer.cs">
       <DependentUpon>PlanifierSoins.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Prepose\ReservationChambres\frmAjoutReservation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Prepose\ReservationChambres\frmAjoutReservation.Designer.cs">
+      <DependentUpon>frmAjoutReservation.cs</DependentUpon>
     </Compile>
     <Compile Include="Prepose\ReserverChambre.cs">
       <SubType>Form</SubType>
@@ -308,9 +311,6 @@
     <EmbeddedResource Include="Admin\GestionSoins\frmModifierSoin.resx">
       <DependentUpon>frmModifierSoin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admin\Rapport.resx">
-      <DependentUpon>Rapport.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Connexion.resx">
       <DependentUpon>Connexion.cs</DependentUpon>
     </EmbeddedResource>
@@ -340,6 +340,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Prepose\PlanifierSoins.resx">
       <DependentUpon>PlanifierSoins.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Prepose\ReservationChambres\frmAjoutReservation.resx">
+      <DependentUpon>frmAjoutReservation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Prepose\ReserverChambre.resx">
       <DependentUpon>ReserverChambre.cs</DependentUpon>
