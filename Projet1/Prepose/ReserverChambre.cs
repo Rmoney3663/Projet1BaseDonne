@@ -27,8 +27,27 @@ namespace Projet1.Prepose
 
         private void ReservationChambre_Load(object sender, EventArgs e)
         {
+            // TODO: cette ligne de code charge les données dans la table 'b56Projet1Equipe7DataSet.chambre'. Vous pouvez la déplacer ou la supprimer selon les besoins.
+            this.chambreTableAdapter.Fill(this.b56Projet1Equipe7DataSet.chambre);
+            // TODO: cette ligne de code charge les données dans la table 'b56Projet1Equipe7DataSet.chambre'. Vous pouvez la déplacer ou la supprimer selon les besoins.
+            this.chambreTableAdapter.Fill(this.b56Projet1Equipe7DataSet.chambre);
             // TODO: cette ligne de code charge les données dans la table 'b56Projet1Equipe7DataSet.reservationChambre'. Vous pouvez la déplacer ou la supprimer selon les besoins.
             this.reservationChambreTableAdapter.Fill(this.b56Projet1Equipe7DataSet.reservationChambre);
+
+        }
+
+        private void btnFermer_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnAjout_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSupprimer_Click(object sender, EventArgs e)
+        {
 
         }
     }
