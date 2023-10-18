@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -122,30 +123,37 @@ namespace Projet1.Prepose
                     {
                         // Vérification s'il a planifié des soins
 
-                        bool booPossedeSoin = false;
-                        foreach (B56Projet1Equipe7DataSet.planifSoinRow uneLigne in b56Projet1Equipe7DataSet.planifSoin.Rows)
+                        string connectionString = "Data Source=tcp:424sql.cgodin.qc.ca,5433;Initial Catalog=B56Projet1Equipe7;Persist Security Info=True;User ID=B56Equipe7;Password=Password1";
+                        using (SqlConnection connection = new SqlConnection(connectionString))
                         {
-                            if (uneLigne.noPersonne == noClient)
-                            {
-                                MessageBox.Show("Ce client ne peut pas être supprimé, car il a planifier un soin.",
-                                    "Supprimer client avec planification de soin", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                booPossedeSoin = true;
-                                break;
-                            }
-                        }
+                            connection.Open();
 
-                        if (booPossedeSoin == false)
-                        {
-                            DialogResult reponse = MessageBox.Show("Êtes-vous certain de vouloir supprimer le client numéro " + noClient + "?",
-                                "Supprimer un client",MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                            string query = "SELECT * FROM planifSoin " +
+                                "WHERE noPersonne = @noClient";
 
-                            if (reponse == DialogResult.Yes)
+                            SqlCommand maCommande = new SqlCommand(query, connection);
+                            maCommande.Parameters.AddWithValue("@noClient", decimal.Parse(tbNoClient.Text));
+
+                            object possedePlanif = maCommande.ExecuteScalar();
+
+                            if (possedePlanif != null)
                             {
-                                clientBindingSource.RemoveCurrent();
-                                this.Validate();
-                                this.clientBindingSource.EndEdit();
-                                this.clientTableAdapter.Update(this.b56Projet1Equipe7DataSet.client);
+                                MessageBox.Show("Ce client ne peut pas être suprimmé, car il possède au moins une planification de soin","Client possède planifSoin",MessageBoxButtons.OK,MessageBoxIcon.Error);
                             }
+                            else
+                            {
+                                DialogResult reponse = MessageBox.Show("Êtes-vous certain de vouloir supprimer ce client ?",
+                                        "Supprimer un client", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                                if (reponse == DialogResult.Yes)
+                                {
+                                    clientBindingSource.RemoveCurrent();
+                                    this.Validate();
+                                    this.clientBindingSource.EndEdit();
+                                    this.clientTableAdapter.Update(this.b56Projet1Equipe7DataSet.client);
+                                }
+                            }
+                                connection.Close();
                         }
                     }
                 }
@@ -250,32 +258,39 @@ namespace Projet1.Prepose
                 // Vérification s'il a planifié des soins
 
                 decimal noInvite = (decimal)dgInvites.SelectedRows[0].Cells[0].Value;
-                B56Projet1Equipe7DataSet.inviteRow unInvite = b56Projet1Equipe7DataSet.invite.FindBynoInvite(noInvite);
 
-                bool booPossedeSoin = false;
-                foreach (B56Projet1Equipe7DataSet.planifSoinRow uneLigne in b56Projet1Equipe7DataSet.planifSoin.Rows)
+                string connectionString = "Data Source=tcp:424sql.cgodin.qc.ca,5433;Initial Catalog=B56Projet1Equipe7;Persist Security Info=True;User ID=B56Equipe7;Password=Password1";
+                using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-                    if (uneLigne.noPersonne == noInvite)
-                    {
-                        MessageBox.Show("Cet invité ne peut pas être supprimé, car il a planifier un soin.",
-                            "Supprimer invité avec planification de soin", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        booPossedeSoin = true;
-                        break;
-                    }
-                }
+                    connection.Open();
 
-                if (booPossedeSoin == false)
-                {
-                    DialogResult reponse = MessageBox.Show("Êtes-vous certain de vouloir supprimer l'invité numéro " + noInvite + "?",
-                        "Supprimer un invité", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    string query = "SELECT * FROM planifSoin " +
+                        "WHERE noPersonne = @noInvite";
 
-                    if (reponse == DialogResult.Yes)
+                    SqlCommand maCommande = new SqlCommand(query, connection);
+                    maCommande.Parameters.AddWithValue("@noInvite", noInvite);
+
+                    object possedePlanif = maCommande.ExecuteScalar();
+
+                    if (possedePlanif != null)
                     {
-                        inviteBindingSource.RemoveCurrent();
-                        this.Validate();
-                        this.inviteBindingSource.EndEdit();
-                        this.inviteTableAdapter.Update(this.b56Projet1Equipe7DataSet.invite);
+                        MessageBox.Show("Cet invité ne peut pas être suprimmé, car il possède au moins une planification de soin", "Invité possède planifSoin", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
+                    else
+                    {
+                        DialogResult reponse = MessageBox.Show("Êtes-vous certain de vouloir supprimer cet invité ?",
+                            "Supprimer un invité", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                        if (reponse == DialogResult.Yes)
+                        {
+                            inviteBindingSource.RemoveCurrent();
+                            this.Validate();
+                            this.inviteBindingSource.EndEdit();
+                            this.inviteTableAdapter.Update(this.b56Projet1Equipe7DataSet.invite);
+                        }
+                    }
+
+                    connection.Close();
                 }
             }
             else

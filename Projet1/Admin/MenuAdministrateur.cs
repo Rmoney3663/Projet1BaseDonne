@@ -22,6 +22,7 @@ namespace Projet1.Admin
         GererChambre gererChambre = new GererChambre();
         Rapport rapport = new Rapport();
         PlanifierSoins planifSoin = new PlanifierSoins();
+        ReserverChambre reserverChambre = new ReserverChambre();
 
         public MenuAdministrateur()
         {
@@ -88,6 +89,7 @@ namespace Projet1.Admin
         private void réserverDesChambrespourLesClientsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
+            reserverChambre.ShowDialog();
             this.Show();
         }
 
