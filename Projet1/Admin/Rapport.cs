@@ -63,6 +63,24 @@ namespace Projet1.Admin
         {
             nbSoin.Text = infoSoinPersonneDataGridView.RowCount.ToString();
 
+
+            decimal totalPrice = 0;
+
+            foreach (DataGridViewRow row in infoSoinPersonneDataGridView.Rows)
+            {
+                if (!row.IsNewRow) 
+                {
+                    if (row.Cells["prix"].Value != null)
+                    {
+                        decimal prixValue = Convert.ToDecimal(row.Cells["prix"].Value); 
+                        totalPrice += prixValue;
+                    }
+                }
+            }
+
+            nbMontant.Text = totalPrice.ToString();
+
+
         }
 
         private void dateTimePicker_ValueChanged(object sender, EventArgs e)

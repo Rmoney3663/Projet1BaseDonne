@@ -36,13 +36,7 @@
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.infoClientInviteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.b56Projet1Equipe7DataSet = new Projet1.B56Projet1Equipe7DataSet();
-            this.infoSoinPersonneBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.infoSoinPersonneDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label3 = new System.Windows.Forms.Label();
             this.chambreDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,13 +44,7 @@
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chambreBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.infoChambreBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.infoChambreDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.nbSoin = new System.Windows.Forms.Label();
@@ -66,13 +54,7 @@
             this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.assistantNameBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.infoSoinAssistantBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.infoSoinAssistantDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.infoClientInviteTableAdapter = new Projet1.B56Projet1Equipe7DataSetTableAdapters.InfoClientInviteTableAdapter();
             this.tableAdapterManager = new Projet1.B56Projet1Equipe7DataSetTableAdapters.TableAdapterManager();
             this.infoSoinPersonneTableAdapter = new Projet1.B56Projet1Equipe7DataSetTableAdapters.InfoSoinPersonneTableAdapter();
@@ -80,30 +62,50 @@
             this.infoChambreTableAdapter = new Projet1.B56Projet1Equipe7DataSetTableAdapters.InfoChambreTableAdapter();
             this.assistantNameTableAdapter = new Projet1.B56Projet1Equipe7DataSetTableAdapters.AssistantNameTableAdapter();
             this.infoSoinAssistantTableAdapter = new Projet1.B56Projet1Equipe7DataSetTableAdapters.InfoSoinAssistantTableAdapter();
-            this.rapportPersonneBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.rapportPersonneTableAdapter = new Projet1.B56Projet1Equipe7DataSetTableAdapters.RapportPersonneTableAdapter();
             this.rapportPersonneDataGridView = new System.Windows.Forms.DataGridView();
+            this.nbMontant = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.dataGridViewTextBoxColumn27 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn29 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rapportPersonneBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.infoSoinAssistantBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.infoChambreBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.infoSoinPersonneBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prix = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.infoClientInviteDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.infoClientInviteBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.b56Projet1Equipe7DataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.infoSoinPersonneBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.infoSoinPersonneDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chambreDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chambreBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.infoChambreBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.infoChambreDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.assistantNameDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.assistantNameBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.infoSoinAssistantBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.infoSoinAssistantDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rapportPersonneBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rapportPersonneDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rapportPersonneBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.infoSoinAssistantBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.infoChambreBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.infoSoinPersonneBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -173,11 +175,6 @@
             this.b56Projet1Equipe7DataSet.DataSetName = "B56Projet1Equipe7DataSet";
             this.b56Projet1Equipe7DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // infoSoinPersonneBindingSource
-            // 
-            this.infoSoinPersonneBindingSource.DataMember = "InfoClientInvite_InfoSoinPersonne";
-            this.infoSoinPersonneBindingSource.DataSource = this.infoClientInviteBindingSource;
-            // 
             // infoSoinPersonneDataGridView
             // 
             this.infoSoinPersonneDataGridView.AllowUserToAddRows = false;
@@ -191,7 +188,7 @@
             this.infoSoinPersonneDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
+            this.prix,
             this.dataGridViewTextBoxColumn6,
             this.dataGridViewTextBoxColumn7});
             this.infoSoinPersonneDataGridView.DataSource = this.infoSoinPersonneBindingSource;
@@ -202,42 +199,6 @@
             this.infoSoinPersonneDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.infoSoinPersonneDataGridView.Size = new System.Drawing.Size(537, 220);
             this.infoSoinPersonneDataGridView.TabIndex = 4;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "description";
-            this.dataGridViewTextBoxColumn3.HeaderText = "description";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "dateHeure";
-            this.dataGridViewTextBoxColumn4.HeaderText = "dateHeure";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "prix";
-            this.dataGridViewTextBoxColumn5.HeaderText = "prix";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "AssistantName";
-            this.dataGridViewTextBoxColumn6.HeaderText = "AssistantName";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "noPersonne";
-            this.dataGridViewTextBoxColumn7.HeaderText = "noPersonne";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            this.dataGridViewTextBoxColumn7.Visible = false;
             // 
             // label3
             // 
@@ -303,11 +264,6 @@
             this.chambreBindingSource.DataMember = "chambre";
             this.chambreBindingSource.DataSource = this.b56Projet1Equipe7DataSet;
             // 
-            // infoChambreBindingSource
-            // 
-            this.infoChambreBindingSource.DataMember = "chambre_InfoChambre";
-            this.infoChambreBindingSource.DataSource = this.chambreBindingSource;
-            // 
             // infoChambreDataGridView
             // 
             this.infoChambreDataGridView.AllowUserToAddRows = false;
@@ -329,40 +285,8 @@
             this.infoChambreDataGridView.Name = "infoChambreDataGridView";
             this.infoChambreDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.infoChambreDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.infoChambreDataGridView.Size = new System.Drawing.Size(537, 220);
+            this.infoChambreDataGridView.Size = new System.Drawing.Size(538, 220);
             this.infoChambreDataGridView.TabIndex = 6;
-            // 
-            // dataGridViewTextBoxColumn12
-            // 
-            this.dataGridViewTextBoxColumn12.DataPropertyName = "ClientName";
-            this.dataGridViewTextBoxColumn12.HeaderText = "ClientName";
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            this.dataGridViewTextBoxColumn12.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn13
-            // 
-            this.dataGridViewTextBoxColumn13.DataPropertyName = "ArrivalDate";
-            this.dataGridViewTextBoxColumn13.HeaderText = "ArrivalDate";
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            // 
-            // dataGridViewTextBoxColumn14
-            // 
-            this.dataGridViewTextBoxColumn14.DataPropertyName = "DepartureDate";
-            this.dataGridViewTextBoxColumn14.HeaderText = "DepartureDate";
-            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
-            // 
-            // dataGridViewTextBoxColumn15
-            // 
-            this.dataGridViewTextBoxColumn15.DataPropertyName = "Occupants";
-            this.dataGridViewTextBoxColumn15.HeaderText = "Occupants";
-            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
-            // 
-            // dataGridViewTextBoxColumn16
-            // 
-            this.dataGridViewTextBoxColumn16.DataPropertyName = "Chambre";
-            this.dataGridViewTextBoxColumn16.HeaderText = "Chambre";
-            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
-            this.dataGridViewTextBoxColumn16.Visible = false;
             // 
             // label4
             // 
@@ -451,11 +375,6 @@
             this.assistantNameBindingSource.DataMember = "AssistantName";
             this.assistantNameBindingSource.DataSource = this.b56Projet1Equipe7DataSet;
             // 
-            // infoSoinAssistantBindingSource
-            // 
-            this.infoSoinAssistantBindingSource.DataMember = "AssistantName_InfoSoinAssistant";
-            this.infoSoinAssistantBindingSource.DataSource = this.assistantNameBindingSource;
-            // 
             // infoSoinAssistantDataGridView
             // 
             this.infoSoinAssistantDataGridView.AllowUserToAddRows = false;
@@ -479,40 +398,6 @@
             this.infoSoinAssistantDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.infoSoinAssistantDataGridView.Size = new System.Drawing.Size(248, 220);
             this.infoSoinAssistantDataGridView.TabIndex = 14;
-            // 
-            // dataGridViewTextBoxColumn19
-            // 
-            this.dataGridViewTextBoxColumn19.DataPropertyName = "noPersonne";
-            this.dataGridViewTextBoxColumn19.HeaderText = "noPersonne";
-            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
-            this.dataGridViewTextBoxColumn19.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn20
-            // 
-            this.dataGridViewTextBoxColumn20.DataPropertyName = "noAssistant";
-            this.dataGridViewTextBoxColumn20.HeaderText = "noAssistant";
-            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
-            this.dataGridViewTextBoxColumn20.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn21
-            // 
-            this.dataGridViewTextBoxColumn21.DataPropertyName = "noSoin";
-            this.dataGridViewTextBoxColumn21.HeaderText = "noSoin";
-            this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
-            // 
-            // dataGridViewTextBoxColumn22
-            // 
-            this.dataGridViewTextBoxColumn22.DataPropertyName = "description";
-            this.dataGridViewTextBoxColumn22.HeaderText = "description";
-            this.dataGridViewTextBoxColumn22.Name = "dataGridViewTextBoxColumn22";
-            // 
-            // dataGridViewTextBoxColumn23
-            // 
-            this.dataGridViewTextBoxColumn23.DataPropertyName = "SoinsDate";
-            this.dataGridViewTextBoxColumn23.HeaderText = "SoinsDate";
-            this.dataGridViewTextBoxColumn23.Name = "dataGridViewTextBoxColumn23";
-            this.dataGridViewTextBoxColumn23.ReadOnly = true;
-            this.dataGridViewTextBoxColumn23.Visible = false;
             // 
             // infoClientInviteTableAdapter
             // 
@@ -556,11 +441,6 @@
             // 
             this.infoSoinAssistantTableAdapter.ClearBeforeFill = true;
             // 
-            // rapportPersonneBindingSource
-            // 
-            this.rapportPersonneBindingSource.DataMember = "InfoSoinAssistant_RapportPersonne";
-            this.rapportPersonneBindingSource.DataSource = this.infoSoinAssistantBindingSource;
-            // 
             // rapportPersonneTableAdapter
             // 
             this.rapportPersonneTableAdapter.ClearBeforeFill = true;
@@ -589,6 +469,27 @@
             this.rapportPersonneDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.rapportPersonneDataGridView.Size = new System.Drawing.Size(344, 220);
             this.rapportPersonneDataGridView.TabIndex = 14;
+            // 
+            // nbMontant
+            // 
+            this.nbMontant.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nbMontant.Location = new System.Drawing.Point(580, 325);
+            this.nbMontant.Name = "nbMontant";
+            this.nbMontant.Size = new System.Drawing.Size(111, 17);
+            this.nbMontant.TabIndex = 16;
+            this.nbMontant.Text = "0";
+            this.nbMontant.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(697, 325);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(131, 17);
+            this.label8.TabIndex = 15;
+            this.label8.Text = "$ Montant Totale";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // dataGridViewTextBoxColumn27
             // 
@@ -631,11 +532,135 @@
             this.dataGridViewTextBoxColumn29.HeaderText = "SoinDescription";
             this.dataGridViewTextBoxColumn29.Name = "dataGridViewTextBoxColumn29";
             // 
+            // rapportPersonneBindingSource
+            // 
+            this.rapportPersonneBindingSource.DataMember = "InfoSoinAssistant_RapportPersonne";
+            this.rapportPersonneBindingSource.DataSource = this.infoSoinAssistantBindingSource;
+            // 
+            // infoSoinAssistantBindingSource
+            // 
+            this.infoSoinAssistantBindingSource.DataMember = "AssistantName_InfoSoinAssistant";
+            this.infoSoinAssistantBindingSource.DataSource = this.assistantNameBindingSource;
+            // 
+            // dataGridViewTextBoxColumn19
+            // 
+            this.dataGridViewTextBoxColumn19.DataPropertyName = "noPersonne";
+            this.dataGridViewTextBoxColumn19.HeaderText = "noPersonne";
+            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
+            this.dataGridViewTextBoxColumn19.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn20
+            // 
+            this.dataGridViewTextBoxColumn20.DataPropertyName = "noAssistant";
+            this.dataGridViewTextBoxColumn20.HeaderText = "noAssistant";
+            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
+            this.dataGridViewTextBoxColumn20.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn21
+            // 
+            this.dataGridViewTextBoxColumn21.DataPropertyName = "noSoin";
+            this.dataGridViewTextBoxColumn21.HeaderText = "noSoin";
+            this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
+            // 
+            // dataGridViewTextBoxColumn22
+            // 
+            this.dataGridViewTextBoxColumn22.DataPropertyName = "description";
+            this.dataGridViewTextBoxColumn22.HeaderText = "description";
+            this.dataGridViewTextBoxColumn22.Name = "dataGridViewTextBoxColumn22";
+            // 
+            // dataGridViewTextBoxColumn23
+            // 
+            this.dataGridViewTextBoxColumn23.DataPropertyName = "SoinsDate";
+            this.dataGridViewTextBoxColumn23.HeaderText = "SoinsDate";
+            this.dataGridViewTextBoxColumn23.Name = "dataGridViewTextBoxColumn23";
+            this.dataGridViewTextBoxColumn23.ReadOnly = true;
+            this.dataGridViewTextBoxColumn23.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "ClientName";
+            this.dataGridViewTextBoxColumn12.HeaderText = "ClientName";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.DataPropertyName = "ArrivalDate";
+            this.dataGridViewTextBoxColumn13.HeaderText = "ArrivalDate";
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            // 
+            // dataGridViewTextBoxColumn14
+            // 
+            this.dataGridViewTextBoxColumn14.DataPropertyName = "DepartureDate";
+            this.dataGridViewTextBoxColumn14.HeaderText = "DepartureDate";
+            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            // 
+            // dataGridViewTextBoxColumn15
+            // 
+            this.dataGridViewTextBoxColumn15.DataPropertyName = "Occupants";
+            this.dataGridViewTextBoxColumn15.HeaderText = "Occupants";
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            // 
+            // dataGridViewTextBoxColumn16
+            // 
+            this.dataGridViewTextBoxColumn16.DataPropertyName = "Chambre";
+            this.dataGridViewTextBoxColumn16.HeaderText = "Chambre";
+            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            this.dataGridViewTextBoxColumn16.Visible = false;
+            // 
+            // infoChambreBindingSource
+            // 
+            this.infoChambreBindingSource.DataMember = "chambre_InfoChambre";
+            this.infoChambreBindingSource.DataSource = this.chambreBindingSource;
+            // 
+            // infoSoinPersonneBindingSource
+            // 
+            this.infoSoinPersonneBindingSource.DataMember = "InfoClientInvite_InfoSoinPersonne";
+            this.infoSoinPersonneBindingSource.DataSource = this.infoClientInviteBindingSource;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "description";
+            this.dataGridViewTextBoxColumn3.HeaderText = "description";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "dateHeure";
+            this.dataGridViewTextBoxColumn4.HeaderText = "dateHeure";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // prix
+            // 
+            this.prix.DataPropertyName = "prix";
+            this.prix.HeaderText = "prix";
+            this.prix.Name = "prix";
+            this.prix.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "AssistantName";
+            this.dataGridViewTextBoxColumn6.HeaderText = "AssistantName";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "noPersonne";
+            this.dataGridViewTextBoxColumn7.HeaderText = "noPersonne";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            this.dataGridViewTextBoxColumn7.Visible = false;
+            // 
             // Rapport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(957, 1052);
+            this.Controls.Add(this.nbMontant);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.rapportPersonneDataGridView);
             this.Controls.Add(this.infoSoinAssistantDataGridView);
             this.Controls.Add(this.assistantNameDataGridView);
@@ -657,18 +682,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.infoClientInviteDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.infoClientInviteBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.b56Projet1Equipe7DataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.infoSoinPersonneBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.infoSoinPersonneDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chambreDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chambreBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.infoChambreBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.infoChambreDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.assistantNameDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.assistantNameBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.infoSoinAssistantBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.infoSoinAssistantDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rapportPersonneBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rapportPersonneDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rapportPersonneBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.infoSoinAssistantBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.infoChambreBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.infoSoinPersonneBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -688,11 +713,6 @@
         private System.Windows.Forms.BindingSource infoSoinPersonneBindingSource;
         private B56Projet1Equipe7DataSetTableAdapters.InfoSoinPersonneTableAdapter infoSoinPersonneTableAdapter;
         private System.Windows.Forms.DataGridView infoSoinPersonneDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.BindingSource chambreBindingSource;
         private B56Projet1Equipe7DataSetTableAdapters.chambreTableAdapter chambreTableAdapter;
@@ -736,5 +756,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn26;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn28;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn29;
+        private System.Windows.Forms.Label nbMontant;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn prix;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
     }
 }
