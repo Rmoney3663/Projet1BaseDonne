@@ -151,6 +151,7 @@
             // 
             this.cbTypeUser.DataSource = this.typeUtilisateurBindingSource;
             this.cbTypeUser.DisplayMember = "identification";
+            this.cbTypeUser.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTypeUser.FormattingEnabled = true;
             this.cbTypeUser.Location = new System.Drawing.Point(143, 137);
             this.cbTypeUser.Name = "cbTypeUser";
