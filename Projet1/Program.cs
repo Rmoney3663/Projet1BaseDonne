@@ -24,6 +24,39 @@ namespace Projet1
             // Hook into the ApplicationExit event to save the dataset before the application exits
             Application.ApplicationExit += (sender, e) =>
             {
+                B56Projet1Equipe7DataSetTableAdapters.planifSoinTableAdapter planifSoinTableAdapter = new B56Projet1Equipe7DataSetTableAdapters.planifSoinTableAdapter();
+                planifSoinTableAdapter.Fill(dataset.planifSoin);
+
+                B56Projet1Equipe7DataSetTableAdapters.utilisateurTableAdapter utilisateurTableAdapter = new B56Projet1Equipe7DataSetTableAdapters.utilisateurTableAdapter();
+                utilisateurTableAdapter.Fill(dataset.utilisateur);
+
+                B56Projet1Equipe7DataSetTableAdapters.clientTableAdapter clientTableAdapter = new B56Projet1Equipe7DataSetTableAdapters.clientTableAdapter();
+                clientTableAdapter.Fill(dataset.client);
+
+                B56Projet1Equipe7DataSetTableAdapters.inviteTableAdapter inviteTableAdapter = new B56Projet1Equipe7DataSetTableAdapters.inviteTableAdapter();
+                inviteTableAdapter.Fill(dataset.invite);
+
+                B56Projet1Equipe7DataSetTableAdapters.assistantTableAdapter assistantTableAdapter = new B56Projet1Equipe7DataSetTableAdapters.assistantTableAdapter();
+                assistantTableAdapter.Fill(dataset.assistant);
+
+                B56Projet1Equipe7DataSetTableAdapters.assistantSoinTableAdapter assistantSoinTableAdapter = new B56Projet1Equipe7DataSetTableAdapters.assistantSoinTableAdapter();
+                assistantSoinTableAdapter.Fill(dataset.assistantSoin);
+
+                B56Projet1Equipe7DataSetTableAdapters.soinTableAdapter soinTableAdapter = new B56Projet1Equipe7DataSetTableAdapters.soinTableAdapter();
+                soinTableAdapter.Fill(dataset.soin);
+
+                B56Projet1Equipe7DataSetTableAdapters.chambreTableAdapter chambreTableAdapter = new B56Projet1Equipe7DataSetTableAdapters.chambreTableAdapter();
+                chambreTableAdapter.Fill(dataset.chambre);
+
+                B56Projet1Equipe7DataSetTableAdapters.typeChambreTableAdapter typeChambreTableAdapter = new B56Projet1Equipe7DataSetTableAdapters.typeChambreTableAdapter();
+                typeChambreTableAdapter.Fill(dataset.typeChambre);
+
+                B56Projet1Equipe7DataSetTableAdapters.reservationChambreTableAdapter reservationChambreTableAdapter = new B56Projet1Equipe7DataSetTableAdapters.reservationChambreTableAdapter();
+                reservationChambreTableAdapter.Fill(dataset.reservationChambre);
+
+                B56Projet1Equipe7DataSetTableAdapters.typeSoinTableAdapter typeSoinTableAdapter = new B56Projet1Equipe7DataSetTableAdapters.typeSoinTableAdapter();
+                typeSoinTableAdapter.Fill(dataset.typeSoin);
+
                 dataset.reservationChambre.WriteXml("reservationChambre.xml");
                 dataset.reservationChambre.WriteXmlSchema("reservationChambre.xsd");
                 dataset.planifSoin.WriteXml("planifSoin.xml");

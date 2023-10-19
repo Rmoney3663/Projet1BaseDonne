@@ -122,6 +122,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "Connexion";
             this.Text = "Connexion";
+           
             this.ResumeLayout(false);
             this.PerformLayout();
 

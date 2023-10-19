@@ -40,7 +40,7 @@ SELECT noAssistant, prenom, nom, specialites, remarques FROM assistant WHERE (no
                   </DbCommand>
                 </InsertCommand>
                 <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT noAssistant, prenom, nom, specialites, remarques FROM dbo.assistant</CommandText>
                     <Parameters />
                   </DbCommand>

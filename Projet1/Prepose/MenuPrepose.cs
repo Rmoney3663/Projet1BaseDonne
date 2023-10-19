@@ -23,6 +23,40 @@ namespace Projet1.Prepose
 
         private void quitterLapplicationToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            B56Projet1Equipe7DataSetTableAdapters.planifSoinTableAdapter planifSoinTableAdapter = new B56Projet1Equipe7DataSetTableAdapters.planifSoinTableAdapter();
+            planifSoinTableAdapter.Fill(b56Projet1Equipe7DataSet.planifSoin);
+
+            B56Projet1Equipe7DataSetTableAdapters.utilisateurTableAdapter utilisateurTableAdapter = new B56Projet1Equipe7DataSetTableAdapters.utilisateurTableAdapter();
+            utilisateurTableAdapter.Fill(b56Projet1Equipe7DataSet.utilisateur);
+
+            B56Projet1Equipe7DataSetTableAdapters.clientTableAdapter clientTableAdapter = new B56Projet1Equipe7DataSetTableAdapters.clientTableAdapter();
+            clientTableAdapter.Fill(b56Projet1Equipe7DataSet.client);
+
+            B56Projet1Equipe7DataSetTableAdapters.inviteTableAdapter inviteTableAdapter = new B56Projet1Equipe7DataSetTableAdapters.inviteTableAdapter();
+            inviteTableAdapter.Fill(b56Projet1Equipe7DataSet.invite);
+
+            B56Projet1Equipe7DataSetTableAdapters.assistantTableAdapter assistantTableAdapter = new B56Projet1Equipe7DataSetTableAdapters.assistantTableAdapter();
+            assistantTableAdapter.Fill(b56Projet1Equipe7DataSet.assistant);
+
+            B56Projet1Equipe7DataSetTableAdapters.assistantSoinTableAdapter assistantSoinTableAdapter = new B56Projet1Equipe7DataSetTableAdapters.assistantSoinTableAdapter();
+            assistantSoinTableAdapter.Fill(b56Projet1Equipe7DataSet.assistantSoin);
+
+            B56Projet1Equipe7DataSetTableAdapters.soinTableAdapter soinTableAdapter = new B56Projet1Equipe7DataSetTableAdapters.soinTableAdapter();
+            soinTableAdapter.Fill(b56Projet1Equipe7DataSet.soin);
+
+            B56Projet1Equipe7DataSetTableAdapters.chambreTableAdapter chambreTableAdapter = new B56Projet1Equipe7DataSetTableAdapters.chambreTableAdapter();
+            chambreTableAdapter.Fill(b56Projet1Equipe7DataSet.chambre);
+
+            B56Projet1Equipe7DataSetTableAdapters.typeChambreTableAdapter typeChambreTableAdapter = new B56Projet1Equipe7DataSetTableAdapters.typeChambreTableAdapter();
+            typeChambreTableAdapter.Fill(b56Projet1Equipe7DataSet.typeChambre);
+
+            B56Projet1Equipe7DataSetTableAdapters.reservationChambreTableAdapter reservationChambreTableAdapter = new B56Projet1Equipe7DataSetTableAdapters.reservationChambreTableAdapter();
+            reservationChambreTableAdapter.Fill(b56Projet1Equipe7DataSet.reservationChambre);
+
+            B56Projet1Equipe7DataSetTableAdapters.typeSoinTableAdapter typeSoinTableAdapter = new B56Projet1Equipe7DataSetTableAdapters.typeSoinTableAdapter();
+            typeSoinTableAdapter.Fill(b56Projet1Equipe7DataSet.typeSoin);
+
+            b56Projet1Equipe7DataSet.WriteXml("tables.xml");
             b56Projet1Equipe7DataSet.reservationChambre.WriteXml("reservationChambre.xml");
             b56Projet1Equipe7DataSet.reservationChambre.WriteXmlSchema("reservationChambre.xsd");
             b56Projet1Equipe7DataSet.planifSoin.WriteXml("planifSoin.xml");
@@ -45,7 +79,6 @@ namespace Projet1.Prepose
             b56Projet1Equipe7DataSet.assistantSoin.WriteXmlSchema("assistantSoin.xsd");
             b56Projet1Equipe7DataSet.typeSoin.WriteXml("typeSoin.xml");
             b56Projet1Equipe7DataSet.typeSoin.WriteXmlSchema("typeSoin.xsd");
-            b56Projet1Equipe7DataSet.WriteXml("tables.xml");
             Environment.Exit(0);
         }
 
@@ -79,18 +112,11 @@ namespace Projet1.Prepose
             this.Show();
         }
 
-        private void planifSoinBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.planifSoinBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.b56Projet1Equipe7DataSet);
-
-        }
+       
 
         private void MenuPrepose_Load(object sender, EventArgs e)
         {
-            // TODO: cette ligne de code charge les données dans la table 'b56Projet1Equipe7DataSet.planifSoin'. Vous pouvez la déplacer ou la supprimer selon les besoins.
-            this.planifSoinTableAdapter.Fill(this.b56Projet1Equipe7DataSet.planifSoin);
+           
 
         }
     }
