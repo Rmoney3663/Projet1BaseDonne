@@ -43,6 +43,9 @@ namespace Projet1.Prepose
             b56Projet1Equipe7DataSet.assistant.WriteXmlSchema("assistant.xsd");
             b56Projet1Equipe7DataSet.assistantSoin.WriteXml("assistantSoin.xml");
             b56Projet1Equipe7DataSet.assistantSoin.WriteXmlSchema("assistantSoin.xsd");
+            b56Projet1Equipe7DataSet.typeSoin.WriteXml("typeSoin.xml");
+            b56Projet1Equipe7DataSet.typeSoin.WriteXmlSchema("typeSoin.xsd");
+            b56Projet1Equipe7DataSet.WriteXml("tables.xml");
             Environment.Exit(0);
         }
 

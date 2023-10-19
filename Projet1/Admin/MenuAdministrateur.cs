@@ -31,7 +31,7 @@ namespace Projet1.Admin
 
         private void quitterLapplicationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            b56Projet1Equipe7DataSet.WriteXml("tables.xml");
             b56Projet1Equipe7DataSet.reservationChambre.WriteXml("reservationChambre.xml");
             b56Projet1Equipe7DataSet.reservationChambre.WriteXmlSchema("reservationChambre.xsd");
             b56Projet1Equipe7DataSet.planifSoin.WriteXml("planifSoin.xml");
@@ -52,6 +52,8 @@ namespace Projet1.Admin
             b56Projet1Equipe7DataSet.assistant.WriteXmlSchema("assistant.xsd");
             b56Projet1Equipe7DataSet.assistantSoin.WriteXml("assistantSoin.xml");
             b56Projet1Equipe7DataSet.assistantSoin.WriteXmlSchema("assistantSoin.xsd");
+            b56Projet1Equipe7DataSet.typeSoin.WriteXml("typeSoin.xml");
+            b56Projet1Equipe7DataSet.typeSoin.WriteXmlSchema("typeSoin.xsd");
             Environment.Exit(0);
         }
 

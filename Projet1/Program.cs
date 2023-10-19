@@ -44,7 +44,9 @@ namespace Projet1
                 dataset.assistant.WriteXmlSchema("assistant.xsd");
                 dataset.assistantSoin.WriteXml("assistantSoin.xml");
                 dataset.assistantSoin.WriteXmlSchema("assistantSoin.xsd");
-                
+                dataset.typeSoin.WriteXml("typeSoin.xml");
+                dataset.typeSoin.WriteXmlSchema("typeSoin.xsd");
+                dataset.WriteXml("tables.xml");
             };
             /*
             System.Timers.Timer autoSaveTimer = new System.Timers.Timer();
