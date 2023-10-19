@@ -165,7 +165,7 @@ CREATE TABLE utilisateur (
  CONSTRAINT pk_utilisateur PRIMARY KEY(noUtilisateur),
  CONSTRAINT fk_noTypeUtilisateur FOREIGN KEY(noTypeUtilisateur) REFERENCES typeUtilisateur(noTypeUtilisateur)
 );
-
+/*
 print ''
 print  'ajout info dans la TABLE typeUtilisateur...'
 Insert into typeUtilisateur values (1, 'Admin'), (2, 'Prepose') ;
@@ -179,7 +179,7 @@ print  'ajout info dans la TABLE typeSoin...'
 Insert into utilisateur values (1, 'Admin', 'Password1', 1), (2, 'Prepose', 'Password1', 2) ;
 
 
-
+*/
 
 
 
