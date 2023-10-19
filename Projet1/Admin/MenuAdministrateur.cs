@@ -52,7 +52,7 @@ namespace Projet1.Admin
             b56Projet1Equipe7DataSet.assistant.WriteXmlSchema("assistant.xsd");
             b56Projet1Equipe7DataSet.assistantSoin.WriteXml("assistantSoin.xml");
             b56Projet1Equipe7DataSet.assistantSoin.WriteXmlSchema("assistantSoin.xsd");
-            //Environment.Exit(0);
+            Environment.Exit(0);
         }
 
         private void seDéconnecterToolStripMenuItem_Click(object sender, EventArgs e)
