@@ -19,12 +19,14 @@ namespace Projet1
         static String maChaineDeConnexion = "Data Source=tcp:424sql.cgodin.qc.ca,5433;Initial Catalog=B56Projet1Equipe7;Persist Security Info=True;User ID=B56Equipe7;Password=Password1";
 
         SqlConnection maConnexion = new SqlConnection(maChaineDeConnexion);
+        private B56Projet1Equipe7DataSet dataset;
 
-        public Connexion()
+        public Connexion(B56Projet1Equipe7DataSet dataset)
         {
             InitializeComponent();
             maConnexion.Open();
             tbPassword.PasswordChar = '*';
+            this.dataset = dataset;
         }
 
         private void btConnexion_Click(object sender, EventArgs e)

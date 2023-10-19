@@ -95,6 +95,8 @@ namespace Projet1.Prepose
 
         private void btnFermer_Click(object sender, EventArgs e)
         {
+            b56Projet1Equipe7DataSet.planifSoin.WriteXml("planifSoin.xml");
+            b56Projet1Equipe7DataSet.planifSoin.WriteXmlSchema("planifSoin.xsd");
             this.Close();
         }
     }

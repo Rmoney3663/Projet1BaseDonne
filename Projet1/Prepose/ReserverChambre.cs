@@ -36,6 +36,8 @@ namespace Projet1.Prepose
 
         private void btnFermer_Click(object sender, EventArgs e)
         {
+            b56Projet1Equipe7DataSet.reservationChambre.WriteXml("reservationChambre.xml");
+            b56Projet1Equipe7DataSet.reservationChambre.WriteXmlSchema("reservationChambre.xsd");
             this.Close();
         }
 

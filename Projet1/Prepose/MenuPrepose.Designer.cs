@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gérerLesClientsEtLeursInvitésToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -35,7 +36,13 @@
             this.réserverDesChambresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.seDéconnecterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quitterLapplicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.b56Projet1Equipe7DataSet = new Projet1.B56Projet1Equipe7DataSet();
+            this.planifSoinBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.planifSoinTableAdapter = new Projet1.B56Projet1Equipe7DataSetTableAdapters.planifSoinTableAdapter();
+            this.tableAdapterManager = new Projet1.B56Projet1Equipe7DataSetTableAdapters.TableAdapterManager();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.b56Projet1Equipe7DataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.planifSoinBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -95,17 +102,51 @@
             this.quitterLapplicationToolStripMenuItem.Text = "Quitter l’application";
             this.quitterLapplicationToolStripMenuItem.Click += new System.EventHandler(this.quitterLapplicationToolStripMenuItem_Click);
             // 
+            // b56Projet1Equipe7DataSet
+            // 
+            this.b56Projet1Equipe7DataSet.DataSetName = "B56Projet1Equipe7DataSet";
+            this.b56Projet1Equipe7DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // planifSoinBindingSource
+            // 
+            this.planifSoinBindingSource.DataMember = "planifSoin";
+            this.planifSoinBindingSource.DataSource = this.b56Projet1Equipe7DataSet;
+            // 
+            // planifSoinTableAdapter
+            // 
+            this.planifSoinTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.assistantSoinTableAdapter = null;
+            this.tableAdapterManager.assistantTableAdapter = null;
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.chambreTableAdapter = null;
+            this.tableAdapterManager.clientTableAdapter = null;
+            this.tableAdapterManager.inviteTableAdapter = null;
+            this.tableAdapterManager.planifSoinTableAdapter = this.planifSoinTableAdapter;
+            this.tableAdapterManager.reservationChambreTableAdapter = null;
+            this.tableAdapterManager.soinTableAdapter = null;
+            this.tableAdapterManager.typeChambreTableAdapter = null;
+            this.tableAdapterManager.typeSoinTableAdapter = null;
+            this.tableAdapterManager.typeUtilisateurTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = Projet1.B56Projet1Equipe7DataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.utilisateurTableAdapter = null;
+            // 
             // MenuPrepose
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 479);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MenuPrepose";
             this.Text = "MenuPrepose";
+            this.Load += new System.EventHandler(this.MenuPrepose_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.b56Projet1Equipe7DataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.planifSoinBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -120,5 +161,9 @@
         private System.Windows.Forms.ToolStripMenuItem réserverDesChambresToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem seDéconnecterToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quitterLapplicationToolStripMenuItem;
+        private B56Projet1Equipe7DataSet b56Projet1Equipe7DataSet;
+        private System.Windows.Forms.BindingSource planifSoinBindingSource;
+        private B56Projet1Equipe7DataSetTableAdapters.planifSoinTableAdapter planifSoinTableAdapter;
+        private B56Projet1Equipe7DataSetTableAdapters.TableAdapterManager tableAdapterManager;
     }
 }

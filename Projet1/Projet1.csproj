@@ -46,22 +46,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Admin\frmAjouterUtilisateur.cs">
+    <Compile Include="Admin\GestionUtilisateur\frmAjouterUtilisateur.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin\frmAjouterUtilisateur.Designer.cs">
+    <Compile Include="Admin\GestionUtilisateur\frmAjouterUtilisateur.Designer.cs">
       <DependentUpon>frmAjouterUtilisateur.cs</DependentUpon>
     </Compile>
-    <Compile Include="Admin\frmModifierUtilisateur.cs">
+    <Compile Include="Admin\GestionUtilisateur\frmModifierUtilisateur.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin\frmModifierUtilisateur.Designer.cs">
+    <Compile Include="Admin\GestionUtilisateur\frmModifierUtilisateur.Designer.cs">
       <DependentUpon>frmModifierUtilisateur.cs</DependentUpon>
     </Compile>
-    <Compile Include="Admin\frmSupprimerUtilisateur.cs">
+    <Compile Include="Admin\GestionUtilisateur\frmSupprimerUtilisateur.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin\frmSupprimerUtilisateur.Designer.cs">
+    <Compile Include="Admin\GestionUtilisateur\frmSupprimerUtilisateur.Designer.cs">
       <DependentUpon>frmSupprimerUtilisateur.cs</DependentUpon>
     </Compile>
     <Compile Include="Admin\GererAssistants.cs">
@@ -251,13 +251,13 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Admin\frmAjouterUtilisateur.resx">
+    <EmbeddedResource Include="Admin\GestionUtilisateur\frmAjouterUtilisateur.resx">
       <DependentUpon>frmAjouterUtilisateur.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admin\frmModifierUtilisateur.resx">
+    <EmbeddedResource Include="Admin\GestionUtilisateur\frmModifierUtilisateur.resx">
       <DependentUpon>frmModifierUtilisateur.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admin\frmSupprimerUtilisateur.resx">
+    <EmbeddedResource Include="Admin\GestionUtilisateur\frmSupprimerUtilisateur.resx">
       <DependentUpon>frmSupprimerUtilisateur.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\GererAssistants.resx">

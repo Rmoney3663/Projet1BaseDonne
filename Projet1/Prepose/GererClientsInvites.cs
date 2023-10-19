@@ -301,6 +301,10 @@ namespace Projet1.Prepose
 
         private void btnFermer_Click(object sender, EventArgs e)
         {
+            b56Projet1Equipe7DataSet.client.WriteXml("client.xml");
+            b56Projet1Equipe7DataSet.client.WriteXmlSchema("client.xsd");
+            b56Projet1Equipe7DataSet.invite.WriteXml("invite.xml");
+            b56Projet1Equipe7DataSet.invite.WriteXmlSchema("invite.xsd");
             this.Close();
         }
 

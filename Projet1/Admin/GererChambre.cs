@@ -55,6 +55,10 @@ namespace Projet1.Admin
 
         private void btnFermer_Click(object sender, EventArgs e)
         {
+            b56Projet1Equipe7DataSet.chambre.WriteXml("chambre.xml");
+            b56Projet1Equipe7DataSet.chambre.WriteXmlSchema("chambre.xsd");
+            b56Projet1Equipe7DataSet.typeChambre.WriteXml("typeChambre.xml");
+            b56Projet1Equipe7DataSet.typeChambre.WriteXmlSchema("typeChambre.xsd");
             this.Close();
         }
 

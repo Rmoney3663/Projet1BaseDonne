@@ -151,6 +151,8 @@ namespace Projet1.Admin
 
         private void btnFermer_Click(object sender, EventArgs e)
         {
+            b56Projet1Equipe7DataSet.soin.WriteXml("soin.xml");
+            b56Projet1Equipe7DataSet.soin.WriteXmlSchema("soin.xsd");
             this.Close();
         }
     }

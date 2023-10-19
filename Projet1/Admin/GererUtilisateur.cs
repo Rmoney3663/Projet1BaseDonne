@@ -83,6 +83,8 @@ namespace Projet1.Admin
 
         private void btnFermer_Click(object sender, EventArgs e)
         {
+            b56Projet1Equipe7DataSet.utilisateur.WriteXml("utilisateur.xml");
+            b56Projet1Equipe7DataSet.utilisateur.WriteXmlSchema("utilisateur.xsd");
             this.Close();
         }
 

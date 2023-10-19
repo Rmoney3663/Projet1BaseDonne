@@ -176,6 +176,10 @@ namespace Projet1.Admin
 
         private void btnFermer_Click(object sender, EventArgs e)
         {
+            b56Projet1Equipe7DataSet.assistant.WriteXml("assistant.xml");
+            b56Projet1Equipe7DataSet.assistant.WriteXmlSchema("assistant.xsd");
+            b56Projet1Equipe7DataSet.assistantSoin.WriteXml("assistantSoin.xml");
+            b56Projet1Equipe7DataSet.assistantSoin.WriteXmlSchema("assistantSoin.xsd");
             this.Close();
         }
 
