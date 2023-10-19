@@ -108,9 +108,10 @@ namespace Projet1.Admin
                     frmModifierUtilisateur frmModifierUtilisateur = new frmModifierUtilisateur();
                     frmModifierUtilisateur.unUser = existingUser; 
                     frmModifierUtilisateur.LoginUser = LoginUser;
+                    frmModifierUtilisateur.boolMod = false;
                     frmModifierUtilisateur.ShowDialog();
 
-                    if (existingUser.password != "" && existingUser.nomUtilisateur != "" && existingUser.password != null && existingUser.nomUtilisateur != null)
+                    if (frmModifierUtilisateur.boolMod == true)
                     {
                         MessageBox.Show("L'utilisateur " + existingUser.nomUtilisateur.ToString() + " a été modifié. ",
                                         "Modification d'un utilisateur", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -121,8 +122,9 @@ namespace Projet1.Admin
                     }
                     else
                     {
-                        MessageBox.Show("Les données de l'utilisateur ne sont pas valides et la modification est impossible.",
-                                        "Modification d'un utilisateur impossible", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                        MessageBox.Show("Vous avez annulez la modification de l'utilisateur " + existingUser.nomUtilisateur.ToString() ,
+                                   "Modification d'un utilisateur Annuler", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
 
                 }
@@ -154,10 +156,11 @@ namespace Projet1.Admin
                         frmSupprimerUtilisateur frmSupprimerUtilisateur = new frmSupprimerUtilisateur();
                         frmSupprimerUtilisateur.unUser = deleteUser;
                         frmSupprimerUtilisateur.LoginUser = LoginUser;
-                       
+                        frmSupprimerUtilisateur.boolMod = false;
+
                         frmSupprimerUtilisateur.ShowDialog();
                         
-                        if (deleteUser.noTypeUtilisateur == 3)
+                        if (frmSupprimerUtilisateur.boolMod == true)
                         {
                             deleteUser.noTypeUtilisateur = userType;
                             this.utilisateurTableAdapter.Delete(deleteUser.noUtilisateur, deleteUser.nomUtilisateur, deleteUser.password, userType);
@@ -165,7 +168,12 @@ namespace Projet1.Admin
                                             "Suppression d'un utilisateur", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                             b56Projet1Equipe7DataSet.utilisateur.RemoveutilisateurRow(deleteUser);
-                            
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("Vous avez annulez la suppression d'utilisateur " + deleteUser.nomUtilisateur.ToString() ,
+                                            "Suppression d'un utilisateur Annuler", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         
                     }

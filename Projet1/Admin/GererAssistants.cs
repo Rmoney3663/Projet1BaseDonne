@@ -250,7 +250,7 @@ namespace Projet1.Admin
                 }
                 else
                 {
-                    MessageBox.Show("Vous avez annulez la modification de L'assistant " + unUser.prenom.ToString() + " " + unUser.nom.ToString(),
+                    MessageBox.Show("Vous avez annulez la modification de l'assistant " + unUser.prenom.ToString() + " " + unUser.nom.ToString(),
                                     "Modification d'un assistant Annuler", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }

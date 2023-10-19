@@ -18,6 +18,7 @@ namespace Projet1.Admin
         public decimal type { get; set; }
 
         public int LoginUser { get; set; }
+        public bool boolMod;
 
         public frmModifierUtilisateur()
         {
@@ -27,9 +28,7 @@ namespace Projet1.Admin
 
         private void btnFermer_Click(object sender, EventArgs e)
         {
-            unUser.password = pass;
-            unUser.nomUtilisateur = user;
-            unUser.noTypeUtilisateur = type;
+            boolMod = false;
             this.Close();
         }
 
@@ -50,18 +49,11 @@ namespace Projet1.Admin
                 unUser.password = txtPassword.Text;
                 unUser.nomUtilisateur = txtUser.Text;
                 unUser.noTypeUtilisateur = Convert.ToDecimal(cbTypeUser.SelectedValue.ToString());
-                this.Validate();
-                this.typeUtilisateurBindingSource.EndEdit();
-                this.tableAdapterManager.UpdateAll(this.b56Projet1Equipe7DataSet);
+                boolMod = true;               
                 this.Close();
             }
         }
 
-        private void typeUtilisateurBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            
-
-        }
 
         private void frmModifierUtilisateur_Load(object sender, EventArgs e)
         {            

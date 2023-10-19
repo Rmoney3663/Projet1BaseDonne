@@ -14,6 +14,7 @@ namespace Projet1.Admin
     {
         public B56Projet1Equipe7DataSet.utilisateurRow unUser;
         public int LoginUser { get; set; }
+        public bool boolMod;
         public frmSupprimerUtilisateur()
         {
             InitializeComponent();
@@ -23,12 +24,13 @@ namespace Projet1.Admin
 
         private void btnFermer_Click(object sender, EventArgs e)
         {
+            boolMod = false;
             this.Close();
         }
 
         private void btnSupprimer_Click(object sender, EventArgs e)
         {
-            unUser.noTypeUtilisateur = 3;
+            boolMod = true;
             this.Close();
         }
 
